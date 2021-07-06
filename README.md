@@ -1,2 +1,2 @@
-# compet_site
-Repositório para backup e mandar para o Vercel o site do COMPET-MG
+# COMPET Site
+Repositório para backup e base para o Vercel o site do COMPET-MG
