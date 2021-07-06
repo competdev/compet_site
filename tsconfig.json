@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-=======
     "paths": {
       "@/*": ["./src/*"]
     },
->>>>>>> dbc1d04a5317edc061d1b0aa4a82dedbbeb7e8f0
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,10 +15,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-<<<<<<< HEAD
-=======
     "noImplicitAny": false,
->>>>>>> dbc1d04a5317edc061d1b0aa4a82dedbbeb7e8f0
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
