@@ -1,0 +1,28 @@
+.title{
+    padding-top: 30px;
+    color: rgb(0, 3, 151);
+    text-align : center;
+    font-size: 70px;
+}
+
+.groupDiv{
+    text-align: center;
+    width: 1800px;
+}
+
+.membros{
+    height: 195px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 30px;
+    width: 375px;
+   /* border: 2px solid rgb(0, 3, 153);*/
+    max-width: 700px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.esp{
+    padding-left: 30px;
+}
