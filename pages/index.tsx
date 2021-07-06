@@ -1,6 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+<<<<<<< HEAD
+=======
+import Link from 'next/link'
+>>>>>>> dbc1d04a5317edc061d1b0aa4a82dedbbeb7e8f0
 
 export default function Home() {
   return (
@@ -21,6 +25,13 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
+<<<<<<< HEAD
+=======
+        <Link href="/grupo">
+          <a>Acessar pagina grupo</a>
+        </Link>
+
+>>>>>>> dbc1d04a5317edc061d1b0aa4a82dedbbeb7e8f0
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
