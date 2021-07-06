@@ -1,28 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,300;1,400&display=swap');
+
 .title{
     padding-top: 30px;
     color: rgb(0, 3, 151);
     text-align : center;
     font-size: 70px;
+    font-family: 'Karla', sans-serif;
 }
 
 .groupDiv{
     text-align: center;
-    width: 1800px;
 }
 
+.descript{
+    width: 1000px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    align-content: center; 
+
+
+}
+
+
 .membros{
+    margin: 12px;
     height: 195px;
     padding-bottom: 50px;
     text-align: center;
     font-size: 15px;
-    border-radius: 30px;
-    width: 375px;
-   /* border: 2px solid rgb(0, 3, 153);*/
-    max-width: 700px;
+    border-radius: 60px;
+    width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.082);
+    box-shadow: rgba(5, 146, 0, 0.514) -2px 2px 5px;
     background-color: #fff;
     display: inline-block;
-}
-
-.esp{
-    padding-left: 30px;
 }
