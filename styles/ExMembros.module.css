@@ -1,41 +1,42 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,300;1,400&display=swap');
-
-.title{
+.title {
     padding-top: 30px;
     color: rgb(0, 3, 151);
-    text-align : center;
-    font-size: 70px;
+    text-align: center;
+    font-size: 100px;
     font-family: 'Karla', sans-serif;
 }
 
-.groupDiv{
+.groupDiv {
     text-align: center;
 }
 
-.descript{
-    width: 1000px;
+.descript {
+    margin-left: 300px;
+    margin-right: 300px;
     margin-top: -20px;
-    margin-bottom: 40px;
-    text-align: center;
+    margin-bottom: 60px;
     font-family: 'Karla', sans-serif;
-    align-content: center; 
-
-
+    font-size: 20px;
 }
 
+/* 
+    Criar componente div para centralizar os 'cards' dos ex-membros em 4 colunas com 
+    margens laterais 
+    Aumentar tamanho dos 'cards' para ficar um tamanho legal
+*/
 
-.membros{
-    margin: 12px;
-    height: 195px;
-    padding-bottom: 50px;
+.membros {
+    margin: 10px;
+    margin-left: 80px;
+    height: 180px;
     text-align: center;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 60px;
     width: 350px;
     border: 1px solid rgba(255, 255, 255, 0.082);
-    box-shadow: rgba(5, 146, 0, 0.514) -2px 2px 5px;
+    box-shadow: rgba(5, 146, 0, 0.295) -2px 2px 5px;
     background-color: #fff;
     display: inline-block;
 }
