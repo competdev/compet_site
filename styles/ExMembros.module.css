@@ -14,22 +14,18 @@
 }
 
 .bodyGroup {
-    text-align: center;
     display: inline-flex;
-    text-align: center;
     margin-top: 12px;
 }
 
-/* 
-    Criar componente div para centralizar os 'cards' dos ex-membros em 4 colunas com 
-    margens laterais 
-    Aumentar tamanho dos 'cards' para ficar um tamanho legal
-*/
+.espHorizont {
+    margin-left: 200px;
+}
 
 .membersCard {
-    padding-top: 35px;
+    padding-top: 10px;
     margin: 50px;
-    height: 150px;
+    height: 130px;
     font-size: 14px;
     border-radius: 10px;
     width: 250px;
@@ -37,14 +33,50 @@
     display: inline-block;
 }
 
-.espHorizont {
-    margin-left: 200px;
-}
-
 .infoName {
+    text-align: center;
     font-size: 22px;
 }
 
 .infoCompet {
-    font-size: 22px;
+    text-align: center;
+    margin-top: -20px;
+    font-size: 25px;
+}
+
+.infoScrum {
+    margin-left: 10px;
+    text-align: center;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: rgb(255, 14, 14);
+}
+
+.infoIntercamb {
+    margin-left: 10px;
+    text-align: center;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: rgb(14, 207, 255);
+}
+
+.infoPhoto {
+    padding-left: 50%;
+}
+
+.areaPhoto {
+    background-color: rgb(200, 204, 204);
+    width: 250px;
+    margin-bottom: -50px;
+    display: inline-flex;
+}
+
+.test1 {
+    display: inline-flex;
+}
+
+.test {
+    margin-left: -300px;
 }

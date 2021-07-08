@@ -18,7 +18,20 @@ export default function ExMembros({ dados }) {
             data.membro_ativo == false ?
 
               <div className={styles.membersCard}>
-                <div></div>
+                <div className={styles.areaPhoto}>
+                  <div>
+                    {data.scrum_master == false ? <></> :
+                      <div className={styles.test1}>
+                        <div className={styles.infoScrum}> </div>
+                        <div className={styles.test}></div>
+                      </div>
+                    }
+                    {data.intercambio == false ? <></> :
+                      <div className={styles.infoIntercamb}> </div>
+                    }
+                  </div>
+                  <div className={styles.infoPhoto}>F</div>
+                </div>
                 <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' + data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
                 <p className={styles.infoCompet}> COMPET <strong>{ }</strong></p>
               </div> : <></>
