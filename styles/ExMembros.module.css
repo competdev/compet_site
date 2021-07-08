@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,300;1,400&display=swap');
+.groupDiv {
+    background-color: rgb(240, 240, 240);
+}
+
 .title {
     padding-top: 30px;
+    padding-left: 50px;
     color: rgb(0, 3, 151);
-    text-align: center;
-    font-size: 100px;
+    text-align: left;
+    font-size: 50px;
     font-family: 'Karla', sans-serif;
 }
 
-.groupDiv {
+.bodyGroup {
     text-align: center;
-}
-
-.descript {
-    margin-left: 300px;
-    margin-right: 300px;
-    margin-top: -20px;
-    margin-bottom: 60px;
-    font-family: 'Karla', sans-serif;
-    font-size: 20px;
+    display: inline-flex;
+    text-align: center;
+    margin-top: 12px;
 }
 
 /* 
@@ -27,16 +26,25 @@
     Aumentar tamanho dos 'cards' para ficar um tamanho legal
 */
 
-.membros {
-    margin: 10px;
-    margin-left: 80px;
-    height: 180px;
-    text-align: center;
+.membersCard {
+    padding-top: 35px;
+    margin: 50px;
+    height: 150px;
     font-size: 14px;
-    border-radius: 60px;
-    width: 350px;
-    border: 1px solid rgba(255, 255, 255, 0.082);
-    box-shadow: rgba(5, 146, 0, 0.295) -2px 2px 5px;
+    border-radius: 10px;
+    width: 370px;
     background-color: #fff;
     display: inline-block;
+}
+
+.espHorizont {
+    margin-left: 200px;
+}
+
+.infoName {
+    font-size: 17px;
+}
+
+.infoCompet {
+    font-size: 22px;
 }
