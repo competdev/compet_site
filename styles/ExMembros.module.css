@@ -117,12 +117,11 @@
     text-align: center;
 }
 
-.memberPhoto {
-    margin-top: -65px;
+.foto {
+    margin-top: -55px;
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
 }
 
 .alignPhotoArea {

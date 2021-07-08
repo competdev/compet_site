@@ -53,7 +53,14 @@ export default function ExMembros({ dados }) {
                           <div className={styles.infoIntercamb}></div>
                         }
                       </div>
-                      <div className={styles.memberPhoto}></div>
+                      {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/default-photo.webp */}
+                      <div>
+                        {/* 
+                        {data.photo.length == 0 ? <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                          : <img className={styles.foto} src={data.photo} />}
+                       */}
+                        <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                      </div>
                     </div>
 
                   </div>
