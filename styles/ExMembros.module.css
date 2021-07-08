@@ -4,6 +4,17 @@
     background-color: rgb(245, 245, 245);
 }
 
+.mainHeader {
+    display: inline-flex;
+    width: 100%;
+    background-color: bisque;
+}
+
+.legenda {
+    margin-left: 70%;
+    margin-top: 100px;
+}
+
 .title {
     padding-top: 30px;
     padding-left: 50px;
@@ -16,10 +27,25 @@
 .bodyGroup {
     display: inline-flex;
     margin-top: 12px;
+    background-color: aquamarine;
+    width: 100%;
 }
 
-.espHorizont {
-    margin-left: 200px;
+.espHorizontLeft {
+    margin-left: 0px;
+    background-color: rgb(255, 15, 15);
+    width: 2900px;
+}
+
+.espHorizontRight {
+    margin-left: 0px;
+    background-color: brown;
+    width: 2900px;
+}
+
+.membersArea {
+    text-align: center;
+    background-color: blueviolet;
 }
 
 .membersCard {
@@ -73,10 +99,10 @@
     display: inline-flex;
 }
 
-.test1 {
+.alignPhotoArea {
     display: inline-flex;
 }
 
-.test {
+.alignPhotoArea2 {
     margin-left: -300px;
 }

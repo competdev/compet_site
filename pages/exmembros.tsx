@@ -6,10 +6,19 @@ export default function ExMembros({ dados }) {
 
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      <h1 className={styles.title}> Ex-membros</h1>
+      <title>COMPET | Ex-membros</title>
+      <div className={styles.mainHeader}>
+        <div>
+          <div> <h1 className={styles.title}> Ex-membros</h1> </div>
+          <div> Imagem que ficara em baixo do titulo da pagina </div>
+        </div>
+        <div className={styles.legenda}> C</div>
+
+      </div>
 
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizont}></div>
+        <div className={styles.espHorizontLeft}> A </div>
+
         <div className={styles.membersArea}>
           {dados.map(data => (firstBlank_space = data.nome.indexOf(' '),
             lastBlank_space = data.nome.lastIndexOf(' '),
@@ -21,9 +30,9 @@ export default function ExMembros({ dados }) {
                 <div className={styles.areaPhoto}>
                   <div>
                     {data.scrum_master == false ? <></> :
-                      <div className={styles.test1}>
+                      <div className={styles.alignPhotoArea}>
                         <div className={styles.infoScrum}> </div>
-                        <div className={styles.test}></div>
+                        <div className={styles.alignPhotoArea2}></div>
                       </div>
                     }
                     {data.intercambio == false ? <></> :
@@ -38,7 +47,7 @@ export default function ExMembros({ dados }) {
 
           ))}
         </div>
-        <div className={styles.espHorizont}></div>
+        <div className={styles.espHorizontRight}> B </div>
       </div>
     </div>
   )
