@@ -11,13 +11,15 @@ export default function ExMembros({ dados }) {
       <div className={styles.bodyGroup}>
         <div className={styles.espHorizont}></div>
         <div className={styles.membersArea}>
-          {dados.map(data => (data.email == "" ? data.email = '-' : data.email = data.email,
+          {dados.map(data => (firstBlank_space = data.nome.indexOf(' '),
+            lastBlank_space = data.nome.lastIndexOf(' '),
+            data.email == "" ? data.email = '-' : data.email = data.email,
             data.linkedin == "" ? data.linkedin = '-' : data.linkedin = data.linkedin,
             data.membro_ativo == false ?
 
               <div className={styles.membersCard}>
                 <div></div>
-                <p className={styles.infoName}> <strong>{data.nome}</strong></p>
+                <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' + data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
                 <p className={styles.infoCompet}> COMPET <strong>{ }</strong></p>
               </div> : <></>
 
@@ -38,3 +40,5 @@ ExMembros.getInitialProps = async () => {
   //console.log(response);
   return { dados: response.data }
 };
+let firstBlank_space;
+let lastBlank_space;

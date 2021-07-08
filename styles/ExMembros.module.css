@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,300;1,400&display=swap');
 .groupDiv {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(245, 245, 245);
 }
 
 .title {
@@ -32,7 +32,7 @@
     height: 150px;
     font-size: 14px;
     border-radius: 10px;
-    width: 370px;
+    width: 250px;
     background-color: #fff;
     display: inline-block;
 }
@@ -42,7 +42,7 @@
 }
 
 .infoName {
-    font-size: 17px;
+    font-size: 22px;
 }
 
 .infoCompet {
