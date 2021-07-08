@@ -1,24 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;1,300;1,400&display=swap');
 .groupDiv {
-    background-color: rgb(245, 245, 245);
+    padding-top: 75px;
+    background-color: rgb(236, 236, 236);
 }
 
 .mainHeader {
     display: inline-flex;
     width: 100%;
-    background-color: bisque;
+    vertical-align: center;
+    height: 175px;
 }
 
 .legenda {
-    margin-left: 70%;
-    margin-top: 100px;
+    margin-left: 38%;
+    margin-top: 55px;
+    font-size: 14px;
+}
+
+.alignLegend {
+    display: inline-flex;
+    padding-left: 400px;
+}
+
+.scrumMasterStr {
+    margin-left: 10px;
+    transform: translateY(-9%);
+    color: rgb(0, 2, 117);
+}
+
+.intercambioStr {
+    margin-left: 10px;
+    transform: translateY(-9%);
+    color: rgb(0, 2, 117);
 }
 
 .title {
-    padding-top: 30px;
-    padding-left: 50px;
-    color: rgb(0, 3, 151);
+    padding-top: 20px;
+    padding-left: 90px;
+    color: rgb(0, 2, 117);
     text-align: left;
     font-size: 50px;
     font-family: 'Karla', sans-serif;
@@ -27,31 +47,27 @@
 .bodyGroup {
     display: inline-flex;
     margin-top: 12px;
-    background-color: aquamarine;
     width: 100%;
 }
 
 .espHorizontLeft {
     margin-left: 0px;
-    background-color: rgb(255, 15, 15);
     width: 2900px;
 }
 
 .espHorizontRight {
     margin-left: 0px;
-    background-color: brown;
     width: 2900px;
 }
 
 .membersArea {
     text-align: center;
-    background-color: blueviolet;
 }
 
 .membersCard {
     padding-top: 10px;
     margin: 50px;
-    height: 130px;
+    height: 160px;
     font-size: 14px;
     border-radius: 10px;
     width: 250px;
@@ -61,6 +77,7 @@
 
 .infoName {
     text-align: center;
+    padding-top: 15px;
     font-size: 22px;
 }
 
@@ -71,32 +88,41 @@
 }
 
 .infoScrum {
-    margin-left: 10px;
-    text-align: center;
-    height: 17px;
-    width: 17px;
+    margin-left: -50px;
+    text-align: left;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background-color: rgb(255, 14, 14);
 }
 
 .infoIntercamb {
-    margin-left: 10px;
+    margin-left: -50px;
     text-align: center;
-    height: 17px;
-    width: 17px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
-    background-color: rgb(14, 207, 255);
+    background-color: rgb(90, 255, 14);
 }
 
 .infoPhoto {
-    padding-left: 50%;
+    width: 250px;
+    background-color: rgba(0, 0, 255, 0);
 }
 
 .areaPhoto {
-    background-color: rgb(200, 204, 204);
     width: 250px;
     margin-bottom: -50px;
     display: inline-flex;
+    text-align: center;
+}
+
+.memberPhoto {
+    margin-top: -65px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
 }
 
 .alignPhotoArea {
@@ -105,4 +131,13 @@
 
 .alignPhotoArea2 {
     margin-left: -300px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

@@ -9,15 +9,26 @@ export default function ExMembros({ dados }) {
       <title>COMPET | Ex-membros</title>
       <div className={styles.mainHeader}>
         <div>
-          <div> <h1 className={styles.title}> Ex-membros</h1> </div>
-          <div> Imagem que ficara em baixo do titulo da pagina </div>
+          {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/title.png */}
+          <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
         </div>
-        <div className={styles.legenda}> C</div>
+        <div className={styles.legenda}>
+          <div className={styles.alignLegend}>
+            <div className={styles.infoScrum}> </div>
+            <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
+          </div>
+          <p></p>
+
+          <div className={styles.alignLegend}>
+            <div className={styles.infoIntercamb}> </div>
+            <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
+          </div>
+        </div>
 
       </div>
 
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizontLeft}> A </div>
+        <div className={styles.espHorizontLeft}></div>
 
         <div className={styles.membersArea}>
           {dados.map(data => (firstBlank_space = data.nome.indexOf(' '),
@@ -28,18 +39,24 @@ export default function ExMembros({ dados }) {
 
               <div className={styles.membersCard}>
                 <div className={styles.areaPhoto}>
-                  <div>
-                    {data.scrum_master == false ? <></> :
-                      <div className={styles.alignPhotoArea}>
-                        <div className={styles.infoScrum}> </div>
-                        <div className={styles.alignPhotoArea2}></div>
+
+                  <div className={styles.infoPhoto}>
+                    <div className={styles.container}>
+                      <div>
+                        {data.scrum_master == false ? <></> :
+                          <div className={styles.alignPhotoArea}>
+                            <div className={styles.infoScrum}></div>
+                            <div className={styles.alignPhotoArea2}></div>
+                          </div>
+                        }
+                        {data.intercambio == false ? <></> :
+                          <div className={styles.infoIntercamb}></div>
+                        }
                       </div>
-                    }
-                    {data.intercambio == false ? <></> :
-                      <div className={styles.infoIntercamb}> </div>
-                    }
+                      <div className={styles.memberPhoto}></div>
+                    </div>
+
                   </div>
-                  <div className={styles.infoPhoto}>F</div>
                 </div>
                 <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' + data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
                 <p className={styles.infoCompet}> COMPET <strong>{ }</strong></p>
@@ -47,7 +64,7 @@ export default function ExMembros({ dados }) {
 
           ))}
         </div>
-        <div className={styles.espHorizontRight}> B </div>
+        <div className={styles.espHorizontRight}> </div>
       </div>
     </div>
   )
