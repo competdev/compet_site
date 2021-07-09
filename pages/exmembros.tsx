@@ -1,5 +1,6 @@
 import axios from 'axios';
 import styles from '../styles/ExMembros.module.css'
+import Link from 'next/link'
 
 export default function ExMembros({ dados }) {
   return (
@@ -10,14 +11,17 @@ export default function ExMembros({ dados }) {
 
       <div className={styles.topMenu}>
         {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/menuLogo.png */}
-        <div> <img className={styles.menuLogo} src="https://i.ibb.co/DYw82J7/menuLogo.png" /> </div>
+        <div><Link href="http://google.com"><a>
+          <img className={styles.menuLogo} src="https://i.ibb.co/DYw82J7/menuLogo.png" />
+        </a></Link>
+        </div>
         <div className={styles.groupPage}>
-          <div className={styles.singlePage}> Certificados </div>
-          <div className={styles.singlePage}> Blog </div>
-          <div className={styles.singlePage}> Sobre nós </div>
-          <div className={styles.singlePage}> Contato </div>
-          <div className={styles.singlePage}> Equipe </div>
-          <div className={styles.singlePage}> Ex-membros </div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Certificados</a></Link></div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Blog</a></Link></div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Sobre nós</a></Link></div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Contato</a></Link></div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Equipe</a></Link></div>
+          <div className={styles.singlePage}><Link href="http://google.com"><a>Ex-membros</a></Link></div>
         </div>
 
 
