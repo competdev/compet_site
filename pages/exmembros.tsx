@@ -6,7 +6,23 @@ export default function ExMembros({ dados }) {
 
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      <title>COMPET | Ex-membros</title>
+
+
+      <div className={styles.topMenu}>
+        {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/menuLogo.png */}
+        <div> <img className={styles.menuLogo} src="https://i.ibb.co/DYw82J7/menuLogo.png" /> </div>
+        <div className={styles.groupPage}>
+          <div className={styles.singlePage}> Certificados </div>
+          <div className={styles.singlePage}> Blog </div>
+          <div className={styles.singlePage}> Sobre nós </div>
+          <div className={styles.singlePage}> Contato </div>
+          <div className={styles.singlePage}> Equipe </div>
+          <div className={styles.singlePage}> Ex-membros </div>
+        </div>
+
+
+
+      </div>
       <div className={styles.mainHeader}>
         <div>
           {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/title.png */}
@@ -14,13 +30,13 @@ export default function ExMembros({ dados }) {
         </div>
         <div className={styles.legenda}>
           <div className={styles.alignLegend}>
-            <div className={styles.infoScrum}> </div>
+            <div className={styles.infoScrum}></div>
             <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
           </div>
           <p></p>
 
           <div className={styles.alignLegend}>
-            <div className={styles.infoIntercamb}> </div>
+            <div className={styles.infoIntercamb}></div>
             <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
           </div>
         </div>
@@ -65,8 +81,17 @@ export default function ExMembros({ dados }) {
 
                   </div>
                 </div>
-                <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' + data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
-                <p className={styles.infoCompet}> COMPET <strong>{ }</strong></p>
+                <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' +
+                  data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
+
+
+                <div className={styles.infoCompet}>
+                  {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
+                    <div> COMPET <strong>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
+                    <div> COMPET <strong>{data.data_inicio.split("-")[0]} </strong> </div>}
+                </div>
+
+
               </div> : <></>
 
           ))}
