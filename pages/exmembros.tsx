@@ -32,7 +32,7 @@ export default function ExMembros({ dados }) {
           {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/title.png */}
           <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
         </div>
-        <div className={styles.legenda}>
+        <div className={styles.legendaSpace}>
           <div className={styles.alignLegend}>
             <div className={styles.infoScrum}></div>
             <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
@@ -91,8 +91,8 @@ export default function ExMembros({ dados }) {
 
                 <div className={styles.infoCompet}>
                   {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
-                    <div> COMPET <strong>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
-                    <div> COMPET <strong>{data.data_inicio.split("-")[0]} </strong> </div>}
+                    <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
+                    <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
                 </div>
 
 
