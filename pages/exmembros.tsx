@@ -9,10 +9,10 @@ export default function ExMembros({ dados }) {
       <title>COMPET | Ex-membros</title>
 
 
-      <div className={styles.topMenu}>
-        {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/menuLogo.png */}
+      <div className={styles.navBar}>
+        {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/menuLogo-Horizontal.png */}
         <div><Link href="http://google.com"><a>
-          <img className={styles.menuLogo} src="https://i.ibb.co/DYw82J7/menuLogo.png" />
+          <img className={styles.menuLogo} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
         </a></Link>
         </div>
         <div className={styles.groupPage}>
@@ -115,5 +115,6 @@ ExMembros.getInitialProps = async () => {
   //console.log(response);
   return { dados: response.data }
 };
+
 let firstBlank_space;
 let lastBlank_space;
