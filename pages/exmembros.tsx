@@ -54,6 +54,7 @@ export default function ExMembros({ dados }) {
           {dados.map(data => (firstBlank_space = data.nome.indexOf(' '),
             lastBlank_space = data.nome.lastIndexOf(' '),
             data.email == "" ? data.email = '-' : data.email = data.email,
+            data.lates == "" ? data.lates = '-' : data.lates = data.lates,
             data.linkedin == "" ? data.linkedin = '-' : data.linkedin = data.linkedin,
             data.membro_ativo == false ?
 
@@ -94,9 +95,39 @@ export default function ExMembros({ dados }) {
                     <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
                     <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
                 </div>
+                {/* Colocar IF/ELSE (ternário) para exibir apenas nos membros que mandaram relatos  */}
+                <div className={styles.infoRelato}> <strong>VER RELATO</strong></div>
+                <div className={styles.networkGroup}>
+                  {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/mail-favicon.png */}
+                  {data.email != "-" ?
+                    <div>
+                      <Link href={'mailto:' + data.email}><a>
+                        <img className={styles.networkFavicon} src="https://i.ibb.co/34FHQD3/mail-favicon.png" />
+                      </a></Link>
+                    </div>
+                    : <div className={styles.networkBlank}></div>}
+
+                  {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
+                  {data.lates != "-" ?
+                    <div>
+                      <Link href={data.lates}><a>
+                        <div><img className={styles.networkFavicon} src="https://i.ibb.co/x5FH9NZ/lattes-favicon.png" /></div>
+                      </a></Link>
+                    </div>
+                    : <div className={styles.networkBlank}></div>}
 
 
-              </div> : <></>
+                  {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
+                  {data.linkedin != "-" ?
+                    <div>
+                      <Link href={data.linkedin}><a>
+                        <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
+                      </a></Link>
+                    </div>
+                    : <div className={styles.networkBlank}></div>}
+                </div>
+              </div>
+              : <></>
 
           ))}
         </div>
