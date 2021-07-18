@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .navBar {
   z-index: 1000;
   overflow: hidden;
@@ -34,6 +35,8 @@
   margin-left: 70px;
 }
 
+=======
+>>>>>>> e450926590561f8150b8e8f90a101592e9d93312
 .groupDiv {
   background-color: #f5f5f5;
 }
@@ -46,10 +49,17 @@
   height: 175px;
 }
 
+<<<<<<< HEAD
 .legendaSpace {
   margin-left: 38%;
   margin-top: 47px;
   font-size: 17px;
+=======
+.subtitleSpace {
+    margin-left: 38%;
+    margin-top: 47px;
+    font-size: 17px;
+>>>>>>> e450926590561f8150b8e8f90a101592e9d93312
 }
 
 .alignLegend {
