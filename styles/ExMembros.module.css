@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-.navBar {
-  z-index: 1000;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  display: inline-flex;
-  background-color: #ffffff;
-  width: 100%;
-  height: 95px;
-  box-shadow: 0px -28px 30px #000000;
-  border-bottom-left-radius: 20%;
-  border-bottom-right-radius: 20%;
-  /* font-family: 'Times New Roman', Times, serif; */
-}
-
-.menuLogo {
-  margin-top: 10px;
-  margin-left: 190px;
-  height: 72px;
-  width: 175px;
-}
-
-.groupPage {
-  font-weight: bold;
-  color: #004266;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-  font-size: 20px;
-  margin-left: 22%;
-}
-
-.singlePage {
-  margin-left: 70px;
-}
-
-=======
->>>>>>> e450926590561f8150b8e8f90a101592e9d93312
 .groupDiv {
   background-color: #f5f5f5;
 }
@@ -49,17 +10,10 @@
   height: 175px;
 }
 
-<<<<<<< HEAD
-.legendaSpace {
-  margin-left: 38%;
-  margin-top: 47px;
-  font-size: 17px;
-=======
 .subtitleSpace {
     margin-left: 38%;
     margin-top: 47px;
     font-size: 17px;
->>>>>>> e450926590561f8150b8e8f90a101592e9d93312
 }
 
 .alignLegend {
