@@ -1,25 +1,24 @@
+
 import axios from 'axios';
-import styles from '../styles/ExMembros.module.css'
+import styles from '../styles/Equipe.module.css'
 import Menu from './menu'
-import { Component } from 'react';
+import Link from 'next/link'
 
 
-export default function ExMembros({ dados }) {
-
+export default function Equipe({ dados }) {
   let memberLoad = 8;
-
   function loadMore() {
     memberLoad = memberLoad + 8;
   }
 
   return (
     <div className={styles.groupDiv}>
-      <title>COMPET | Ex-membros</title>
+      <title>COMPET | Membros atuais</title>
       <Menu />
       <div className={styles.mainHeader}>
         <div>
-          {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/title.png */}
-          <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
+          {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/equipe/title.png */}
+          <div> <img src="https://i.ibb.co/ZGZdZ9b/title.png" /> </div>
         </div>
 
         <div className={styles.subtitleSpace}>
@@ -35,7 +34,6 @@ export default function ExMembros({ dados }) {
           </div>
         </div>
       </div>
-
 
       <div className={styles.bodyGroup}>
         <div className={styles.espHorizontLeft}></div>
@@ -78,11 +76,38 @@ export default function ExMembros({ dados }) {
 
               <div className={styles.infoCompet}>
                 {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
-                  <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
+                  <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div> :
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
               </div>
-              {/* Colocar IF/ELSE (ternário) para exibir apenas nos membros que mandaram relatos  */}
-              <div className={styles.infoRelato}> <strong>VER RELATO</strong></div>
+              <div className={styles.networkGroup}>
+                {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/mail-favicon.png */}
+                {data.email != "-" ?
+                  <div>
+                    <Link href={'mailto:' + data.email}><a>
+                      <img className={styles.networkFavicon} src="https://i.ibb.co/SfH36np/mail-favicon.png" />
+                    </a></Link>
+                  </div>
+                  : <div className={styles.networkBlank}></div>}
+
+                {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
+                {data.lates != "-" ?
+                  <div>
+                    <Link href={data.lates}><a>
+                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/x5FH9NZ/lattes-favicon.png" /></div>
+                    </a></Link>
+                  </div>
+                  : <div className={styles.networkBlank}></div>}
+
+
+                {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
+                {data.linkedin != "-" ?
+                  <div>
+                    <Link href={data.linkedin}><a>
+                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
+                    </a></Link>
+                  </div>
+                  : <div className={styles.networkBlank}></div>}
+              </div>
             </div>
 
           ))}
@@ -94,7 +119,7 @@ export default function ExMembros({ dados }) {
   )
 }
 
-ExMembros.getInitialProps = async () => {
+Equipe.getInitialProps = async () => {
   const response = await axios.get(
     'http://localhost:3000/api/membros'
   );
@@ -102,7 +127,7 @@ ExMembros.getInitialProps = async () => {
   let exMembros = [{}];
   let i = 0;
   for (var k in response.data) {
-    if (response.data[k].membro_ativo == false) {
+    if (response.data[k].membro_ativo == true) {
       exMembros[i] = response.data[k];
       i++;
     }
@@ -116,6 +141,7 @@ ExMembros.getInitialProps = async () => {
     return 0;
   }
   exMembros.sort(byName)
+  console.log(exMembros.sort(byName))
   return { dados: exMembros }
 };
 
