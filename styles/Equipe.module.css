@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
 .groupDiv {
   height: 100%;
   background-color: #f5f5f5;
@@ -18,7 +23,7 @@
 
 .alignLegend {
   display: inline-flex;
-  padding-left: 520px;
+  margin-left: 520px;
 }
 
 .alignLegend:hover {
@@ -34,34 +39,17 @@
   text-align: center;
   font-size: 40px;
   color: #151515;
-  padding-top: -30px;
+  margin-top: -60px;
   padding-bottom: 20px;
 }
 
 .titleBodyMembers {
   width: 100%;
-  padding-left: 21%;
-  padding-top: 2%;
+  padding-left: 19%;
+  padding-top: -5%;
   font-size: 30px;
   color: #151515;
-  padding-top: -30px;
   padding-bottom: 20px;
-}
-
-.titleBody:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.titleBodyMembers:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
 }
 
 .bodyGroup {
@@ -108,7 +96,7 @@
   text-align: center;
   margin-top: -20px;
   font-size: 16px;
-  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: "Codec Pro Regular";
 }
 
 .infoCompetNUM {
@@ -118,7 +106,7 @@
 .infoRelato {
   margin-top: 10px;
   font-size: 17px;
-  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: "Codec Pro Regular";
   color: #004266;
 }
 
@@ -178,7 +166,7 @@
   transform: translateY(-9%);
   color: #004266;
   font-size: 15px;
-  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: "Codec Pro Regular";
 }
 
 .intercambioStr {
@@ -186,7 +174,7 @@
   transform: translateY(-9%);
   color: #004266;
   font-size: 15px;
-  /*  font-family: 'Times New Roman', Times, serif; */
+  font-family: "Codec Pro Regular";
 }
 
 .infoPhoto {
