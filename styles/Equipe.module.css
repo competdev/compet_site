@@ -8,7 +8,6 @@
   display: inline-flex;
   width: 100%;
   vertical-align: center;
-  height: 175px;
 }
 
 .subtitleSpace {
@@ -23,6 +22,41 @@
 }
 
 .alignLegend:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.titleBody {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #151515;
+  padding-top: -30px;
+  padding-bottom: 20px;
+}
+
+.titleBodyMembers {
+  width: 100%;
+  padding-left: 21%;
+  padding-top: 2%;
+  font-size: 30px;
+  color: #151515;
+  padding-top: -30px;
+  padding-bottom: 20px;
+}
+
+.titleBody:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.titleBodyMembers:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
