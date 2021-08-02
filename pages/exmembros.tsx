@@ -1,16 +1,17 @@
 import axios from 'axios';
+import Modal from '../components/relatoModal';
 import styles from '../styles/ExMembros.module.css'
 import Menu from './menu'
-import { Component } from 'react';
-
+import { useState } from 'react'
 
 export default function ExMembros({ dados }) {
-
   let memberLoad = 8;
 
   function loadMore() {
     memberLoad = memberLoad + 8;
   }
+
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <div className={styles.groupDiv}>
@@ -50,7 +51,7 @@ export default function ExMembros({ dados }) {
                 <div className={styles.infoPhoto}>
                   <div className={styles.container}>
                     <div>
-                      {data.scrum_master == false ? <></> :
+                      {data.scrum_master == false ? <div></div> :
                         <div className={styles.alignPhotoArea}>
                           <div className={styles.infoScrum}></div>
                           <div className={styles.alignPhotoArea2}></div>
@@ -82,7 +83,7 @@ export default function ExMembros({ dados }) {
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
               </div>
               {/* Colocar IF/ELSE (ternário) para exibir apenas nos membros que mandaram relatos  */}
-              <div className={styles.infoRelato}> <strong>VER RELATO</strong></div>
+              <div className={styles.infoRelato} onClick={() => { setOpenModal(true) }}> <strong>VER RELATO</strong></div>
             </div>
 
           ))}
@@ -90,6 +91,7 @@ export default function ExMembros({ dados }) {
         <div className={styles.espHorizontRight}></div>
       </div>
       <div onClick={() => loadMore()} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
+      {openModal && <Modal closeModal={setOpenModal} />}
     </div>
   )
 }

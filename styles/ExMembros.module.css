@@ -71,7 +71,7 @@
 
 .infoName {
     text-align: center;
-    padding-top: 5px;
+    margin-top: 0px;
     font-size: 22px;
 }
 
@@ -154,13 +154,6 @@
 
 .infoPhoto {
     width: 230px;
-}
-
-.areaPhoto {
-    width: 250px;
-    margin-bottom: -50px;
-    display: inline-flex;
-    text-align: center;
 }
 
 .foto {
