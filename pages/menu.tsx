@@ -15,12 +15,12 @@ export default function menu() {
         </div>
         <div className={styles.blankSpace}></div>
         <div className={styles.groupPage}>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Certificados</a></Link></div>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Blog</a></Link></div>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Sobre nós</a></Link></div>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Contato</a></Link></div>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Equipe</a></Link></div>
-          <div className={styles.singlePage}><Link href="http://google.com"><a>Ex-membros</a></Link></div>
+          <div className={styles.singlePage}><Link href="../certificados"><a>Certificados</a></Link></div>
+          <div className={styles.singlePage}><Link href="../blog"><a>Blog</a></Link></div>
+          <div className={styles.singlePage}><Link href="../sobre"><a>Sobre nós</a></Link></div>
+          <div className={styles.singlePage}><Link href="../contato"><a>Contato</a></Link></div>
+          <div className={styles.singlePage}><Link href="../equipe"><a>Equipe</a></Link></div>
+          <div className={styles.singlePage}><Link href="../exmembros"><a>Ex-membros</a></Link></div>
         </div>
 
       </div>

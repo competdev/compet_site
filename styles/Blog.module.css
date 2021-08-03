@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+.test {
+  font-size: 300px;
+  font-family: "Codec Pro Regular";
+}
