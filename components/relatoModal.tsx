@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from '../styles/RelatoModal.module.css'
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, memberRelato }) {
+  console.log('TESTE : ' + memberRelato.nome)
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
@@ -11,7 +12,7 @@ function Modal({ closeModal }) {
           </div>
           <div className={styles.textsModal}>
             <div className={styles.titleName}>
-              <h1> Nome do Ex-membro </h1>
+              <h1> {memberRelato} </h1>
             </div>
             <div className={styles.body}>
               <p> Relato do Ex-membro </p>

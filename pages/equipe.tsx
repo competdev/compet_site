@@ -1,15 +1,13 @@
-
 import axios from 'axios';
 import styles from '../styles/Equipe.module.css'
 import Menu from './menu'
 import Link from 'next/link'
+import { useState } from 'react'
 
 
-export default function Equipe({ membros, sMaster }) {
-  let memberLoad = 8;
-  function loadMore() {
-    memberLoad = memberLoad + 8;
-  }
+export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
+  const [membersPage, setMembersPage] = useState(8);
+  console.log(totalMembrosAtivos);
 
   return (
     <div className={styles.groupDiv}>
@@ -130,7 +128,7 @@ export default function Equipe({ membros, sMaster }) {
         <div className={styles.espHorizontLeft}></div>
 
         <div className={styles.membersArea}>
-          {membros.slice(0, memberLoad).map(data => (firstBlank_space = data.nome.indexOf(' '),
+          {membros.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
             lastBlank_space = data.nome.lastIndexOf(' '),
 
             <div className={styles.membersCard}>
@@ -205,7 +203,10 @@ export default function Equipe({ membros, sMaster }) {
         </div>
         <div className={styles.espHorizontRight}></div>
       </div>
-      <div onClick={() => loadMore()} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
+      {membersPage < totalMembrosAtivos ? 
+      <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
+      : <></>
+      }
     </div>
   )
 }
@@ -238,8 +239,7 @@ Equipe.getInitialProps = async () => {
     return 0;
   }
   membrosAtuais.sort(byName)
-  console.log(membrosAtuais.sort(byName))
-  return { membros: membrosAtuais, sMaster: scrumMaster }
+  return { membros: membrosAtuais, sMaster: scrumMaster, totalMembrosAtivos: i }
 };
 
 let firstBlank_space;

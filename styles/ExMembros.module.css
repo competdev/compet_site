@@ -4,7 +4,7 @@
 }
 
 .groupDiv {
-  height: 937px;
+  height: 100%;
   background-color: #f5f5f5;
 }
 
@@ -189,8 +189,8 @@
 }
 
 .loadMore {
-  margin-top: 22px;
-  width: 200vh;
+  margin-top: -15px;
+  width: 100%;
   text-align: center;
   font-size: 30px;
   font-family: "Codec Pro Regular";

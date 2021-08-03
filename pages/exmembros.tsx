@@ -4,14 +4,10 @@ import styles from '../styles/ExMembros.module.css'
 import Menu from './menu'
 import { useState } from 'react'
 
-export default function ExMembros({ dados }) {
-  let memberLoad = 8;
-
-  function loadMore() {
-    memberLoad = memberLoad + 8;
-  }
-
+export default function ExMembros({ dados, totalExMembros }) {
   const [openModal, setOpenModal] = useState(false)
+  const [memberRelato, setMemberRelato] = useState();
+  const [membersPage, setMembersPage] = useState(8);
 
   return (
     <div className={styles.groupDiv}>
@@ -42,7 +38,7 @@ export default function ExMembros({ dados }) {
         <div className={styles.espHorizontLeft}></div>
 
         <div className={styles.membersArea}>
-          {dados.slice(0, memberLoad).map(data => (firstBlank_space = data.nome.indexOf(' '),
+          {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
             lastBlank_space = data.nome.lastIndexOf(' '),
 
             <div className={styles.membersCard}>
@@ -83,15 +79,19 @@ export default function ExMembros({ dados }) {
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
               </div>
               {/* Colocar IF/ELSE (ternário) para exibir apenas nos membros que mandaram relatos  */}
-              <div className={styles.infoRelato} onClick={() => { setOpenModal(true) }}> <strong>VER RELATO</strong></div>
+              <div className={styles.infoRelato} onClick={() => { setOpenModal(true), setMemberRelato(data) }}> <strong>VER RELATO</strong></div>
+
             </div>
 
           ))}
         </div>
         <div className={styles.espHorizontRight}></div>
       </div>
-      <div onClick={() => loadMore()} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {membersPage < totalExMembros ?
+        <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
+        : <></>
+      }
+      {openModal && <Modal closeModal={setOpenModal} memberRelato={setMemberRelato} />}
     </div>
   )
 }
@@ -117,10 +117,11 @@ ExMembros.getInitialProps = async () => {
       return 1;
     return 0;
   }
-  exMembros.sort(byName)
-  return { dados: exMembros }
+  exMembros.sort(byName);
+  return { dados: exMembros, totalExMembros: i }
 };
 
 let firstBlank_space;
 let lastBlank_space;
+
 
