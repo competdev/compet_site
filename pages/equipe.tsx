@@ -3,6 +3,7 @@ import styles from '../styles/Equipe.module.css'
 import Menu from './menu'
 import Link from 'next/link'
 import { useState } from 'react'
+import Footer from './footer'
 
 
 export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
@@ -84,28 +85,28 @@ export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
               </div>
               <div className={styles.networkGroup}>
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/mail-favicon.png */}
-                {data.email != "-" ?
+                {data.email != "" ?
                   <div>
-                    <Link href={'mailto:' + data.email}><a>
-                      <img className={styles.networkFavicon} src="https://i.ibb.co/SfH36np/mail-favicon.png" />
+                    <Link href={'mailto:' + data.email}><a title='Email'>
+                      <img className={styles.networkFavicon} src="https://i.ibb.co/YQ64dxd/mail-favicon.png" />
                     </a></Link>
                   </div>
                   : <div className={styles.networkBlank}></div>}
 
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
-                {data.lates != "-" ?
+                {data.lates != "" ?
                   <div>
-                    <Link href={data.lates}><a>
-                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/x5FH9NZ/lattes-favicon.png" /></div>
+                    <Link href={data.lates}><a title='Lattes'>
+                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/vqS8trk/lattes-favicon.png" /></div>
                     </a></Link>
                   </div>
                   : <div className={styles.networkBlank}></div>}
 
 
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
-                {data.linkedin != "-" ?
+                {data.linkedin != "" ?
                   <div>
-                    <Link href={data.linkedin}><a>
+                    <Link href={data.linkedin}><a title='LinkedIn'>
                       <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
                     </a></Link>
                   </div>
@@ -170,32 +171,32 @@ export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
               </div>
               <div className={styles.networkGroup}>
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/mail-favicon.png */}
-                {data.email != "-" ?
+                {data.email != "" ?
                   <div>
-                    <Link href={'mailto:' + data.email}><a>
-                      <img className={styles.networkFavicon} src="https://i.ibb.co/SfH36np/mail-favicon.png" />
+                    <Link href={'mailto:' + data.email}><a title='Email'>
+                      <img className={styles.networkFavicon} src="https://i.ibb.co/YQ64dxd/mail-favicon.png" />
                     </a></Link>
                   </div>
-                  : <div className={styles.networkBlank}></div>}
+                  : <div></div>}
 
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
-                {data.lates != "-" ?
+                {data.lates != "" ?
                   <div>
-                    <Link href={data.lates}><a>
-                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/x5FH9NZ/lattes-favicon.png" /></div>
+                    <Link href={data.lates}><a title='Lattes'>
+                      <div><img className={styles.networkFavicon} src="https://i.ibb.co/vqS8trk/lattes-favicon.png" /></div>
                     </a></Link>
                   </div>
-                  : <div className={styles.networkBlank}></div>}
+                  : <div></div>}
 
 
                 {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
-                {data.linkedin != "-" ?
+                {data.linkedin != "" ?
                   <div>
-                    <Link href={data.linkedin}><a>
+                    <Link href={data.linkedin}><a title='LinkedIn'>
                       <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
                     </a></Link>
                   </div>
-                  : <div className={styles.networkBlank}></div>}
+                  : <div></div>}
               </div>
             </div>
 
@@ -203,10 +204,11 @@ export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
         </div>
         <div className={styles.espHorizontRight}></div>
       </div>
-      {membersPage < totalMembrosAtivos ? 
-      <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
-      : <></>
+      {membersPage < totalMembrosAtivos ?
+        <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
+        : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
       }
+      <Footer />
     </div>
   )
 }
@@ -239,6 +241,7 @@ Equipe.getInitialProps = async () => {
     return 0;
   }
   membrosAtuais.sort(byName)
+  console.log(membrosAtuais)
   return { membros: membrosAtuais, sMaster: scrumMaster, totalMembrosAtivos: i }
 };
 

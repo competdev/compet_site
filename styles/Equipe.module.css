@@ -46,7 +46,7 @@
 .titleBodyMembers {
   width: 100%;
   padding-left: 19%;
-  margin-top: -5%;
+  margin-top: -2%;
   font-size: 30px;
   color: #151515;
   padding-bottom: 20px;
@@ -221,10 +221,12 @@
 }
 
 .loadMore {
-  margin-top: 22px;
-  width: 200vh;
-  text-align: center;
+  width: 50%;
+  margin-top: 25px;
   font-size: 30px;
+  font-family: "Codec Pro Regular";
+  text-align: center;
+  width: 100%;
 }
 
 .line {
@@ -233,12 +235,18 @@
   width: 210px;
   border-radius: 90px;
   border: 4px solid #19DD39;
+  margin-bottom: 50px;
+}
+
+.lineRecolher {
+  margin-top: -1px;
+  text-align: center;
+  width: 210px;
+  border-radius: 90px;
+  border: 4px solid #004067;
+  margin-bottom: 50px;
 }
 
 .loadMore:hover {
-  -webkit-transform: scale(1.445);
-  -moz-transform: scale(1.445);
-  -o-transform: scale(1.445);
-  -ms-transform: scale(1.445);
-  transform: scale(1.045);
+  -webkit-transform: scale(0.845);
 }

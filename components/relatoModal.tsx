@@ -2,7 +2,9 @@ import React from 'react'
 import styles from '../styles/RelatoModal.module.css'
 
 function Modal({ closeModal, memberRelato }) {
-  console.log('TESTE : ' + memberRelato.nome)
+
+  let relatoMembro = memberRelato;
+  console.log('TESTE : ' + memberRelato)
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
@@ -22,10 +24,7 @@ function Modal({ closeModal, memberRelato }) {
             <button onClick={() => closeModal(false)}> X </button>
           </div>
         </div>
-
         <div className={styles.infoContainer}>
-
-
         </div>
 
       </div>

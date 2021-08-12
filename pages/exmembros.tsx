@@ -2,12 +2,14 @@ import axios from 'axios';
 import Modal from '../components/relatoModal';
 import styles from '../styles/ExMembros.module.css'
 import Menu from './menu'
+import Footer from './footer'
 import { useState } from 'react'
 
 export default function ExMembros({ dados, totalExMembros }) {
-  const [openModal, setOpenModal] = useState(false)
-  const [memberRelato, setMemberRelato] = useState();
-  const [membersPage, setMembersPage] = useState(8);
+  let [openModal, setOpenModal] = useState(false);
+  let memberSelected;
+  let [membersPage, setMembersPage] = useState(8);
+  let key;
 
   return (
     <div className={styles.groupDiv}>
@@ -39,8 +41,7 @@ export default function ExMembros({ dados, totalExMembros }) {
 
         <div className={styles.membersArea}>
           {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
-            lastBlank_space = data.nome.lastIndexOf(' '),
-
+            lastBlank_space = data.nome.lastIndexOf(' '), key = data.id,
             <div className={styles.membersCard}>
               <div className={styles.areaPhoto}>
 
@@ -78,20 +79,19 @@ export default function ExMembros({ dados, totalExMembros }) {
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
               </div>
-              {/* Colocar IF/ELSE (ternário) para exibir apenas nos membros que mandaram relatos  */}
-              <div className={styles.infoRelato} onClick={() => { setOpenModal(true), setMemberRelato(data) }}> <strong>VER RELATO</strong></div>
-
+              {data.depoimentos.length != 0 ? <div className={styles.infoRelato} onClick={() => { setOpenModal(true), memberSelected = data.nome, console.log(data.nome) }}><strong>VER RELATO</strong></div>
+                : <div className={styles.infoRelatoEmpty}> - </div>}
             </div>
-
           ))}
         </div>
         <div className={styles.espHorizontRight}></div>
       </div>
       {membersPage < totalExMembros ?
         <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
-        : <></>
+        : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
       }
-      {openModal && <Modal closeModal={setOpenModal} memberRelato={setMemberRelato} />}
+      {openModal && <Modal closeModal={setOpenModal} memberRelato={memberSelected} />}
+      <Footer />
     </div>
   )
 }
@@ -118,6 +118,7 @@ ExMembros.getInitialProps = async () => {
     return 0;
   }
   exMembros.sort(byName);
+  console.log(exMembros)
   return { dados: exMembros, totalExMembros: i }
 };
 

@@ -1,7 +1,5 @@
 import styles from '../styles/Menu.module.css'
 import Link from 'next/link'
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 export default function menu() {
 

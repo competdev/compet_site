@@ -101,6 +101,13 @@
   transform: scale(1.1);
 }
 
+.infoRelatoEmpty {
+  margin-top: 10px;
+  font-size: 17px;
+  font-family: "Codec Pro Regular";
+  color: #ffffff;
+}
+
 .networkGroup {
   padding-top: 15px;
   display: inline-flex;
@@ -189,11 +196,12 @@
 }
 
 .loadMore {
+  width: 50%;
   margin-top: -15px;
-  width: 100%;
-  text-align: center;
   font-size: 30px;
   font-family: "Codec Pro Regular";
+  text-align: center;
+  width: 100%;
 }
 
 .line {
@@ -202,12 +210,18 @@
   width: 210px;
   border-radius: 90px;
   border: 4px solid #19DD39;
+  margin-bottom: 50px;
+}
+
+.lineRecolher {
+  margin-top: -1px;
+  text-align: center;
+  width: 210px;
+  border-radius: 90px;
+  border: 4px solid #004067;
+  margin-bottom: 50px;
 }
 
 .loadMore:hover {
-  -webkit-transform: scale(1.445);
-  -moz-transform: scale(1.445);
-  -o-transform: scale(1.445);
-  -ms-transform: scale(1.445);
-  transform: scale(1.045);
+  -webkit-transform: scale(0.845);
 }
