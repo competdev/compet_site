@@ -1,20 +1,20 @@
 import axios from "axios";
 import styles from "../styles/Certificados.module.css";
 import Link from "next/link";
-import Menu from './menu'
+import Menu from '../components/menu'
 
-export default function Certificados({dados}) {
+export default function Certificados({ dados }) {
 
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Certificados</title>
 
-{/* Bloco que contém o Menu da página ---> Ver constução no menu.tsx */}
+      {/* Bloco que contém o Menu da página ---> Ver constução no menu.tsx */}
       <Menu />
 
-{/* Bloco que contém o Cabeçalho da página */}
-      <div className = {styles.mainHeader}>
-          <div><img src="https://i.ibb.co/GMSCqJP/title.png"/></div>
+      {/* Bloco que contém o Cabeçalho da página */}
+      <div className={styles.mainHeader}>
+        <div><img src="https://i.ibb.co/GMSCqJP/title.png" /></div>
       </div>
 
       <div className={styles.bodyGroup}>
@@ -22,35 +22,35 @@ export default function Certificados({dados}) {
 
         <div className={styles.certificadoArea}>
           {dados.map(certificado => (
-              <div key = {certificado.id} className={styles.certificadoCard}>
-                <div className={styles.areaPhoto}>
+            <div key={certificado.id} className={styles.certificadoCard}>
+              <div className={styles.areaPhoto}>
 
-                  <div className={styles.infoPhoto}>
-                    <div className={styles.container}>
-                      {/*<img className = {styles.photo} src = {loadPhotos(certificado.compet_talks, certificado.compbio)} /> */} 
-                     <img className = {styles.foto} src = "https://i.ibb.co/3swTqhQ/default-photo.webp" />
-                    </div>
+                <div className={styles.infoPhoto}>
+                  <div className={styles.container}>
+                    {/*<img className = {styles.photo} src = {loadPhotos(certificado.compet_talks, certificado.compbio)} /> */}
+                    <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                  </div>
 
-                  </div>    
-                </div>
-                  <div className = {styles.infoName}>
-                <h1>TESTE</h1>
                 </div>
               </div>
+              <div className={styles.infoName}>
+                <h1>TESTE</h1>
+              </div>
+            </div>
           ))}
         </div>
-        <div className = {styles.espHorizontRight}></div>
+        <div className={styles.espHorizontRight}></div>
       </div>
     </div>
   );
 }
 
-function loadPhotos(CompetTalks:boolean, CompBio:boolean) {
-  if(CompetTalks){
+function loadPhotos(CompetTalks: boolean, CompBio: boolean) {
+  if (CompetTalks) {
     return "../styles/imgs/certificados/Compet_Talks.png"
-  }else if(CompBio){
+  } else if (CompBio) {
     return "../styles/imgs/certificados/CompBio.png"
-  }else{
+  } else {
     return "../styles/imgs/certificados/Certificados_Padrao.png"
   }
 }

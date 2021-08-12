@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/RelatoModal.module.css'
+import styles from '../styles/Relato.module.css'
 
 function Modal({ closeModal, memberRelato }) {
 

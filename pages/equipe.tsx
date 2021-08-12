@@ -1,6 +1,6 @@
 import axios from 'axios';
 import styles from '../styles/Equipe.module.css'
-import Menu from './menu'
+import Menu from '../components/menu'
 import Link from 'next/link'
 import { useState } from 'react'
 import Footer from './footer'

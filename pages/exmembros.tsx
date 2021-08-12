@@ -1,7 +1,7 @@
 import axios from 'axios';
-import Modal from '../components/relatoModal';
+import Modal from '../components/Relato';
 import styles from '../styles/ExMembros.module.css'
-import Menu from './menu'
+import Menu from '../components/menu'
 import Footer from './footer'
 import { useState } from 'react'
 

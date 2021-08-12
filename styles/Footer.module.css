@@ -28,13 +28,9 @@
   margin-top: 10px;
 }
 
-.COMPETinfo {
-  margin: 30px;
-  margin-left: 300px;
-}
-
 .CEFETinfo {
   margin: 30px;
+  margin-left: 300px;
   margin-right: 15px;
 }
 
@@ -43,9 +39,15 @@
   margin-right: 15px;
 }
 
-.EXTRAinfo {
+.extraInfo {
   margin: 30px;
   margin-right: 15px;
+}
+
+.dtiInfo {
+  margin: 30px;
+  margin-right: 15px;
+  text-align: center;
 }
 
 .Links {
@@ -54,10 +56,11 @@
   margin-right: 25px;
 }
 
-.ENDERECOcefet {
+.adressCEFET {
   text-align: center;
   font-style: italic;
   font-size: 11px;
+  margin-top: -20px;
 }
 
 .socialNetwork {
@@ -77,5 +80,15 @@
   -moz-transform: scale(1.2);
   -o-transform: scale(1.2);
   -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.logosExterna {
+  margin-top: 10px;
+  height: 72px;
+  width: 115px;
+}
+
+.logosExterna:hover {
   transform: scale(1.2);
 }
