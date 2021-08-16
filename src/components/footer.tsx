@@ -1,6 +1,8 @@
 import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
 
+const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
+
 export default function Footer() {
   return (
     <div>
@@ -32,9 +34,9 @@ const renderCEFETInfo = () => {
     <div className={styles.CEFETinfo}>
       <div className={styles.sectionTitle}>CEFET</div>
       <div className={styles.Links}>
-        <div>Site</div>
-        <div>SIGAA</div>
-        <div>AVA</div>
+        <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
       </div>
     </div>
   )
@@ -45,9 +47,9 @@ const renderDECOMInfo = () => {
     <div className={styles.DECOMinfo}>
       <div className={styles.sectionTitle}>DECOM</div>
       <div className={styles.Links}>
-        <div>Site</div>
-        <div>Grade Curricular</div>
-        <div>Horário de aulas</div>
+        <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
+        <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
       </div>
     </div>
   )
@@ -60,21 +62,21 @@ const renderExtraInfo = () => {
       <div className={styles.sectionTitle}>CONHEÇA TAMBÉM!</div>
       <div className={styles.containerLinks}>
         <div className={styles.Links}>
-          <div>Commit Jr.</div>
-          <div>Enxurrada de Bits</div>
-          <div>CEFAST AeroSpace</div>
+          <div className={styles.singleLink}><Link href="https://commitjr.com/"><a>Commit Jr.</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.enxurradadebits.cefetmg.br/"><a>Enxurrada de Bits</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.cefastaerospace.com/"><a>CEFAST AeroSpace</a></Link></div>
         </div>
 
         <div className={styles.Links}>
-          <div>CEFAST AeroDesign</div>
-          <div>CEFAST Baja</div>
-          <div>Fórmula CEFAST</div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/cefastaerodesign/?hl=pt-br"><a>CEFAST AeroDesign</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/cefastbaja/?hl=pt-br"><a>CEFAST Baja</a></Link></div>
+          <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>Fórmula CEFAST</a></Link></div>
         </div>
 
         <div className={styles.Links}>
-          <div>TrincaBotz</div>
-          <div>Pacific Botz</div>
-          <div>Ecofet</div>
+          <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>TrincaBotz</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/pacificbotz/"><a>Pacific Botz</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Ecofet</a></Link></div>
         </div>
       </div>
     </div>
@@ -114,7 +116,6 @@ const renderAdressCEFET = () => {
   return (
     <div className={styles.adressCEFET}>
       Av. Amazonas 7675, Nova Gameleira. Belo Horizonte - MG - Brasil | CEP: 30510-000
-      Telefone: +55 (31) 3319-6870
     </div>
   )
 }

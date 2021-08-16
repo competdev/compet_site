@@ -56,6 +56,10 @@
   margin-right: 25px;
 }
 
+.singleLink:hover {
+  transform: scale(1.2);
+}
+
 .adressCEFET {
   text-align: center;
   font-style: italic;
@@ -73,6 +77,8 @@
   margin: 7px;
   height: 25px;
   width: 25px;
+  border-top-left-radius: 43%;
+  border-bottom-right-radius: 43%;
 }
 
 .socialNetworkIcons:hover {

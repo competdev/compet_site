@@ -1,8 +1,8 @@
 import axios from 'axios';
-import Modal from '../components/Relato';
+import Relato from '../components/Relato';
 import styles from '../styles/ExMembros.module.css'
 import Menu from '../components/menu'
-import Footer from './footer'
+import Footer from '../components/footer'
 import { useState } from 'react'
 
 export default function ExMembros({ dados, totalExMembros }) {
@@ -90,7 +90,7 @@ export default function ExMembros({ dados, totalExMembros }) {
         <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
         : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
       }
-      {openModal && <Modal closeModal={setOpenModal} memberRelato={memberSelected} />}
+      {openModal && <Relato closeModal={setOpenModal} memberRelato={memberSelected} />}
       <Footer />
     </div>
   )

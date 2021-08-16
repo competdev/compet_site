@@ -7,7 +7,7 @@ export default function menu() {
     <div>
       <div className={styles.navBar}>
         {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/menuLogo-Horizontal.png */}
-        <div><Link href="http://google.com"><a>
+        <div><Link href="../"><a>
           <img className={styles.menuLogo} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
         </a></Link>
         </div>
