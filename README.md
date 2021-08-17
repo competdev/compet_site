@@ -1,2 +1,2 @@
 # COMPET Site
-Repositório para backup e base para o Vercel o site do COMPET-MG
+Repositório para backup/base para upload no site da Vercel.
