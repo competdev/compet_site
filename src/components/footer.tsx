@@ -59,24 +59,27 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA TAMBÉM!</div>
+      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET!</div>
       <div className={styles.containerLinks}>
         <div className={styles.Links}>
-          <div className={styles.singleLink}><Link href="https://commitjr.com/"><a>Commit Jr.</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.enxurradadebits.cefetmg.br/"><a>Enxurrada de Bits</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.cefastaerospace.com/"><a>CEFAST AeroSpace</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
         </div>
 
         <div className={styles.Links}>
-          <div className={styles.singleLink}><Link href="https://www.instagram.com/cefastaerodesign/?hl=pt-br"><a>CEFAST AeroDesign</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.instagram.com/cefastbaja/?hl=pt-br"><a>CEFAST Baja</a></Link></div>
-          <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>Fórmula CEFAST</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>Eng. de Minas (Araxá)</a></Link></div>
+          <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>EAI (Araxá)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Civil (Curvelo)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Eng. Mecatrônica (Divinópolis)</a></Link></div>
         </div>
 
         <div className={styles.Links}>
-          <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>TrincaBotz</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.instagram.com/pacificbotz/"><a>Pacific Botz</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Ecofet</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.peteenepomuceno.com.br/"><a>Eng. Elétrica (Nepomuceno)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. de Controle e Automação (Leopoldina)</a></Link></div>
+          <div className={styles.singleLink}><Link href=""><a>Interdisciplinar (Timóteo)</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. Civil (Varginha)</a></Link></div>
         </div>
       </div>
     </div>
@@ -98,7 +101,7 @@ const renderSocialNetwork = () => {
 const renderLogos = () => {
   return (
     <div>
-      {renderDTILogo()}
+      {/* {renderDTILogo()} */}
     </div>
   )
 }
