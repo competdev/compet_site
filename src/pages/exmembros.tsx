@@ -1,9 +1,11 @@
 import axios from 'axios';
-import Relato from '../components/Relato';
 import styles from '../styles/ExMembros.module.css'
 import Menu from '../components/menu'
 import Footer from '../components/footer'
 import { useState } from 'react'
+import { Tooltip } from '@material-ui/core';
+
+
 
 export default function ExMembros({ dados, totalExMembros }) {
   let [openModal, setOpenModal] = useState(false);
@@ -59,13 +61,15 @@ export default function ExMembros({ dados, totalExMembros }) {
                       }
                     </div>
                     {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/default-photo.webp */}
-                    <div>
-                      {/* 
+                    <Tooltip title={data.depoimentos} placement="top" arrow>
+                      <div>
+                        {/* 
                         {data.photo == "" ? <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
                           : <img className={styles.foto} src={data.photo} />}
                        */}
-                      <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
-                    </div>
+                        <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                      </div>
+                    </Tooltip>
                   </div>
 
                 </div>
@@ -73,14 +77,12 @@ export default function ExMembros({ dados, totalExMembros }) {
               <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' +
                 data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
 
-
               <div className={styles.infoCompet}>
                 {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
                   <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
               </div>
-              {data.depoimentos.length != 0 ? <div className={styles.infoRelato} onClick={() => { setOpenModal(true), memberSelected = data.nome, console.log(data.nome) }}><strong>VER RELATO</strong></div>
-                : <div className={styles.infoRelatoEmpty}> - </div>}
+
             </div>
           ))}
         </div>
@@ -90,7 +92,6 @@ export default function ExMembros({ dados, totalExMembros }) {
         <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
         : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
       }
-      {openModal && <Relato closeModal={setOpenModal} memberRelato={memberSelected} />}
       <Footer />
     </div>
   )
