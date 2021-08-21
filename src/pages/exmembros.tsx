@@ -7,25 +7,23 @@ import { useState } from 'react'
 import { Tooltip } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 
+
 const LightTooltip = withStyles((theme) => ({
   tooltip: {
-    backgroundColor: theme.palette.common.white,
-    border: '1px solid #2e2e2e',
-    borderRadius: "18px",
-    padding: "30px",
-    margin: "50px 0",
-    color: "rgb(0, 0, 0)",
-    boxShadow: theme.shadows[1],
+    backgroundColor: "#004266",
+    borderRadius: "20px",
+    padding: "25px",
+    color: "#19DD39",
     maxWidth: 500,
-    fontSize: 16,
+    fontFamily: "Verdana",
+    fontSize: 15,
     textAlign: "justify"
   },
   arrow: {
     fontSize: 25,
     width: 25,
     "&::before": {
-      border: "1px solid #000",
-      backgroundColor: "#fff",
+      backgroundColor: "#004266",
       boxSizing: "border-box"
     }
   }
@@ -70,7 +68,7 @@ export default function ExMembros({ dados, totalExMembros }) {
         <div className={styles.membersArea}>
           {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
             lastBlank_space = data.nome.lastIndexOf(' '), key = data.id,
-            <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 1000 }} title={data.depoimentos} placement="top" arrow>
+            
               <div className={styles.membersCard}>
                 <div className={styles.areaPhoto}>
                   <div className={styles.infoPhoto}>
@@ -89,11 +87,13 @@ export default function ExMembros({ dados, totalExMembros }) {
                       {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/default-photo.webp */}
 
                       <div>
+                      <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 700 }} title={data.depoimentos} placement="top" arrow>
                         {/* 
                         {data.photo == "" ? <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
                           : <img className={styles.foto} src={data.photo} />}
                        */}
                         <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                        </LightTooltip>
                       </div>
 
                     </div>
@@ -106,12 +106,12 @@ export default function ExMembros({ dados, totalExMembros }) {
 
                 <div className={styles.infoCompet}>
                   {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
-                    <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
+                    <div> COMPET <strong className={styles.infoCompet}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
                     <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
                 </div>
 
               </div>
-            </LightTooltip>
+            
           ))}
         </div>
         <div className={styles.espHorizontRight}></div>
