@@ -94,12 +94,13 @@ const renderMemberArea = (dados, membersPage) => {
                 </div>
 
                 <div>
+                  {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
                   {data.depoimentos.length != 0 ?
                     <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 700 }} title={data.depoimentos} placement="top" arrow>
-                      <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                      <img className={styles.foto} src={data.url_imagem} />
                     </LightTooltip>
                     :
-                    <img className={styles.fotoSemDep} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                    <img className={styles.fotoSemDep} src={data.url_imagem} />
                   }
                 </div>
 

@@ -71,7 +71,8 @@ const renderCardScrum = (sMaster) => {
                   }
                 </div>
                 <div>
-                  <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                  {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
+                  <img className={styles.foto} src={data.url_imagem} />
                 </div>
               </div>
 
@@ -87,7 +88,6 @@ const renderCardScrum = (sMaster) => {
               <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
           </div>
           <div className={styles.networkGroup}>
-            {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/mail-favicon.png */}
             {data.email != "" ?
               <div>
                 <Link href={'mailto:' + data.email}><a title='Email'>
@@ -96,7 +96,6 @@ const renderCardScrum = (sMaster) => {
               </div>
               : <div className={styles.networkBlank}></div>}
 
-            {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
             {data.lates != "" ?
               <div>
                 <Link href={data.lates}><a title='Lattes'>
@@ -106,7 +105,6 @@ const renderCardScrum = (sMaster) => {
               : <div className={styles.networkBlank}></div>}
 
 
-            {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
             {data.linkedin != "" ?
               <div>
                 <Link href={data.linkedin}><a title='LinkedIn'>
@@ -162,13 +160,9 @@ const renderMembros = (membros, membersPage) => {
                         <div className={styles.infoIntercamb}></div>
                       }
                     </div>
-                    {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/exmembros/default-photo.webp */}
                     <div>
-                      {/* 
-                        {data.photo == "" ? <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
-                          : <img className={styles.foto} src={data.photo} />}
-                       */}
-                      <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
+                      {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
+                      <img className={styles.foto} src={data.url_imagem} />
                     </div>
                   </div>
 
@@ -193,7 +187,6 @@ const renderMembros = (membros, membersPage) => {
                   </div>
                   : <div></div>}
 
-                {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/lattes-favicon.png */}
                 {data.lates != "" ?
                   <div>
                     <Link href={data.lates}><a title='Lattes'>
@@ -202,8 +195,6 @@ const renderMembros = (membros, membersPage) => {
                   </div>
                   : <div></div>}
 
-
-                {/* Adicionar o caminho relativo correto: ---->    ../styles/imgs/social_networks/linkedin-favicon.png */}
                 {data.linkedin != "" ?
                   <div>
                     <Link href={data.linkedin}><a title='LinkedIn'>
