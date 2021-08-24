@@ -5,7 +5,7 @@
 
 .groupDiv {
   height: 100%;
-  background-color: #e4e4e47a;
+  background-color: #f5f5f5;
 }
 
 .mainHeader {
@@ -61,7 +61,7 @@
 .membersCard {
   padding-top: 10px;
   margin: 50px;
-  height: 145px;
+  height: 140px;
   font-size: 14px;
   border-radius: 10px;
   width: 230px;
@@ -81,10 +81,6 @@
   text-align: center;
   margin-top: -20px;
   font-size: 16px;
-  font-family: "Codec Pro Regular";
-}
-
-.infoCompetNUM {
   font-family: "Codec Pro Regular";
 }
 
@@ -209,6 +205,11 @@
   border-radius: 90px;
   border: 4px solid #19dd39;
   margin-bottom: 50px;
+}
+
+.loadMore:hover .lineRecolher {
+  -webkit-transform: scale(0.820);
+  transition: all 600ms ease-in-out;
 }
 
 .lineRecolher {

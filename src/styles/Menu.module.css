@@ -16,11 +16,12 @@
   border-bottom-left-radius: 20%;
   border-bottom-right-radius: 20%;
   font-family: "Codec Pro Regular";
+  text-align: center;
 }
 
 .menuLogo {
-  margin-top: 10px;
-  margin-left: 190px;
+  margin-top: 7%;
+  margin-left: 150%;
   height: 72px;
   width: 175px;
 }
@@ -35,17 +36,18 @@
 }
 
 .groupPage {
+  text-align: center;
   font-weight: bold;
   color: #004266;
   justify-content: center;
   align-items: center;
   display: inline-flex;
   font-size: 20px;
-  margin-left: 20%;
+  margin-left: 30%;
 }
 
 .singlePage {
-  margin-left: 70px;
+  margin: 32px;
 }
 
 .groupPage div:hover {

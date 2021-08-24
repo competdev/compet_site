@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Footer from '../components/footer'
 
+let firstBlank_space;
+let lastBlank_space;
 
 export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
   const [membersPage, setMembersPage] = useState(8);
@@ -15,10 +17,8 @@ export default function Equipe({ membros, sMaster, totalMembrosAtivos }) {
       {renderCabecalho()}
       {renderScrumMaster(sMaster)}
       {renderMembros(membros, membersPage)}
-      {membersPage < totalMembrosAtivos ?
-        <div onClick={() => setMembersPage(membersPage + 8)} className={styles.loadMore}><strong>Ver mais<hr className={styles.line}></hr></strong></div>
-        : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
-      }
+      {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
+
       <Footer />
     </div>
   )
@@ -138,7 +138,7 @@ const renderMembros = (membros, membersPage) => {
     <div>
       <div className={styles.titleBodyMembers}><strong> Membros </strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizontLeft}></div>
+        <div className={styles.espHorizont}></div>
 
         <div className={styles.membersArea}>
           {membros.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
@@ -207,7 +207,23 @@ const renderMembros = (membros, membersPage) => {
 
           ))}
         </div>
-        <div className={styles.espHorizontRight}></div>
+        <div className={styles.espHorizont}></div>
+      </div>
+    </div>
+  )
+}
+
+const renderVerMais = (membersPage, setMembersPage, totalMembrosAtivos) => {
+  return (
+    <div>
+      <div className={styles.loadArea}>
+        {membersPage < totalMembrosAtivos ?
+          <div onClick={() => setMembersPage(membersPage + 8)}
+            className={styles.loadMore}>
+            <strong>Ver mais<hr className={styles.line}></hr></strong>
+          </div>
+          : <div onClick={() => setMembersPage(8)} className={styles.loadMore}><strong>Recolher<hr className={styles.lineRecolher}></hr></strong></div>
+        }
       </div>
     </div>
   )
@@ -220,20 +236,14 @@ Equipe.getInitialProps = async () => {
     'http://localhost:3000/api/membros'
   );
 
-  let membrosAtuais = [{}];
-  let scrumMaster = [{}]
+  const membrosAtuais = response.data.filter(data => {
+    return (data.membro_ativo == true && data.scrum_master == false);
+  });
 
-  let i = 0;
-  let j = 0;
-  for (var k in response.data) {
-    if (response.data[k].membro_ativo == true && response.data[k].scrum_master == true) {
-      scrumMaster[j] = response.data[k];
-    }
-    if (response.data[k].membro_ativo == true && response.data[k].scrum_master == false) {
-      membrosAtuais[i] = response.data[k];
-      i++;
-    }
-  }
+  const scrumMaster = response.data.filter(data => {
+    return (data.membro_ativo == true && data.scrum_master == true);
+  });
+
 
   function byName(member1, member2) {
     if (member1.nome < member2.nome)
@@ -242,11 +252,9 @@ Equipe.getInitialProps = async () => {
       return 1;
     return 0;
   }
+
   membrosAtuais.sort(byName)
-  console.log(membrosAtuais)
-  return { membros: membrosAtuais, sMaster: scrumMaster, totalMembrosAtivos: i }
+  return { membros: membrosAtuais, sMaster: scrumMaster, totalMembrosAtivos: membrosAtuais.length }
 };
 
-let firstBlank_space;
-let lastBlank_space;
 

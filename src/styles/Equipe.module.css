@@ -57,12 +57,7 @@
   width: 100%;
 }
 
-.espHorizontLeft {
-  margin-left: 0px;
-  width: 100%;
-}
-
-.espHorizontRight {
+.espHorizont {
   margin-left: 0px;
   width: 100%;
 }
@@ -88,7 +83,7 @@
 
 .infoName {
   text-align: center;
-  padding-top: 5px;
+  margin-top: 32px;
   font-size: 22px;
 }
 
@@ -97,10 +92,6 @@
   margin-top: -20px;
   font-size: 16px;
   font-family: "Codec Pro Regular";
-}
-
-.infoCompetNUM {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .infoRelato {
@@ -220,13 +211,26 @@
   align-items: center;
 }
 
+.loadArea {
+  text-align: center;
+  width: 100%;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+}
+
 .loadMore {
-  width: 50%;
-  margin-top: 25px;
+  margin-top: 30px;
   font-size: 30px;
   font-family: "Codec Pro Regular";
   text-align: center;
-  width: 100%;
+  width: 12%;
+  margin-left: 44%;
+}
+
+.loadMore:hover .line {
+  -webkit-transform: scale(0.820);
+  transition: all 600ms ease-in-out;
 }
 
 .line {
@@ -234,8 +238,13 @@
   text-align: center;
   width: 210px;
   border-radius: 90px;
-  border: 4px solid #19DD39;
+  border: 4px solid #19dd39;
   margin-bottom: 50px;
+}
+
+.loadMore:hover .lineRecolher {
+  -webkit-transform: scale(0.820);
+  transition: all 600ms ease-in-out;
 }
 
 .lineRecolher {
@@ -245,8 +254,4 @@
   border-radius: 90px;
   border: 4px solid #004067;
   margin-bottom: 50px;
-}
-
-.loadMore:hover {
-  -webkit-transform: scale(0.845);
 }

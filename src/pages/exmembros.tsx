@@ -114,8 +114,8 @@ const renderMemberArea = (dados, membersPage) => {
 
           <div className={styles.infoCompet}>
             {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
-              <div> COMPET <strong className={styles.infoCompet}>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong> </div> :
-              <div> COMPET <strong className={styles.infoCompetNUM}>{data.data_inicio.split("-")[0]} </strong> </div>}
+              <div> COMPET <strong>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong></div> :
+              <div> COMPET <strong>{data.data_inicio.split("-")[0]} </strong></div>}
           </div>
 
         </div>
@@ -143,20 +143,18 @@ const renderBodyPage = (dados, membersPage) => {
 const renderVerMais = (membersPage, setMembersPage, totalExMembros) => {
   return (
     <div>
-      {
-        membersPage < totalExMembros ?
-          <div className={styles.loadArea}>
-            <div onClick={() => setMembersPage(membersPage + 8)}
-              className={styles.loadMore}>
-              <strong>Ver mais<hr className={styles.line}></hr></strong>
-            </div>
+      <div className={styles.loadArea}>
+        {membersPage < totalExMembros ?
+          <div onClick={() => setMembersPage(membersPage + 8)}
+            className={styles.loadMore}>
+            <strong>Ver mais<hr className={styles.line}></hr></strong>
           </div>
-          : <div className={styles.loadArea}>
-            <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
-              <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
-            </div>
+          :
+          <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
+            <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
           </div>
-      }
+        }
+      </div>
     </div>
   )
 }
@@ -167,14 +165,9 @@ ExMembros.getInitialProps = async () => {
     'http://localhost:3000/api/membros'
   );
 
-  let exMembros = [{}];
-  let i = 0;
-  for (var k in response.data) {
-    if (response.data[k].membro_ativo == false) {
-      exMembros[i] = response.data[k];
-      i++;
-    }
-  }
+  const exMembros = response.data.filter(data => {
+    return (data.membro_ativo == false);
+  });
 
   function byName(member1, member2) {
     if (member1.nome < member2.nome)
@@ -183,9 +176,10 @@ ExMembros.getInitialProps = async () => {
       return 1;
     return 0;
   }
+
   exMembros.sort(byName);
-  console.log(exMembros)
-  return { dados: exMembros, totalExMembros: i }
+  console.log(exMembros.length)
+  return { dados: exMembros, totalExMembros: exMembros.length }
 };
 
 

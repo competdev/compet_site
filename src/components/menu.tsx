@@ -11,7 +11,6 @@ export default function menu() {
           <img className={styles.menuLogo} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
         </a></Link>
         </div>
-        <div className={styles.blankSpace}></div>
         <div className={styles.groupPage}>
           <div className={styles.singlePage}><Link href="../certificados"><a>Certificados</a></Link></div>
           <div className={styles.singlePage}><Link href="../blog"><a>Blog</a></Link></div>
