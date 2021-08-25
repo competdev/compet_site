@@ -59,7 +59,7 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET!</div>
+      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
       <div className={styles.containerLinks}>
         <div className={styles.Links}>
           <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
