@@ -3,6 +3,11 @@
   src: url("fonts/CodecPro-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Verdana";
+  src: url("fonts/Verdana.ttf");
+}
+
 .groupDiv {
   height: 100%;
   background-color: #f5f5f5;
@@ -19,85 +24,23 @@
 .subtitleSpace {
   padding-left: 38%;
   padding-top: 47px;
-  font-size: 17px;
+  font-size: 15px;
   height: 100%;
   width: 100%;
 }
 
-.alignLegend {
+.alignSubtitle {
   display: inline-flex;
-  margin-left: 520px;
+  margin-left: 80%;
+  margin-top: 2%
 }
 
-.alignLegend:hover {
+.alignSubtitle:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
-}
-
-.bodyGroup {
-  display: inline-flex;
-  width: 100%;
-}
-
-.espHorizontLeft {
-  margin-left: 0px;
-  width: 100%;
-}
-
-.espHorizontRight {
-  width: 80%;
-}
-
-.membersArea {
-  text-align: center;
-  width: 500%;
-  margin-top: -20px;
-}
-
-.membersCard {
-  padding-top: 10px;
-  margin: 50px;
-  height: 140px;
-  font-size: 14px;
-  border-radius: 10px;
-  width: 230px;
-  background-color: rgb(255, 255, 255);
-  display: inline-block;
-  color: #151515;
-  margin-top: 70px;
-}
-
-.infoName {
-  text-align: center;
-  margin-top: 7px;
-  font-size: 22px;
-}
-
-.infoCompet {
-  text-align: center;
-  margin-top: -20px;
-  font-size: 16px;
-  font-family: "Codec Pro Regular";
-}
-
-.networkGroup {
-  padding-top: 15px;
-  display: inline-flex;
-}
-
-.networkFavicon {
-  margin: 5px;
-  height: 25px;
-  width: 25px;
-}
-
-.networkBlank {
-  margin: 5px;
-  height: 30px;
-  width: 30px;
 }
 
 .infoScrum {
@@ -134,45 +77,22 @@
   font-family: "Codec Pro Regular";
 }
 
-.infoPhoto {
-  width: 230px;
-}
-
-.foto {
-  margin-top: -55px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-}
-
-.fotoSemDep {
-  margin-top: -55px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-}
-
-.foto:hover {
-  transition: all 600ms ease;
-  transform: scale(1.2);
-  border-radius: 42%;
-}
-
-.alignPhotoArea {
+.bodyGroup {
   display: inline-flex;
-}
-
-.alignPhotoArea2 {
-  margin-left: -300px;
-}
-
-.container {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+}
+
+.espHorizont {
+  margin-left: 0px;
+  width: 22%;
+}
+
+.membersArea {
+  align-self: center;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: -20px;
 }
 
 .loadArea {

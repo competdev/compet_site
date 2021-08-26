@@ -1,12 +1,36 @@
 import axios from 'axios';
-import styles from '../styles/ExMembros.module.css'
-import { withStyles } from '@material-ui/core/styles';
-import Menu from '../components/menu'
-import Footer from '../components/footer'
 import { useState } from 'react'
-import { Tooltip } from '@material-ui/core';
-import Fade from '@material-ui/core/Fade';
+import styles from '../styles/ExMembros.module.css'
+import Menu from '../components/menu'
+import MemberCard from '../components/memberCard'
+import Footer from '../components/footer'
 
+const socialNetworks = false;
+
+// Função para acessar a API:
+ExMembros.getInitialProps = async () => {
+  const response = await axios.get(
+    'http://localhost:3000/api/membros'
+  );
+
+  const exMembros = response.data.filter(data => {
+    return (data.membro_ativo == false);
+  });
+
+  function byName(member1, member2) {
+    if (member1.nome < member2.nome)
+      return -1;
+    if (member1.nome > member2.nome)
+      return 1;
+    return 0;
+  }
+
+  exMembros.sort(byName);
+  console.log(exMembros.length)
+  return { dados: exMembros, totalExMembros: exMembros.length }
+};
+
+// Função principal exportando o html da pag.
 export default function ExMembros({ dados, totalExMembros }) {
   let [membersPage, setMembersPage] = useState(8);
 
@@ -22,105 +46,39 @@ export default function ExMembros({ dados, totalExMembros }) {
   )
 }
 
-const LightTooltip = withStyles((theme) => ({
-  tooltip: {
-    backgroundColor: "#004266",
-    borderRadius: "20px",
-    padding: "25px",
-    color: "#fdfdfd",
-    maxWidth: 500,
-    fontFamily: "Verdana",
-    fontSize: 15,
-    textAlign: "justify"
-  },
-  arrow: {
-    fontSize: 25,
-    width: 25,
-    "&::before": {
-      backgroundColor: "#004266",
-      boxSizing: "border-box"
-    }
-  }
-}))(Tooltip);
-
 const renderCabecalho = () => {
   return (
     <div>
       <div className={styles.mainHeader}>
         <div>
-          <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
+          {renderTitleImage()}
         </div>
-
         <div className={styles.subtitleSpace}>
-          <div className={styles.alignLegend}>
-            <div className={styles.infoScrum}></div>
-            <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
-          </div>
-          <p></p>
-
-          <div className={styles.alignLegend}>
-            <div className={styles.infoIntercamb}></div>
-            <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
-          </div>
+          {renderSubtitleTop()}
         </div>
       </div>
     </div>
   )
 }
 
-const renderMemberArea = (dados, membersPage) => {
-  let key;
-  let firstBlank_space;
-  let lastBlank_space;
+const renderTitleImage = () => {
+  return (
+    <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
+  )
+}
+
+const renderSubtitleTop = () => {
   return (
     <div>
-      {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
-        lastBlank_space = data.nome.lastIndexOf(' '), key = data.id,
+      <div className={styles.alignSubtitle}>
+        <div className={styles.infoScrum}></div>
+        <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
+      </div>
 
-        <div className={styles.membersCard}>
-          <div className={styles.areaPhoto}>
-            <div className={styles.infoPhoto}>
-              <div className={styles.container}>
-                <div>
-                  {data.scrum_master == false ? <div></div> :
-                    <div className={styles.alignPhotoArea}>
-                      <div className={styles.infoScrum}></div>
-                      <div className={styles.alignPhotoArea2}></div>
-                    </div>
-                  }
-                  {data.intercambio == false ? <></> :
-                    <div className={styles.infoIntercamb}></div>
-                  }
-                </div>
-
-                <div>
-                  {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
-                  {data.depoimentos.length != 0 ?
-                    <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 700 }} title={data.depoimentos} placement="top" arrow>
-                      <img className={styles.foto} src={data.url_imagem} />
-                    </LightTooltip>
-                    :
-                    <img className={styles.fotoSemDep} src={data.url_imagem} />
-                  }
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
-          <p className={styles.infoName}> <strong>{data.nome.substring(0, firstBlank_space) + ' ' +
-            data.nome.substring(lastBlank_space, data.nome.length)}</strong></p>
-
-          <div className={styles.infoCompet}>
-            {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] ?
-              <div> COMPET <strong>{data.data_inicio.split("-")[0]} - {data.data_fim.split("-")[0]} </strong></div> :
-              <div> COMPET <strong>{data.data_inicio.split("-")[0]} </strong></div>}
-          </div>
-
-        </div>
-
-      ))}
+      <div className={styles.alignSubtitle}>
+        <div className={styles.infoIntercamb}></div>
+        <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
+      </div>
     </div>
   )
 }
@@ -129,13 +87,20 @@ const renderBodyPage = (dados, membersPage) => {
   return (
     <div>
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizontLeft}></div>
+        <div className={styles.espHorizont}></div>
         <div className={styles.membersArea}>
           {renderMemberArea(dados, membersPage)}
         </div>
-        <div className={styles.espHorizontRight}></div>
+        <div className={styles.espHorizont}></div>
       </div>
+    </div>
+  )
+}
 
+const renderMemberArea = (dados, membersPage) => {
+  return (
+    <div>
+      <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
     </div>
   )
 }
@@ -160,27 +125,7 @@ const renderVerMais = (membersPage, setMembersPage, totalExMembros) => {
 }
 
 
-ExMembros.getInitialProps = async () => {
-  const response = await axios.get(
-    'http://localhost:3000/api/membros'
-  );
 
-  const exMembros = response.data.filter(data => {
-    return (data.membro_ativo == false);
-  });
-
-  function byName(member1, member2) {
-    if (member1.nome < member2.nome)
-      return -1;
-    if (member1.nome > member2.nome)
-      return 1;
-    return 0;
-  }
-
-  exMembros.sort(byName);
-  console.log(exMembros.length)
-  return { dados: exMembros, totalExMembros: exMembros.length }
-};
 
 
 

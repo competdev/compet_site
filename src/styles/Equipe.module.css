@@ -13,20 +13,24 @@
   display: inline-flex;
   width: 100%;
   vertical-align: center;
+  height: 175px;
 }
 
 .subtitleSpace {
-  margin-left: 38%;
-  margin-top: 47px;
-  font-size: 17px;
+  padding-left: 38%;
+  padding-top: 47px;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
 }
 
-.alignLegend {
+.alignSubtitle {
   display: inline-flex;
-  margin-left: 520px;
+  margin-left: 80%;
+  margin-top: 2%
 }
 
-.alignLegend:hover {
+.alignSubtitle:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -134,7 +138,7 @@
 }
 
 .infoScrum {
-  margin-left: -50px;
+  margin-left: -35px;
   text-align: left;
   height: 15px;
   width: 15px;
@@ -143,7 +147,7 @@
 }
 
 .infoIntercamb {
-  margin-left: -50px;
+  margin-left: -35px;
   text-align: center;
   height: 16px;
   width: 16px;
