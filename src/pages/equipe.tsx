@@ -7,21 +7,22 @@ import Footer from '../components/footer'
 
 const socialNetworks = true;
 
-let firstBlank_space;
-let lastBlank_space;
-
 Equipe.getInitialProps = async () => {
   const response = await axios.get(
     'http://localhost:3000/api/membros'
   );
 
   const membrosAtuais = response.data.filter(data => {
-    return (data.membro_ativo == true && data.scrum_master == false);
+    return (data.membro_ativo == true && data.scrum_master == false && data.tutor == false);
   });
 
   const scrumMaster = response.data.filter(data => {
     return (data.membro_ativo == true && data.scrum_master == true);
   });
+
+  const tutores = response.data.filter(data => {
+    return (data.membro_ativo == true && data.tutor == true);
+  })
 
 
   function byName(member1, member2) {
@@ -33,17 +34,21 @@ Equipe.getInitialProps = async () => {
   }
 
   membrosAtuais.sort(byName)
-  return { membros: membrosAtuais, scrumMaster: scrumMaster, totalMembrosAtivos: membrosAtuais.length }
+  tutores.sort(byName);
+  return { membros: membrosAtuais, scrumMaster: scrumMaster, tutores: tutores, totalMembrosAtivos: membrosAtuais.length }
 };
 
-export default function Equipe({ membros, scrumMaster, totalMembrosAtivos }) {
+export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtivos }) {
   const [membersPage, setMembersPage] = useState(8);
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
       <Menu />
       {renderCabecalho()}
-      {renderScrumMaster(scrumMaster)}
+      <div className={styles.scrumTutor}>
+        {renderTutores(tutores)}
+        {renderScrumMaster(scrumMaster)}
+      </div>
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
       <Footer />
@@ -91,13 +96,25 @@ const renderSubtitleTop = () => {
 const renderScrumMaster = (scrumMaster) => {
   return (
     <div>
-      <div className={styles.titleBody}><strong> Scrum Master </strong></div>
+      <div className={styles.titleBody}><strong>Scrum Master</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizontLeft}></div>
         <div className={styles.membersArea}>
           <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
         </div>
-        <div className={styles.espHorizontRight}></div>
+
+      </div>
+    </div>
+  )
+}
+
+const renderTutores = (tutores) => {
+  return (
+    <div>
+      <div className={styles.titleBody}><strong>Tutores</strong></div>
+      <div className={styles.bodyGroup}>
+        <div className={styles.membersArea}>
+          <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+        </div>
       </div>
     </div>
   )
@@ -106,10 +123,9 @@ const renderScrumMaster = (scrumMaster) => {
 const renderMembros = (membros, membersPage) => {
   return (
     <div>
-      <div className={styles.titleBodyMembers}><strong> Membros </strong></div>
+      <div className={styles.titleBodyMembers}><strong>Membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.espHorizont}></div>
-
         <div className={styles.membersArea}>
           <MemberCard dados={membros} membersPage={membersPage} socialNetworks={socialNetworks} />
         </div>

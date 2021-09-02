@@ -2,7 +2,10 @@ import styles from '../styles/MemberCard.module.css'
 import { Tooltip } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
+import Grow from '@material-ui/core/Grow';
+import { Transition } from 'react-transition-group';
 import Link from 'next/link'
+import React from 'react';
 
 // Arrow Function para personalização do ToolTip dos depoimentos.
 const LightTooltip = withStyles((theme) => ({
@@ -26,8 +29,11 @@ const LightTooltip = withStyles((theme) => ({
   }
 }))(Tooltip);
 
+
+
 // Função principal exportando o html da pag.
 export default function memberCard({ dados, membersPage, socialNetworks }) {
+
   let firstBlank_space;
   let lastBlank_space;
 

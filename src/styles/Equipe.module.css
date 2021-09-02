@@ -42,18 +42,26 @@
   width: 100%;
   text-align: center;
   font-size: 40px;
-  color: #151515;
+  color: #003450;
   margin-top: -60px;
   padding-bottom: 20px;
 }
 
 .titleBodyMembers {
   width: 100%;
-  padding-left: 19%;
-  margin-top: -2%;
+  padding-left: 18%;
+  margin-top: 1%;
   font-size: 30px;
   color: #151515;
   padding-bottom: 20px;
+}
+
+.scrumTutor {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .bodyGroup {
@@ -72,7 +80,6 @@
 }
 
 .membersCard {
-  padding-top: 10px;
   margin: 50px;
   height: 140px;
   font-size: 14px;
@@ -81,7 +88,6 @@
   background-color: rgb(255, 255, 255);
   display: inline-block;
   color: #151515;
-  margin-top: 70px;
 }
 
 .infoName {
@@ -233,7 +239,7 @@
 
 .loadMore:hover .line {
   -webkit-transform: scale(0.820);
-  transition: all 600ms ease-in-out;
+  transition: all 2s linear, all 3s;
 }
 
 .line {

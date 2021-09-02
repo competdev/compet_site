@@ -14,8 +14,12 @@ ExMembros.getInitialProps = async () => {
   );
 
   const exMembros = response.data.filter(data => {
-    return (data.membro_ativo == false);
+    return (data.membro_ativo == false && data.tutor == false);
   });
+
+  const tutores = response.data.filter(data => {
+    return (data.membro_ativo == false && data.tutor == true);
+  })
 
   function byName(member1, member2) {
     if (member1.nome < member2.nome)
@@ -26,12 +30,12 @@ ExMembros.getInitialProps = async () => {
   }
 
   exMembros.sort(byName);
-  console.log(exMembros.length)
-  return { dados: exMembros, totalExMembros: exMembros.length }
+  tutores.sort(byName);
+  return { dados: exMembros, tutores: tutores, totalExMembros: exMembros.length }
 };
 
 // Função principal exportando o html da pag.
-export default function ExMembros({ dados, totalExMembros }) {
+export default function ExMembros({ dados, tutores, totalExMembros }) {
   let [membersPage, setMembersPage] = useState(8);
 
   return (
@@ -39,7 +43,7 @@ export default function ExMembros({ dados, totalExMembros }) {
       <title>COMPET | Ex-membros</title>
       <Menu />
       {renderCabecalho()}
-      {renderBodyPage(dados, membersPage)}
+      {renderBodyPage(dados, tutores, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalExMembros)}
       <Footer />
     </div >
@@ -83,15 +87,30 @@ const renderSubtitleTop = () => {
   )
 }
 
-const renderBodyPage = (dados, membersPage) => {
+const renderBodyPage = (dados, tutores, membersPage) => {
   return (
     <div>
+      {renderTutores(tutores)}
+      <div className={styles.titleBodyMembers}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.espHorizont}></div>
         <div className={styles.membersArea}>
           {renderMemberArea(dados, membersPage)}
         </div>
         <div className={styles.espHorizont}></div>
+      </div>
+    </div>
+  )
+}
+
+const renderTutores = (tutores) => {
+  return (
+    <div>
+      <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
+      <div className={styles.bodyGroup}>
+        <div className={styles.membersArea}>
+          <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+        </div>
       </div>
     </div>
   )

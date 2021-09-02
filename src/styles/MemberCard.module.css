@@ -43,6 +43,7 @@
 }
 
 .networkFavicon:hover {
+  transition: all 300ms ease;
   -webkit-transform: scale(1.4);
   -moz-transform: scale(1.4);
   -o-transform: scale(1.4);
