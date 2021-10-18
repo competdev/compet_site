@@ -24,7 +24,6 @@ Equipe.getInitialProps = async () => {
     return (data.membro_ativo == true && data.tutor == true);
   })
 
-
   function byName(member1, member2) {
     if (member1.nome < member2.nome)
       return -1;
@@ -45,9 +44,11 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
       <title>COMPET | Membros atuais</title>
       <Menu />
       {renderCabecalho()}
-      <div className={styles.scrumTutor}>
-        {renderTutores(tutores)}
-        {renderScrumMaster(scrumMaster)}
+      <div className={styles.containerMembers}>
+        <div className={styles.scrumTutor}>
+          {renderTutores(tutores)}
+          {renderScrumMaster(scrumMaster)}
+        </div>
       </div>
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
@@ -58,13 +59,14 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
 
 const renderCabecalho = () => {
   return (
-    <div className={styles.mainHeader}>
-      <div>
-        {renderTitleImage()}
-      </div>
-
-      <div className={styles.subtitleSpace}>
-        {renderSubtitleTop()}
+    <div>
+      <div className={styles.mainHeader}>
+        <div>
+          {renderTitleImage()}
+        </div>
+        <div className={styles.subtitleSpace}>
+          {renderSubtitleTop()}
+        </div>
       </div>
     </div>
   )
@@ -78,6 +80,8 @@ const renderTitleImage = () => {
   )
 }
 
+
+
 const renderSubtitleTop = () => {
   return (
     <div>
@@ -85,6 +89,7 @@ const renderSubtitleTop = () => {
         <div className={styles.infoScrum}></div>
         <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
       </div>
+
       <div className={styles.alignSubtitle}>
         <div className={styles.infoIntercamb}></div>
         <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
@@ -98,10 +103,7 @@ const renderScrumMaster = (scrumMaster) => {
     <div>
       <div className={styles.titleBody}><strong>Scrum Master</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.membersArea}>
-          <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
-        </div>
-
+        <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
       </div>
     </div>
   )
@@ -112,9 +114,7 @@ const renderTutores = (tutores) => {
     <div>
       <div className={styles.titleBody}><strong>Tutores</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.membersArea}>
-          <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
-        </div>
+        <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
       </div>
     </div>
   )
@@ -125,11 +125,12 @@ const renderMembros = (membros, membersPage) => {
     <div>
       <div className={styles.titleBodyMembers}><strong>Membros</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizont}></div>
-        <div className={styles.membersArea}>
-          <MemberCard dados={membros} membersPage={membersPage} socialNetworks={socialNetworks} />
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            <MemberCard dados={membros} membersPage={membersPage} socialNetworks={socialNetworks} />
+          </div>
         </div>
-        <div className={styles.espHorizont}></div>
+
       </div>
     </div>
   )

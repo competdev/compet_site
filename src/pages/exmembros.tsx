@@ -93,11 +93,11 @@ const renderBodyPage = (dados, tutores, membersPage) => {
       {renderTutores(tutores)}
       <div className={styles.titleBodyMembers}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.espHorizont}></div>
-        <div className={styles.membersArea}>
-          {renderMemberArea(dados, membersPage)}
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            {renderMemberArea(dados, membersPage)}
+          </div>
         </div>
-        <div className={styles.espHorizont}></div>
       </div>
     </div>
   )
@@ -106,9 +106,10 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 const renderTutores = (tutores) => {
   return (
     <div>
+
       <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
       <div className={styles.bodyGroup}>
-        <div className={styles.membersArea}>
+        <div className={styles.containerMembers}>
           <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
         </div>
       </div>
