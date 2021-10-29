@@ -1,19 +1,57 @@
 import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
 
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
-export default function Footer() {
+
+// Usage
+function App() {
+  const size = useWindowSize();
+
   return (
     <div>
-      <div className={styles.footer}>
-        <div className={styles.container}>
-          {renderTextLinks()}
-          {renderSocialNetwork()}
-          {renderLogos()}
-        </div>
-        {renderAdressCEFET()}
+      {size.width}px / {size.height}px
+    </div>
+  );
+}
+
+// Hook
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+  return windowSize;
+}
+
+export default function Footer() {
+  return (
+    <div className={styles.footer}>
+      {useWindowSize().width < 1100 ? <div>{renderExtraInfo()}</div> : <></>}
+      <div className={styles.container}>
+        {renderTextLinks()}
+        {renderSocialNetwork()}
+        {useWindowSize().width > 1100 ? <div>{renderExtraInfo()}</div> : <></>}
       </div>
+      {renderAdressCEFET()}
     </div>
   )
 }
@@ -23,7 +61,6 @@ const renderTextLinks = () => {
     <div className={styles.container}>
       {renderCEFETInfo()}
       {renderDECOMInfo()}
-      {renderExtraInfo()}
     </div>
   )
 }
@@ -32,7 +69,7 @@ const renderTextLinks = () => {
 const renderCEFETInfo = () => {
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle}>CEFET</div>
+      <div className={styles.sectionTitle}>CEFET-MG</div>
       <div className={styles.Links}>
         <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
         <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
@@ -94,23 +131,6 @@ const renderSocialNetwork = () => {
       <Link href={'https://www.linkedin.com/in/competcefetmg/'}><a title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/4jY3pbg/linkedin-icon.png" /></a></Link>
       <Link href={'https://www.facebook.com/competcefetmg'}><a title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Y7KDkXh/facebook-icon.png" /></a></Link>
       <Link href={'https://twitter.com/compet_cefet'}><a title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/DMLw3nV/twitter-icon.png" /></a></Link>
-    </div>
-  )
-}
-
-const renderLogos = () => {
-  return (
-    <div>
-      {/* {renderDTILogo()} */}
-    </div>
-  )
-}
-
-const renderDTILogo = () => {
-  return (
-    <div className={styles.dtiInfo}>
-      <div className={styles.sectionTitle}>WEBSITE FEITO EM PARCERIA COM:</div>
-      <Link href={'https://www.dtidigital.com.br/'}><a title='DTI Digital'><img className={styles.logosExterna} src="https://i.ibb.co/RNCfgLN/dti-logo.png" /></a></Link>
     </div>
   )
 }

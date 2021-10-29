@@ -27,7 +27,6 @@
 .sectionTitle {
   font-weight: bold;
   margin-top: 10px;
-  text-align: left;
 }
 
 .CEFETinfo {
@@ -105,4 +104,16 @@
 
 .logosExterna:hover {
   transform: scale(1.2);
+}
+
+@media (max-width: 1100px) {
+  .singleLink {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .sectionTitle {
+    font-size: 16px;
+  }
 }
