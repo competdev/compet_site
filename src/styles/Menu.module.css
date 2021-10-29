@@ -3,30 +3,35 @@
   src: url("fonts/CodecPro-Regular.ttf");
 }
 
-.navBar {
+.menu_body {
+  width: 100%;
   z-index: 1000;
-  overflow: hidden;
   position: fixed;
   top: 0;
-  display: inline-flex;
-  background-color: #ffffff;
-  width: 100%;
-  height: 99px;
-  box-shadow: 0px -28px 30px #000000;
-  border-bottom-left-radius: 20%;
-  border-bottom-right-radius: 20%;
-  font-family: "Codec Pro Regular";
-  text-align: center;
 }
 
-.menuLogo {
-  margin-top: 7%;
-  margin-left: 150%;
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 110px;
+  background-color: rgb(252, 252, 252);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  box-shadow: 0px -13px 20px #000000;
+}
+
+.logo img {
+  margin-left: 130%;
   height: 72px;
   width: 175px;
 }
 
-.menuLogo:hover {
+.logo img:hover {
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -o-transform: scale(1.2);
@@ -35,26 +40,72 @@
   transition: all 400ms ease-in-out;
 }
 
-.groupPage {
-  text-align: center;
+.nav_list {
+  top: 6vh;
+  display: flex;
+  list-style: none;
+  margin-right: 7%;
+  font-family: "Codec Pro Regular";
+  font-size: 20px;
   font-weight: bold;
   color: #004266;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-  font-size: 20px;
-  margin-left: 30%;
 }
 
-.singlePage {
-  margin: 32px;
+.link {
+  margin: 20px;
 }
 
-.groupPage div:hover {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  transition: all 300ms ease-in-out;
+.link:hover {
+  opacity: 0.8;
+  text-decoration: dashed;
+  color: rgb(111, 219, 48);
+}
+
+.mobile_menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile_menu div {
+  width: 32px;
+  height: 2px;
+  background-color: #004266;
+  margin: 8px;
+}
+
+@media (max-width: 1300px) {
+  .mobile_menu {
+    display: block;
+    margin-right: 7%;
+  }
+  .nav_list {
+    position: absolute;
+    top: 7vh;
+    right: -80px;
+    width: 40vw;
+    height: 92vh;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom-left-radius: 20%;
+  }
+  .nav_list li {
+    margin-left: 0;
+  }
+}
+
+.nav_list.active {
+  transform: translateX(0);
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    margin-left: 30%;
+  }
+  .nav_list {
+    width: 80vw;
+    right: -37px;
+    top: 8vh;
+  }
 }
