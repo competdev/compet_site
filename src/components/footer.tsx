@@ -1,66 +1,30 @@
 import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import wSize from '../util/windowsSize'
 
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
-
-// Usage
-function App() {
-  const size = useWindowSize();
-
-  return (
-    <div>
-      {size.width}px / {size.height}px
-    </div>
-  );
-}
-
-// Hook
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
-  return windowSize;
-}
-
 export default function Footer() {
   return (
-    <div className={styles.footer}>
-      {useWindowSize().width < 1100 ? <div>{renderExtraInfo()}</div> : <></>}
-      <div className={styles.container}>
-        {renderTextLinks()}
-        {renderSocialNetwork()}
-        {useWindowSize().width > 1100 ? <div>{renderExtraInfo()}</div> : <></>}
+    <div>
+      <div className={styles.footer}>
+        <div className={styles.container}>
+          {renderTextLinks()}
+        </div>
+        {renderAdressCEFET()}
       </div>
-      {renderAdressCEFET()}
     </div>
   )
 }
 
 const renderTextLinks = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.text_links_container}>
       {renderCEFETInfo()}
       {renderDECOMInfo()}
+      {renderExtraInfo()}
+      {renderSocialNetwork()}
     </div>
   )
 }
@@ -69,7 +33,7 @@ const renderTextLinks = () => {
 const renderCEFETInfo = () => {
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle}>CEFET-MG</div>
+      <div className={styles.sectionTitle}>CEFET</div>
       <div className={styles.Links}>
         <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
         <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
@@ -96,7 +60,8 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
+      {wSize().width > 1100 ? <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
+        : <div className={styles.sectionTitle}>GRUPOS PET</div>}
       <div className={styles.containerLinks}>
         <div className={styles.Links}>
           <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>

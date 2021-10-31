@@ -4,6 +4,7 @@
 }
 
 .footer {
+  overflow: hidden;
   text-align: center;
   color: rgb(0, 48, 90);
   background-color: rgba(255, 255, 255, 0.952);
@@ -18,6 +19,17 @@
 .container {
   display: inline-flex;
   font-size: 18;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.text_links_container {
+  width: 100%;
+  display: inline-flex;
+  font-size: 18;
+  max-width: 900px;
 }
 
 .containerLinks {
@@ -72,6 +84,8 @@
   margin-top: 45px;
   height: 65px;
   width: 80px;
+  min-width: 100px;
+  height: 100%;
 }
 
 .socialNetworkIcons {
@@ -110,10 +124,50 @@
   .singleLink {
     display: none;
   }
+  .footer {
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+  }
+  .socialNetwork {
+    margin-top: 5vh;
+    background-color: aqua;
+  }
+  .container {
+    background-color: aqua;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+  .socialNetwork {
+    width: 200px;
+  }
 }
 
 @media (max-width: 700px) {
   .sectionTitle {
     font-size: 16px;
+  }
+  .socialNetwork {
+    margin-top: 29px;
+    background-color: aqua;
+  }
+  .adressCEFET {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .sectionTitle {
+    font-size: 13px;
+  }
+  .socialNetworkIcons {
+    margin: 7px;
+    height: 19px;
+    width: 19px;
+  }
+  .text_links_container {
+    width: 100%;
+    display: inline-flex;
+    font-size: 18;
   }
 }
