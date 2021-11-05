@@ -112,3 +112,10 @@ npm install @material-ui/lab
 npm install @material-ui/icons 
 ```
 
+Você agora pode então, iniciar o projeto, abrindo o Git Bash dentro da pasta compet_site e digitando:
+    
+```shell script
+npm run dev
+```
+
+O projeto então estará rodando no seguinte link: http://localhost:3000
