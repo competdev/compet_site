@@ -45,7 +45,33 @@ export default function CustomizedTimeline() {
             <Typography variant="h6" component="h1">
               História
             </Typography>
-            <Typography>A ideia do grupo surgiu durante o workshop de graduação em agosto de 2014, quando o Prof Sandro Renato Dias viu a diretora de graduação,<br> Profa. Ivete, falar sobre o edital para a criação dos primeiros grupos PET institucionais e consolidou o projeto na mente minutos depois</br> ao ouvir a fala do Prof. Lindolpho, tutor do PET de Leopoldina (PET do MEC). Bom, o COMPET foi um parto muito difícil.<br> Como o Sandro era recém concursado, não podia submeter um projeto para o PET, e então reclamou à diretoria de Graduação para permitir</br> que isso fosse possível, demonstrando total interesse em submeter. Alteraram as regras e permitiram recém concursados. Depois foi necessário reclamar de novo, pois a experiência<br> pregressa em extensão não poderia ser computada, já que nas regras do edital poderia ser apenas tempo de experiência dentro do CEFET-MG, Sandro recorreu novamente e foi atendido.</br> Sou brasileiro, não desisto nunca, como disse o Sandro. O primeiro projeto do COMPET foi finalizado em 24/10/2014, data em que ele assinou o projeto, dia do seu aniversário e ano da entrada dele no CEFET,<br> estava com 7 meses e 27 dias de CEFET. Como o projeto foi submetido por e-mail, conforme orientação de quem atendeu ao telefone na diretoria, e sem o documento do CEFET em que ele constava como docente da instituição</br> (sim, absurdo, teve que provar ao CEFET que era docente do CEFET), o projeto foi desclassificado. O resultado saiu em 04/12/2014, Sandro recorreu da decisão,<br> mas foi indeferido. Sou brasileiro, não desisto nunca, salientou o professor. Em contato com a diretoria foi informado de um novo edital, publicado em 18/12/2014, com isso resolveu reformular o projeto e submeter novamente. Foi aprovado e o resultado publicado em 11/02/2015, o resultado tinha a relação dos seguintes aprovados: </br>Computação (Sandro Dias, C2, 94,1 pontos), Automação Kleber Fontoura, Araxá, 76,5 pontos), Minas (Maurício Carneiro, Araxá, 63,8 pontos), Materiais (Ivan Santana, C1, 58,2 pontos), Materiais (Paulo Paiva, C1, 58,1 pontos), Transportes (Augusto Bezerra, C1, 33,8 pontos). <br>A partir de recurso do Prof. Ivan (que resultou na redução da própria nota e de outros), foram reformuladas as notas e novo resultado foi publicado em 13/04/2015, Computação (Sandro Dias, C2, 92,7 pontos), Automação Kleber Fontoura, Araxá, 75,3 pontos), Minas (Maurício Carneiro, Araxá, 66,0 pontos), Materiais (Paulo Paiva, C1, 50,1 pontos),</br> Materiais (Ivan Santana, C1, 45,7 pontos), Transportes (Augusto Bezerra, C1, 38,58 pontos). </Typography>
+            <Typography>A ideia do grupo surgiu durante o workshop de graduação em agosto de 2014, 
+              quando o Prof Sandro Renato Dias viu a diretora de graduação, Profa. Ivete, falar sobre 
+              o edital para a criação dos primeiros grupos PET institucionais e consolidou o projeto 
+              na mente minutos depois ao ouvir a fala do Prof. Lindolpho, tutor do PET de Leopoldina 
+              (PET do MEC). Bom, o COMPET foi um parto muito difícil. Como o Sandro era recém concursado, 
+              não podia submeter um projeto para o PET, e então reclamou à diretoria de Graduação para 
+              permitir que isso fosse possível, demonstrando total interesse em submeter. Alteraram as 
+              regras e permitiram recém concursados. Depois foi necessário reclamar de novo, pois a 
+              experiência pregressa em extensão não poderia ser computada, já que nas regras do edital 
+              poderia ser apenas tempo de experiência dentro do CEFET-MG, Sandro recorreu novamente e foi 
+              atendido. Sou brasileiro, não desisto nunca, como disse o Sandro. O primeiro projeto do COMPET 
+              foi finalizado em 24/10/2014, data em que ele assinou o projeto, dia do seu aniversário e ano 
+              da entrada dele no CEFET, estava com 7 meses e 27 dias de CEFET. Como o projeto foi submetido 
+              por e-mail, conforme orientação de quem atendeu ao telefone na diretoria, e sem o documento do 
+              CEFET em que ele constava como docente da instituição (sim, absurdo, teve que provar ao CEFET 
+              que era docente do CEFET), o projeto foi desclassificado. O resultado saiu em 04/12/2014, Sandro 
+              recorreu da decisão, mas foi indeferido. Sou brasileiro, não desisto nunca, salientou o professor. 
+              Em contato com a diretoria foi informado de um novo edital, publicado em 18/12/2014, com isso resolveu
+               reformular o projeto e submeter novamente. Foi aprovado e o resultado publicado em 11/02/2015, 
+               o resultado tinha a relação dos seguintes aprovados: Computação (Sandro Dias, C2, 94,1 pontos), 
+               Automação Kleber Fontoura, Araxá, 76,5 pontos), Minas (Maurício Carneiro, Araxá, 63,8 pontos), 
+               Materiais (Ivan Santana, C1, 58,2 pontos), Materiais (Paulo Paiva, C1, 58,1 pontos), 
+               Transportes (Augusto Bezerra, C1, 33,8 pontos). A partir de recurso do Prof. Ivan 
+               (que resultou na redução da própria nota e de outros), foram reformuladas as notas e novo resultado 
+               foi publicado em 13/04/2015, Computação (Sandro Dias, C2, 92,7 pontos), Automação Kleber Fontoura, 
+               Araxá, 75,3 pontos), Minas (Maurício Carneiro, Araxá, 66,0 pontos), Materiais (Paulo Paiva, C1, 50,1 pontos), 
+               Materiais (Ivan Santana, C1, 45,7 pontos), Transportes (Augusto Bezerra, C1, 38,58 pontos). </Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
@@ -66,7 +92,10 @@ export default function CustomizedTimeline() {
             <Typography variant="h6" component="h1">
               Foco
             </Typography>
-            <Typography>O foco do grupo é disseminar informação técnica, construir soluções envolvendo <br> tecnologias computacionais, organizar eventos de cunho tecnológico, </br>estimular a execução de trabalhos científicos na área e projetos de extensão, <br/> engajar os alunos da instituição nos respectivos cursos e realizar atividades sociais.</Typography>
+            <Typography>O foco do grupo é disseminar informação técnica, construir soluções envolvendo
+               tecnologias computacionais, organizar eventos de cunho tecnológico, 
+               estimular a execução de trabalhos científicos na área e projetos de extensão,
+                engajar os alunos da instituição nos respectivos cursos e realizar atividades sociais.</Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
@@ -82,7 +111,11 @@ export default function CustomizedTimeline() {
             <Typography variant="h6" component="h1">
               Estrutura Organizacional
             </Typography>
-            <Typography>A estrutura organizacional interna do COMPET funciona como se fosse uma empresa. <br>Os tutores, que coordenam o grupo, atuam como chefes. </br>Um dos COMPETianos é, por eleição, o Scrum Master que deve liderar todas as equipes,<br> que são divididas em Desenvolvimento, Administração, Eventos e Marketing.</br> Cada equipe é responsável por um conjunto de atividades da respectiva área.<br/> Semanalmente, há a reunião do grupo, momento em que as tarefas são assinaladas, discutidas e avaliadas.</Typography>
+            <Typography>A estrutura organizacional interna do COMPET funciona como se fosse uma empresa. 
+              Os tutores, que coordenam o grupo, atuam como chefes. Um dos COMPETianos é, por eleição, 
+              o Scrum Master que deve liderar todas as equipes, que são divididas em Desenvolvimento, Administração, 
+              Eventos e Marketing. Cada equipe é responsável por um conjunto de atividades da respectiva área.
+              Semanalmente, há a reunião do grupo, momento em que as tarefas são assinaladas, discutidas e avaliadas.</Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
@@ -97,7 +130,11 @@ export default function CustomizedTimeline() {
             <Typography variant="h6" component="h1">
               Ensino, Pesquisa e Extensão
             </Typography>
-            <Typography>Há, naturalmente, um passeio formal no tripé Ensino, Pesquisa e Extensão para atender demandas que nos chegam dos mais diferentes ramos do conhecimento. <br>Dessa forma, proporciona-se uma formação extracurricular sólida aos COMPETianos que, espontaneamente, se destacam no mercado de trabalho</br> por carregarem uma experiência rica de realizações em equipe. Durante um ano, cada bolsista ou voluntário <br/>executa mais de 100 horas de atividades.</Typography>
+            <Typography>Há, naturalmente, um passeio formal no tripé Ensino, Pesquisa e Extensão para atender
+               demandas que nos chegam dos mais diferentes ramos do conhecimento. Dessa forma, proporciona-se 
+               uma formação extracurricular sólida aos COMPETianos que, espontaneamente, se destacam no mercado 
+               de trabalho por carregarem uma experiência rica de realizações em equipe. Durante um ano, cada 
+               bolsista ou voluntário executa mais de 100 horas de atividades.</Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
