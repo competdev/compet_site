@@ -99,6 +99,7 @@ npm install next react-dom
 ```
 
 Após isso você precisará apenas baixar o arquivo referente a variável de ambiente do banco de dados e então, colocar esse arquivo baixado dentro da pasta compet_site. 
+Para obter acesso ao arquivo mande um email para o coordenador do projeto: julio.1009@hotmail.com
 
 Por último, dentro da pasta compet_site você irá precisar instalar as bibliotecas necessárias para rodar o projeto (novamente, abrindo o Git Bash dentro da pasta compet_site), que até o momento são:
 
