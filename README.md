@@ -6,7 +6,7 @@
 </h1>
  
 ### 🛠 Features
-<p><h3>- [x] Baixar e Instalar Git <h3></p>
+- [x] ##Baixar e Instalar Git
 
 - Para baixar e instalar o Git, acesse o site [Git](https://git-scm.com/downloads). Selecione o instalador referente ao seu sistema operacional:<br />
 
