@@ -30,8 +30,71 @@ Após realizar a instalação, teste se as variáveis de ambientes do Node estã
 ```shell script
 node -v
 ```
+Após isso, aguarde a instalação do NPX ser concluída. Quando a instalação é concluída, a seguinte mensagem aparecerá no terminal.
+
+Configurando seu GitHub 
 
 Se o Node.js tiver sido instalado corretamente e as variáveis de ambiente já tiverem sido configuradas automaticamente pelo instalador, então o terminal irá informar a versão atual do Node.js instalado em sua máquina. Com isso você já pode ir para a próxima etapa deste documento.
 
 ![image](https://user-images.githubusercontent.com/62573072/140560424-e70ebcbc-6b8a-443f-ac6a-aba9b66a9539.png)
+
+- [x] Instalar NPX
+
+Abra o terminal Git (em qualquer local de sua escolha, por exemplo, em seu desktop) e então digite o comando:
+
+```shell script
+npm install -g npx
+```
+
+- [x] Configurando seu GitHub 
+
+Para realizar o controle de versionamento do repositório no GitHub é necessário configurá-lo para aceitar os comandos de versionamento local.
+
+Inicie o Git Bash e então digite o seguinte comando:
+
+```shell script
+ssh-keygen -t rsa -C "seuEmail@email.com"
+```
+<p>* Lembre de mudar a string entre aspas para o seu email>
+
+![image](https://user-images.githubusercontent.com/62573072/140561128-3d2228e8-2c52-4757-9c97-1597285422b4.png)
+
+Ele irá apresentar três mensagens. A primeira é para definir algum arquivo específico para salvar a SSH key gerada, apenas pressione ENTER. Note que então, ele irá salvar a SSH Key gerada no local: C:\Usuários\SeuNomeDeUsuario\.ssh\id_rsa
+
+![image](https://user-images.githubusercontent.com/62573072/140561292-31acf61e-335c-4540-9821-99907725cff1.png)
+    
+A segunda mensagem é pedindo uma senha. Se você não quiser ter de ficar digitando uma senha toda vez que fizer um envio do repositório local para o repositório online no GitHub, então apenas pressione ENTER novamente. A terceira mensagem é pedindo para confirmar a senha digitada anteriormente, se você não definiu nenhuma senha e apenas pressionou ENTER anteriormente, então apenas pressione ENTER novamente.
+
+![image](https://user-images.githubusercontent.com/62573072/140561375-3cf4da9d-8807-4ce0-88a3-1761f13ee6c9.png)
+    
+Após esse processo a chave SSH terá sido gerada no endereço especificado anteriormente ( C:\Usuários\SeuNomeDeUsuario\.ssh\id_rsa )
+Acesse a página de configurações do seu perfil do GitHub (https://github.com/settings/profile), em seguida acesse a aba SSH and GPG keys.
+
+![image](https://user-images.githubusercontent.com/62573072/140561521-61e18e75-cfdb-456f-aa78-dc17de24d9a4.png)
+
+Na tela de SSH and GPG keys você deverá clicar em New SSH key na qual irá abrir uma nova tela para inserir um Title (nome de livre escolha á SSH key) e a própria Key. A SSH key que você irá inserir, foi a gerada anteriormente pelo Git Bash, ela então, provavelmente se encontrará no seguinte diretório: 
+
+C:\Usuários\SeuNomeDeUsuario\.ssh\id_rsa
+
+Neste diretório abra o arquivo do tipo .pub com o bloco de notas, copie todo seu conteúdo e então cole no campo Key, após isso clique em Add SSH key e então a chave deve aparecer registrada na aba SSH and GPG keys.
+
+![image](https://user-images.githubusercontent.com/62573072/140561620-8c0e99fd-71e2-498f-9ef8-70ff3d873b92.png)
+
+![image](https://user-images.githubusercontent.com/62573072/140561657-cfeaa656-0862-44e3-8bc1-c18968574a7d.png)
+    
+![image](https://user-images.githubusercontent.com/62573072/140561781-43cdd943-4fd0-41f5-845e-ed97792f7d7f.png)
+
+- [x] Clonando o projeto e finalizando as configurações
+
+Após ter realizado todos os passos anteriores, clone o projeto do site (abrindo o Git Bash em algum local de fácil acesso - como por exemplo no Desktop) digitando o seguinte comando:
+    
+```shell script
+git clone https://github.com/competdev/compet_site.git
+```
+ 
+Nisso, uma nova pasta com o nome de compet_site terá sido criada no local em que você abriu o Git Bash. Após isso, entre na pasta compet_site, abra um Git Bash dentro dela e então instale o React Dom do Next utilizando o seguinte comando:
+
+```shell script
+npm install next react-dom
+```
 
