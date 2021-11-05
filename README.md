@@ -99,13 +99,16 @@ npm install next react-dom
 ```
 
 Por último, dentro da pasta compet_site você irá precisar instalar as bibliotecas necessárias para rodar o projeto (novamente, abrindo o Git Bash dentro da pasta compet_site), que até o momento são:
-    ```shell script
+
+```shell script
 npm install @material-ui/core
-```<br />
-    ```shell script
+```
+    
+```shell script
 npm install @material-ui/lab
-```<br />
-    ```shell script
+```
+    
+```shell script
 npm install @material-ui/icons 
 ```
 
