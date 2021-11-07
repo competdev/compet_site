@@ -125,15 +125,13 @@
     display: none;
   }
   .footer {
-    border-top-left-radius: 0%;
-    border-top-right-radius: 0%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
   }
   .socialNetwork {
     margin-top: 5vh;
-    background-color: aqua;
   }
   .container {
-    background-color: aqua;
     justify-content: space-around;
     align-items: center;
     text-align: center;
@@ -148,8 +146,12 @@
     font-size: 16px;
   }
   .socialNetwork {
-    margin-top: 29px;
-    background-color: aqua;
+    margin-top: 5vh;
+  }
+  .socialNetworkIcons {
+    margin: 7px;
+    height: 19px;
+    width: 19px;
   }
   .adressCEFET {
     margin-top: 0;
@@ -158,16 +160,18 @@
 
 @media (max-width: 600px) {
   .sectionTitle {
-    font-size: 13px;
+    font-size: 12px;
   }
   .socialNetworkIcons {
-    margin: 7px;
-    height: 19px;
-    width: 19px;
+    margin: 6px;
+    height: 17px;
+    width: 17px;
   }
   .text_links_container {
     width: 100%;
     display: inline-flex;
     font-size: 18;
+    background-color: aquamarine;
+    max-width: 80vw;
   }
 }

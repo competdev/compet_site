@@ -1,7 +1,7 @@
 import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
-import wSize from '../util/windowsSize'
+import wSize from '../util/windowSize'
 
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
@@ -20,12 +20,16 @@ export default function Footer() {
 
 const renderTextLinks = () => {
   return (
-    <div className={styles.text_links_container}>
-      {renderCEFETInfo()}
-      {renderDECOMInfo()}
-      {renderExtraInfo()}
-      {renderSocialNetwork()}
+    <div>
+
+      <div className={styles.text_links_container}>
+        {renderCEFETInfo()}
+        {renderDECOMInfo()}
+        {renderExtraInfo()}
+        {renderSocialNetwork()}
+      </div>
     </div>
+
   )
 }
 
