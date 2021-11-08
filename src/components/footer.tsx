@@ -6,13 +6,18 @@ import wSize from '../util/windowSize'
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
 export default function Footer() {
+  const [toggleDECOM, setToggleDECOM] = useState(false)
+  const [togglePET, setTogglePET] = useState(false)
+
   return (
     <div>
       <div className={styles.footer}>
         <div className={styles.container}>
           {renderTextLinks()}
         </div>
+
         {renderAdressCEFET()}
+        {renderCredits()}
       </div>
     </div>
   )
@@ -21,7 +26,6 @@ export default function Footer() {
 const renderTextLinks = () => {
   return (
     <div>
-
       <div className={styles.text_links_container}>
         {renderCEFETInfo()}
         {renderDECOMInfo()}
@@ -35,13 +39,22 @@ const renderTextLinks = () => {
 
 
 const renderCEFETInfo = () => {
+  const [toggleCEFET, setToggleCEFET] = useState(false)
+  const toggleCEFETbtn = () => {
+    setToggleCEFET(!toggleCEFET)
+    console.log("teste")
+  }
+
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle}>CEFET</div>
+      <div className={styles.sectionTitle} onClick={toggleCEFETbtn}>CEFET</div>
+      {toggleCEFET == true ? console.log("teste") : <></>}
       <div className={styles.Links}>
-        <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+        <div className={styles.CEFETLinks}>
+          <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+        </div>
       </div>
     </div>
   )
@@ -100,6 +113,15 @@ const renderSocialNetwork = () => {
       <Link href={'https://www.linkedin.com/in/competcefetmg/'}><a title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/4jY3pbg/linkedin-icon.png" /></a></Link>
       <Link href={'https://www.facebook.com/competcefetmg'}><a title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Y7KDkXh/facebook-icon.png" /></a></Link>
       <Link href={'https://twitter.com/compet_cefet'}><a title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/DMLw3nV/twitter-icon.png" /></a></Link>
+    </div>
+  )
+}
+
+const renderCredits = () => {
+  return (
+    <div className={styles.Credits}>
+      Desenvolvido por
+      <img className={styles.logoCOMPET} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
     </div>
   )
 }
