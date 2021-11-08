@@ -79,7 +79,7 @@
 }
 
 .socialNetwork {
-  margin-top: 45px;
+  margin-top: 8vh;
   height: 65px;
   width: 80px;
   min-width: 100px;
@@ -87,11 +87,9 @@
 }
 
 .socialNetworkIcons {
-  margin: 7px;
-  height: 25px;
-  width: 25px;
-  border-top-left-radius: 43%;
-  border-bottom-right-radius: 43%;
+  margin: 5px;
+  height: 27px;
+  width: 27px;
 }
 
 .socialNetworkIcons:hover {
@@ -123,6 +121,7 @@
   font-style: italic;
   color: rgb(0, 48, 90);
   margin-top: 4px;
+  margin-bottom: 13px;
 }
 
 .logoCOMPET {
@@ -134,6 +133,10 @@
 @media (max-width: 1100px) {
   .sectionTitle {
     margin-top: 4vh;
+  }
+  .sectionTitle:hover {
+    color: #19DD39;
+    font-size: 110%;
   }
   .Links {
     display: none;
@@ -178,13 +181,9 @@
     height: 100%;
   }
   .socialNetworkIcons {
-    margin: 8px;
-    height: 25px;
-    width: 25px;
-    border-top-right-radius: 93%;
-    border-top-left-radius: 93%;
-    border-bottom-right-radius: 43%;
-    border-bottom-left-radius: 43%;
+    margin: 5px;
+    height: 29px;
+    width: 29px;
   }
   .adressCEFET {
     margin-top: 10px;
