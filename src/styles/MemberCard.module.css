@@ -109,9 +109,9 @@
 }
 
 .container {
+  position: relative;
   width: 100%;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -129,7 +129,7 @@
   }
   .infoName {
     text-align: center;
-    margin-top: 4px;
+    margin-top: 1px;
     font-size: 15px;
   }
   .infoCompet {
@@ -137,6 +137,9 @@
     margin-top: -15px;
     font-size: 14px;
     font-family: "Codec Pro Regular";
+  }
+  .container {
+    margin-top: -20px;
   }
   .infoScrum {
     margin-left: -25px;
@@ -159,17 +162,74 @@
     width: 170px;
   }
   .foto {
-    margin-top: -55px;
+    margin-top: -35px;
     width: 80px;
     height: 80px;
     border-radius: 50%;
   }
   .fotoSemDep {
-    margin-top: -55px;
+    margin-top: -35px;
     width: 80px;
     height: 80px;
     border-radius: 50%;
   }
 }
 
-@media (max-width: 425px) {}
+@media (max-width: 545px) {
+  .cardContent {
+    margin: -20px;
+    margin-top: -10px;
+  }
+  .container {
+    margin-top: -20px;
+  }
+  .membersCard {
+    background-color: #ffffff;
+    height: 75px;
+    width: 122px;
+    border-radius: 20px;
+  }
+  .infoName {
+    text-align: center;
+    margin-top: -1px;
+    font-size: 13px;
+  }
+  .infoCompet {
+    text-align: center;
+    margin-top: -12px;
+    font-size: 10px;
+    font-family: "Codec Pro Regular";
+  }
+  .infoScrum {
+    margin-left: -20px;
+    text-align: left;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: rgb(255, 14, 14);
+  }
+  .infoIntercamb {
+    margin-left: -20px;
+    text-align: center;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #19DD39;
+  }
+  .photoSpace {
+    margin-top: 20px;
+    width: 122px;
+  }
+  .foto {
+    margin-top: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .fotoSemDep {
+    margin-top: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}

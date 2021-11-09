@@ -109,18 +109,16 @@
 .loadArea {
   text-align: center;
   width: 100%;
-  align-self: center;
-  align-content: center;
-  align-items: center;
 }
 
 .loadMore {
   margin-top: 30px;
-  font-size: 200%;
+  font-size: 190%;
   font-family: "Codec Pro Regular";
-  text-align: center;
-  width: 13%;
-  margin-left: 44%;
+  max-width: 300px;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .loadMore:hover .line {
@@ -129,13 +127,10 @@
 }
 
 .line {
-  background-color: #151515;
   margin-top: -1px;
-  text-align: center;
-  width: 100%;
   border-radius: 90px;
-  border: 4px solid #19dd39;
-  margin-bottom: 50px;
+  border: 5px solid #19dd39;
+  background-color: #19dd39;
 }
 
 .loadMore:hover .lineRecolher {
@@ -146,10 +141,21 @@
 .lineRecolher {
   margin-top: -1px;
   text-align: center;
-  width: 210px;
   border-radius: 90px;
-  border: 4px solid #004067;
-  margin-bottom: 50px;
+  border: 5px solid #004266;
+  background-color: #004266;
+}
+
+@media (max-width: 1300px) {
+  .loadMore {
+    margin-top: 30px;
+    font-size: 170%;
+    font-family: "Codec Pro Regular";
+    max-width: 250px;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -157,11 +163,53 @@
     font-size: 35px;
     padding-bottom: 70px;
   }
+  .loadMore {
+    margin-top: -10px;
+    font-size: 140%;
+    font-family: "Codec Pro Regular";
+    max-width: 200px;
+    min-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .line {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 4px solid #19dd39;
+    background-color: #19dd39;
+  }
+  .lineRecolher {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 4px solid #004266;
+    background-color: #004266;
+  }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 545px) {
   .titleBody {
-    font-size: 32px;
-    padding-bottom: 73px;
+    font-size: 28px;
+    padding-bottom: 45px;
+  }
+  .loadMore {
+    margin-top: -10px;
+    font-size: 110%;
+    font-family: "Codec Pro Regular";
+    max-width: 150px;
+    min-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .line {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 3px solid #19dd39;
+    background-color: #19dd39;
+  }
+  .lineRecolher {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 3px solid #004266;
+    background-color: #004266;
   }
 }

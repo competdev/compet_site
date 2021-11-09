@@ -44,7 +44,7 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
       {/*<Menu />*/}
       {/*renderCabecalho()*/}
       {renderBodyPage(dados, tutores, membersPage)}
-      {/*renderVerMais(membersPage, setMembersPage, totalExMembros)*/}
+      {renderVerMais(membersPage, setMembersPage, totalExMembros)}
       {/*<Footer />*/}
     </div >
   )

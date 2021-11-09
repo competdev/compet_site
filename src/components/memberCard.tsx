@@ -26,7 +26,7 @@ const LightTooltip = withStyles((theme) => ({
       backgroundColor: "#004266",
       boxSizing: "border-box"
     }
-  }
+  },
 }))(Tooltip);
 
 
