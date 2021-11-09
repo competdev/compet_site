@@ -30,7 +30,6 @@ const LightTooltip = withStyles((theme) => ({
 }))(Tooltip);
 
 
-
 // Função principal exportando o html da pag.
 export default function memberCard({ dados, membersPage, socialNetworks }) {
 
@@ -41,16 +40,18 @@ export default function memberCard({ dados, membersPage, socialNetworks }) {
     <div className={styles.groupDiv}>
       {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
         lastBlank_space = data.nome.lastIndexOf(' '),
-        <div className={styles.membersCard}>
-          <div className={styles.photoSpace}>
-            {renderMemberPhoto(data)}
+        <div className={styles.cardContent}>
+          <div className={styles.membersCard}>
+            <div className={styles.photoSpace}>
+              {renderMemberPhoto(data)}
+            </div>
+            {renderMemberName(data, firstBlank_space, lastBlank_space)}
+            <div className={styles.infoCompet}>
+              {renderInfoCompet(data, socialNetworks)}
+            </div>
+            {socialNetworks == true ?
+              renderSocialNetworks(data) : <></>}
           </div>
-          {renderMemberName(data, firstBlank_space, lastBlank_space)}
-          <div className={styles.infoCompet}>
-            {renderInfoCompet(data, socialNetworks)}
-          </div>
-          {socialNetworks == true ?
-            renderSocialNetworks(data) : <></>}
         </div>
       ))}
     </div>

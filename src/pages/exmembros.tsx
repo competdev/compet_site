@@ -41,11 +41,11 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      <Menu />
-      {renderCabecalho()}
+      {/*<Menu />*/}
+      {/*renderCabecalho()*/}
       {renderBodyPage(dados, tutores, membersPage)}
-      {renderVerMais(membersPage, setMembersPage, totalExMembros)}
-      <Footer />
+      {/*renderVerMais(membersPage, setMembersPage, totalExMembros)*/}
+      {/*<Footer />*/}
     </div >
   )
 }
@@ -91,12 +91,12 @@ const renderBodyPage = (dados, tutores, membersPage) => {
   return (
     <div>
       {renderTutores(tutores)}
-      <div className={styles.titleBodyMembers}><strong>Ex-membros</strong></div>
+      <div className={styles.titleBody}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-          <div className={styles.membersArea}>
-            {renderMemberArea(dados, membersPage)}
-          </div>
+
+          {renderMemberArea(dados, membersPage)}
+
         </div>
       </div>
     </div>

@@ -1,10 +1,21 @@
-.membersCard {
-  padding-top: 10px;
+.groupDiv {
+  max-width: 1500px;
+}
+
+.cardContent {
   margin: 50px;
+  margin-top: 20px;
   height: 140px;
-  font-size: 14px;
-  border-radius: 10px;
   width: 230px;
+  display: inline-block;
+  color: #151515;
+}
+
+.membersCard {
+  height: 100%;
+  font-size: 14px;
+  border-radius: 20px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   display: inline-block;
   color: #151515;
@@ -105,3 +116,60 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .cardContent {
+    margin: 20px;
+    margin-top: -10px;
+  }
+  .membersCard {
+    height: 100px;
+    width: 170px;
+    border-radius: 20px;
+  }
+  .infoName {
+    text-align: center;
+    margin-top: 4px;
+    font-size: 15px;
+  }
+  .infoCompet {
+    text-align: center;
+    margin-top: -15px;
+    font-size: 14px;
+    font-family: "Codec Pro Regular";
+  }
+  .infoScrum {
+    margin-left: -25px;
+    text-align: left;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: rgb(255, 14, 14);
+  }
+  .infoIntercamb {
+    margin-left: -25px;
+    text-align: center;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #19DD39;
+  }
+  .photoSpace {
+    margin-top: 20px;
+    width: 170px;
+  }
+  .foto {
+    margin-top: -55px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .fotoSemDep {
+    margin-top: -55px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 425px) {}
