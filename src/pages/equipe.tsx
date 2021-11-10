@@ -42,17 +42,15 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
-      <Menu />
-      {renderCabecalho()}
+      {/*<Menu />*/}
+      {/*renderCabecalho()*/}
       <div className={styles.containerMembers}>
-        <div className={styles.scrumTutor}>
-          {renderTutores(tutores)}
-          {renderScrumMaster(scrumMaster)}
-        </div>
+        {renderTutores(tutores)}
+        {renderScrumMaster(scrumMaster)}
       </div>
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
-      <Footer />
+      {/*<Footer />*/}
     </div>
   )
 }
@@ -123,7 +121,7 @@ const renderTutores = (tutores) => {
 const renderMembros = (membros, membersPage) => {
   return (
     <div>
-      <div className={styles.titleBodyMembers}><strong>Membros</strong></div>
+      <div className={styles.titleBody}><strong>Membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersArea}>
