@@ -48,7 +48,7 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
       {renderScrumMaster(scrumMaster)}
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
-      {/*<Footer />*/}
+      <Footer />
     </div>
   )
 }
