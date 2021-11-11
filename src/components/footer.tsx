@@ -1,18 +1,23 @@
 import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
+import wSize from '../util/windowSize'
 
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
 export default function Footer() {
+  const [toggleDECOM, setToggleDECOM] = useState(false)
+  const [togglePET, setTogglePET] = useState(false)
+
   return (
     <div>
       <div className={styles.footer}>
         <div className={styles.container}>
           {renderTextLinks()}
-          {renderSocialNetwork()}
-          {renderLogos()}
         </div>
+
         {renderAdressCEFET()}
+        {renderCredits()}
       </div>
     </div>
   )
@@ -20,23 +25,36 @@ export default function Footer() {
 
 const renderTextLinks = () => {
   return (
-    <div className={styles.container}>
-      {renderCEFETInfo()}
-      {renderDECOMInfo()}
-      {renderExtraInfo()}
+    <div>
+      <div className={styles.text_links_container}>
+        {renderCEFETInfo()}
+        {renderDECOMInfo()}
+        {renderExtraInfo()}
+        {renderSocialNetwork()}
+      </div>
     </div>
+
   )
 }
 
 
 const renderCEFETInfo = () => {
+  const [toggleCEFET, setToggleCEFET] = useState(false)
+  const toggleCEFETbtn = () => {
+    setToggleCEFET(!toggleCEFET)
+    console.log("teste")
+  }
+
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle}>CEFET</div>
+      <div className={styles.sectionTitle} onClick={toggleCEFETbtn}>CEFET</div>
+      {toggleCEFET == true ? console.log("teste") : <></>}
       <div className={styles.Links}>
-        <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+        <div className={styles.CEFETLinks}>
+          <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
+          <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+        </div>
       </div>
     </div>
   )
@@ -59,7 +77,8 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
+      {wSize().width > 1100 ? <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
+        : <div className={styles.sectionTitle}>GRUPOS PET</div>}
       <div className={styles.containerLinks}>
         <div className={styles.Links}>
           <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
@@ -90,27 +109,19 @@ const renderExtraInfo = () => {
 const renderSocialNetwork = () => {
   return (
     <div className={styles.socialNetwork}>
-      <Link href={'https://www.instagram.com/compet.cefet/'}><a title='Instagram'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/8s5rzXB/instagram-icon.png" /></a></Link>
-      <Link href={'https://www.linkedin.com/in/competcefetmg/'}><a title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/4jY3pbg/linkedin-icon.png" /></a></Link>
-      <Link href={'https://www.facebook.com/competcefetmg'}><a title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Y7KDkXh/facebook-icon.png" /></a></Link>
-      <Link href={'https://twitter.com/compet_cefet'}><a title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/DMLw3nV/twitter-icon.png" /></a></Link>
+      <Link href={'https://www.instagram.com/compet.cefet/'}><a title='Instagram'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/61Y0dqL/instagram-icon.png" /></a></Link>
+      <Link href={'https://www.linkedin.com/in/competcefetmg/'}><a title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></a></Link>
+      <Link href={'https://www.facebook.com/competcefetmg'}><a title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/mT4S0S9/facebook-icon.png" /></a></Link>
+      <Link href={'https://twitter.com/compet_cefet'}><a title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Zfb5rRR/twitter-icon.png" /></a></Link>
     </div>
   )
 }
 
-const renderLogos = () => {
+const renderCredits = () => {
   return (
-    <div>
-      {/* {renderDTILogo()} */}
-    </div>
-  )
-}
-
-const renderDTILogo = () => {
-  return (
-    <div className={styles.dtiInfo}>
-      <div className={styles.sectionTitle}>WEBSITE FEITO EM PARCERIA COM:</div>
-      <Link href={'https://www.dtidigital.com.br/'}><a title='DTI Digital'><img className={styles.logosExterna} src="https://i.ibb.co/RNCfgLN/dti-logo.png" /></a></Link>
+    <div className={styles.Credits}>
+      Desenvolvido por
+      <img className={styles.logoCOMPET} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
     </div>
   )
 }

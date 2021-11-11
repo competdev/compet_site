@@ -23,7 +23,7 @@
 
 .infoName {
   text-align: center;
-  margin-top: 7px;
+  margin-top: 0px;
   font-size: 22px;
 }
 
@@ -37,14 +37,14 @@
 .networkGroup {
   align-items: center;
   text-align: center;
-  padding-top: 20px;
+  margin-top: 0px;
   display: inline-flex;
 }
 
 .networkFavicon {
   margin: 5px;
-  height: 25px;
-  width: 25px;
+  height: 23px;
+  width: 23px;
 }
 
 .networkBlank {
@@ -117,13 +117,25 @@
   align-items: center;
 }
 
+@media (max-width: 1300px) {
+  .loadMore {
+    margin-top: 30px;
+    font-size: 170%;
+    font-family: "Codec Pro Regular";
+    max-width: 250px;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .cardContent {
     margin: 20px;
-    margin-top: -10px;
+    margin-top: 10px;
   }
   .membersCard {
-    height: 100px;
+    height: 105px;
     width: 170px;
     border-radius: 20px;
   }
@@ -173,6 +185,16 @@
     height: 80px;
     border-radius: 50%;
   }
+  .networkFavicon {
+    margin: 3px;
+    height: 15px;
+    width: 15px;
+  }
+  .networkBlank {
+    margin: 3px;
+    height: 20px;
+    width: 20px;
+  }
 }
 
 @media (max-width: 545px) {
@@ -185,7 +207,7 @@
   }
   .membersCard {
     background-color: #ffffff;
-    height: 75px;
+    height: 83px;
     width: 122px;
     border-radius: 20px;
   }
@@ -231,5 +253,15 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+  .networkFavicon {
+    margin: 3px;
+    height: 10px;
+    width: 10px;
+  }
+  .networkBlank {
+    margin: 3px;
+    height: 15px;
+    width: 15px;
   }
 }
