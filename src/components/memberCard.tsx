@@ -121,7 +121,7 @@ const renderSocialNetworks = (data) => {
         {data.email != "" ?
           <div>
             <Link href={'mailto:' + data.email}><a title='Email'>
-              <img className={styles.networkFavicon} src="https://i.ibb.co/YQ64dxd/mail-favicon.png" />
+              <img className={styles.networkFavicon} src="https://i.ibb.co/nQrqLm3/mail-favicon.png" />
             </a></Link>
           </div>
           : <></>}
@@ -129,7 +129,7 @@ const renderSocialNetworks = (data) => {
         {data.lates != "" ?
           <div>
             <Link href={data.lates}><a title='Lattes'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/vqS8trk/lattes-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/THvj51v/lattes-favicon.png" /></div>
             </a></Link>
           </div>
           : <></>}
@@ -138,7 +138,7 @@ const renderSocialNetworks = (data) => {
         {data.linkedin != "" ?
           <div>
             <Link href={data.linkedin}><a title='LinkedIn'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/vP6rFjd/linkedin-favicon.png" /></div>
             </a></Link>
           </div>
           : <></>}
