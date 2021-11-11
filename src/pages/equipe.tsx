@@ -42,12 +42,10 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
-      {/*<Menu />*/}
+      <Menu />
       {/*renderCabecalho()*/}
-      <div className={styles.containerMembers}>
-        {renderTutores(tutores)}
-        {renderScrumMaster(scrumMaster)}
-      </div>
+      {renderTutores(tutores)}
+      {renderScrumMaster(scrumMaster)}
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
       {/*<Footer />*/}
@@ -101,7 +99,11 @@ const renderScrumMaster = (scrumMaster) => {
     <div>
       <div className={styles.titleBody}><strong>Scrum Master</strong></div>
       <div className={styles.bodyGroup}>
-        <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -112,7 +114,11 @@ const renderTutores = (tutores) => {
     <div>
       <div className={styles.titleBody}><strong>Tutores</strong></div>
       <div className={styles.bodyGroup}>
-        <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -53,27 +53,18 @@
   font-size: 40px;
   color: #004266;
   margin-top: 30px;
-  margin-bottom: 80px;
-}
-
-.bodyGroup {
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 60px;
 }
 
 .containerMembers {
   text-align: center;
   display: flex;
   width: 100%;
-  justify-content: center;
-  background-color: #19DD39;
 }
 
 .membersArea {
-  text-align: center;
-  width: 80%;
-  margin-top: -20px;
-  background-color: aqua;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .membersCard {
