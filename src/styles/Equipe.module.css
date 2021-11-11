@@ -187,6 +187,7 @@
 .loadArea {
   text-align: center;
   width: 100%;
+  background-color: aqua;
 }
 
 .loadMore {
@@ -232,11 +233,8 @@
   .loadMore {
     margin-top: 30px;
     font-size: 170%;
-    font-family: "Codec Pro Regular";
     max-width: 225px;
     min-width: 225px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -247,12 +245,9 @@
   }
   .loadMore {
     margin-top: -10px;
-    font-size: 140%;
-    font-family: "Codec Pro Regular";
-    max-width: 175px;
-    min-width: 175px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 150%;
+    max-width: 225px;
+    min-width: 225px;
   }
   .line {
     margin-top: -1px;
@@ -264,6 +259,27 @@
     margin-top: -1px;
     border-radius: 90px;
     border: 4px solid #004266;
+    background-color: #004266;
+  }
+}
+
+@media (max-width: 545px) {
+  .loadMore {
+    margin-top: 15px;
+    font-size: 120%;
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .line {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 3px solid #19dd39;
+    background-color: #19dd39;
+  }
+  .lineRecolher {
+    margin-top: -1px;
+    border-radius: 90px;
+    border: 3px solid #004266;
     background-color: #004266;
   }
 }
