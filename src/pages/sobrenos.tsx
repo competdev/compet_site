@@ -71,7 +71,7 @@ export default function CustomizedTimeline() {
               <Typography> O resultado saiu em 04/12/2014, Sandro recorreu da decisão, mas foi indeferido. Sou brasileiro, 
               não desisto nunca, salientou o professor. Em contato com a diretoria foi informado de um novo edital, publicado 
               em 18/12/2014, com isso resolveu reformular o projeto e submeter novamente. Foi aprovado e o resultado publicado 
-              em 11/02/2015, em que tinha a relação dos seguintes aprovados: Computação (Sandro Dias, C2, 94,1 pontos), em primeiro lugar.</Typography>
+              em 11/02/2015, Computação (Sandro Dias, C2, 94,1 pontos), em primeiro lugar.</Typography>
 
               <Typography> A partir do recurso de um docente que havia submetido um projeto também, houve a redução  
               da própria nota e de outros, as quais foram reformuladas  e divulgado um novo resultado publicado
@@ -145,3 +145,4 @@ export default function CustomizedTimeline() {
     </Timeline>
   );
 }
+
