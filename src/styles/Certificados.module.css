@@ -1,33 +1,19 @@
-.groupDiv {
-  background-color: #f5f5f5;
+.pageContent {
+  background-color: #f83737;
+  height: 100%;
+  width: 100%;
 }
 
-.mainHeader {
+.pageHeader {
   margin-top: 120px;
-  display: inline-flex;
   width: 100%;
-  vertical-align: center;
   height: 175px;
 }
 
-.bodyGroup {
-  display: inline-flex;
-  margin-top: 12px;
-  width: 100%;
-}
-
-.espHorizontLeft {
-  margin-left: 0px;
-  width: 2900px;
-}
-
-.espHorizontRight {
-  margin-left: 0px;
-  width: 2900px;
-}
-
 .certificadoArea {
-  text-align: center;
+  background-color: aqua;
+  width: 100%;
+  display: inline-flex;
 }
 
 .certificadoCard {
@@ -37,7 +23,7 @@
   font-size: 1px;
   border-radius: 10px;
   width: 280px;
-  background-color: #fff; 
+  background-color: #fff;
   color: #151515;
   margin-top: 70px;
 }
@@ -81,4 +67,3 @@
   padding-top: 5px;
   font-size: 22px;
 }
-

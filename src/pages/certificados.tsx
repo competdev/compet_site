@@ -1,48 +1,11 @@
 import axios from "axios";
 import styles from "../styles/Certificados.module.css";
-import Link from "next/link";
 import Menu from '../components/menu'
+import Footer from '../components/footer';
 
-export default function Certificados({ dados }) {
-
-  return (
-    <div className={styles.groupDiv}>
-      <title>COMPET | Certificados</title>
-
-      {/* Bloco que contém o Menu da página ---> Ver constução no menu.tsx */}
-      <Menu />
-
-      {/* Bloco que contém o Cabeçalho da página */}
-      <div className={styles.mainHeader}>
-        <div><img src="https://i.ibb.co/GMSCqJP/title.png" /></div>
-      </div>
-
-      <div className={styles.bodyGroup}>
-        <div className={styles.espHorizontLeft}></div>
-
-        <div className={styles.certificadoArea}>
-          {dados.map(certificado => (
-            <div key={certificado.id} className={styles.certificadoCard}>
-              <div className={styles.areaPhoto}>
-
-                <div className={styles.infoPhoto}>
-                  <div className={styles.container}>
-                    {/*<img className = {styles.photo} src = {loadPhotos(certificado.compet_talks, certificado.compbio)} /> */}
-                    <img className={styles.foto} src="https://i.ibb.co/3swTqhQ/default-photo.webp" />
-                  </div>
-
-                </div>
-              </div>
-              <div className={styles.infoName}>
-                <h1>TESTE</h1>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className={styles.espHorizontRight}></div>
-      </div>
-    </div>
-  );
+Certificados.getInitialProps = async () => {
+  const response = await axios.get("http://localhost:3000/api/certificados");
+  return { dados: response.data }
 }
 
 function loadPhotos(CompetTalks: boolean, CompBio: boolean) {
@@ -55,11 +18,36 @@ function loadPhotos(CompetTalks: boolean, CompBio: boolean) {
   }
 }
 
-Certificados.getInitialProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/certificados");
+export default function Certificados({ dados }) {
+  return (
+    <div className={styles.pageContent}>
+      <title>COMPET | Certificados</title>
+      <Menu />
+      {renderCabecalho()}
+      {renderCertificados(dados)}
+      <Footer />
+    </div>
+  );
+}
 
-  return { dados: response.data };
-};
+const renderCabecalho = () => {
+  return (
+    <div className={styles.pageHeader}>
+      <div><img src="https://i.ibb.co/tsD3xNg/certificados.png" /></div>
+    </div>
+  )
+}
 
-let firstBlank_space;
-let lastBlank_space;
+const renderCertificados = (dados) => {
+  return (
+    <div className={styles.certificadoArea}>
+      
+    </div>
+
+  )
+}
+
+
+
+
+
