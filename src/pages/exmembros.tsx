@@ -52,28 +52,29 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
 
 const renderCabecalho = () => {
   return (
-    <div>
       <div className={styles.mainHeader}>
-        <div>
+       
           {renderTitleImage()}
-        </div>
+        
         <div className={styles.subtitleSpace}>
           {renderSubtitleTop()}
         </div>
       </div>
-    </div>
+    
   )
 }
 
 const renderTitleImage = () => {
   return (
-    <div> <img src="https://i.ibb.co/GMSCqJP/title.png" /> </div>
+   <div className={styles.holder}>
+     <img src="https://i.ibb.co/GMSCqJP/title.png" />
+   </div>
   )
 }
 
 const renderSubtitleTop = () => {
   return (
-    <div>
+    <div className={styles.containerSubtitle}>
       <div className={styles.alignSubtitle}>
         <div className={styles.infoScrum}></div>
         <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
