@@ -2,6 +2,8 @@ import axios from "axios";
 import styles from "../styles/Certificados.module.css";
 import Menu from '../components/menu'
 import Footer from '../components/footer';
+import Link from 'next/link'
+import { useState } from 'react'
 
 Certificados.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/certificados");
@@ -10,15 +12,28 @@ Certificados.getInitialProps = async () => {
 
 function loadPhotos(CompetTalks: boolean, CompBio: boolean) {
   if (CompetTalks) {
-    return "../styles/imgs/certificados/Compet_Talks.png"
+    return "https://i.ibb.co/ydS39Rr/Compet-Talks.png"
   } else if (CompBio) {
-    return "../styles/imgs/certificados/CompBio.png"
+    return "https://i.ibb.co/Lv8x2kF/CompBio.png"
   } else {
-    return "../styles/imgs/certificados/Certificados_Padrao.png"
+    return "https://i.ibb.co/cFt0r4m/Certificados-Padrao.png"
   }
 }
 
+function convertDate(stringDate) {
+  const date = new Date(stringDate)
+
+  const day = date.getDate().toString().padStart(2, '0')
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const year = date.getFullYear()
+
+  const formatted = `${day}/${month}/${year}`
+  return formatted
+}
+
 export default function Certificados({ dados }) {
+  let [certificadosPag, setcertificadosPag] = useState(8);
+
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
@@ -40,8 +55,18 @@ const renderCabecalho = () => {
 
 const renderCertificados = (dados) => {
   return (
-    <div className={styles.certificadoArea}>
-      
+    <div className={styles.certificadosArea}>
+      <div className={styles.certificadosContainer}>
+        {dados.map(certificado => (
+          <div key={certificado._id} className={styles.certificadoCard}>
+            <div ><img src={loadPhotos(certificado.compet_talks, certificado.compbio)} alt="" className={styles.certificadoImg} /></div>
+            <div className={styles.certificadoTitulo}>{certificado.titulo}</div>
+            <div className={styles.certificadoData}>{convertDate(certificado.data)}</div>
+            <div className={styles.certificadoLink}><Link href={certificado.link}><a target="_blank">Acessar</a></Link>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
   )
