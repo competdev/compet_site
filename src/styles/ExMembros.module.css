@@ -17,19 +17,39 @@
 }
 
 .mainHeader {
-  margin-top: 100px;
-  display: inline-flex;
+  margin-top: 10%;
+  display: inline;
   width: 100%;
+  break-before: auto;
   vertical-align: center;
-  height: 175px;
+  height: auto;
+  
+}
+
+
+
+.holder img {
+
+  max-width: 300px;
+  max-height: 300px;
+  
+  transform: scale(1.-10); /* Equal to scaleX(0.7) scaleY(0.7) */
+}
+
+.containerSubtitle {
+  width: auto;
+  padding-left: auto;
+  
 }
 
 .subtitleSpace {
-  padding-left: 38%;
-  padding-top: 47px;
+  padding-left: 100px;
+  padding-top: auto;
   font-size: 15px;
   height: 100%;
   width: 100%;
+  
+  overflow-x: hidden;
 }
 
 .alignSubtitle {
@@ -48,9 +68,9 @@
 
 .infoScrum {
   margin-left: -35px;
-  text-align: left;
-  height: 15px;
-  width: 15px;
+  text-align: center;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
   background-color: rgb(255, 14, 14);
 }
@@ -185,6 +205,42 @@
     background-color: #004266;
   }
 }
+@media (max-width: 950px) {
+  .mainHeader {
+    margin-top: 20%;
+    
+  }
+}
+
+@media (max-width: 550px) {
+  .mainHeader {
+    margin-top: 35%;
+    
+  }
+}
+
+@media (max-width: 350px) {
+  .mainHeader {
+    margin-top: 45%;
+    
+  }
+}
+
+@media (max-width: 460px) {
+  .containerSubtitle {
+    display: none;
+    
+    
+  }
+}
+
+@media (max-width: 460px) {
+  .titleBody {
+    margin-top: auto;
+    
+    
+  }
+}
 
 @media (max-width: 545px) {
   .titleBody {
@@ -213,3 +269,4 @@
     background-color: #004266;
   }
 }
+

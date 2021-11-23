@@ -7,10 +7,10 @@
   overflow: hidden;
   text-align: center;
   color: rgb(0, 48, 90);
-  background-color: rgba(255, 255, 255, 0.952);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
-  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.095);
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.060);
   border-top-left-radius: 33%;
   border-top-right-radius: 33%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
@@ -28,7 +28,6 @@
   width: 100%;
   display: inline-flex;
   font-size: 18;
-  max-width: 900px;
 }
 
 .containerLinks {
@@ -130,62 +129,92 @@
   margin-left: 10px;
 }
 
+.separator hr {
+  margin-top: 10px;
+  width: 100%;
+  display: none;
+  border: 0;
+  border-top: 1px solid rgba(0, 48, 90, 0.175);
+}
+
 @media (max-width: 1100px) {
+  .footer {
+    border-top-left-radius: 7%;
+    border-top-right-radius: 7%;
+    width: 100%;
+  }
+
+  .container {
+    display: block;
+    width: auto;
+  }
+
+  .text_links_container {
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+    font-size: 18;
+    text-align: left;
+  }
+
   .sectionTitle {
-    margin-top: 4vh;
+    margin-top: -20px;
+    font-size: 15px;
+    font-weight: 500;
   }
-  .sectionTitle:hover {
-    color: #19DD39;
-    font-size: 110%;
+
+  .Links {
+    font-size: 6px;
   }
+
   .Links {
     display: none;
   }
-  .footer {
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-  }
+
   .socialNetwork {
-    margin-top: 5vh;
-  }
-  .container {
-    justify-content: space-around;
-    align-items: center;
     text-align: center;
+    margin-top: -30px;
+    min-width: 100%;
   }
+
   .adressCEFET {
     margin-top: 10px;
+  }
+
+  .separator hr {
+    display: block;
   }
 }
 
 @media (max-width: 600px) {
-  .container {
-    display: block;
-  }
   .text_links_container {
-    display: block;
-    font-size: 18;
+    font-size: 13;
   }
+
   .sectionTitle {
-    font-size: 20px;
-    margin-bottom: -22px;
+    font-size: 14px;
   }
+
   .Links {
-    font-size: 6px;
+    font-size: 10px;
   }
-  .socialNetwork {
-    margin-top: -2px;
-    height: 65px;
-    width: 80px;
-    min-width: 100%;
-    height: 100%;
-  }
+
   .socialNetworkIcons {
     margin: 5px;
-    height: 29px;
-    width: 29px;
+    height: 24px;
+    width: 24px;
   }
-  .adressCEFET {
-    margin-top: 10px;
+
+  .Credits {
+    display: inline-flex;
+    font-style: italic;
+    color: rgb(0, 48, 90);
+    margin-top: 20px;
+    margin-bottom: 13px;
+    font-size: 16px;
+  }
+
+  .logoCOMPET {
+    margin-top: -8px;
   }
 }
