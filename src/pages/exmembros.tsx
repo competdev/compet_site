@@ -41,11 +41,11 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      {<Menu />}
+      <Menu />
       {renderCabecalho()}
       {renderBodyPage(dados, tutores, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalExMembros)}
-      {<Footer />}
+      <Footer />
     </div >
   )
 }
@@ -66,10 +66,11 @@ const renderCabecalho = () => {
 
 const renderTitleImage = () => {
   return (
-    <div className={styles.holder}>
-      <img src="https://i.ibb.co/GMSCqJP/title.png" />
-    </div>
+
+    <img className={styles.holder} src="https://i.ibb.co/GMSCqJP/title.png" />
+
   )
+
 }
 
 const renderSubtitleTop = () => {
@@ -95,9 +96,9 @@ const renderBodyPage = (dados, tutores, membersPage) => {
       <div className={styles.titleBody}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-
-          {renderMemberArea(dados, membersPage)}
-
+          <div className={styles.membersArea}>
+            {renderMemberArea(dados, membersPage)}
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +108,7 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 const renderTutores = (tutores) => {
   return (
     <div>
+
       <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
@@ -119,23 +121,27 @@ const renderTutores = (tutores) => {
 
 const renderMemberArea = (dados, membersPage) => {
   return (
-    <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
+    <div>
+      <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
+    </div>
   )
 }
 
 const renderVerMais = (membersPage, setMembersPage, totalExMembros) => {
   return (
-    <div className={styles.loadArea}>
-      {membersPage < totalExMembros ?
-        <div onClick={() => setMembersPage(membersPage + 8)}
-          className={styles.loadMore}>
-          <strong>Ver mais<hr className={styles.line}></hr></strong>
-        </div>
-        :
-        <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
-          <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
-        </div>
-      }
+    <div>
+      <div className={styles.loadArea}>
+        {membersPage < totalExMembros ?
+          <div onClick={() => setMembersPage(membersPage + 8)}
+            className={styles.loadMore}>
+            <strong>Ver mais<hr className={styles.line}></hr></strong>
+          </div>
+          :
+          <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
+            <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
+          </div>
+        }
+      </div>
     </div>
   )
 }
