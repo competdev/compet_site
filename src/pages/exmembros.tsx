@@ -53,9 +53,7 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
 const renderCabecalho = () => {
   return (
     <div className={styles.mainHeader}>
-
       {renderTitleImage()}
-
       <div className={styles.subtitleSpace}>
         {renderSubtitleTop()}
       </div>
@@ -66,9 +64,7 @@ const renderCabecalho = () => {
 
 const renderTitleImage = () => {
   return (
-
     <img className={styles.holder} src="https://i.ibb.co/GMSCqJP/title.png" />
-
   )
 
 }
@@ -96,9 +92,7 @@ const renderBodyPage = (dados, tutores, membersPage) => {
       <div className={styles.titleBody}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-          <div className={styles.membersArea}>
-            {renderMemberArea(dados, membersPage)}
-          </div>
+          {renderMemberArea(dados, membersPage)}
         </div>
       </div>
     </div>
@@ -108,7 +102,6 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 const renderTutores = (tutores) => {
   return (
     <div>
-
       <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>

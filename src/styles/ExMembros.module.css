@@ -12,28 +12,24 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #e9e9e9;
+  background-color: #f5f5f5;
   overflow-x: hidden;
 }
 
 .mainHeader {
-  margin-top: 10%;
+  margin-top: 7%;
   display: inline-flex;
   width: 100%;
   break-before: auto;
   vertical-align: center;
   height: auto;
-  
 }
 
 .holder {
-
-  max-width: 400px;
-  max-height: 400px;
-  
-  transform: scale(1.-10); /* Equal to scaleX(0.7) scaleY(0.7) */
+  position: absolute;
+  width: 500px;
+  height: 145px;
 }
-
 
 .subtitleSpace {
   padding-left: auto;
@@ -41,7 +37,7 @@
   font-size: 15px;
   height: 100%;
   width: 100%;
-  
+
   overflow-x: hidden;
 }
 
@@ -61,7 +57,6 @@
 }
 
 .infoScrum {
-  margin-left: -35px;
   text-align: center;
   height: 16px;
   width: 16px;
@@ -70,12 +65,12 @@
 }
 
 .infoIntercamb {
-  margin-left: -35px;
   text-align: center;
   height: 16px;
   width: 16px;
   border-radius: 50%;
   background-color: #19DD39;
+  margin-top: -49px;
 }
 
 .scrumMasterStr {
@@ -92,6 +87,7 @@
   color: #004266;
   font-size: 15px;
   font-family: "Codec Pro Regular";
+  margin-top: -40px;
 }
 
 .bodyGroup {
@@ -105,8 +101,7 @@
   font-size: 40px;
   color: #004266;
   margin-top: 30px;
-  margin-bottom: 60px;
-
+  margin-bottom: 80px;
 }
 
 
@@ -120,7 +115,7 @@
 
 .membersArea {
   width: 80%;
-  background-color: #e9e9e9;
+  background-color: #f5f5f5;
 }
 
 .loadArea {
@@ -181,10 +176,15 @@
 
 @media (max-width: 768px) {
   .titleBody {
-    font-size: 35px;
-    padding-bottom: 70px;
+    font-size: 32px;
+    margin-top: 30px;
   }
-  .loadMore {
+
+  .containerMembers {
+    margin-top: -40px;
+  }
+
+  .tuto .loadMore {
     margin-top: -10px;
     font-size: 140%;
     font-family: "Codec Pro Regular";
@@ -193,12 +193,14 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   .line {
     margin-top: -1px;
     border-radius: 90px;
     border: 4px solid #19dd39;
     background-color: #19dd39;
   }
+
   .lineRecolher {
     margin-top: -1px;
     border-radius: 90px;
@@ -206,55 +208,110 @@
     background-color: #004266;
   }
 }
-@media (max-width: 1000px) {
+
+@media (max-width: 1435px) {
   .mainHeader {
-    margin-top: 20%;
-    
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 1060px) {
+  .mainHeader {
+    margin-top: 13%;
+  }
+
+  .holder {
+    position: absolute;
+    width: 350px;
+    height: 101px;
+  }
+
+  .infoScrum {
+    height: 12px;
+    width: 12px;
+  }
+
+  .infoIntercamb {
+    height: 12px;
+    width: 12px;
+  }
+
+  .scrumMasterStr {
+    font-size: 12px;
+  }
+
+  .intercambioStr {
+    font-size: 12px;
+  }
+
+
+
+  .titleBody {
+    font-size: 30px;
   }
 }
 
 @media (max-width: 850px) {
   .mainHeader {
+    margin-top: 15%;
     display: inline;
-    
   }
+
+  .titleBody {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mainHeader {
+    margin-top: 20%;
+  }
+
+  .subtitleSpace {
+    width: 100%;
+  }
+
   .alignSubtitle {
-    margin-left: 70%;
+    margin-left: 75%;
   }
 }
 
 @media (max-width: 550px) {
   .mainHeader {
-    margin-top: 35%;
-    
+    margin-top: 25%;
   }
+
   .holder {
     max-width: 300px;
     max-height: 300px;
   }
+
+  .containerMembers {
+    margin-top: 10px;
+  }
+
 }
 
 @media (max-width: 350px) {
   .mainHeader {
     margin-top: 45%;
-    
   }
 }
 
 
 @media (max-width: 460px) {
   .titleBody {
-    margin-top: auto;
-    
-    
+    margin-top: 20px;
   }
+
 }
 
 @media (max-width: 545px) {
   .titleBody {
     font-size: 28px;
-    padding-bottom: 45px;
+    margin-bottom: 40px;
   }
+
   .loadMore {
     margin-top: -10px;
     font-size: 110%;
@@ -264,12 +321,14 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   .line {
     margin-top: -1px;
     border-radius: 90px;
     border: 3px solid #19dd39;
     background-color: #19dd39;
   }
+
   .lineRecolher {
     margin-top: -1px;
     border-radius: 90px;
@@ -278,3 +337,32 @@
   }
 }
 
+@media (max-width: 425px) {
+  .mainHeader {
+    margin-top: 30%;
+  }
+
+  .holder {
+    width: 240px;
+    height: 70px;
+  }
+
+  .infoScrum {
+    height: 9px;
+    width: 9px;
+  }
+
+  .infoIntercamb {
+    height: 9px;
+    width: 9px;
+  }
+
+  .scrumMasterStr {
+    font-size: 9px;
+  }
+
+  .intercambioStr {
+    font-size: 9px;
+  }
+
+}
