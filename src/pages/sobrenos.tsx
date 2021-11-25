@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 10,
   },
   timeline: {
-    height: "120%",
+    height: "110%",
     position: "absolute",
     left: 0,
     top: 80,
@@ -86,48 +86,58 @@ export default function CustomizedTimeline() {
                 alt='Sandro Dias'
                 src='https://i.ibb.co/vQr2VJ6/tutor-Sandro-Dias.jpg'
               />
-              <Typography className={classes.body}>
+              <Typography>
                 A ideia do grupo surgiu durante o workshop de graduação em
                 agosto de 2014, quando o Prof Sandro Renato Dias viu a diretora
                 de graduação, Profa. Ivete, falar sobre o edital para a criação
                 dos primeiros grupos PET institucionais e consolidou o projeto
                 na mente minutos depois ao ouvir a fala do Prof. Lindolpho,
-                tutor do PET de Leopoldina (PET do MEC). Bom, o COMPET foi um
-                parto muito difícil. Como o Sandro era recém concursado, não
-                podia submeter um projeto para o PET, e então reclamou à
-                diretoria de Graduação para permitir que isso fosse possível,
-                demonstrando total interesse em submeter. Alteraram as regras e
-                permitiram recém concursados. Depois foi necessário reclamar de
-                novo, pois a experiência pregressa em extensão não poderia ser
-                computada, já que nas regras do edital poderia ser apenas tempo
-                de experiência dentro do CEFET-MG, Sandro recorreu novamente e
-                foi atendido. Sou brasileiro, não desisto nunca, como disse o
-                Sandro. O primeiro projeto do COMPET foi finalizado em
-                24/10/2014, data em que ele assinou o projeto, dia do seu
-                aniversário e ano da entrada dele no CEFET, estava com 7 meses e
-                27 dias de CEFET. Como o projeto foi submetido por e-mail,
-                conforme orientação de quem atendeu ao telefone na diretoria, e
-                sem o documento do CEFET em que ele constava como docente da
-                instituição (sim, absurdo, teve que provar ao CEFET que era
-                docente do CEFET), o projeto foi desclassificado. O resultado
-                saiu em 04/12/2014, Sandro recorreu da decisão, mas foi
-                indeferido. Sou brasileiro, não desisto nunca, salientou o
+                tutor do PET de Leopoldina (PET do MEC).
+              </Typography>
+
+              <Typography style={{ marginTop: 10 }}>
+                O COMPET foi um parto muito difícil. Como o Sandro era recém
+                concursado, não podia submeter um projeto para o PET, e então
+                reclamou à diretoria de Graduação para permitir que isso fosse
+                possível, demonstrando total interesse em submeter. Alteraram as
+                regras e permitiram recém concursados.
+              </Typography>
+
+              <Typography style={{ marginTop: 10 }}>
+                Depois foi necessário reclamar de novo, pois a experiência
+                pregressa em extensão não poderia ser computada, já que nas
+                regras do edital poderia ser apenas tempo de experiência dentro
+                do CEFET-MG, Sandro recorreu novamente e foi atendido. Sou
+                brasileiro, não desisto nunca, como disse o Sandro.
+              </Typography>
+
+              <Typography style={{ marginTop: 10 }}>
+                O primeiro projeto do COMPET foi finalizado em 24/10/2014, data
+                em que ele assinou o projeto, dia do seu aniversário e ano da
+                entrada dele no CEFET, estava com 7 meses e 27 dias de CEFET.
+                Como o projeto foi submetido por e-mail, conforme orientação de
+                quem atendeu ao telefone na diretoria, e sem o documento do
+                CEFET em que ele constava como docente da instituição (sim,
+                absurdo, teve que provar ao CEFET que era docente do CEFET), o
+                projeto foi desclassificado.
+              </Typography>
+
+              <Typography style={{ marginTop: 10 }}>
+                O resultado saiu em 04/12/2014, Sandro recorreu da decisão, mas
+                foi indeferido. Sou brasileiro, não desisto nunca, salientou o
                 professor. Em contato com a diretoria foi informado de um novo
                 edital, publicado em 18/12/2014, com isso resolveu reformular o
                 projeto e submeter novamente. Foi aprovado e o resultado
-                publicado em 11/02/2015, o resultado tinha a relação dos
-                seguintes aprovados: Computação (Sandro Dias, C2, 94,1 pontos),
-                Automação Kleber Fontoura, Araxá, 76,5 pontos), Minas (Maurício
-                Carneiro, Araxá, 63,8 pontos), Materiais (Ivan Santana, C1, 58,2
-                pontos), Materiais (Paulo Paiva, C1, 58,1 pontos), Transportes
-                (Augusto Bezerra, C1, 33,8 pontos). A partir de recurso do Prof.
-                Ivan (que resultou na redução da própria nota e de outros),
-                foram reformuladas as notas e novo resultado foi publicado em
-                13/04/2015, Computação (Sandro Dias, C2, 92,7 pontos), Automação
-                Kleber Fontoura, Araxá, 75,3 pontos), Minas (Maurício Carneiro,
-                Araxá, 66,0 pontos), Materiais (Paulo Paiva, C1, 50,1 pontos),
-                Materiais (Ivan Santana, C1, 45,7 pontos), Transportes (Augusto
-                Bezerra, C1, 38,58 pontos).{" "}
+                publicado em 11/02/2015, Computação (Sandro Dias, C2, 94,1
+                pontos), em primeiro lugar.
+              </Typography>
+
+              <Typography style={{ marginTop: 10 }}>
+                A partir do recurso de um docente que havia submetido um projeto
+                também, houve a redução da própria nota e de outros, as quais
+                foram reformuladas e divulgado um novo resultado publicado em
+                13/04/2015, Computação (Sandro Dias, C2, 92,7 pontos), em
+                primeiro lugar novamente.
               </Typography>
             </Paper>
           </TimelineContent>
