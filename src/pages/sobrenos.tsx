@@ -15,6 +15,10 @@ import Typography from "@material-ui/core/Typography";
 import { History } from "@material-ui/icons";
 import { Avatar, Icon } from "@material-ui/core";
 import Menu from "../components/menu";
+import Book from "../assets/Book";
+import Clock from "../assets/Clock";
+import People from "../assets/People";
+import Idea from "../assets/Idea";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 10,
   },
   timeline: {
-    height: "110%",
+    height: "100%",
     position: "absolute",
     left: 0,
     top: 80,
@@ -38,13 +42,11 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     background: "linear-gradient(180deg, #19dd39b8 5%, #004266c9 95%)",
   },
-  imageIcon: {
-    display: "flex",
-    height: "inherit",
-    width: "inherit",
-  },
-  iconRoot: {
-    textAlign: "center",
+  icon: {
+    height: 110,
+    width: 110,
+    borderRadius: 55,
+    marginBottom: 20,
   },
 }));
 
@@ -55,18 +57,14 @@ export default function CustomizedTimeline() {
     <>
       <Menu />
       <Timeline align='alternate' className={classes.timeline}>
-        <TimelineItem style={{ marginTop: 20 }}>
+        <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
             <Typography variant='h6' color='textSecondary'>
               História
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color='primary' style={{ padding: 10 }}>
-              <Icon classes={{ root: classes.iconRoot }}>
-                <img className={classes.imageIcon} src='../assets/Clock.svg' />
-              </Icon>
-            </TimelineDot>
+            <Clock className={classes.icon} />
             <TimelineConnector className={classes.secondaryTail} />
           </TimelineSeparator>
           <TimelineContent>
@@ -142,18 +140,14 @@ export default function CustomizedTimeline() {
             </Paper>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem style={{ marginTop: 20 }}>
+        <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
             <Typography variant='h6' color='textSecondary'>
               Foco
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color='primary' style={{ padding: 10 }}>
-              <Icon classes={{ root: classes.iconRoot }}>
-                <img className={classes.imageIcon} src='../assets/Idea.svg' />
-              </Icon>
-            </TimelineDot>
+            <Idea className={classes.icon} />
             <TimelineConnector className={classes.secondaryTail} />
           </TimelineSeparator>
           <TimelineContent>
@@ -184,18 +178,14 @@ export default function CustomizedTimeline() {
             </Paper>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem style={{ marginTop: 20 }}>
+        <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
             <Typography variant='h6' color='textSecondary'>
               Estrutura Organizacional
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color='primary' style={{ padding: 10 }}>
-              <Icon classes={{ root: classes.iconRoot }}>
-                <img className={classes.imageIcon} src='../assets/People.svg' />
-              </Icon>
-            </TimelineDot>
+            <People className={classes.icon} />
             <TimelineConnector className={classes.secondaryTail} />
           </TimelineSeparator>
           <TimelineContent>
@@ -216,18 +206,14 @@ export default function CustomizedTimeline() {
             </Paper>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem style={{ marginTop: 20 }}>
+        <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
             <Typography variant='h6' color='textSecondary'>
               Ensino, Pesquisa e Extensão
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color='primary' style={{ padding: 10 }}>
-              <Icon classes={{ root: classes.iconRoot }}>
-                <img className={classes.imageIcon} src='../assets/Book.svg' />
-              </Icon>
-            </TimelineDot>
+            <Book className={classes.icon} />
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
