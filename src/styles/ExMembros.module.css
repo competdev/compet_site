@@ -32,12 +32,9 @@
 }
 
 .subtitleSpace {
-  padding-left: auto;
-  padding-top: auto;
   font-size: 15px;
   height: 100%;
   width: 100%;
-
   overflow-x: hidden;
 }
 
@@ -307,6 +304,10 @@
 }
 
 @media (max-width: 545px) {
+  .mainHeader {
+    margin-top: 35%;
+  }
+
   .titleBody {
     font-size: 28px;
     margin-bottom: 40px;
@@ -339,7 +340,7 @@
 
 @media (max-width: 425px) {
   .mainHeader {
-    margin-top: 30%;
+    margin-top: 40%;
   }
 
   .holder {
@@ -364,5 +365,10 @@
   .intercambioStr {
     font-size: 9px;
   }
+}
 
+@media (max-width: 425px) {
+  .mainHeader {
+    display: block;
+  }
 }
