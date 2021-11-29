@@ -6,6 +6,7 @@ import Footer from '../components/footer';
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/styles';
+import SearchBox from '../components/SearchBox';
 
 Certificados.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/certificados");
@@ -36,7 +37,7 @@ function convertDate(stringDate) {
 const useStyles = makeStyles((theme) => ({
   pagination: {
     listStyle: "none",
-    fontSize: "20px",
+    fontSize: "17px",
     display: "flex",
     paddingLeft: "0px",
     justifyContent: "center",
@@ -61,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #d8d9da",
     backgroundColor: "#fff",
     padding: ".555rem .795rem",
-    borderTopLeftRadius: ".99rem",
-    borderBottomLeftRadius: ".75rem",
+    borderTopLeftRadius: "50px",
+    borderBottomLeftRadius: "50px",
     "&:hover": {
       color: "#0a58ca",
       backgroundColor: "#e9ecef",
@@ -73,8 +74,8 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #d8d9da",
     backgroundColor: "#fff",
     padding: ".555rem .795rem",
-    borderTopRightRadius: ".99rem",
-    borderBottomRightRadius: ".75rem",
+    borderTopRightRadius: "50px",
+    borderBottomRightRadius: "50px",
     "&:hover": {
       color: "#0a58ca",
       backgroundColor: "#e9ecef",
@@ -83,16 +84,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function Certificados({ dados }) {
-  let [certificadosPag, setcertificadosPag] = useState(8);
-  const classes = useStyles();
+  const [query, setQuery] = useState("")
+  const classes = useStyles()
+  let dadosFiltrados
 
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Menu />
       {renderCabecalho()}
+      <div className={styles.searchContainer}><SearchBox placeholder="Pesquisar certificado..."
+        query={query} setQuery={setQuery} /></div>
       {PaginatedItems(dados, classes)}
+
+
+      {/*(query === "") ? PaginatedItems(dados, classes) : dadosFiltrados = dados.filter(function (certificado) {
+        return (certificado.titulo.toLowerCase().includes(query.toLowerCase()))
+      })*/}
+
       <Footer />
     </div>
   );
@@ -146,11 +157,11 @@ function PaginatedItems(items, classes) {
       {renderCertificados(currentItems)}
       <div className={styles.containerPaginate}>
         <ReactPaginate
-          nextLabel=" >> "
+          nextLabel="Proximo"
           onPageChange={handlePageClick}
           pageRangeDisplayed={1}
           pageCount={pageCount}
-          previousLabel=" << "
+          previousLabel="Anterior"
           pageClassName={classes.page_item}
           pageLinkClassName={classes.page_link}
           previousClassName={classes.page_prev}

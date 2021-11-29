@@ -3,6 +3,12 @@
   src: url("fonts/CodecPro-Regular.ttf");
 }
 
+.searchContainer {
+  margin-top: 80px;
+  text-align: center;
+  margin-left: 55%;
+}
+
 .containerPaginate {
   margin-top: -20px;
   width: 100%;
@@ -26,7 +32,6 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 120px;
 }
 
 .certificadosContainer {
