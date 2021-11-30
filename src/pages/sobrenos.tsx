@@ -6,19 +6,15 @@ import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
 import TimelineConnector from "@material-ui/lab/TimelineConnector";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
-import TimelineDot from "@material-ui/lab/TimelineDot";
-import LaptopMacIcon from "@material-ui/icons/LaptopMac";
-import HotelIcon from "@material-ui/icons/Hotel";
-import RepeatIcon from "@material-ui/icons/Repeat";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { History } from "@material-ui/icons";
-import { Avatar, Icon } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import Menu from "../components/menu";
 import Book from "../assets/Book";
 import Clock from "../assets/Clock";
 import People from "../assets/People";
 import Idea from "../assets/Idea";
+import Footer from "../components/footer";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,20 +29,16 @@ const useStyles = makeStyles((theme) => ({
   body: {
     margin: 10,
   },
-  timeline: {
-    height: "100%",
-    position: "absolute",
-    left: 0,
-    top: 80,
-    width: "100%",
-    overflow: "hidden",
-    background: "linear-gradient(180deg, #19dd39b8 5%, #004266c9 95%)",
-  },
+  timeline: {},
   icon: {
     height: 110,
     width: 110,
     borderRadius: 55,
     marginBottom: 20,
+  },
+  div: {
+    background: "linear-gradient(180deg, #19dd39b8 5%, #004266c9 95%)",
+    backgroundRepeat: "no-repeat",
   },
 }));
 
@@ -54,7 +46,7 @@ export default function CustomizedTimeline() {
   const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.div}>
       <Menu />
       <Timeline align='alternate' className={classes.timeline}>
         <TimelineItem style={{ marginTop: 40 }}>
@@ -234,6 +226,7 @@ export default function CustomizedTimeline() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </>
+      <Footer />
+    </div>
   );
 }
