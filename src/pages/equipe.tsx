@@ -43,7 +43,7 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
       <Menu />
-      {/*renderCabecalho()*/}
+      {renderCabecalho()}
       {renderTutores(tutores)}
       {renderScrumMaster(scrumMaster)}
       {renderMembros(membros, membersPage)}
@@ -70,9 +70,7 @@ const renderCabecalho = () => {
 
 const renderTitleImage = () => {
   return (
-    <div>
-      <div> <img src="https://i.ibb.co/ZGZdZ9b/title.png" /> </div>
-    </div>
+    <img className={styles.holder} src="https://i.ibb.co/ZGZdZ9b/title.png" />
   )
 }
 
