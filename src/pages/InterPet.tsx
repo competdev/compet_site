@@ -2,6 +2,7 @@ import axios from "axios"
 
 import Menu from '../components/menu'
 import Footer from '../components/footer'
+import PrincipalCard from '../components/principalCard'
 
 import styles from '../styles/InterPet.module.css'
 
@@ -12,11 +13,10 @@ InterPet.getInitialProps = async () => {
   return { dados: response.data };
 };
 
-export default function InterPet() {
+export default function InterPet({ dados }) {
   return (
     <>
-      <Menu />
-      <Footer />
+      <PrincipalCard dados={dados} />
     </>
   )
 }
