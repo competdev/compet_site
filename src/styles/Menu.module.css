@@ -82,7 +82,7 @@
     z-index: -1;
     position: fixed;
     margin-top: 30px;
-    right: -50px;
+    right: -100px;
     width: 30vw;
     height: 80vh;
     background: #ffffff;
@@ -101,7 +101,7 @@
   transform: translateX(0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 810px) {
   .logo img {
     margin-left: 40%;
     height: 57px;
@@ -123,7 +123,7 @@
   .nav_list {
     width: 40vw;
     right: -37px;
-    margin-top: 30px;
+    margin-top: 50px;
   }
   .mobile_menu div {
     width: 30px;
@@ -131,5 +131,55 @@
     background-color: #004266;
     margin: 7px;
     margin-right: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .link {
+    font-size: 15px;
+  }
+  .nav_list {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 414px) {
+  .nav_list {
+    width: 60vw;
+    right: -60px;
+    margin-top: 35px;
+  }
+  .link {
+    margin-right: 60px;
+  }
+
+}
+@media (max-width: 375px) {
+  .nav_list {
+    margin-top: 4px;
+
+  }
+}
+
+@media (max-width: 360px) {
+  .nav_list {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 359px) {
+  .nav_list {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .nav_list {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 319px) {
+  .nav_list {
+    margin-top: 30px;
   }
 }
