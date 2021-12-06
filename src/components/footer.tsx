@@ -5,10 +5,9 @@ import wSize from '../util/windowSize'
 
 const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
+
 export default function Footer() {
   const [toggleDECOM, setToggleDECOM] = useState(false)
-  const [togglePET, setTogglePET] = useState(false)
-
   return (
     <div>
       <div className={styles.footer}>
@@ -39,88 +38,122 @@ const renderTextLinks = () => {
 
 
 const renderCEFETInfo = () => {
-  const [toggleCEFET, setToggleCEFET] = useState(false)
-  const toggleCEFETbtn = () => {
-    setToggleCEFET(!toggleCEFET)
-    console.log("teste")
-  }
+  const [toggleFooter, setToggleFooter] = useState(false)
 
+  const toggleArrow = () => {
+    setToggleFooter(!toggleFooter)
+  }
   return (
     <div className={styles.CEFETinfo}>
       <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>CEFET</div><div className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
-          <div className={styles.LinksCEFET}>
-            <div className={styles.CEFETLinks}>
-              <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
-              <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
-              <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
-            </div>
-          </div>
+            {
+              wSize().width > 1100 ? renderLinksCEFET() : (toggleFooter ? renderLinksCEFET() : <></>)
+            }
         </div>
       </div>
     </div>
   )
 }
 
+const renderLinksCEFET = () => {
+  return(
+    <div className={styles.CEFETLinks}>
+      <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+    </div>
+  )
+}
+
 const renderDECOMInfo = () => {
-    const [toggleFooter, setToggleFooter] = useState(false)
-  
-    const toggleArrow = () => {
-      setToggleFooter(!toggleFooter)
-      console.log(toggleFooter);
-    }
+  const [toggleFooter, setToggleFooter] = useState(false)
+
+  const toggleArrow = () => {
+    setToggleFooter(!toggleFooter)
+  }
   return (
     <div className={styles.DECOMinfo}>
-      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>DECOM</div><div onClick = {toggleArrow} className={styles.arrow}></div></div></div>
+      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>DECOM</div><div onClick={toggleArrow} className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
-          <div className={styles.LinksDECOM}>
-            <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
-            <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
-          </div> 
+          {
+            wSize().width > 1100 ? renderLinksDECOM() : (toggleFooter ? renderLinksDECOM() : <></>)
+          }
         </div> 
       </div>
     </div>
   )
+}
 
+const renderLinksDECOM = () => {
+  return(
+    <div className={styles.LinksDECOM}>
+      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
+      <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
+    </div>
+  )
 }
 
 const renderExtraInfo = () => {
+  const [toggleFooter, setToggleFooter] = useState(false)
+
+  const toggleArrow = () => {
+    setToggleFooter(!toggleFooter)
+  }
   return (
     <div className={styles.extraInfo}>
       <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div><div className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.containerLinks}>
           <div className={styles.Links}>
-            <div className={styles.LinksDECOM}>
-            <button onClick= "LinksDECOM()" id="btnLinksDECOM"></button>
-              <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
-              <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
-              <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
-              <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
-            </div>
+            {
+              wSize().width > 1100 ? renderLinksCOGPDC() : (toggleFooter ? renderLinksCOGPDC() : <></>)
+            }
           </div>
-
-
           <div className={styles.Links}>
-            <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>Eng. de Minas (Araxá)</a></Link></div>
-            <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>EAI (Araxá)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Civil (Curvelo)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Eng. Mecatrônica (Divinópolis)</a></Link></div>
+            {
+              wSize().width > 1100 ? renderLinksCOGPDC() : (toggleFooter ? renderLinksCOGPDC() : <></>)
+            }
           </div>
-
           <div className={styles.Links}>
-            <div className={styles.singleLink}><Link href="https://www.peteenepomuceno.com.br/"><a>Eng. Elétrica (Nepomuceno)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. de Controle e Automação (Leopoldina)</a></Link></div>
-            <div className={styles.singleLink}><Link href=""><a>Interdisciplinar (Timóteo)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. Civil (Varginha)</a></Link></div>
+            {
+              wSize().width > 1100 ? renderLinksCOGPDC() : (toggleFooter ? renderLinksCOGPDC() : <></>)
+            }
           </div>
         </div>
       </div>
     </div>
 
+  )
+}
+
+const renderLinksCOGPDC = () => {
+  return(
+    <>
+    <div className={styles.LinksDECOM}>
+      <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
+    </div>
+    
+    <div className={styles.LinksDECOM}>
+      <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>Eng. de Minas (Araxá)</a></Link></div>
+      <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>EAI (Araxá)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Civil (Curvelo)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Eng. Mecatrônica (Divinópolis)</a></Link></div>
+    </div>
+    
+    <div className={styles.LinksDECOM}>
+      <div className={styles.singleLink}><Link href="https://www.peteenepomuceno.com.br/"><a>Eng. Elétrica (Nepomuceno)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. de Controle e Automação (Leopoldina)</a></Link></div>
+      <div className={styles.singleLink}><Link href=""><a>Interdisciplinar (Timóteo)</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. Civil (Varginha)</a></Link></div>
+    </div>
+    </>
   )
 }
 

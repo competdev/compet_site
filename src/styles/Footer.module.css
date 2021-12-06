@@ -138,13 +138,14 @@
 
 @media (max-width: 1100px) {
   .arrow {
+    margin-top: -10px;
+    margin-right: 5px;
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    background-color: aqua;
   }
   .footer {
     border-top-left-radius: 7%;
@@ -170,13 +171,12 @@
     margin-top: -20px;
     font-size: 15px;
     font-weight: 500;
+    overflow-x: hidden;
   }
   .Links {
     font-size: 6px;
   }
-  .Links{
-    display: none;
-  }
+
   .LinksDECOM{
     display: block;
   }
