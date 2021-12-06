@@ -23,23 +23,25 @@ const CustomList: React.FC<CustomListProps> = ({ elements, ...otherProps }) => {
       }}
     >
       {elements.map((element, index) => {
-        <ListItem key={element._id}>
-          <Card style={{ maxWidth: 345 }}>
-            <CardActionArea>
-              <CardMedia
-                component='img'
-                alt={element.titulo}
-                height='140'
-                image={element.img}
-              />
-              <CardContent>
-                <Typography gutterBottom variant='h5' component='div'>
-                  {element.data}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </ListItem>;
+        !element.atual ?? (
+          <ListItem key={element._id}>
+            <Card style={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component='img'
+                  alt={element.titulo}
+                  height='140'
+                  image={element.img}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant='h5' component='div'>
+                    {element.data}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </ListItem>
+        );
       })}
     </List>
   );
