@@ -47,13 +47,15 @@ const renderCEFETInfo = () => {
 
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle} onClick={toggleCEFETbtn}>CEFET<div className={styles.arrow}></div></div>
+      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>CEFET</div><div className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
-          <div className={styles.CEFETLinks}>
-            <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+          <div className={styles.LinksCEFET}>
+            <div className={styles.CEFETLinks}>
+              <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
+              <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
+              <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+            </div>
           </div>
         </div>
       </div>
@@ -62,14 +64,22 @@ const renderCEFETInfo = () => {
 }
 
 const renderDECOMInfo = () => {
+    const [toggleFooter, setToggleFooter] = useState(false)
+  
+    const toggleArrow = () => {
+      setToggleFooter(!toggleFooter)
+      console.log(toggleFooter);
+    }
   return (
     <div className={styles.DECOMinfo}>
-      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>DECOM</div><div className={styles.arrow}></div></div></div>
+      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>DECOM</div><div onClick = {toggleArrow} className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
-          <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
-          <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
-          <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
+          <div className={styles.LinksDECOM}>
+            <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
+            <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
+            <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
+          </div> 
         </div> 
       </div>
     </div>
@@ -80,14 +90,17 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!<div className={styles.arrow}></div></div>
+      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div><div className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.containerLinks}>
           <div className={styles.Links}>
-            <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
-            <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
+            <div className={styles.LinksDECOM}>
+            <button onClick= "LinksDECOM()" id="btnLinksDECOM"></button>
+              <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
+              <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
+              <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
+              <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
+            </div>
           </div>
 
 

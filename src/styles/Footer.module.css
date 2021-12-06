@@ -144,6 +144,7 @@
     padding: 3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    background-color: aqua;
   }
   .footer {
     border-top-left-radius: 7%;
@@ -166,7 +167,6 @@
     justify-content: space-between;
   }
   .sectionTitle {
-    background-color: aqua;
     margin-top: -20px;
     font-size: 15px;
     font-weight: 500;
@@ -174,8 +174,11 @@
   .Links {
     font-size: 6px;
   }
-  .Links {
+  .Links{
     display: none;
+  }
+  .LinksDECOM{
+    display: block;
   }
   .socialNetwork {
     text-align: center;
