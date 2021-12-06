@@ -47,7 +47,7 @@ const renderCEFETInfo = () => {
 
   return (
     <div className={styles.CEFETinfo}>
-      <div className={styles.sectionTitle} onClick={toggleCEFETbtn}>CEFET</div>
+      <div className={styles.sectionTitle} onClick={toggleCEFETbtn}>CEFET<div className={styles.arrow}></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
           <div className={styles.CEFETLinks}>
@@ -64,13 +64,13 @@ const renderCEFETInfo = () => {
 const renderDECOMInfo = () => {
   return (
     <div className={styles.DECOMinfo}>
-      <div className={styles.sectionTitle}>DECOM</div>
+      <div><div className={styles.containerTitle}><div className={styles.sectionTitle}>DECOM</div><div className={styles.arrow}></div></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.Links}>
           <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
           <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
           <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
-        </div>
+        </div> 
       </div>
     </div>
   )
@@ -80,7 +80,7 @@ const renderDECOMInfo = () => {
 const renderExtraInfo = () => {
   return (
     <div className={styles.extraInfo}>
-      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!</div>
+      <div className={styles.sectionTitle}>CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!<div className={styles.arrow}></div></div>
       <div className={styles.separator}> <hr></hr>
         <div className={styles.containerLinks}>
           <div className={styles.Links}>
