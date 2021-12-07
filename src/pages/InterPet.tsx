@@ -14,9 +14,10 @@ InterPet.getInitialProps = async () => {
 
 export default function InterPet({ dados }) {
   return (
-    <>
+    <div className={styles.content}>
       <PrincipalCard dados={dados} />
       <PastEditions elements={dados} />
-    </>
+      <Footer />
+    </div>
   );
 }
