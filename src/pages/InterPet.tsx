@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import PrincipalCard from "../components/principalCard";
 
 import styles from "../styles/InterPet.module.css";
-import CustomList from "../components/customList";
+import PastEditions from "../components/pastEditions";
 
 InterPet.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/interpet");
@@ -16,7 +16,7 @@ export default function InterPet({ dados }) {
   return (
     <>
       <PrincipalCard dados={dados} />
-      <CustomList elements={dados} />
+      <PastEditions elements={dados} />
     </>
   );
 }
