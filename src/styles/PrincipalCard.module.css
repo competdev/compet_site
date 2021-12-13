@@ -63,3 +63,108 @@
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
+
+@media (max-width: 1024px) {
+  .card {
+    max-width: 1100px;
+    max-height: 300px;
+  }
+
+  .card .cardImg {
+    width: 275px;
+    height: 275px;
+  }
+
+  .card .title {
+    font-size: 35px;
+    margin-top: 15px;
+    max-width: 450px;
+  }
+
+  .card .date {
+    font-size: 17px;
+  }
+
+  .card .abstract {
+    font-size: 13px;
+    margin-top: 20px;
+    max-width: 400px;
+  }
+
+  .card .link {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 700px;
+    max-height: 200px;
+  }
+
+  .card .cardImg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card .title {
+    font-size: 25px;
+    margin-top: 10px;
+    max-width: 300px;
+  }
+
+  .card .date {
+    font-size: 12px;
+  }
+
+  .card .abstract {
+    font-size: 8px;
+    margin-top: 8px;
+    max-width: 250px;
+  }
+
+  .card .link {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    max-width: 250px;
+    max-height: 100px;
+    border-radius: 10px;
+  }
+
+  .card .cardImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card img {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .card .title {
+    font-size: 13px;
+    margin-top: 30px;
+    max-width: 150px;
+  }
+
+  .card .date {
+    font-size: 7px;
+  }
+
+  .card .abstract {
+    font-size: 8px;
+    margin-top: 8px;
+    max-width: 250px;
+  }
+
+  .card .link {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
