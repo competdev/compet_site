@@ -3,6 +3,7 @@ import axios from "axios"
 import Menu from '../components/menu'
 import Footer from '../components/footer'
 import PrincipalCard from '../components/principalCard'
+import Contact from "../components/contact"
 
 import styles from '../styles/InterPet.module.css'
 
@@ -17,6 +18,7 @@ export default function InterPet({ dados }) {
   return (
     <>
       <PrincipalCard dados={dados} />
+      <Contact></Contact>
     </>
   )
 }
