@@ -1,6 +1,7 @@
 import SectionTitle from '../components/sectionTitle';
 import styles from '../styles/PrincipalCard.module.css';
 import Link from 'next/link';
+import wSize from '../util/windowSize'
 
 function convertDate(stringDate) {
   const date = new Date(stringDate)
@@ -30,7 +31,7 @@ export default function principalCard({ dados }) {
         <div className={styles.infoCard}>
           <div className={styles.title}>{edicao_atual[0].titulo}</div>
           <div className={styles.date}>{convertDate(edicao_atual[0].data)}</div>
-          <div className={styles.abstract}>{edicao_atual[0].resumo}</div>
+          {wSize().width > 425 ? <div className={styles.abstract}>{edicao_atual[0].resumo}</div> : <></>}
           <div className={styles.link}><Link href={edicao_atual[0].link}><a target="_blank">Acessar</a></Link></div>
         </div>
       </div>
