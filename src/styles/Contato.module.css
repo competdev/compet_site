@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+.text {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: 'Codec Pro Regular';
+}
+
+.submit {
+  background-color: #19DD39;
+  color: white;
+  font-weight: bolder;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #004266;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
