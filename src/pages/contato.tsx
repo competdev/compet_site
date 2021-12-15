@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import styles from '../styles/Contato.module.css'
-import sendMail from '../pages/api/contato'
 
 import dynamic from 'next/dynamic'
 
@@ -9,13 +7,6 @@ const Map = dynamic(() => import('../components/map'), {
 })
 
 export default function Contato() {
-  /*
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  */
-
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
     const target = e.target as typeof e.target & {
