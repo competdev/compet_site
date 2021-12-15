@@ -37,3 +37,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.mapContainer {
+  margin: 10px auto;
+}

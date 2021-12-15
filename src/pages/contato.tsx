@@ -2,6 +2,12 @@ import { useState } from 'react'
 import styles from '../styles/Contato.module.css'
 import sendMail from '../pages/api/contato'
 
+import dynamic from 'next/dynamic'
+
+const Map = dynamic(() => import('../components/map'), {
+  ssr: false
+})
+
 export default function Contato() {
   /*
   const [email, setEmail] = useState("");
@@ -53,5 +59,8 @@ export default function Contato() {
         <input type="text" name="message" className={styles.text} placeholder="Sua mensagem..." />
         <input type="submit" name="submit" className={styles.submit} value="Enviar " />
       </form>
+      <div className={styles.mapContainer}>
+        <Map />
+      </div>
     </div>)
 }
