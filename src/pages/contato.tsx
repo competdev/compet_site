@@ -29,7 +29,7 @@ export default function Contato() {
       },
       body: JSON.stringify({ name, email, subject, message })
     }).then((response) => {
-      console.log('response recieved')
+      console.log('response received')
       if (response.status === 200) {
         console.log('response succeeded')
       }
