@@ -1,27 +1,29 @@
 import nodemailer from "nodemailer"
+import dotenv from 'dotenv'
+dotenv.config()
 
 export default async (req, res) => {
     try {
-        let testAccount = await nodemailer.createTestAccount();
-        const { name, email, subject, message } = req.body
+        const {name, email, subject, message} = req.body
+        const {SENDER_EMAIL, SENDER_PASS, RECIPIENT_EMAIL} = process.env
 
         const transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
-            port: 587,
-            secure: false,
+            service: 'gmail',
+            secure: true,
             auth: {
-                user: testAccount.user,
-                pass: testAccount.pass,
+                user: SENDER_EMAIL,
+                pass: SENDER_PASS,
             }
         })
 
-        const info = await transporter.sendMail({
-            from: `${name} <${email}>`,
-            to: { process.env.EMAIL },
-            subject: `Contato Compet Site - ${subject}`,
-            text: `${message}`
-        })
-        console.log(info)
+        const mailOptions = {
+            from: `${name} <${SENDER_EMAIL}>`,
+            to: [RECIPIENT_EMAIL],
+            subject: `[Contato Compet Site] - ${subject}`,
+            text: `${message}\n---\nEnviado por: ${name} <${email}>`
+        } 
+        
+        await transporter.sendMail(mailOptions)
         return res.status(200).end()
     } catch (err) {
         console.log(`Error sending email: ${err}`)

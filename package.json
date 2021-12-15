@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "*",
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "leaflet": "^1.7.1",
     "mongoose": "^5.13.2",
     "next": "^11.0.0",
