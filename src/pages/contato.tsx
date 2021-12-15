@@ -1,6 +1,9 @@
-import styles from '../styles/Contato.module.css'
+import Menu from '../components/menu'
+import Footer from '../components/footer'
 
 import dynamic from 'next/dynamic'
+
+import styles from '../styles/Contato.module.css'
 
 const Map = dynamic(() => import('../components/map'), {
   ssr: false
@@ -42,16 +45,21 @@ export default function Contato() {
   }
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" className={styles.text} placeholder="Seu nome" />
-        <input type="email" name="email" className={styles.text} placeholder="Seu email" />
-        <input type="text" name="subject" className={styles.text} placeholder="Assunto" />
-        <input type="text" name="message" className={styles.text} placeholder="Sua mensagem..." />
-        <input type="submit" name="submit" className={styles.submit} value="Enviar " />
-      </form>
-      <div className={styles.mapContainer}>
-        <Map />
+    <>
+      <Menu />
+      <div className={styles.container}>
+        <div className={styles.mapContainer}>
+          <Map />
+        </div>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="name" className={styles.text} placeholder="Seu nome" />
+          <input type="email" name="email" className={styles.text} placeholder="Seu email" />
+          <input type="text" name="subject" className={styles.text} placeholder="Assunto" />
+          <input type="text" name="message" className={styles.text} placeholder="Sua mensagem..." />
+          <input type="submit" name="submit" className={styles.submit} value="Enviar " />
+        </form>
       </div>
-    </div>)
+
+      <Footer />
+    </>)
 }
