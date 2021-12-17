@@ -15,7 +15,7 @@
 }
 
 .card {
-  background-color: rgb(255, 255, 255);
+  background-color: #0DAB76;
   display: inline-flex;
   max-width: 1100px;
   border-radius: 30px;
@@ -25,7 +25,7 @@
 .card .cardImg {
   width: 350px;
   height: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.199);
+  border: 1px solid #000000fa;
 }
 
 .card .title {
@@ -66,7 +66,7 @@
 
 @media (max-width: 1024px) {
   .card {
-    max-width: 1100px;
+    max-width: 1200px;
     max-height: 300px;
   }
 
@@ -98,14 +98,19 @@
 }
 
 @media (max-width: 768px) {
+  .infoCard {
+    width: 100%;
+    text-align: center;
+  }
+
   .card {
-    max-width: 700px;
-    max-height: 200px;
+    min-width: 750px;
+    max-height: 250px;
   }
 
   .card .cardImg {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
 
   .card .title {
@@ -115,7 +120,59 @@
   }
 
   .card .date {
+    font-size: 15px;
+  }
+
+  .card .abstract {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+
+  .card .link {
     font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .card {
+    min-width: 95%;
+  }
+
+  .card .title {
+    margin-top: 30px;
+  }
+
+  .card .abstract {
+    font-size: 10px;
+    margin-top: 8px;
+    max-width: 250px;
+  }
+
+
+}
+
+@media (max-width: 425px) {
+  .card {
+    min-width: 95%;
+  }
+
+  .card .cardImg {
+    width: 100px;
+    height: 100px;
+    border: 0px solid;
+  }
+
+  .card .title {
+    font-size: 18px;
+    margin-top: 20px;
+    min-width: 220px;
+    max-width: 150px;
+  }
+
+  .card .date {
+    font-size: 13px;
   }
 
   .card .abstract {
@@ -130,41 +187,14 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 280px) {
   .card {
-    max-width: 250px;
-    max-height: 100px;
-    border-radius: 10px;
-  }
-
-  .card .cardImg {
-    width: 100px;
-    height: 100px;
-  }
-
-  .card img {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    max-width: 95%;
   }
 
   .card .title {
-    font-size: 13px;
-    margin-top: 30px;
-    max-width: 150px;
-  }
-
-  .card .date {
-    font-size: 7px;
-  }
-
-  .card .abstract {
-    font-size: 8px;
-    margin-top: 8px;
-    max-width: 250px;
-  }
-
-  .card .link {
-    font-size: 12px;
-    margin-top: 5px;
+    min-width: 100px;
+    max-width: 100px;
+    font-size: 15px;
   }
 }

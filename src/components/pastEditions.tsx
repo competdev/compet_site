@@ -57,8 +57,8 @@ const PastEditions: React.FC<PastEditionsProps> = ({
           display: "flex",
           flexDirection:
             windowDimensions &&
-            windowDimensions.width &&
-            windowDimensions.width > 1000
+              windowDimensions.width &&
+              windowDimensions.width > 1000
               ? "row"
               : "column",
           width: "70%",
@@ -73,7 +73,6 @@ const PastEditions: React.FC<PastEditionsProps> = ({
               style={{
                 borderTopLeftRadius: "20px",
                 borderTopRightRadius: "20px",
-                border: "1px solid #d5d5d575",
               }}
             >
               <CardActionArea
@@ -90,7 +89,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
                   style={{
                     borderTopLeftRadius: "20px",
                     borderTopRightRadius: "20px",
-                    border: "1px solid rgba(0, 0, 0, 0.199)",
+                    borderBottom: "1px solid rgba(0, 0, 0, 0.822)",
                   }}
                 />
                 <CardContent
@@ -98,6 +97,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
                     display: "flex",
                     justifyContent: "center",
                     textAlign: "center",
+                    backgroundColor: "#19DD39"
                   }}
                 >
                   <Typography
