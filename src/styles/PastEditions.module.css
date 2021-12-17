@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+.content {
+  background-color: #f5f5f5;
+}

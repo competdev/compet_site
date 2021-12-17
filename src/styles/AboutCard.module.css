@@ -32,6 +32,7 @@
   margin-bottom: auto;
   margin-top: auto;
   max-width: 2500px;
+  box-shadow: 1px 1px 10px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sobre1 {
@@ -43,6 +44,7 @@
   max-width: 1350px;
   font-family: "Verdana";
   max-width: 2500px;
+  text-align: justify;
 }
 
 .sobre2 {
@@ -55,6 +57,7 @@
   max-width: 1350px;
   font-family: "Verdana";
   max-width: 2500px;
+  text-align: justify;
 }
 
 
@@ -82,4 +85,16 @@
   }
   
 
+}
+
+@media (max-width: 320px) {
+  .img_InterPet {
+    height: 250px;
+  }
+}
+
+@media (max-width: 280px) {
+  .img_InterPet {
+    height: 200px;
+  }
 }

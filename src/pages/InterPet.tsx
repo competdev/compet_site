@@ -1,6 +1,6 @@
 import axios from "axios";
+import Contact from "../components/contact";
 
-import Menu from "../components/menu";
 import Footer from "../components/footer";
 import PrincipalCard from "../components/principalCard";
 import AboutCard from "../components/aboutCard"
@@ -15,12 +15,12 @@ InterPet.getInitialProps = async () => {
 
 export default function InterPet({ dados }) {
   return (
-    <>
-      <AboutCard/>
+    <div className={styles.content}>
+      <AboutCard />
       <PrincipalCard dados={dados} />
       <PastEditions elements={dados} />
-      
-
-    </>
+      <Contact></Contact>
+      <Footer />
+    </div>
   );
 }

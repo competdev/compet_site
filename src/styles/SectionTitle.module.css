@@ -1,9 +1,34 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
 .title {
   width: 100%;
   text-align: center;
   font-size: 40px;
   color: #004266;
-  padding-top: 20px;
+  padding-top: 60px;
   margin-bottom: 30px;
   font-weight: bolder;
+  font-family: 'Codec Pro Regular'
+}
+
+@media (max-width:1024px) {
+  .title {
+    font-size: 35px;
+  }
+}
+
+@media (max-width:768px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width:425px) {
+  .title {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
 }
