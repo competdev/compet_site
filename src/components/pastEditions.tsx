@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   ListProps,
+  makeStyles,
   Typography,
 } from "@material-ui/core";
 import SectionTitle from "../components/sectionTitle";
@@ -16,36 +17,84 @@ interface PastEditionsProps extends Omit<ListProps, "onChange"> {
   elements: any[];
 }
 
+const useStyles = makeStyles((theme) => ({
+  card: {
+    background: "#19DD39",
+    "&:hover": {
+      background: "#004266 ",
+    },
+    borderTopLeftRadius: "20px",
+    borderTopRightRadius: "20px",
+  },
+  cardContent: {
+    background: "#19DD39",
+    "&:hover": {
+      background: "#004266 ",
+    },
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+}));
+
 const PastEditions: React.FC<PastEditionsProps> = ({
-  elements,
-  ...otherProps
+  elements = [
+    {
+      _id: "61aa8c4e46b5e6b496fb33a2",
+      titulo: "Caderno de resumos InterPET 2021",
+      data: "2021-07-28T00:00:00.000Z",
+      link: "https://drive.google.com/file/d/1vpXOKvDW6rvOI0db8ll8t7W07u19NAgQ/view?usp=sharing",
+      interpet: "true",
+      atual: "true",
+      img: "https://i.ibb.co/qx4vj4k/Inter-Pet-2021.png",
+      resumo:
+        "O evento tem como objetivo principal a troca de experiências, por meio de reflexões e discussões acerca do desenvolvimento do Programa, bem como da importância da articulação no âmbito da tríade ensino, pesquisa e extensão. Esta ultima edição conta com trabalhos dos mais variados temas, desde reciclagem, estratégias de planejamento em grupo, até curso de calculo e química e o impacto da monitoria para os monitores e estudantes.",
+    },
+    {
+      _id: "61aa8ca546b5e6b496fb3fe4",
+      titulo: "Caderno de resumos InterPET 2020",
+      data: "2019-12-31T00:00:00.000Z",
+      link: "https://drive.google.com/file/d/1rfD_QZGJjwJ0VkW5yyY_-mHAJKXa3F29/view?usp=sharing",
+      interpet: "true",
+      atual: "false",
+      img: "https://i.ibb.co/Ns5qxvQ/Inter-Pet-2020.png",
+      resumo: "",
+    },
+    {
+      _id: "61aa8c0946b5e6b496fb29aa",
+      titulo: "Caderno de resumos InterPET 2019",
+      data: "2019-08-29T00:00:00.000Z",
+      link: "https://drive.google.com/file/d/1EAmmOZ13XmR8qGgDcq-O87nFBuGQyV6D/view?usp=sharing",
+      interpet: "true",
+      atual: "false",
+      img: "https://i.ibb.co/fDY6cNf/Inter-Pet-2019.png",
+      resumo: "",
+    },
+    {
+      _id: "61aa8c0946b5e6b496fb29a9",
+      titulo: "Caderno de resumos InterPET 2018",
+      data: "2018-08-16T00:00:00.000Z",
+      link: "https://drive.google.com/file/d/1rNaUCzJuv6jlL-ItRBLNC009Q1XusCoF/view?usp=sharing",
+      interpet: "true",
+      atual: "false",
+      img: "https://i.ibb.co/6ZWHx3W/Inter-Pet-2018.png",
+      resumo: "",
+    },
+  ],
 }) => {
-  const hasWindow = typeof window !== "undefined";
+  const classes = useStyles();
+  const [width, setWidth] = useState(window.innerWidth);
 
-  function getWindowDimensions() {
-    const width = hasWindow ? window.innerWidth : null;
-    const height = hasWindow ? window.innerHeight : null;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  );
+  const handleResize = (e) => {
+    setWidth(window.innerWidth);
+  };
 
   useEffect(() => {
-    if (hasWindow) setWindowDimensions(getWindowDimensions());
-
-    window.addEventListener("resize", () => {
-      setWindowDimensions(getWindowDimensions());
-    });
-    return () =>
-      window.removeEventListener("resize", () => {
-        setWindowDimensions(getWindowDimensions());
-      });
-  }, [hasWindow]);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const sectionTitle = "Edições anteriores";
 
@@ -55,12 +104,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
       <List
         style={{
           display: "flex",
-          flexDirection:
-            windowDimensions &&
-              windowDimensions.width &&
-              windowDimensions.width > 1000
-              ? "row"
-              : "column",
+          flexDirection: width > 500 ? "row" : "column",
           width: "70%",
           marginLeft: "auto",
           marginRight: "auto",
@@ -69,12 +113,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
       >
         {elements.map((element, index) => (
           <ListItem key={element._id}>
-            <Card
-              style={{
-                borderTopLeftRadius: "20px",
-                borderTopRightRadius: "20px",
-              }}
-            >
+            <Card className={classes.card}>
               <CardActionArea
                 onClick={() => {
                   if (element && element.link)
@@ -92,14 +131,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
                     borderBottom: "1px solid rgba(0, 0, 0, 0.822)",
                   }}
                 />
-                <CardContent
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    backgroundColor: "#19DD39"
-                  }}
-                >
+                <CardContent className={classes.cardContent}>
                   <Typography
                     gutterBottom
                     variant='h5'
