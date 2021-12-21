@@ -130,7 +130,7 @@
 }
 
 .loadMore {
-  margin-top: 30px;
+  margin-top: -90px;
   font-size: 190%;
   font-family: "Codec Pro Regular";
   max-width: 300px;
@@ -171,7 +171,6 @@
 
 @media (max-width: 1300px) {
   .loadMore {
-    margin-top: 30px;
     font-size: 170%;
     font-family: "Codec Pro Regular";
     max-width: 250px;
@@ -191,14 +190,12 @@
     margin-top: -40px;
   }
 
-  .tuto .loadMore {
-    margin-top: -10px;
-    font-size: 140%;
+  .loadMore {
+    margin-top: -90px;
+    font-size: 150%;
     font-family: "Codec Pro Regular";
-    max-width: 200px;
-    min-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 225px;
+    min-width: 225px;
   }
 
   .line {
@@ -320,7 +317,7 @@
   }
 
   .loadMore {
-    margin-top: -10px;
+    margin-top: -30px;
     font-size: 110%;
     font-family: "Codec Pro Regular";
     max-width: 150px;
