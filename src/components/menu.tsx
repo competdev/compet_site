@@ -1,7 +1,7 @@
 import styles from '../styles/Menu.module.css'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
-import wSize from '../util/windowsSize'
+import wSize from '../util/windowSize'
 
 export default function menu() {
   const [toggleMenu, setToggleMenu] = useState(false)
