@@ -1,7 +1,13 @@
-import SectionTitle from '../components/sectionTitle';
+import axios from 'axios'
+import SectionTitle from '../components/sectionTitle'
 import styles from '../styles/SocialMedia.module.css'
 
-export default function news() {
+News.getInitialProps = async () => {
+  const response = await axios.get("http://localhost:3000/api/news");
+  return { dados: response.data }
+}
+
+export default function News({dados}) {
     const sectionTitle = "COMPET nas mídias"
     return (
       <div>
