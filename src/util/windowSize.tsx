@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 // Usage
 function App() {
   const size = useWindowSize();
-
   return (
     <div>
       {size.width}px / {size.height}px
@@ -20,14 +19,15 @@ export default function useWindowSize() {
     height: 0,
   });
 
+  function handleResize() {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
       window.addEventListener("resize", handleResize);
       handleResize();
       return () => window.removeEventListener("resize", handleResize);

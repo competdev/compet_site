@@ -146,7 +146,7 @@ const renderSocialNetwork = () => {
 const renderCredits = () => {
   return (
     <div className={styles.Credits}>
-      Desenvolvido por
+      <div className={styles.textCredits}>Desenvolvido por</div>
       <img className={styles.logoCOMPET} src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
     </div>
   )
