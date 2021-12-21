@@ -1,6 +1,7 @@
 import Menu from "../components/menu";
 import IgFeed from "../components/instagramFeed";
 import Footer from "../components/footer";
+import TwitterFeed from "../components/twitterFeed";
 
 import styles from "../styles/Home.module.css";
 import SlideShow from "../components/slideShow";
@@ -31,7 +32,7 @@ const renderSocialMedia = () => {
   return (
     <div className={styles.socialMediaContainer}>
       <IgFeed />
-      {/* Colocar componente do Twitter aqui */}
+      <TwitterFeed />
     </div>
   );
 };
