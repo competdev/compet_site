@@ -1,10 +1,13 @@
-import axios from 'axios';
-import { useState } from 'react'
-import styles from '../styles/Equipe.module.css'
 import Menu from '../components/menu'
 import PageHeader from '../components/pageHeader';
+import SectionTitle from '../components/sectionTitle'
 import MemberCard from '../components/memberCard'
 import Footer from '../components/footer'
+
+import axios from 'axios';
+import { useState } from 'react'
+
+import styles from '../styles/Equipe.module.css'
 
 const socialNetworks = true;
 
@@ -57,9 +60,10 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
 }
 
 const renderScrumMaster = (scrumMaster) => {
+  const scrumMasterSection = "Scrum Master"
   return (
     <div>
-      <div className={styles.titleBody}><strong>Scrum Master</strong></div>
+      <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersArea}>
@@ -72,9 +76,10 @@ const renderScrumMaster = (scrumMaster) => {
 }
 
 const renderTutores = (tutores) => {
+  const tutorSection = "Tutores"
   return (
     <div>
-      <div className={styles.titleBody}><strong>Tutores</strong></div>
+      <SectionTitle title={tutorSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersArea}>
@@ -87,9 +92,10 @@ const renderTutores = (tutores) => {
 }
 
 const renderMembros = (membros, membersPage) => {
+  const memberSection = "Membros"
   return (
     <div>
-      <div className={styles.titleBody}><strong>Membros</strong></div>
+      <SectionTitle title={memberSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersArea}>
