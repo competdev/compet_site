@@ -1,0 +1,71 @@
+.pageHeader {
+  width: 100%;
+  padding-top: 120px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.alignCaption {
+  margin: 20px;
+  display: inline-flex;
+}
+
+.captions {
+  margin-right: 100px;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.captionText {
+  margin-top: 5px;
+}
+
+.infoScrum {
+  margin: 12px;
+  text-align: left;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(255, 14, 14);
+}
+
+.infoIntercamb {
+  margin: 12px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #19DD39;
+}
+
+
+
+.alignSubtitle:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    display: block;
+  }
+
+  .captions {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+}
+
+@media (max-width:425px) {
+  .pageHeader img {
+    width: 90%;
+    height: 90%;
+  }
+}
