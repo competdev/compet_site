@@ -19,33 +19,7 @@
   height: 175px;
 }
 
-.subtitleSpace {
-  padding-left: 38%;
-  padding-top: 47px;
-  font-size: 15px;
-  height: 100%;
-  width: 100%;
-}
 
-.alignSubtitle {
-  display: inline-flex;
-  margin-left: 200%;
-  margin-top: 2%;
-}
-
-.alignSubtitle {
-  display: inline-flex;
-  margin-left: 80%;
-  margin-top: 2%
-}
-
-.alignSubtitle:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
 
 .titleBody {
   width: 100%;
@@ -197,6 +171,7 @@
   min-width: 300px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 .loadMore:hover .line {
@@ -229,6 +204,7 @@
     font-size: 35px;
     margin-bottom: 65px;
   }
+
   .loadMore {
     margin-top: 30px;
     font-size: 170%;
@@ -242,18 +218,21 @@
     font-size: 27px;
     margin-bottom: 45px;
   }
+
   .loadMore {
     margin-top: -10px;
     font-size: 150%;
     max-width: 225px;
     min-width: 225px;
   }
+
   .line {
     margin-top: -1px;
     border-radius: 90px;
     border: 4px solid #19dd39;
     background-color: #19dd39;
   }
+
   .lineRecolher {
     margin-top: -1px;
     border-radius: 90px;
@@ -269,12 +248,14 @@
     max-width: 200px;
     min-width: 200px;
   }
+
   .line {
     margin-top: -1px;
     border-radius: 90px;
     border: 3px solid #19dd39;
     background-color: #19dd39;
   }
+
   .lineRecolher {
     margin-top: -1px;
     border-radius: 90px;

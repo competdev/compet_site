@@ -2,8 +2,6 @@ import styles from '../styles/MemberCard.module.css'
 import { Tooltip } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
-import Grow from '@material-ui/core/Grow';
-import { Transition } from 'react-transition-group';
 import Link from 'next/link'
 import React from 'react';
 
@@ -40,7 +38,7 @@ export default function memberCard({ dados, membersPage, socialNetworks }) {
     <div className={styles.groupDiv}>
       {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
         lastBlank_space = data.nome.lastIndexOf(' '),
-        <div className={styles.cardContent}>
+        <div className={styles.cardContent} key={data._id}>
           <div className={styles.membersCard}>
             <div className={styles.photoSpace}>
               {renderMemberPhoto(data)}
