@@ -217,3 +217,11 @@
     margin-top: 60px;
   }
 }
+
+@media (max-width: 375px) {
+  .logo img {
+    margin-left: 30%;
+    height: 40px;
+    width: 106px;
+  }
+}

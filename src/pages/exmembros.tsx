@@ -41,11 +41,11 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      <Menu />
-      {renderCabecalho()}
+      {/*<Menu />*/}
+      {/*renderCabecalho()*/}
       {renderBodyPage(dados, tutores, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalExMembros)}
-      <Footer />
+      {/*<Footer />*/}
     </div >
   )
 }
@@ -92,12 +92,12 @@ const renderBodyPage = (dados, tutores, membersPage) => {
   return (
     <div>
       {renderTutores(tutores)}
-      <div className={styles.titleBodyMembers}><strong>Ex-membros</strong></div>
+      <div className={styles.titleBody}><strong>Ex-membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-          <div className={styles.membersArea}>
-            {renderMemberArea(dados, membersPage)}
-          </div>
+
+          {renderMemberArea(dados, membersPage)}
+
         </div>
       </div>
     </div>
@@ -107,7 +107,6 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 const renderTutores = (tutores) => {
   return (
     <div>
-
       <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
@@ -120,27 +119,23 @@ const renderTutores = (tutores) => {
 
 const renderMemberArea = (dados, membersPage) => {
   return (
-    <div>
-      <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
-    </div>
+    <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
   )
 }
 
 const renderVerMais = (membersPage, setMembersPage, totalExMembros) => {
   return (
-    <div>
-      <div className={styles.loadArea}>
-        {membersPage < totalExMembros ?
-          <div onClick={() => setMembersPage(membersPage + 8)}
-            className={styles.loadMore}>
-            <strong>Ver mais<hr className={styles.line}></hr></strong>
-          </div>
-          :
-          <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
-            <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
-          </div>
-        }
-      </div>
+    <div className={styles.loadArea}>
+      {membersPage < totalExMembros ?
+        <div onClick={() => setMembersPage(membersPage + 8)}
+          className={styles.loadMore}>
+          <strong>Ver mais<hr className={styles.line}></hr></strong>
+        </div>
+        :
+        <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
+          <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
+        </div>
+      }
     </div>
   )
 }

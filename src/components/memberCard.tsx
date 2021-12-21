@@ -2,8 +2,6 @@ import styles from '../styles/MemberCard.module.css'
 import { Tooltip } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
-import Grow from '@material-ui/core/Grow';
-import { Transition } from 'react-transition-group';
 import Link from 'next/link'
 import React from 'react';
 
@@ -26,9 +24,8 @@ const LightTooltip = withStyles((theme) => ({
       backgroundColor: "#004266",
       boxSizing: "border-box"
     }
-  }
+  },
 }))(Tooltip);
-
 
 
 // Função principal exportando o html da pag.
@@ -41,16 +38,18 @@ export default function memberCard({ dados, membersPage, socialNetworks }) {
     <div className={styles.groupDiv}>
       {dados.slice(0, membersPage).map(data => (firstBlank_space = data.nome.indexOf(' '),
         lastBlank_space = data.nome.lastIndexOf(' '),
-        <div className={styles.membersCard}>
-          <div className={styles.photoSpace}>
-            {renderMemberPhoto(data)}
+        <div className={styles.cardContent} key={data._id}>
+          <div className={styles.membersCard}>
+            <div className={styles.photoSpace}>
+              {renderMemberPhoto(data)}
+            </div>
+            {renderMemberName(data, firstBlank_space, lastBlank_space)}
+            <div className={styles.infoCompet}>
+              {renderInfoCompet(data, socialNetworks)}
+            </div>
+            {socialNetworks == true ?
+              renderSocialNetworks(data) : <></>}
           </div>
-          {renderMemberName(data, firstBlank_space, lastBlank_space)}
-          <div className={styles.infoCompet}>
-            {renderInfoCompet(data, socialNetworks)}
-          </div>
-          {socialNetworks == true ?
-            renderSocialNetworks(data) : <></>}
         </div>
       ))}
     </div>
@@ -120,7 +119,7 @@ const renderSocialNetworks = (data) => {
         {data.email != "" ?
           <div>
             <Link href={'mailto:' + data.email}><a title='Email'>
-              <img className={styles.networkFavicon} src="https://i.ibb.co/YQ64dxd/mail-favicon.png" />
+              <img className={styles.networkFavicon} src="https://i.ibb.co/nQrqLm3/mail-favicon.png" />
             </a></Link>
           </div>
           : <></>}
@@ -128,7 +127,7 @@ const renderSocialNetworks = (data) => {
         {data.lates != "" ?
           <div>
             <Link href={data.lates}><a title='Lattes'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/vqS8trk/lattes-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/THvj51v/lattes-favicon.png" /></div>
             </a></Link>
           </div>
           : <></>}
@@ -137,7 +136,7 @@ const renderSocialNetworks = (data) => {
         {data.linkedin != "" ?
           <div>
             <Link href={data.linkedin}><a title='LinkedIn'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/6DThdTt/linkedin-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/vP6rFjd/linkedin-favicon.png" /></div>
             </a></Link>
           </div>
           : <></>}

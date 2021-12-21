@@ -147,13 +147,10 @@
 }
 
 .line {
-  background-color: #151515;
   margin-top: -1px;
-  text-align: center;
-  width: 100%;
   border-radius: 90px;
-  border: 4px solid #19dd39;
-  margin-bottom: 50px;
+  border: 5px solid #19dd39;
+  background-color: #19dd39;
 }
 
 .loadMore:hover .lineRecolher {
@@ -164,10 +161,9 @@
 .lineRecolher {
   margin-top: -1px;
   text-align: center;
-  width: 210px;
   border-radius: 90px;
-  border: 4px solid #004067;
-  margin-bottom: 50px;
+  border: 5px solid #004266;
+  background-color: #004266;
 }
 
 @media (max-width: 1300px) {
@@ -207,42 +203,6 @@
     border-radius: 90px;
     border: 4px solid #004266;
     background-color: #004266;
-  }
-}
-@media (max-width: 950px) {
-  .mainHeader {
-    margin-top: 20%;
-    
-  }
-}
-
-@media (max-width: 550px) {
-  .mainHeader {
-    margin-top: 35%;
-    
-  }
-}
-
-@media (max-width: 350px) {
-  .mainHeader {
-    margin-top: 45%;
-    
-  }
-}
-
-@media (max-width: 460px) {
-  .containerSubtitle {
-    display: none;
-    
-    
-  }
-}
-
-@media (max-width: 460px) {
-  .titleBody {
-    margin-top: auto;
-    
-    
   }
 }
 

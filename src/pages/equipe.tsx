@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react'
 import styles from '../styles/Equipe.module.css'
 import Menu from '../components/menu'
+import PageHeader from '../components/pageHeader';
 import MemberCard from '../components/memberCard'
 import Footer from '../components/footer'
 
@@ -39,61 +40,18 @@ Equipe.getInitialProps = async () => {
 
 export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtivos }) {
   const [membersPage, setMembersPage] = useState(8);
+  const header_img_url = "https://i.ibb.co/5K58j8k/equipe.png"
+
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
       <Menu />
-      {renderCabecalho()}
-      <div className={styles.containerMembers}>
-        <div className={styles.scrumTutor}>
-          {renderTutores(tutores)}
-          {renderScrumMaster(scrumMaster)}
-        </div>
-      </div>
+      <PageHeader url={header_img_url} caption={true} />
+      {renderTutores(tutores)}
+      {renderScrumMaster(scrumMaster)}
       {renderMembros(membros, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
       <Footer />
-    </div>
-  )
-}
-
-const renderCabecalho = () => {
-  return (
-    <div>
-      <div className={styles.mainHeader}>
-        <div>
-          {renderTitleImage()}
-        </div>
-        <div className={styles.subtitleSpace}>
-          {renderSubtitleTop()}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const renderTitleImage = () => {
-  return (
-    <div>
-      <div> <img src="https://i.ibb.co/ZGZdZ9b/title.png" /> </div>
-    </div>
-  )
-}
-
-
-
-const renderSubtitleTop = () => {
-  return (
-    <div>
-      <div className={styles.alignSubtitle}>
-        <div className={styles.infoScrum}></div>
-        <div className={styles.scrumMasterStr}><strong>Scrum Master</strong></div>
-      </div>
-
-      <div className={styles.alignSubtitle}>
-        <div className={styles.infoIntercamb}></div>
-        <div className={styles.intercambioStr}><strong>Intercâmbio</strong></div>
-      </div>
     </div>
   )
 }
@@ -103,7 +61,11 @@ const renderScrumMaster = (scrumMaster) => {
     <div>
       <div className={styles.titleBody}><strong>Scrum Master</strong></div>
       <div className={styles.bodyGroup}>
-        <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            <MemberCard dados={scrumMaster} membersPage={scrumMaster.length} socialNetworks={socialNetworks} />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -114,7 +76,11 @@ const renderTutores = (tutores) => {
     <div>
       <div className={styles.titleBody}><strong>Tutores</strong></div>
       <div className={styles.bodyGroup}>
-        <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+        <div className={styles.containerMembers}>
+          <div className={styles.membersArea}>
+            <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -123,7 +89,7 @@ const renderTutores = (tutores) => {
 const renderMembros = (membros, membersPage) => {
   return (
     <div>
-      <div className={styles.titleBodyMembers}><strong>Membros</strong></div>
+      <div className={styles.titleBody}><strong>Membros</strong></div>
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersArea}>
