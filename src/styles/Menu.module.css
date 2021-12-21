@@ -78,12 +78,15 @@
     display: block;
     margin-right: 7%;
   }
+  .firstItem {
+    padding-top: 20px;
+  }
   .nav_list {
     z-index: -1;
     position: fixed;
     margin-top: 30px;
     right: -100px;
-    width: 30vw;
+    width: 40vw;
     height: 80vh;
     background: #ffffff;
     flex-direction: column;
@@ -118,7 +121,7 @@
     width: 140px;
   }
   .nav_list {
-    width: 40vw;
+    width: 50vw;
     right: -37px;
     margin-top: 30px;
   }
