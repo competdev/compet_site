@@ -91,7 +91,7 @@ export default function Contato() {
 
   const sectionTitle = "Contato"
   const sectionInfo = "Entre em contato com a equipe do COMPET através do formulário abaixo ou por meio de uma das redes sociais do grupo listadas logo abaixo. Tentaremos lhe retornar o mais breve possivel."
-  const header_img_url = "https://i.ibb.co/MNpsdrb/certificados.png"
+  const header_img_url = "https://i.ibb.co/z8KwzMf/contato.png"
 
   return (
     <div className={styles.pageBody}>
@@ -107,9 +107,6 @@ export default function Contato() {
         <p>{responseTxt}</p>
       </Modal>
       <div className={styles.container}>
-        <div className={styles.mapContainer}>
-          <Map />
-        </div>
         <form onSubmit={handleSubmit}>
           <input type="text" name="name" className={styles.text} placeholder="Seu nome" />
           <input type="email" name="email" className={styles.text} placeholder="Seu email" />
@@ -119,6 +116,9 @@ export default function Contato() {
             <input type="submit" name="submit" className={styles.submit} value="Enviar " />
           </div>
         </form>
+        <div className={styles.mapContainer}>
+          <Map />
+        </div>
       </div>
       <div className={styles.socialMediaArea}>
         <div className={styles.socialMediaLine1}>
