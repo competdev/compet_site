@@ -1,6 +1,8 @@
 import Feed from "instagram-feed-embed";
+import { useState } from 'react';
 import SectionTitle from '../components/sectionTitle';
 import styles from '../styles/InstagramFeed.module.css'
+import wSize from '../util/windowSize';
 
 export default function igFeed() {
   const sectionTitle = "Instagram"
@@ -11,8 +13,8 @@ export default function igFeed() {
         <Feed
           userName="compet.cefet"
           limit={5}
-          width={420}
-          maxContainerHeight={480}
+          width="480"
+          maxContainerHeight="420"
         />
       </div>
     </div>
