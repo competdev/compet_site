@@ -83,18 +83,18 @@ const PastEditions: React.FC<PastEditionsProps> = ({
   ],
 }) => {
   const classes = useStyles();
-  const [width, setWidth] = useState(window.innerWidth);
+  // const [width, setWidth] = useState(500);
 
-  const handleResize = (e) => {
-    setWidth(window.innerWidth);
-  };
+  // const handleResize = (e) => {
+  //   setWidth(window.innerWidth);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   const sectionTitle = "Edições anteriores";
 
@@ -104,7 +104,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({
       <List
         style={{
           display: "flex",
-          flexDirection: width > 500 ? "row" : "column",
+          flexDirection: "row",
           width: "70%",
           marginLeft: "auto",
           marginRight: "auto",
