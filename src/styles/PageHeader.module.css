@@ -1,13 +1,15 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
 .pageHeader {
+  font-family: "Codec Pro Regular";
   width: 100%;
   padding-top: 120px;
   display: inline-flex;
   justify-content: space-between;
-}
-
-.alignCaption {
-  margin: 20px;
-  display: inline-flex;
+  margin-bottom: 50px;
 }
 
 .captions {
@@ -17,8 +19,18 @@
   margin-bottom: auto;
 }
 
+.alignCaption {
+  margin: 20px;
+  display: inline-flex;
+}
+
+.alignCaption:hover {
+  font-size: 120%;
+  cursor: pointer;
+}
+
 .captionText {
-  margin-top: 5px;
+  margin-top: 12px;
 }
 
 .infoScrum {
@@ -48,7 +60,7 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1010px) {
   .pageHeader {
     display: block;
   }
@@ -60,12 +72,41 @@
     justify-content: center;
     text-align: center;
   }
-
 }
 
 @media (max-width:425px) {
   .pageHeader img {
     width: 90%;
     height: 90%;
+  }
+}
+
+@media (max-width: 410px) {
+  .captions {
+    margin-bottom: -30px;
+  }
+
+  .alignCaption {
+    margin: 5px;
+    display: inline-flex;
+  }
+
+  .captionText {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+
+  .infoScrum {
+    text-align: center;
+    margin: 10px;
+    height: 14px;
+    width: 14px;
+  }
+
+  .infoIntercamb {
+    text-align: center;
+    margin: 10px;
+    height: 14px;
+    width: 14px;
   }
 }
