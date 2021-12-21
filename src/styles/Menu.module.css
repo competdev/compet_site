@@ -78,36 +78,142 @@
     display: block;
     margin-right: 7%;
   }
+  .firstItem {
+    padding-top: 20px;
+  }
   .nav_list {
     z-index: -1;
-    position: absolute;
-    top: 9vh;
-    right: -80px;
+    position: fixed;
+    margin-top: 30px;
+    right: -100px;
     width: 40vw;
-    height: 82vh;
+    height: 80vh;
     background: #ffffff;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border-bottom-left-radius: 20%;
-    border: 2px solid #d5d5d575;
+    border: 2px solid #d5d5d54f;
   }
   .nav_list li {
-    margin-left: 0;
+    margin-left: 0px;
   }
 }
 
 .nav_list.active {
   transform: translateX(0);
 }
+@media (max-width: 1024px) {
+  .nav_list {
+    margin-top: -20px;
+  }
+}
 
-@media (max-width: 600px) {
+@media (max-width: 1023px) {
+  .nav_list {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 815px) {
   .logo img {
-    margin-left: 30%;
+    margin-left: 40%;
+    height: 57px;
+    width: 140px;
   }
   .nav_list {
-    width: 80vw;
+    width: 50vw;
     right: -37px;
-    top: 8vh;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 540px) {
+  .nav_list {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 539px) {
+  .nav_list {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 425px) {
+  .logo img {
+    margin-left: 40%;
+    height: 45px;
+    width: 112px;
+  }
+  .nav_list {
+    width: 40vw;
+    right: -37px;
+    margin-top: 50px;
+  }
+  .mobile_menu div {
+    width: 30px;
+    height: 2px;
+    background-color: #004266;
+    margin: 7px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .link {
+    font-size: 15px;
+  }
+  .nav_list {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 414px) {
+  .nav_list {
+    width: 60vw;
+    right: -60px;
+    margin-top: 35px;
+  }
+  .link {
+    margin-right: 60px;
+  }
+
+}
+@media (max-width: 375px) {
+  .nav_list {
+    margin-top: 45px;
+
+  }
+}
+
+@media (max-width: 360px) {
+  .nav_list {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 359px) {
+  .nav_list {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .nav_list {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 319px) {
+  .nav_list {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 285px) {
+  .nav_list {
+    margin-top: 50px;
+  }
+}
+
+@media (max-height: 600px) {
+  .nav_list {
+    margin-top: 60px;
   }
 }
