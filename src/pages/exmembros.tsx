@@ -1,10 +1,14 @@
-import axios from 'axios';
-import { useState } from 'react'
-import styles from '../styles/ExMembros.module.css'
 import Menu from '../components/menu'
+import PageHeader from '../components/pageHeader'
+import SectionTitle from '../components/sectionTitle'
 import MemberCard from '../components/memberCard'
 import Footer from '../components/footer'
-import PageHeader from '../components/pageHeader';
+
+
+import axios from 'axios';
+import { useState } from 'react'
+
+import styles from '../styles/ExMembros.module.css'
 
 const socialNetworks = false;
 
@@ -57,10 +61,11 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
 }
 
 const renderBodyPage = (dados, tutores, membersPage) => {
+  const scrumMasterSection = "Ex-membros"
   return (
     <div>
       {renderTutores(tutores)}
-      <div className={styles.titleBody}><strong>Ex-membros</strong></div>
+      <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           {renderMemberArea(dados, membersPage)}
@@ -71,12 +76,15 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 }
 
 const renderTutores = (tutores) => {
+  const scrumMasterSection = "Ex-tutores"
   return (
     <div>
-      <div className={styles.titleBody}><strong>Ex-Tutores</strong></div>
+      <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-          <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+          <div className={styles.membersAreaTutor}>
+            <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +94,9 @@ const renderTutores = (tutores) => {
 const renderMemberArea = (dados, membersPage) => {
   return (
     <div>
-      <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
+      <div className={styles.membersArea}>
+        <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
+      </div>
     </div>
   )
 }
