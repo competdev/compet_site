@@ -16,7 +16,7 @@
 }
 
 .card {
-  background-color: rgb(255, 255, 255);
+  background-color: #19DD39;
   display: inline-flex;
   max-width: 1100px;
   border-radius: 30px;
@@ -43,12 +43,15 @@
   min-width: 100px;
   height: 100%;
   margin-left: 8%;
+  
 }
 
 .socialNetworkIcons {
   margin: 5px;
   height: 27px;
   width: 27px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.178);
 }
 
 .socialNetworkIcons:hover {
@@ -63,6 +66,7 @@
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
+  
 }
 
 .adressCEFET {
@@ -84,7 +88,6 @@
   max-width: 600px;
   margin-left: 45%;
   font-family: "Verdana";
-  display: inline-flex;
 }
 
 .adressEmail {
@@ -172,7 +175,7 @@
   }
 
   .socialNetwork {
-    margin-left: 35%;
+    margin-left: 45%;
   }
 
   .adressEmail {
@@ -192,11 +195,11 @@
 
 @media (max-width: 300px) {
   .card .title {
-    margin-left: 20%;
+    margin-left: 30%;
     font-size: 30px;
   }
 
   .socialNetwork {
-    margin-left: 25%;
+    margin-left: 35%;
   }
 }
