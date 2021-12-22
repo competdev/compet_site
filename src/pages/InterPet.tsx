@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import Menu from "../components/menu";
 import PageHeader from '../components/pageHeader';
 import AboutCard from "../components/aboutCard"
@@ -9,6 +7,8 @@ import InterPetContact from "../components/interPetContact";
 import Footer from "../components/footer";
 
 import styles from "../styles/InterPet.module.css";
+
+import axios from "axios";
 
 InterPet.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/interpet");
