@@ -1,0 +1,13 @@
+.slideContainer {
+  padding-top: 110px;
+  width: 100%;
+  background-color: #004266;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+}

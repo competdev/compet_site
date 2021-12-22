@@ -10,19 +10,18 @@ import SlideShow from "../components/slideShow";
 export default function Home() {
   return (
     <div className={styles.container}>
-     { /*<Menu /> */}
-      {renderSocialMedia()}
-      {/*
+      <Menu />
+      {
         <SlideShow
           imgList={[
-            "https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg?size=626&ext=jpg",
-            "https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg",
-            "https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg",
-            "https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg",
+            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
+            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
           ]}
-          txtList={["Teste1", "Teste2", "Teste3", "Teste4"]}
+          txtList={["O COMPET lhe deseja boas festas nesse fim de ano.",
+            "Participação do COMPET no InterPET 2016."]}
         />
-        */}
+      }
+      {renderSocialMedia()}
       <Footer />
     </div>
   );
