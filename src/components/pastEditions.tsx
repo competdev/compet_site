@@ -9,9 +9,9 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import { useEffect, useState } from "react";
 import SectionTitle from "../components/sectionTitle";
 import styles from "../styles/PastEditions.module.css";
-import { useEffect, useState } from "react";
 
 interface PastEditionsProps extends Omit<ListProps, "onChange"> {
   elements: any[];
@@ -19,26 +19,30 @@ interface PastEditionsProps extends Omit<ListProps, "onChange"> {
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    background: "#19DD39",
+    background: "#ffffff",
     "&:hover": {
-      background: "#004266 ",
+      background: "#e4e4e4 ",
     },
     borderTopLeftRadius: "20px",
     borderTopRightRadius: "20px",
+    borderBottomLeftRadius: "10px",
+    borderBottomRightRadius: "10px",
+    border: "1px solid #d5d5d575",
+    boxShadow: "0px 0px 5px #00000033",
   },
   cardContent: {
-    background: "#19DD39",
+    background: "#ffffff",
     "&:hover": {
-      background: "#004266 ",
+      background: "#e4e4e4 ",
     },
     display: "flex",
     justifyContent: "center",
     textAlign: "center",
+    boxShadow: "none",
   },
 }));
 
 const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
-  const classes = useStyles();
   const [width, setWidth] = useState(500);
 
   useEffect(() => {
@@ -52,6 +56,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
     };
   });
 
+  const classes = useStyles();
   const sectionTitle = "Edições anteriores";
 
   return (
@@ -84,7 +89,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
                   style={{
                     borderTopLeftRadius: "20px",
                     borderTopRightRadius: "20px",
-                    borderBottom: "1px solid rgba(0, 0, 0, 0.822)",
+                    borderBottom: "1px solid rgba(0, 0, 0, 0.13)",
                   }}
                 />
                 <CardContent className={classes.cardContent}>

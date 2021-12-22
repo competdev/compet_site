@@ -1,6 +1,5 @@
 import SectionTitle from '../components/sectionTitle';
 import styles from '../styles/AboutCard.module.css';
-import Link from 'next/link';
 
 export default function CardSobre() {
   const sectionTitle = "Sobre"
@@ -11,7 +10,6 @@ export default function CardSobre() {
     </div>
   )
 }
-
 
 const renderSobre = () => {
   return (
