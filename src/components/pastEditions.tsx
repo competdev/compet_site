@@ -37,64 +37,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PastEditions: React.FC<PastEditionsProps> = ({
-  elements = [
-    {
-      _id: "61aa8c4e46b5e6b496fb33a2",
-      titulo: "Caderno de resumos InterPET 2021",
-      data: "2021-07-28T00:00:00.000Z",
-      link: "https://drive.google.com/file/d/1vpXOKvDW6rvOI0db8ll8t7W07u19NAgQ/view?usp=sharing",
-      interpet: "true",
-      atual: "true",
-      img: "https://i.ibb.co/qx4vj4k/Inter-Pet-2021.png",
-      resumo:
-        "O evento tem como objetivo principal a troca de experiências, por meio de reflexões e discussões acerca do desenvolvimento do Programa, bem como da importância da articulação no âmbito da tríade ensino, pesquisa e extensão. Esta ultima edição conta com trabalhos dos mais variados temas, desde reciclagem, estratégias de planejamento em grupo, até curso de calculo e química e o impacto da monitoria para os monitores e estudantes.",
-    },
-    {
-      _id: "61aa8ca546b5e6b496fb3fe4",
-      titulo: "Caderno de resumos InterPET 2020",
-      data: "2019-12-31T00:00:00.000Z",
-      link: "https://drive.google.com/file/d/1rfD_QZGJjwJ0VkW5yyY_-mHAJKXa3F29/view?usp=sharing",
-      interpet: "true",
-      atual: "false",
-      img: "https://i.ibb.co/Ns5qxvQ/Inter-Pet-2020.png",
-      resumo: "",
-    },
-    {
-      _id: "61aa8c0946b5e6b496fb29aa",
-      titulo: "Caderno de resumos InterPET 2019",
-      data: "2019-08-29T00:00:00.000Z",
-      link: "https://drive.google.com/file/d/1EAmmOZ13XmR8qGgDcq-O87nFBuGQyV6D/view?usp=sharing",
-      interpet: "true",
-      atual: "false",
-      img: "https://i.ibb.co/fDY6cNf/Inter-Pet-2019.png",
-      resumo: "",
-    },
-    {
-      _id: "61aa8c0946b5e6b496fb29a9",
-      titulo: "Caderno de resumos InterPET 2018",
-      data: "2018-08-16T00:00:00.000Z",
-      link: "https://drive.google.com/file/d/1rNaUCzJuv6jlL-ItRBLNC009Q1XusCoF/view?usp=sharing",
-      interpet: "true",
-      atual: "false",
-      img: "https://i.ibb.co/6ZWHx3W/Inter-Pet-2018.png",
-      resumo: "",
-    },
-  ],
-}) => {
+const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
   const classes = useStyles();
-  // const [width, setWidth] = useState(500);
+  const [width, setWidth] = useState(500);
 
-  // const handleResize = (e) => {
-  //   setWidth(window.innerWidth);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    const handleResize = (e) => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const sectionTitle = "Edições anteriores";
 
@@ -104,8 +60,8 @@ const PastEditions: React.FC<PastEditionsProps> = ({
       <List
         style={{
           display: "flex",
-          flexDirection: "row",
-          width: "70%",
+          flexDirection: width < 700 ? "column" : "row",
+          width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
           backgroundColor: "#f5f5f5;",
