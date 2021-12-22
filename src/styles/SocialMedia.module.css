@@ -2,13 +2,16 @@
   font-family: "Codec Pro Regular";
   src: url("fonts/CodecPro-Regular.ttf");
 }
+
 .socialMediaContainer {
+  background-color: white;
   border-radius: 5px;
-  border: 1px solid rgba(65, 65, 65, 0.205);
+  box-shadow: 0px 0px 5px #00000033;
   margin: 30px;
   height: 480px;
   width: 420px;
 }
+
 .newsContainer {
   border-radius: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.103);
@@ -17,17 +20,27 @@
   text-align: center;
   display: inline-flex;
 }
-.tituloNews{
+
+.tituloNews {
   font-family: "Codec Pro Regular";
   font-size: 60px;
   margin-top: auto;
   margin-bottom: auto;
-  max-width: 70%;
+  max-width: 68%;
+  font-weight: bolder;
 }
-.dataNews{
+
+.dataNews {
   font-family: "Codec Pro Regular";
   font-size: 50px;
   margin-top: auto;
   margin-bottom: auto;
-  max-width: 30%;
+  max-width: 32%;
+  font-style: italic;
+  font-weight: 10;
+}
+
+.newsContainer:hover {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }
