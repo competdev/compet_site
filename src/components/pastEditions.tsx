@@ -17,7 +17,7 @@ interface PastEditionsProps extends Omit<ListProps, "onChange"> {
   elements: any[];
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   card: {
     background: "#ffffff",
     "&:hover": {
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0px 5px #00000033",
   },
   cardContent: {
-    background: "#ffffff",
+    background: "#19DD39 ",
     "&:hover": {
-      background: "#e4e4e4 ",
+      background: "#004266 ",
     },
     display: "flex",
     justifyContent: "center",
@@ -69,10 +69,9 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
-          backgroundColor: "#f5f5f5;",
         }}
       >
-        {elements.map((element, index) => (
+        {elements.map((element) => (
           <ListItem key={element._id}>
             <Card className={classes.card}>
               <CardActionArea
