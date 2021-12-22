@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Menu from "../components/menu";
 import IgFeed from "../components/instagramFeed";
 import Footer from "../components/footer";
@@ -7,7 +8,12 @@ import News from "../components/news";
 import styles from "../styles/Home.module.css";
 import SlideShow from "../components/slideShow";
 
-export default function Home() {
+Home.getInitialProps = async () => {
+  const response = await axios.get("http://localhost:3000/api/news");
+  return { dados: response.data }
+}
+
+export default function Home({dados}) {
   return (
     <div className={styles.container}>
       <Menu />
@@ -21,18 +27,18 @@ export default function Home() {
             "Participação do COMPET no InterPET 2016."]}
         />
       }
-      {renderSocialMedia()}
+      {renderSocialMedia({dados})}
       <Footer />
     </div>
   );
 }
 
-const renderSocialMedia = () => {
+const renderSocialMedia = (dados) => {
   return (
     <div className={styles.socialMediaContainer}>
       <IgFeed />
       <TwitterFeed />
-      <News />
+      <News dados = {dados}/>
     </div>
   );
 };
