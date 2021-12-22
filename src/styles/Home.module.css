@@ -5,11 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .socialMediaContainer {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
 }
