@@ -9,13 +9,17 @@ export default function Contact() {
         <div className={styles.container}>
             <SectionTitle title={sectionTitle} />
             <div className={styles.card}>
-                <div className={styles.infoCard}>
-                    <div className={styles.title}>DIRGRAD</div>
+                <div className={styles.title}>DIRGRAD</div>
+                <div className={styles.cardContent}>
                     <div className={styles.containerContato}>{renderContato()}</div>
-                    <div className={styles.adressCEFET}>
-
-                        <p className={styles.adressText}>Campus Nova Suíça - Avenida Amazonas, Nº 5253 - Bairro Nova Suíça</p>
-                        <p className={styles.adressEmail}><a href="mailto:dirgrad@cefetmg.br"> dirgrad@cefetmg.br</a> - (31) 3319-7033</p></div>
+                    <div className={styles.addressCEFET}>
+                        <p className={styles.addressText}>
+                            Campus Nova Suíça - Avenida Amazonas, Nº 5253 - Bairro Nova Suíça
+                        </p>
+                        <p className={styles.addressEmail}>
+                            <a href="mailto:dirgrad@cefetmg.br"> dirgrad@cefetmg.br</a> - (31) 3319-7033
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
