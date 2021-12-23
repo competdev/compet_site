@@ -4,6 +4,7 @@ import IgFeed from "../components/instagramFeed";
 import Footer from "../components/footer";
 import TwitterFeed from "../components/twitterFeed";
 import News from "../components/news";
+import About from "../components/about";
 
 import styles from "../styles/Home.module.css";
 import SlideShow from "../components/slideShow";
@@ -27,8 +28,10 @@ export default function Home({dados}) {
             "Participação do COMPET no InterPET 2016."]}
         />
       }
+      <About></About>
       {renderSocialMedia({dados})}
-      <Footer />
+      
+      {<Footer />}
     </div>
   );
 }
