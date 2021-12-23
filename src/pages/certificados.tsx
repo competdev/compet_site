@@ -3,10 +3,10 @@ import ReactPaginate from 'react-paginate';
 import styles from "../styles/Certificados.module.css";
 import Menu from '../components/menu'
 import Footer from '../components/footer';
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { makeStyles } from '@material-ui/styles';
 import SearchBox from '../components/SearchBox';
+import Link from 'next/link'
+import { useState } from 'react'
+import { makeStyles } from '@material-ui/styles';
 
 Certificados.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/certificados");
@@ -82,27 +82,29 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "#99999984",
     },
   },
+  activeLink: {
+    border: '1px solid #0a58ca'
+  }
 }));
 
 
 export default function Certificados({ dados }) {
   const [query, setQuery] = useState("")
   const classes = useStyles()
-  let dadosFiltrados
 
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Menu />
       {renderCabecalho()}
-      <div className={styles.searchContainer}><SearchBox placeholder="Pesquisar certificado..."
-        query={query} setQuery={setQuery} /></div>
-      {PaginatedItems(dados, classes)}
-
-
-      {/*(query === "") ? PaginatedItems(dados, classes) : dadosFiltrados = dados.filter(function (certificado) {
-        return (certificado.titulo.toLowerCase().includes(query.toLowerCase()))
-      })*/}
+      <div className={styles.searchContainer}>
+        <SearchBox placeholder="Pesquisar certificado..." setQuery={setQuery} />
+      </div>
+      {
+        PaginatedItems(dados.filter((certificado) => {
+          return certificado.titulo.toLowerCase().includes(query.toLowerCase())
+        }), classes)
+      }
 
       <Footer />
     </div>
@@ -137,27 +139,24 @@ const renderCertificados = (dadosAtuais) => {
 
 function PaginatedItems(items, classes) {
   const itemsPerPage = 8;
-  const [currentItems, setCurrentItems] = useState(items.slice(0, 7));
-  const [pageCount, setPageCount] = useState(0);
+  const pageCount = Math.ceil(items.length / itemsPerPage)
+
   const [itemOffset, setItemOffset] = useState(0);
 
-  useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
-
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    setItemOffset(newOffset);
+    setItemOffset(event.selected);
   };
 
   return (
     <>
-      {renderCertificados(currentItems)}
+      {
+        renderCertificados(
+          items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage)
+        )
+      }
       <div className={styles.containerPaginate}>
         <ReactPaginate
-          nextLabel="Proximo"
+          nextLabel="Próximo"
           onPageChange={handlePageClick}
           pageRangeDisplayed={1}
           pageCount={pageCount}
@@ -173,6 +172,7 @@ function PaginatedItems(items, classes) {
           breakLinkClassName={classes.page_link}
           containerClassName={classes.pagination}
           activeClassName={classes.active}
+          activeLinkClassName={classes.activeLink}
         />
       </div>
     </>
