@@ -12,7 +12,6 @@ import {
 
 import SectionTitle from "../components/sectionTitle";
 import styles from "../styles/PastEditions.module.css";
-import wSize from "../util/windowSize";
 
 interface PastEditionsProps extends Omit<ListProps, "onChange"> {
   elements: any[];
@@ -59,7 +58,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
       <List
         style={{
           display: "flex",
-          flexDirection: wSize().width < 800 ? "column" : "row",
+          flexDirection: "column",
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
