@@ -23,7 +23,7 @@
 
 .tituloNews {
   font-family: "Codec Pro Regular";
-  font-size: 60px;
+  font-size: 25px;
   margin-top: auto;
   margin-bottom: auto;
   max-width: 68%;
@@ -32,12 +32,13 @@
 
 .dataNews {
   font-family: "Codec Pro Regular";
-  font-size: 50px;
+  font-size: 35px;
   margin-top: auto;
   margin-bottom: auto;
-  max-width: 32%;
+  width: 30%;
   font-style: italic;
   font-weight: 10;
+  text-align: right;
 }
 
 .newsContainer:hover {

@@ -2,11 +2,6 @@ import axios from 'axios'
 import SectionTitle from '../components/sectionTitle'
 import styles from '../styles/SocialMedia.module.css'
 
-{/*News.getInitialProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/news");
-  return { dados: response.data }
-}*/}
-
 export default function News({dados}) {
     const sectionTitle = "COMPET nas mídias"
     function convertDate(stringDate) {
@@ -26,7 +21,7 @@ export default function News({dados}) {
         <a href={dados.dados[0].link}>
             <div className={styles.newsContainer}>
                 <div className =  {styles.tituloNews}>
-                  {/*dados.dados[0].titulo*/}
+                  {dados.dados[0].titulo}
                 </div>
                 <div className = {styles.dataNews}>
                   {convertDate(dados.dados[0].data)}
@@ -36,7 +31,7 @@ export default function News({dados}) {
         <a href={dados.dados[1].link}>
             <div className={styles.newsContainer}>
                 <div className =  {styles.tituloNews}>
-                  {/*dados.dados[1].titulo*/}
+                  {dados.dados[1].titulo}
                 </div>
                 <div className = {styles.dataNews}>
                   {convertDate(dados.dados[1].data)}
@@ -46,7 +41,7 @@ export default function News({dados}) {
         <a href={dados.dados[2].link}>
             <div className={styles.newsContainer}>
                 <div className =  {styles.tituloNews}>
-                  {/*dados.dados[2].titulo*/}
+                  {dados.dados[2].titulo}
                 </div>
                 <div className = {styles.dataNews}>
                   {convertDate(dados.dados[2].data)}
