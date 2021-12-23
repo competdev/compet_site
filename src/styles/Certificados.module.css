@@ -68,23 +68,26 @@
   font-size: 15px;
   text-align: center;
   font-weight: bold;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .certificadoData {
-  margin-top: 35px;
+  margin-top: 43px;
   font-size: 14px;
   font-style: italic;
 }
 
 .certificadoLink {
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 15px;
   color: #004266;
 }
 
 .certificadoLink:hover {
   font-size: 105%;
-  color: #0DAB76;
+  color: #19DD39;
 }
 
 .pagination {

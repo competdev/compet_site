@@ -7,19 +7,24 @@ import SearchBox from '../components/SearchBox';
 import Link from 'next/link'
 import { useState } from 'react'
 import { makeStyles } from '@material-ui/styles';
+import PageHeader from '../components/pageHeader';
+import removeAccents from 'remove-accents';
 
 Certificados.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/certificados");
   return { dados: response.data }
 }
 
-function loadPhotos(CompetTalks: boolean, CompBio: boolean) {
+function loadPhotos(CompetTalks: boolean, CompBio: boolean, Titulo: string) {
+  if (Titulo == 'Certificado e Declaração de Participação PET - COMPET') {
+    return "https://i.ibb.co/nbdnSB7/9.png"
+  }
   if (CompetTalks) {
-    return "https://i.ibb.co/ydS39Rr/Compet-Talks.png"
+    return "https://i.ibb.co/GVfDrhm/4.png"
   } else if (CompBio) {
-    return "https://i.ibb.co/Lv8x2kF/CompBio.png"
+    return "https://i.ibb.co/nffSXMG/3.png"
   } else {
-    return "https://i.ibb.co/cFt0r4m/Certificados-Padrao.png"
+    return "https://i.ibb.co/GVfDrhm/4.png"
   }
 }
 
@@ -92,31 +97,41 @@ export default function Certificados({ dados }) {
   const [query, setQuery] = useState("")
   const classes = useStyles()
 
+
+
+  const header_img_url = "https://i.ibb.co/MNpsdrb/certificados.png"
+
+  function COMPETParticipation(certificado) {
+    return (certificado.titulo == 'Certificado e Declaração de Participação PET - COMPET')
+  }
+
+  function otherCertifieds(certificado) {
+    return (certificado.titulo != 'Certificado e Declaração de Participação PET - COMPET')
+  }
+
+  let certificadoCOMPET = dados.filter(COMPETParticipation)
+  dados = dados.filter(otherCertifieds)
+
+  console.log(certificadoCOMPET);
+
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Menu />
-      {renderCabecalho()}
+      <PageHeader url={header_img_url} caption={false} />
+      {renderCertificados(certificadoCOMPET)}
       <div className={styles.searchContainer}>
         <SearchBox placeholder="Pesquisar certificado..." setQuery={setQuery} />
       </div>
+
       {
         PaginatedItems(dados.filter((certificado) => {
-          return certificado.titulo.toLowerCase().includes(query.toLowerCase())
+          return removeAccents(certificado.titulo.toLowerCase()).includes(query.toLowerCase())
         }), classes)
       }
-
       <Footer />
     </div>
   );
-}
-
-const renderCabecalho = () => {
-  return (
-    <div className={styles.pageHeader}>
-      <div><img src="https://i.ibb.co/tsD3xNg/certificados.png" /></div>
-    </div>
-  )
 }
 
 const renderCertificados = (dadosAtuais) => {
@@ -125,7 +140,7 @@ const renderCertificados = (dadosAtuais) => {
       <div className={styles.certificadosContainer}>
         {dadosAtuais.map(certificado => (
           <div key={certificado._id} className={styles.certificadoCard}>
-            <div ><img src={loadPhotos(certificado.compet_talks, certificado.compbio)} alt="" className={styles.certificadoImg} /></div>
+            <div ><img src={loadPhotos(certificado.compet_talks, certificado.compbio, certificado.titulo)} alt="" className={styles.certificadoImg} /></div>
             <div className={styles.certificadoTitulo}>{certificado.titulo}</div>
             <div className={styles.certificadoData}>{convertDate(certificado.data)}</div>
             <div className={styles.certificadoLink}><Link href={certificado.link}><a target="_blank">Acessar</a></Link>
