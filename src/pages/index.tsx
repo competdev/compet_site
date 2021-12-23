@@ -14,7 +14,7 @@ Home.getInitialProps = async () => {
   return { dados: response.data }
 }
 
-export default function Home({dados}) {
+export default function Home({ dados }) {
   return (
     <div className={styles.container}>
       <Menu />
@@ -28,9 +28,9 @@ export default function Home({dados}) {
             "Participação do COMPET no InterPET 2016."]}
         />
       }
-      <About></About>
-      {renderSocialMedia({dados})}
-      
+      <About />
+      {renderSocialMedia({ dados })}
+
       {<Footer />}
     </div>
   );
@@ -41,7 +41,7 @@ const renderSocialMedia = (dados) => {
     <div className={styles.socialMediaContainer}>
       <IgFeed />
       <TwitterFeed />
-      <News dados = {dados}/>
+      <News dados={dados} />
     </div>
   );
 };

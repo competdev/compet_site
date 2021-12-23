@@ -12,7 +12,7 @@ export default function igFeed() {
         <Feed
           userName="compet.cefet"
           limit={5}
-          width="420"
+          width="465"
           maxContainerHeight="480"
         />
       </div>

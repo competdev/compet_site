@@ -1,56 +1,52 @@
 @font-face {
-    font-family: "Codec Pro Regular";
-    src: url("fonts/CodecPro-Regular.ttf");
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
 }
-  
-  @font-face {
-    font-family: "Verdana";
-    src: url("fonts/Verdana.ttf");
+
+@font-face {
+  font-family: "Verdana";
+  src: url("fonts/Verdana.ttf");
 }
 
 .sobre {
-    width: 100%;
-  }
-  
-  .aboutcard {
-    justify-content: center;
-    margin-top: -30px;
-    width: 100%;
-    display: inline-flex;
-    background-color: #19DD39;
-    max-height: 25000px;
-    margin-top: 0px;
-    margin-bottom: 50px;
-  }
-  
-  .img_InterPet img {
-    height: 300px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px #00000046;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-top: 30px;
-    
-  }
-  
-  .sobreInfo {
-    font-size: 17px;
-    font-weight: lighter;
-    font-family: "Verdana";
-    text-align: justify;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    max-width: 1050px;
-    margin-right: 20px;
-    max-height: 400px;
-  }
+  width: 100%;
+}
 
+.aboutcard {
+  justify-content: center;
+  margin-top: -30px;
+  width: 100%;
+  display: inline-flex;
+  background-color: #19DD39;
+  margin-top: 0px;
 
+}
 
+.img_InterPet img {
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #000000f1;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+}
+
+.sobreInfo {
+  font-size: 21px;
+  font-family: "Codec Pro Regular";
+  max-width: 600px;
+  text-align: justify;
+  height: 100%;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+.text {
+  margin-top: 12%;
+}
 
 @media (max-width: 1000px) {
-  
+
   .img_InterPet {
     margin-top: 0px;
     width: 100%;
@@ -62,7 +58,7 @@
     margin-right: auto;
     justify-content: center;
     text-align: center;
-    
+
   }
 
   .sobreInfo {
@@ -76,7 +72,11 @@
   .aboutcard {
     display: block;
   }
-  
+
+  .text {
+    margin-top: 20px;
+  }
+
 }
 
 
@@ -104,9 +104,5 @@
 @media (max-height: 800px) {
   .img_InterPet img {
     margin-top: 50px;
-  } 
+  }
 }
-
-
-
-

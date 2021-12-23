@@ -20,7 +20,7 @@ const SlideShow = ({ imgList, txtList }) => {
 
     <div className={styles.slideContainer}>
       <div className={styles.content}>
-        <Carousel dynamicHeight={true} autoPlay showStatus={false} centerMode infiniteLoop width={wSize().width * 0.55} showThumbs={false}>
+        <Carousel dynamicHeight={true} autoPlay showStatus={false} infiniteLoop width={wSize().width * 0.45} showThumbs={false}>
           {imgList.map((element, index) => (
             <div>
               <img src={element} />

@@ -11,7 +11,7 @@ const TwitterFeed: React.FC = () => (
                 screenName="compet_cefet"
                 noHeader
                 noFooter
-                options={{ width: 420, height: 480 }}
+                options={{ width: 480, height: 480 }}
             />
         </div>
     </div >
