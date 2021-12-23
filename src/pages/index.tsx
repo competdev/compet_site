@@ -17,7 +17,7 @@ Home.getInitialProps = async () => {
 export default function Home({ dados }) {
   return (
     <div className={styles.container}>
-      <Menu />
+
       {
         <SlideShow
           imgList={[
@@ -31,7 +31,7 @@ export default function Home({ dados }) {
       <About />
       {renderSocialMedia({ dados })}
 
-      {<Footer />}
+
     </div>
   );
 }

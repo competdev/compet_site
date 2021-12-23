@@ -17,18 +17,17 @@
   margin-top: -30px;
   width: 100%;
   display: inline-flex;
-  background-color: #19DD39;
   margin-top: 0px;
-
+  background-color: white;
+  box-shadow: 0px 0px 5px #00000033;
 }
 
 .img_InterPet img {
   height: 200px;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px #000000f1;
+  box-shadow: 0px 0px 5px #000000d8;
   margin-bottom: 30px;
   margin-top: 30px;
-
 }
 
 .sobreInfo {
@@ -39,10 +38,10 @@
   height: 100%;
   margin-left: 40px;
   margin-right: 20px;
-}
-
-.text {
-  margin-top: 12%;
+  margin-top: 60px;
+  background-color: #19DD39;
+  border: 20px solid #19DD39;
+  border-radius: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -91,6 +90,14 @@
   .img_InterPet img {
     margin-top: 20px;
   }
+
+  .sobreInfo {
+    margin-top: -10px;
+  }
+
+  .aboutcard {
+    padding-bottom: 30px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -103,6 +110,6 @@
 
 @media (max-height: 800px) {
   .img_InterPet img {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }

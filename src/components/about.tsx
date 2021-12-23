@@ -1,5 +1,3 @@
-
-import SectionTitle from '../components/sectionTitle';
 import styles from '../styles/About.module.css';
 
 export default function CardSobre() {
