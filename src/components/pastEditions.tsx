@@ -9,9 +9,10 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../components/sectionTitle";
 import styles from "../styles/PastEditions.module.css";
+import wSize from "../util/windowSize";
 
 interface PastEditionsProps extends Omit<ListProps, "onChange"> {
   elements: any[];
@@ -21,7 +22,7 @@ const useStyles = makeStyles(() => ({
   card: {
     background: "#ffffff",
     "&:hover": {
-      background: "#e4e4e4 ",
+      background: "#0d062050 ",
     },
     borderTopLeftRadius: "20px",
     borderTopRightRadius: "20px",
@@ -31,9 +32,9 @@ const useStyles = makeStyles(() => ({
     boxShadow: "0px 0px 5px #00000033",
   },
   cardContent: {
-    background: "#19DD39 ",
+    background: "#ffffff ",
     "&:hover": {
-      background: "#004266 ",
+      background: "#e9e9e9 ",
     },
     display: "flex",
     justifyContent: "center",
@@ -43,21 +44,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
-  const [width, setWidth] = useState(500);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    const handleResize = (e) => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
 
   const classes = useStyles();
   const sectionTitle = "Edições anteriores";
+
+  function actualEdition(element) {
+    return (element.atual == "false")
+  }
+  elements = elements.filter(actualEdition)
 
   return (
     <div className={styles.content}>
@@ -65,63 +59,65 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
       <List
         style={{
           display: "flex",
-          flexDirection: width < 700 ? "column" : "row",
+          flexDirection: wSize().width < 800 ? "column" : "row",
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
       >
-        {elements.map((element) => (
-          <ListItem key={element._id}>
-            <Card className={classes.card}>
-              <CardActionArea
-                onClick={() => {
-                  if (element && element.link)
-                    window.open(element.link, "_blank")?.focus();
-                }}
-              >
-                <CardMedia
-                  component='img'
-                  alt={element.titulo}
-                  height='150'
-                  image={element.img}
-                  style={{
-                    borderTopLeftRadius: "20px",
-                    borderTopRightRadius: "20px",
-                    borderBottom: "1px solid rgba(0, 0, 0, 0.13)",
+        <div className={styles.listContainer}>
+          {elements.map((element) => (
+            <ListItem key={element._id}>
+              <Card className={classes.card}>
+                <CardActionArea
+                  onClick={() => {
+                    if (element && element.link)
+                      window.open(element.link, "_blank")?.focus();
                   }}
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography
-                    gutterBottom
-                    variant='h5'
-                    component='div'
+                >
+                  <CardMedia
+                    component='img'
+                    alt={element.titulo}
+                    height='150'
+                    image={element.img}
                     style={{
-                      fontFamily: "Codec Pro Light",
-                      fontWeight: "bolder",
-                      marginTop: "5px",
-                      fontSize: "27px",
+                      borderTopLeftRadius: "20px",
+                      borderTopRightRadius: "20px",
+                      borderBottom: "1px solid rgba(0, 0, 0, 0.13)",
                     }}
-                  >
-                    {element.titulo}
+                  />
+                  <CardContent className={classes.cardContent}>
                     <Typography
+                      gutterBottom
+                      variant='h5'
+                      component='div'
                       style={{
                         fontFamily: "Codec Pro Light",
-                        fontSize: "17px",
+                        fontWeight: "bolder",
+                        marginTop: "5px",
+                        fontSize: "27px",
                       }}
                     >
-                      {
-                        new Date(element.data)
-                          .toLocaleString("pt-BR")
-                          .split(" ")[0]
-                      }
+                      {element.titulo}
+                      <Typography
+                        style={{
+                          fontFamily: "Codec Pro Light",
+                          fontSize: "17px",
+                        }}
+                      >
+                        {
+                          new Date(element.data)
+                            .toLocaleString("pt-BR")
+                            .split(" ")[0]
+                        }
+                      </Typography>
                     </Typography>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </ListItem>
-        ))}
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </ListItem>
+          ))}
+        </div>
       </List>
     </div>
   );
