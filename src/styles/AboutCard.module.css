@@ -10,6 +10,7 @@
 
 .sobre {
   width: 100%;
+  margin-top: -30px;
 }
 
 .aboutcard {
@@ -20,19 +21,22 @@
 }
 
 .img_InterPet img {
+  margin-top: 30px;
+  margin-bottom: 30px;
   height: 300px;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px #00000046;
+  border: 20px solid #004266;
 }
 
 .sobreInfo {
-  font-size: 17px;
-  font-weight: lighter;
-  font-family: "Verdana";
+  font-size: 23px;
+  font-family: "Codec Pro Regular";
   text-align: justify;
-  margin-top: 20px;
+  margin-top: 85px;
   margin-left: 40px;
-  max-width: 1050px;
+  max-width: 900px;
+  border-radius: 30px;
+  color: #000000;
 }
 
 @media (max-width: 1024px) {
@@ -53,6 +57,7 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 900px;
+    margin-top: 15px;
   }
 
   .aboutcard {
@@ -62,11 +67,11 @@
 
 @media (max-width: 768px) {
   .sobre {
-    margin-top: -85px;
+    margin-top: -35px;
   }
 
   .sobreInfo {
-    font-size: 16px;
+    font-size: 21px;
     max-width: 700px;
   }
 }
@@ -82,21 +87,23 @@
   }
 
   .sobreInfo {
-    font-size: 15px;
+    font-size: 20px;
     max-width: 400px;
+    margin-top: -2px;
   }
 }
 
 @media (max-width: 375px) {
   .sobreInfo {
-    font-size: 15px;
+    font-size: 19px;
     max-width: 350px;
+    margin-top: -10px;
   }
 }
 
 @media (max-width: 320px) {
   .sobreInfo {
-    font-size: 14px;
+    font-size: 18px;
     max-width: 300px;
   }
 }
@@ -107,7 +114,7 @@
   }
 
   .sobreInfo {
-    font-size: 14px;
+    font-size: 17px;
     max-width: 260px;
   }
 }

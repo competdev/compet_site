@@ -26,15 +26,16 @@ export default function principalCard({ dados }) {
   return (
     <div className={styles.container}>
       <SectionTitle title={sectionTitle} />
-      <div className={styles.card}>
-        <img className={styles.cardImg} src={edicao_atual[0].img} />
-        <div className={styles.infoCard}>
-          <div className={styles.title}>{edicao_atual[0].titulo}</div>
-          <div className={styles.date}>{convertDate(edicao_atual[0].data)}</div>
-          {wSize().width > 425 ? <div className={styles.abstract}>{edicao_atual[0].resumo}</div> : <></>}
-          <div className={styles.link}><Link href={edicao_atual[0].link}><a target="_blank">Acessar</a></Link></div>
+      <Link href={edicao_atual[0].link}><a target="_blank">
+        <div className={styles.card}>
+          <img className={styles.cardImg} src={edicao_atual[0].img} />
+          <div className={styles.infoCard}>
+            <div className={styles.title}>{edicao_atual[0].titulo}</div>
+            <div className={styles.date}>{convertDate(edicao_atual[0].data)}</div>
+            {wSize().width > 425 ? <div className={styles.abstract}>{edicao_atual[0].resumo}</div> : <></>}
+          </div>
         </div>
-      </div>
+      </a></Link>
     </div>
   )
 }

@@ -21,19 +21,20 @@ const useStyles = makeStyles(() => ({
   card: {
     background: "#ffffff",
     "&:hover": {
-      background: "#0d062050 ",
+      background: "#004266",
     },
     borderTopLeftRadius: "20px",
     borderTopRightRadius: "20px",
-    borderBottomLeftRadius: "10px",
-    borderBottomRightRadius: "10px",
-    border: "1px solid #d5d5d575",
+    borderBottomLeftRadius: "20px",
+    borderBottomRightRadius: "20px",
+    border: "1px solid #d5d5d534",
     boxShadow: "0px 0px 5px #00000033",
   },
   cardContent: {
-    background: "#ffffff ",
+    background: "#ffffff",
     "&:hover": {
-      background: "#e9e9e9 ",
+      background: "#004266",
+      color: "#ffffff"
     },
     display: "flex",
     justifyContent: "center",
@@ -77,7 +78,7 @@ const PastEditions: React.FC<PastEditionsProps> = ({ elements }) => {
                   <CardMedia
                     component='img'
                     alt={element.titulo}
-                    height='150'
+                    height='170'
                     image={element.img}
                     style={{
                       borderTopLeftRadius: "20px",
