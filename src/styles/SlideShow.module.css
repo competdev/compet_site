@@ -1,13 +1,38 @@
 .slideContainer {
-  padding-top: 120px;
   width: 100%;
   background-color: #004266;
 }
 
 .content {
-  width: fit-content;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  color: white;
+  background-color: #19DD39;
+  outline: none;
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  border: 0;
+  font-family: Verdana;
+  font-size: 24px;
+  font-weight: bold;
+};
+
+.arrow:hover {
+  background-color: yellow;
+}
+
+@media (max-width: 1000px) {
+  .content {
+    width: 100%;
+  }
 }
 
 .legend {
@@ -18,8 +43,7 @@
   transition: all .5s ease-in-out;
   position: absolute;
   bottom: 20px;
-  margin-left: 25%;
-  width: 50%;
+  left: 40px;
   border-radius: 10px;
   background: #19dd3a9c;
   border: 1px solid rgba(0, 0, 0, 0.185);

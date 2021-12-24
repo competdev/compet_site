@@ -3,7 +3,6 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../styles/SlideShow.module.css";
-import wSize from "../util/windowSize"
 
 interface SlideShowProps {
   imgList: string[];
@@ -15,12 +14,24 @@ const Legend = styled("p")({
   margin: 20,
 });
 
-const SlideShow = ({ imgList, txtList }) => {
+const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
   return (
 
     <div className={styles.slideContainer}>
       <div className={styles.content}>
-        <Carousel dynamicHeight={true} autoPlay showStatus={false} infiniteLoop width={wSize().width * 0.45} showThumbs={false}>
+        <Carousel
+          dynamicHeight={true} autoPlay showStatus={false} infiniteLoop showThumbs={false} emulateTouch
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+              <button type="button" onClick={onClickHandler} title={label} className={styles.arrow} style={{ left: 0 }}>
+                {'<'}
+              </button>
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+              <button type="button" onClick={onClickHandler} title={label} className={styles.arrow} style={{ right: 0 }}>
+                {'>'}
+              </button>
+          }
+        >
           {imgList.map((element, index) => (
             <div>
               <img src={element} />
