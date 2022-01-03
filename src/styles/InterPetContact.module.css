@@ -102,3 +102,13 @@
     width: 95%;
   }
 }
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .addressText .addressEmail {
+    font-size: 16px;
+  }
+}
