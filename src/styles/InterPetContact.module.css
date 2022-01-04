@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("fonts/Verdana.ttf");
+}
+
+.container {
+  margin-top: -30px;
+}
+
+.card {
+  background-color: #ffffff;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 30px;
+  width: 80%;
+  border: 1px solid #d5d5d575;
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px 0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: #004266;
+  color: white;
+}
+
+.cardContent {
+  position: relative;
+  min-height: 100px;
+}
+
+.socialNetwork {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 100px;
+}
+
+.socialNetworkIcons {
+  margin: 5px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  box-shadow: 0px 0px 4px #0000007e;
+}
+
+.socialNetworkIcons:hover {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.addressCEFET {
+  padding: 0 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.addressText {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .addressCEFET {
+    margin-left: 60px;
+  }
+
+}
+
+@media (max-width: 960px) {
+  .addressCEFET {
+    margin-left: 0px;
+    font-size: 20px;
+  }
+
+  .socialNetwork {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    width: 95%;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .addressText .addressEmail {
+    font-size: 16px;
+  }
+}
