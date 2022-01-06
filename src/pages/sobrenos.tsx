@@ -11,6 +11,7 @@ import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { Avatar } from "@material-ui/core";
+import { withStyles } from "@material-ui/styles";
 import Menu from "../components/menu";
 import Book from "../assets/Book";
 import Clock from "../assets/Clock";
@@ -39,16 +40,24 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   mobile: {
-    height: 55,
-    width: 55,
-    borderRadius: 55,
+    height: 70,
+    width: 70,
     marginBottom: 20,
+    borderRadius: 35,
   },
   div: {
     background: "linear-gradient(180deg, #19dd39b8 5%, #004266c9 95%)",
     backgroundRepeat: "no-repeat",
   },
 }));
+
+const StylesTimelineItem = withStyles({
+  missingOppositeContent: {
+    "&:before": {
+      display: "none",
+    },
+  },
+})(TimelineItem);
 
 export default function CustomizedTimeline() {
   const classes = useStyles();
@@ -57,8 +66,8 @@ export default function CustomizedTimeline() {
     return (
       <div className={classes.div}>
         <Menu />
-        <Timeline className={classes.timeline}>
-          <TimelineItem style={{ marginTop: 40 }}>
+        <Timeline align='left' className={classes.timeline}>
+          <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
               <Clock className={classes.mobile} />
               <TimelineConnector className={classes.secondaryTail} />
@@ -141,8 +150,8 @@ export default function CustomizedTimeline() {
                 />
               </Paper>
             </TimelineContent>
-          </TimelineItem>
-          <TimelineItem style={{ marginTop: 40 }}>
+          </StylesTimelineItem>
+          <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
               <Idea className={classes.mobile} />
               <TimelineConnector className={classes.secondaryTail} />
@@ -179,8 +188,8 @@ export default function CustomizedTimeline() {
                 />
               </Paper>
             </TimelineContent>
-          </TimelineItem>
-          <TimelineItem style={{ marginTop: 40 }}>
+          </StylesTimelineItem>
+          <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
               <People className={classes.mobile} />
               <TimelineConnector className={classes.secondaryTail} />
@@ -202,8 +211,8 @@ export default function CustomizedTimeline() {
                 </Typography>
               </Paper>
             </TimelineContent>
-          </TimelineItem>
-          <TimelineItem style={{ marginTop: 40 }}>
+          </StylesTimelineItem>
+          <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
               <Book className={classes.mobile} />
             </TimelineSeparator>
@@ -224,7 +233,7 @@ export default function CustomizedTimeline() {
                 </Typography>
               </Paper>
             </TimelineContent>
-          </TimelineItem>
+          </StylesTimelineItem>
         </Timeline>
         <Footer />
       </div>
