@@ -10,33 +10,49 @@
 
 .sobre {
   width: 100%;
-  margin-top: -30px;
+  margin-top: 10px;
 }
 
 .aboutcard {
   justify-content: center;
-  margin-top: -30px;
+  margin-top: -130px;
   width: 100%;
   display: inline-flex;
 }
 
+.img_InterPet {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img_container {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .img_InterPet img {
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
   height: 300px;
   border-radius: 50%;
-  border: 20px solid #004266;
+  box-shadow: 0px 0px 5px #00000033;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .sobreInfo {
   font-size: 23px;
   font-family: "Codec Pro Regular";
   text-align: justify;
-  margin-top: 85px;
+  margin-top: 135px;
   margin-left: 40px;
   max-width: 900px;
   border-radius: 30px;
   color: #000000;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 1024px) {

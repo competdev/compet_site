@@ -12,7 +12,7 @@ const LightTooltip = withStyles((theme) => ({
     borderRadius: "20px",
     padding: "25px",
     color: "#fdfdfd",
-    maxWidth: 500,
+    maxWidth: 500,npm
     fontFamily: "Verdana",
     fontSize: 15,
     textAlign: "justify"
@@ -136,7 +136,7 @@ const renderSocialNetworks = (data) => {
         {data.linkedin != "" ?
           <div>
             <Link href={data.linkedin}><a title='LinkedIn'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/vP6rFjd/linkedin-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></div>
             </a></Link>
           </div>
           : <></>}
