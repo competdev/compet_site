@@ -22,9 +22,11 @@ import Footer from "../components/footer";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "6px 16px",
+    backgroundColor: "#ffffff",
+    borderRadius: "55px",
   },
   secondaryTail: {
-    backgroundColor: "#A9A9A9",
+    backgroundColor: "#ffffff",
   },
   title: {
     margin: 10,
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   body: {
     margin: 10,
   },
-  timeline: { alignContent: "left" },
+  timeline: { alignContent: "justify" },
   icon: {
     height: 110,
     width: 110,
@@ -46,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 35,
   },
   div: {
-    background: "linear-gradient(180deg, #19dd39b8 5%, #004266c9 95%)",
+    background: "linear-gradient(180deg, #18e229 10%, #004266c9 50%)",
     backgroundRepeat: "no-repeat",
   },
 }));
@@ -246,7 +248,11 @@ export default function CustomizedTimeline() {
       <Timeline align='alternate' className={classes.timeline}>
         <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
-            <Typography variant='h6' color='textSecondary'>
+            <Typography variant='h6' color='textSecondary'
+              style={{
+                color: "#ffffff",
+                fontWeight: "bold",
+              }}>
               História
             </Typography>
           </TimelineOppositeContent>
@@ -258,15 +264,18 @@ export default function CustomizedTimeline() {
             <Paper
               elevation={3}
               className={classes.paper}
-              style={{ display: "flex" }}
+              style={{
+                display: "flex",
+              }}
             >
               <div>
                 <Typography
                   variant='h6'
                   component='h1'
                   className={classes.title}
+
                 >
-                  História
+
                 </Typography>
                 <Typography>
                   A ideia do grupo surgiu durante o workshop de graduação em
@@ -333,7 +342,10 @@ export default function CustomizedTimeline() {
         </TimelineItem>
         <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
-            <Typography variant='h6' color='textSecondary'>
+            <Typography variant='h6' color='textSecondary' style={{
+              color: "#ffffff",
+              fontWeight: "bold",
+            }} >
               Foco
             </Typography>
           </TimelineOppositeContent>
@@ -360,7 +372,7 @@ export default function CustomizedTimeline() {
               />
               <div>
                 <Typography variant='h6' component='h1'>
-                  Foco
+
                 </Typography>
                 <Typography>
                   O foco do grupo é disseminar informação técnica, construir
@@ -376,7 +388,10 @@ export default function CustomizedTimeline() {
         </TimelineItem>
         <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
-            <Typography variant='h6' color='textSecondary'>
+            <Typography variant='h6' color='textSecondary' style={{
+              color: "#ffffff",
+              fontWeight: "bold",
+            }}>
               Estrutura Organizacional
             </Typography>
           </TimelineOppositeContent>
@@ -387,7 +402,7 @@ export default function CustomizedTimeline() {
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
               <Typography variant='h6' component='h1'>
-                Estrutura Organizacional
+
               </Typography>
               <Typography>
                 A estrutura organizacional interna do COMPET funciona como se
@@ -404,7 +419,10 @@ export default function CustomizedTimeline() {
         </TimelineItem>
         <TimelineItem style={{ marginTop: 40 }}>
           <TimelineOppositeContent>
-            <Typography variant='h6' color='textSecondary'>
+            <Typography variant='h6' color='textSecondary' style={{
+              color: "#ffffff",
+              fontWeight: "bold",
+            }}>
               Ensino, Pesquisa e Extensão
             </Typography>
           </TimelineOppositeContent>
@@ -414,7 +432,7 @@ export default function CustomizedTimeline() {
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
               <Typography variant='h6' component='h1'>
-                Ensino, Pesquisa e Extensão
+
               </Typography>
               <Typography>
                 Há, naturalmente, um passeio formal no tripé Ensino, Pesquisa e
@@ -431,6 +449,6 @@ export default function CustomizedTimeline() {
         </TimelineItem>
       </Timeline>
       <Footer />
-    </div>
+    </div >
   );
 }
