@@ -12,7 +12,7 @@ const LightTooltip = withStyles((theme) => ({
     borderRadius: "20px",
     padding: "25px",
     color: "#fdfdfd",
-    maxWidth: 500,npm
+    maxWidth: 500,
     fontFamily: "Verdana",
     fontSize: 15,
     textAlign: "justify"
