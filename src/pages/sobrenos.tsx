@@ -23,23 +23,27 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "6px 16px",
     backgroundColor: "#ffffff",
-    borderRadius: "55px",
+    borderRadius: "25px",
+    fontFamily: "Codec Pro Regular",
+    boxShadow: 'none',
   },
   secondaryTail: {
     backgroundColor: "#ffffff",
   },
   title: {
+    fontFamily: 'Verdana',
     margin: 10,
   },
   body: {
     margin: 10,
   },
-  timeline: { alignContent: "justify" },
+  timeline: { alignContent: "justify", fontFamily: "Codec Pro Regular", },
   icon: {
     height: 110,
     width: 110,
     borderRadius: 55,
     marginBottom: 20,
+    boxShadow: '0px 0px 5px black'
   },
   mobile: {
     height: 70,
@@ -48,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 35,
   },
   div: {
-    background: "linear-gradient(180deg, #18e229 10%, #004266c9 50%)",
+    background: "linear-gradient(180deg, #19DD39 10%, #004266 60%)",
     backgroundRepeat: "no-repeat",
   },
 }));
@@ -162,7 +166,7 @@ export default function CustomizedTimeline() {
               <Paper
                 elevation={3}
                 className={classes.paper}
-                style={{ display: "flex" }}
+                style={{ display: "flex", fontFamily: "Codec Pro Regular", }}
               >
                 <div>
                   <Typography variant='h6' component='h1'>
@@ -238,7 +242,7 @@ export default function CustomizedTimeline() {
           </StylesTimelineItem>
         </Timeline>
         <Footer />
-      </div>
+      </div >
     );
   }
 
@@ -252,6 +256,8 @@ export default function CustomizedTimeline() {
               style={{
                 color: "#ffffff",
                 fontWeight: "bold",
+                fontFamily: "Codec Pro Regular",
+
               }}>
               História
             </Typography>
@@ -273,11 +279,14 @@ export default function CustomizedTimeline() {
                   variant='h6'
                   component='h1'
                   className={classes.title}
-
                 >
-
                 </Typography>
-                <Typography>
+                <Typography style={{
+                  marginTop: 10,
+                  fontFamily: "Codec Pro Regular",
+                  textAlign: "justify",
+                  margin: 20
+                }}>
                   A ideia do grupo surgiu durante o workshop de graduação em
                   agosto de 2014, quando o Prof Sandro Renato Dias viu a
                   diretora de graduação, Profa. Ivete, falar sobre o edital para
@@ -285,21 +294,21 @@ export default function CustomizedTimeline() {
                   o projeto na mente minutos depois ao ouvir a fala do Prof.
                   Lindolpho, tutor do PET de Leopoldina (PET do MEC).
                 </Typography>
-                <Typography style={{ marginTop: 10 }}>
+                <Typography style={{ marginTop: 10, fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                   O COMPET foi um parto muito difícil. Como o Sandro era recém
                   concursado, não podia submeter um projeto para o PET, e então
                   reclamou à diretoria de Graduação para permitir que isso fosse
                   possível, demonstrando total interesse em submeter. Alteraram
                   as regras e permitiram recém concursados.
                 </Typography>
-                <Typography style={{ marginTop: 10 }}>
+                <Typography style={{ marginTop: 10, fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                   Depois foi necessário reclamar de novo, pois a experiência
                   pregressa em extensão não poderia ser computada, já que nas
                   regras do edital poderia ser apenas tempo de experiência
                   dentro do CEFET-MG, Sandro recorreu novamente e foi atendido.
                   Sou brasileiro, não desisto nunca, como disse o Sandro.
                 </Typography>
-                <Typography style={{ marginTop: 10 }}>
+                <Typography style={{ marginTop: 10, fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                   O primeiro projeto do COMPET foi finalizado em 24/10/2014,
                   data em que ele assinou o projeto, dia do seu aniversário e
                   ano da entrada dele no CEFET, estava com 7 meses e 27 dias de
@@ -309,7 +318,7 @@ export default function CustomizedTimeline() {
                   instituição (sim, absurdo, teve que provar ao CEFET que era
                   docente do CEFET), o projeto foi desclassificado.
                 </Typography>
-                <Typography style={{ marginTop: 10 }}>
+                <Typography style={{ marginTop: 10, fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                   O resultado saiu em 04/12/2014, Sandro recorreu da decisão,
                   mas foi indeferido. Sou brasileiro, não desisto nunca,
                   salientou o professor. Em contato com a diretoria foi
@@ -318,7 +327,7 @@ export default function CustomizedTimeline() {
                   aprovado e o resultado publicado em 11/02/2015, Computação
                   (Sandro Dias, C2, 94,1 pontos), em primeiro lugar.
                 </Typography>
-                <Typography style={{ marginTop: 10 }}>
+                <Typography style={{ marginTop: 10, fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                   A partir do recurso de um docente que havia submetido um
                   projeto também, houve a redução da própria nota e de outros,
                   as quais foram reformuladas e divulgado um novo resultado
@@ -326,17 +335,6 @@ export default function CustomizedTimeline() {
                   pontos), em primeiro lugar novamente.
                 </Typography>
               </div>
-              <Avatar
-                style={{
-                  position: "relative",
-                  marginLeft: "auto",
-                  marginRight: 0,
-                  width: 70,
-                  height: 70,
-                }}
-                alt='Sandro Dias'
-                src='https://i.ibb.co/vQr2VJ6/tutor-Sandro-Dias.jpg'
-              />
             </Paper>
           </TimelineContent>
         </TimelineItem>
@@ -345,6 +343,7 @@ export default function CustomizedTimeline() {
             <Typography variant='h6' color='textSecondary' style={{
               color: "#ffffff",
               fontWeight: "bold",
+              fontFamily: "Codec Pro Regular",
             }} >
               Foco
             </Typography>
@@ -359,22 +358,10 @@ export default function CustomizedTimeline() {
               className={classes.paper}
               style={{ display: "flex" }}
             >
-              <Avatar
-                style={{
-                  position: "relative",
-                  marginRight: "auto",
-                  marginLeft: 0,
-                  width: 70,
-                  height: 70,
-                }}
-                alt='Andre da Cruz'
-                src='https://i.ibb.co/Dr2JKs8/co-tutor-Andr-Rodrigues.jpg'
-              />
               <div>
                 <Typography variant='h6' component='h1'>
-
                 </Typography>
-                <Typography>
+                <Typography style={{ fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20, marginRight: 30, marginTop: 20, marginBottom: 20 }}>
                   O foco do grupo é disseminar informação técnica, construir
                   soluções envolvendo tecnologias computacionais, organizar
                   eventos de cunho tecnológico, estimular a execução de
@@ -391,6 +378,7 @@ export default function CustomizedTimeline() {
             <Typography variant='h6' color='textSecondary' style={{
               color: "#ffffff",
               fontWeight: "bold",
+              fontFamily: "Codec Pro Regular",
             }}>
               Estrutura Organizacional
             </Typography>
@@ -404,7 +392,7 @@ export default function CustomizedTimeline() {
               <Typography variant='h6' component='h1'>
 
               </Typography>
-              <Typography>
+              <Typography style={{ fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                 A estrutura organizacional interna do COMPET funciona como se
                 fosse uma empresa. Os tutores, que coordenam o grupo, atuam como
                 chefes. Um dos COMPETianos é, por eleição, o Scrum Master que
@@ -422,6 +410,7 @@ export default function CustomizedTimeline() {
             <Typography variant='h6' color='textSecondary' style={{
               color: "#ffffff",
               fontWeight: "bold",
+              fontFamily: "Codec Pro Regular",
             }}>
               Ensino, Pesquisa e Extensão
             </Typography>
@@ -434,7 +423,7 @@ export default function CustomizedTimeline() {
               <Typography variant='h6' component='h1'>
 
               </Typography>
-              <Typography>
+              <Typography style={{ fontFamily: "Codec Pro Regular", textAlign: "justify", margin: 20 }}>
                 Há, naturalmente, um passeio formal no tripé Ensino, Pesquisa e
                 Extensão para atender demandas que nos chegam dos mais
                 diferentes ramos do conhecimento. Dessa forma, proporciona-se
