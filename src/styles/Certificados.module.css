@@ -4,7 +4,7 @@
 }
 
 .searchContainer {
-  margin-top: 80px;
+  margin-top: 10px;
   text-align: center;
   margin-left: 55%;
 }
@@ -12,7 +12,6 @@
 .containerPaginate {
   margin-top: -20px;
   width: 100%;
-  cursor: pointer;
 }
 
 .pageContent {
@@ -68,30 +67,51 @@
   font-size: 15px;
   text-align: center;
   font-weight: bold;
-  max-width: 250px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .certificadoData {
-  margin-top: 43px;
+  margin-top: 35px;
   font-size: 14px;
   font-style: italic;
 }
 
 .certificadoLink {
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 20px;
   color: #004266;
 }
 
 .certificadoLink:hover {
   font-size: 105%;
-  color: #19DD39;
+  color: #0DAB76;
 }
 
 .pagination {
   display: flex;
   padding-left: 0;
   list-style: none
+}
+
+@media (max-width: 550px) {
+  .searchContainer {
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pageHeader {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .certificadoCard {
+    height: 250px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .containerPaginate {
+    margin-top: -20px;
+    width: 80%;
+  }
 }
