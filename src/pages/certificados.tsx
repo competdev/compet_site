@@ -105,21 +105,21 @@ export default function Certificados({ dados }) {
     return (certificado.titulo == 'Certificado e Declaração de Participação PET - COMPET')
   }
 
-  function otherCertifieds(certificado) {
+  /*function otherCertifieds(certificado) {
     return (certificado.titulo != 'Certificado e Declaração de Participação PET - COMPET')
   }
 
   let certificadoCOMPET = dados.filter(COMPETParticipation)
   dados = dados.filter(otherCertifieds)
 
-  console.log(certificadoCOMPET);
+  console.log(certificadoCOMPET);*/
 
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Menu />
       <PageHeader url={header_img_url} caption={false} />
-      {renderCertificados(certificadoCOMPET)}
+      {/*{renderCertificados(certificadoCOMPET)}*/}
       <div className={styles.searchContainer}>
         <SearchBox placeholder="Pesquisar certificado..." setQuery={setQuery} />
       </div>
