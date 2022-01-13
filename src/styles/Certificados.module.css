@@ -4,7 +4,7 @@
 }
 
 .searchContainer {
-  margin-top: 10px;
+  margin-top: -60px;
   text-align: center;
   margin-left: 55%;
 }
@@ -83,7 +83,7 @@
 
 .certificadoLink:hover {
   font-size: 105%;
-  color: #0DAB76;
+  color: #19DD39;
 }
 
 .pagination {
@@ -94,15 +94,17 @@
 
 @media (max-width: 550px) {
   .searchContainer {
-
+    margin-top: -40px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .pageHeader {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
   }
+
   .certificadoCard {
     height: 220px;
     width: 225px;
@@ -110,6 +112,7 @@
     margin-right: auto;
     text-align: center;
   }
+
   .certificadoTitulo {
     margin-top: 10px;
     max-height: 15px;
@@ -117,16 +120,19 @@
     text-align: center;
     font-weight: bold;
   }
+
   .certificadoData {
     margin-top: 35px;
     font-size: 12px;
     font-style: italic;
   }
+
   .certificadoLink {
     font-weight: bold;
     margin-top: 10px;
     color: #004266;
   }
+
   .certificadoImg {
     border: 1px solid #2e2e2e34;
     margin-top: -10px;

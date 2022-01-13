@@ -92,12 +92,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
 export default function Certificados({ dados }) {
   const [query, setQuery] = useState("")
   const classes = useStyles()
-
-
 
   const header_img_url = "https://i.ibb.co/MNpsdrb/certificados.png"
 
