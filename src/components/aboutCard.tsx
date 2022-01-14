@@ -8,7 +8,7 @@ export default function CardSobre() {
       <SectionTitle title={sectionTitle} />
       <div className={styles.img_InterPet}>
         <div className={styles.img_container}>
-          <img src="https://i.ibb.co/YRfCp2C/INTERPET.png" alt="" />
+          <img src="https://i.ibb.co/fGszj1d/inter-Pet-sobre.jpg" alt="" />
         </div>
       </div>
       {renderSobre()}
