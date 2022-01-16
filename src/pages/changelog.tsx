@@ -23,8 +23,8 @@ function convertDate(stringDate) {
 }
 
 export default function Changelog({ dados }) {
-  const sectionTitle = "Changelog"
-  console.log(dados)
+  const sectionTitle = "Changelog";
+  
   return (
     <div className={styles.bodyPage}>
       <Menu />
