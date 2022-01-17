@@ -107,6 +107,10 @@
     font-size: 18px;
     margin-top: 10px;
   }
+  
+  .container {
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 768px) {

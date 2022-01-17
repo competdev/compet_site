@@ -11,6 +11,8 @@
 .sobre {
   width: 100%;
   margin-top: 10px;
+  margin-bottom: -50px;
+
 }
 
 .aboutcard {
@@ -78,6 +80,9 @@
 
   .aboutcard {
     margin-top: 20px;
+  }
+  .sobre {
+    margin-bottom: -80px;
   }
 }
 
