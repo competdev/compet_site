@@ -1,10 +1,11 @@
 .groupDiv {
   max-width: 1500px;
+  background-color: blueviolet;
 }
 
 .cardContent {
   margin: 50px;
-  margin-top: 20px;
+  margin-top: 80px;
   height: 140px;
   width: 230px;
   display: inline-block;
@@ -12,14 +13,15 @@
 }
 
 .membersCard {
-  height: 100%;
+  height: 120%;
   font-size: 14px;
   border-radius: 20px;
-  width: 100%;
+  width: 120%;
   background-color: rgb(255, 255, 255);
   display: inline-block;
   color: #151515;
   border: 1px solid #b4b4b433;
+  box-shadow: 0px 0px 5px #00000033;
 }
 
 .infoName {
@@ -86,16 +88,16 @@
 }
 
 .foto {
-  margin-top: -55px;
-  width: 110px;
-  height: 110px;
+  margin-top: -66px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
 }
 
 .fotoSemDep {
-  margin-top: -55px;
-  width: 110px;
-  height: 110px;
+  margin-top: -66px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
 }
 
@@ -111,11 +113,15 @@
 
 .container {
   position: relative;
-  width: 100%;
+  width: 120%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 @media (max-width: 1300px) {
@@ -132,26 +138,27 @@
 
 @media (max-width: 768px) {
   .cardContent {
-    margin: 20px;
-    margin-top: 10px;
+    margin: 50px;
+    margin-top: 100px;
   }
 
   .membersCard {
-    height: 105px;
-    width: 170px;
+    background-color: #ffffff;
+    height: 180px;
+    width: 114%;
     border-radius: 20px;
   }
 
   .infoName {
     text-align: center;
-    margin-top: 1px;
-    font-size: 15px;
+    margin-top: -1px;
+    font-size: 20px;
   }
 
   .infoCompet {
     text-align: center;
-    margin-top: -15px;
-    font-size: 14px;
+    margin-top: -12px;
+    font-size: 17px;
     font-family: "Codec Pro Regular";
   }
 
@@ -160,46 +167,47 @@
   }
 
   .infoScrum {
-    margin-left: -25px;
+    margin-left: -20px;
     text-align: left;
-    height: 12px;
-    width: 12px;
+    height: 13px;
+    width: 13px;
     border-radius: 50%;
     background-color: rgb(255, 14, 14);
   }
 
   .infoIntercamb {
-    margin-left: -25px;
+    margin-left: -20px;
     text-align: center;
-    height: 12px;
-    width: 12px;
+    height: 13px;
+    width: 13px;
     border-radius: 50%;
     background-color: #19DD39;
   }
 
   .photoSpace {
     margin-top: 20px;
-    width: 170px;
+    width: 220px;
   }
 
   .foto {
-    margin-top: -35px;
-    width: 80px;
-    height: 80px;
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
   }
 
   .fotoSemDep {
-    margin-top: -35px;
-    width: 80px;
-    height: 80px;
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
   }
 
   .networkFavicon {
     margin: 3px;
-    height: 15px;
-    width: 15px;
+    margin-top: 7px;
+    height: 20px;
+    width: 20px;
   }
 
   .networkBlank {
@@ -211,17 +219,19 @@
 
 @media (max-width: 545px) {
   .cardContent {
-    margin: 20px;
+    margin: 50px;
+    margin-top: 100px;
   }
 
   .container {
     margin-top: -20px;
+
   }
 
   .membersCard {
     background-color: #ffffff;
-    height: 150px;
-    width: 95%;
+    height: 180px;
+    width: 114%;
     border-radius: 20px;
   }
 
@@ -258,20 +268,20 @@
 
   .photoSpace {
     margin-top: 20px;
-    width: 100%;
+    width: 220px;
   }
 
   .foto {
-    margin-top: -35px;
-    width: 100px;
-    height: 100px;
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
   }
 
   .fotoSemDep {
-    margin-top: -35px;
-    width: 100px;
-    height: 100px;
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
   }
 
@@ -291,8 +301,8 @@
 
 @media (max-width: 320px) {
   .cardContent {
-    margin: 0px;
-    margin-top: 50px;
+    margin: 50px;
+    margin-top: 100px;
   }
 
   .container {
