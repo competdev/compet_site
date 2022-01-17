@@ -19,13 +19,18 @@ import Idea from "../assets/Idea";
 import Footer from "../components/footer";
 import styles from '../styles/Sobre.module.css'
 
+const clock = 'https://i.ibb.co/QNYSh70/clock.png';
+const book = 'https://i.ibb.co/t87HGv3/book.png';
+const people = 'https://i.ibb.co/YDG6CXd/people.png';
+const idea = 'https://i.ibb.co/fCY9y4N/idea.png';
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "6px 16px",
     backgroundColor: "#ffffff",
     borderRadius: "25px",
     fontFamily: "Codec Pro Regular",
-    boxShadow: 'none',
+    boxShadow: '0px 0px 5px #00000033',
   },
   secondaryTail: {
     backgroundColor: "#ffffff",
@@ -52,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 35,
   },
   div: {
-    background: "linear-gradient(180deg, #19DD39 10%, #004266 60%)",
+    background: "linear-gradient(180deg, #f5f5f5 20%, #004266 60%)",
     backgroundRepeat: "no-repeat",
   },
 }));
@@ -89,24 +94,23 @@ export default function CustomizedTimeline() {
 
   return (
     <div className={styles.pageContent}>
-
       <div className={classes.div}>
+        <Menu />
         {renderPageHeader()}
         <Timeline align='alternate' className={classes.timeline}>
           <TimelineItem style={{ marginTop: 40 }}>
             <TimelineOppositeContent>
               <Typography variant='h6' color='textSecondary'
                 style={{
-                  color: "#ffffff",
+                  color: "#004266",
                   fontWeight: "bold",
                   fontFamily: "Codec Pro Regular",
-
                 }}>
                 História
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
-              <Clock className={classes.icon} />
+              <div className={styles.iconImg}><img src={clock} alt="" /></div>
               <TimelineConnector className={classes.secondaryTail} />
             </TimelineSeparator>
             <TimelineContent>
@@ -192,7 +196,7 @@ export default function CustomizedTimeline() {
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
-              <Idea className={classes.icon} />
+              <div className={styles.iconImg}><img src={clock} alt="" /></div>
               <TimelineConnector className={classes.secondaryTail} />
             </TimelineSeparator>
             <TimelineContent>
@@ -227,7 +231,7 @@ export default function CustomizedTimeline() {
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
-              <People className={classes.icon} />
+              <div className={styles.iconImg}><img src={people} alt="" /></div>
               <TimelineConnector className={classes.secondaryTail} />
             </TimelineSeparator>
             <TimelineContent>
@@ -259,7 +263,7 @@ export default function CustomizedTimeline() {
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
-              <Book className={classes.icon} />
+              <div className={styles.iconImg}><img src={book} alt="" /></div>
             </TimelineSeparator>
             <TimelineContent>
               <Paper elevation={3} className={classes.paper}>
@@ -280,7 +284,7 @@ export default function CustomizedTimeline() {
             </TimelineContent>
           </TimelineItem>
         </Timeline>
-
+        <Footer />
       </div >
     </div>
   );
