@@ -98,7 +98,7 @@ export default function Contato() {
       <Menu />
       <PageHeader url={header_img_url} caption={false} />
       <SectionTitle title={sectionTitle} />
-      <SectionInfo info={sectionInfo} />
+      <SectionInfo info={sectionInfo}/>
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}

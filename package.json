@@ -24,8 +24,8 @@
     "react-native": "^0.66.1"
   },
   "devDependencies": {
-    "@types/react": "17.0.11",
     "@types/leaflet": "^1.7.6",
+    "@types/react": "17.0.11",
     "typescript": "4.3.4"
   }
 }
