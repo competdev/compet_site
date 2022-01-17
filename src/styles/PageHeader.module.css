@@ -25,8 +25,11 @@
 }
 
 .alignCaption:hover {
-  font-size: 120%;
-  cursor: pointer;
+  transform: scale(1.15);
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
 }
 
 .captionText {
