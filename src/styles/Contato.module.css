@@ -8,7 +8,10 @@
   height: 100%;
 }
 
+
+
 .text {
+  font-size: 16px;
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -21,6 +24,7 @@
 }
 
 .submit {
+  display: block;
   background-color: #19DD39;
   color: #004266;
   font-weight: bolder;
@@ -30,6 +34,10 @@
   cursor: pointer;
   width: 200px;
   font-family: 'Codec Pro Regular';
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 16px;
 }
 
 .submit:hover {
@@ -49,17 +57,21 @@
   margin-top: 20px;
   padding: 10px;
   max-width: 600px;
-  margin-left: 30px;
+  margin-left: 5%;
   margin-bottom: auto;
   margin-top: auto;
 }
 
 .mapContainer {
   text-align: center;
-  font-size: 17px;
+  font-size: 19px;
+  margin-right: 5%;
+  margin-left: 12%;
+  margin-top: 20px;
 }
 
 .map {
+  margin-top: 20px;
   width: 600px;
   border: 1px solid #00426677;
 }
@@ -91,6 +103,11 @@
     margin-left: auto;
     margin-right: auto;
     min-width: 90%;
+  }
+
+  .mapContainer {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .map {
