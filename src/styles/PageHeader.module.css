@@ -30,6 +30,8 @@
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
+  font-size: 120%;
+  cursor: pointer;
 }
 
 .captionText {

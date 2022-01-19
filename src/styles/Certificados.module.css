@@ -1,84 +1,144 @@
-.groupDiv {
-  background-color: #f5f5f5;
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
 }
 
-.mainHeader {
-  margin-top: 120px;
-  display: inline-flex;
+.searchContainer {
+  margin-top: -60px;
+  text-align: center;
+  margin-left: 55%;
+}
+
+.containerPaginate {
+  margin-top: -20px;
   width: 100%;
-  vertical-align: center;
+}
+
+.pageContent {
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+  font-family: 'Codec Pro Regular';
+  overflow-x: hidden;
+}
+
+.pageHeader {
+  padding-top: 120px;
+  width: 100%;
   height: 175px;
 }
 
-.bodyGroup {
-  display: inline-flex;
-  margin-top: 12px;
+.certificadosArea {
+  display: flex;
   width: 100%;
+  justify-content: center;
 }
 
-.espHorizontLeft {
-  margin-left: 0px;
-  width: 2900px;
-}
-
-.espHorizontRight {
-  margin-left: 0px;
-  width: 2900px;
-}
-
-.certificadoArea {
+.certificadosContainer {
+  width: 80%;
   text-align: center;
 }
 
 .certificadoCard {
-  padding-top: 10px;
-  margin: 50px;
-  height: 200px;
-  font-size: 1px;
-  border-radius: 10px;
-  width: 280px;
-  background-color: #fff; 
+  position: static;
+  display: inline-block;
+  height: 280px;
+  margin: 20px;
+  border-radius: 40px;
+  box-shadow: 1px 1px 6px #0000003d;
+  width: 310px;
+  background-color: rgb(255, 255, 255);
   color: #151515;
-  margin-top: 70px;
+  margin-top: 10px;
 }
 
-.container {
+.certificadoImg {
+  border: 1px solid #2e2e2e34;
+  margin-top: -10px;
   width: 100%;
+  height: 150px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.certificadoTitulo {
+  margin-top: 10px;
+  max-height: 15px;
+  font-size: 17px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.certificadoData {
+  margin-top: 35px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.certificadoLink {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #004266;
+}
+
+.certificadoLink:hover {
+  font-size: 105%;
+  color: #19DD39;
+}
+
+.pagination {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  padding-left: 0;
+  list-style: none
 }
 
-.infoPhoto {
-  width: 100%;
-}
+@media (max-width: 550px) {
+  .searchContainer {
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.areaPhoto {
-  width: 100%;
-  height: 50%;
-  margin-bottom: -50px;
-  display: inline-flex;
-  text-align: center;
-}
+  .pageHeader {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-.foto {
-  margin-top: -55px;
-  width: 100%;
-  height: 110px;
-  border-radius: 10%;
-}
+  .certificadoCard {
+    height: 220px;
+    width: 225px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
-.textArea {
-  text-align: center;
-  padding-top: 5px;
-  font-size: 22px;
-}
+  .certificadoTitulo {
+    margin-top: 10px;
+    max-height: 15px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+  }
 
-.infoName {
-  text-align: center;
-  padding-top: 5px;
-  font-size: 22px;
-}
+  .certificadoData {
+    margin-top: 35px;
+    font-size: 12px;
+    font-style: italic;
+  }
 
+  .certificadoLink {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #004266;
+  }
+
+  .certificadoImg {
+    border: 1px solid #2e2e2e34;
+    margin-top: -10px;
+    width: 100%;
+    height: 120px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+}
