@@ -109,12 +109,8 @@ export default function Certificados({ dados }) {
   let certificadoCOMPET = dados.filter(COMPETParticipation)
 
   dados = dados.filter(otherCertifieds)
-  /*dados.unshift(certificadoCOMPET);*/
+  
   let data = certificadoCOMPET.concat(dados)
-
-  /*console.log(dados);*/
-  console.log(data)
-
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
