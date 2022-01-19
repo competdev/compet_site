@@ -26,8 +26,6 @@
 
 }
 
-
-
 .alignSubtitle:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -74,7 +72,6 @@
   margin-top: 30px;
   display: inline-flex;
   width: 100%;
-  background-color: aqua;
 }
 
 .titleBody {
@@ -87,21 +84,16 @@
 
 }
 
-
 .containerMembers {
   text-align: center;
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  background-color: red;
 }
 
 .membersArea {
   margin-bottom: 70px;
-  width: 50%;
-  background-color: blue;
-
 }
 
 .loadArea {
@@ -110,7 +102,7 @@
 }
 
 .loadMore {
-  margin-top: -90px;
+  margin-top: -20px;
   font-size: 190%;
   font-family: "Codec Pro Regular";
   max-width: 300px;
@@ -126,7 +118,7 @@
 }
 
 .line {
-  background-color: #151515;
+  background-color: #19dd39;
   margin-top: -1px;
   text-align: center;
   width: 100%;

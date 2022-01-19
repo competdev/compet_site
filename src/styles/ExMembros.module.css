@@ -130,7 +130,7 @@
 }
 
 .loadMore {
-  margin-top: -90px;
+  margin-top: -20px;
   font-size: 190%;
   font-family: "Codec Pro Regular";
   max-width: 300px;
@@ -146,7 +146,7 @@
 }
 
 .line {
-  background-color: #151515;
+  background-color: #19dd39;
   margin-top: -1px;
   text-align: center;
   width: 100%;

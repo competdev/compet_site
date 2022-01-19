@@ -1,11 +1,14 @@
 .groupDiv {
+  min-width: 1000px;
   max-width: 1500px;
-  background-color: blueviolet;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
 }
 
 .cardContent {
-  margin: 50px;
-  margin-top: 80px;
+  margin: 60px;
+  margin-left: 21px;
   height: 140px;
   width: 230px;
   display: inline-block;
@@ -20,14 +23,13 @@
   background-color: rgb(255, 255, 255);
   display: inline-block;
   color: #151515;
-  border: 1px solid #b4b4b433;
   box-shadow: 0px 0px 5px #00000033;
 }
 
 .infoName {
   text-align: center;
-  margin-top: 0px;
-  font-size: 22px;
+  margin-top: 10px;
+  font-size: 25px;
 }
 
 .infoCompet {
@@ -46,8 +48,10 @@
 
 .networkFavicon {
   margin: 5px;
-  height: 18px;
-  width: 18px;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #00000033;
 }
 
 .networkBlank {
@@ -67,7 +71,6 @@
 
 .infoScrum {
   margin-left: -35px;
-  text-align: left;
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -92,6 +95,7 @@
   width: 132px;
   height: 132px;
   border-radius: 50%;
+  box-shadow: 0px 0px 5px #00000033;
 }
 
 .fotoSemDep {
@@ -99,6 +103,7 @@
   width: 132px;
   height: 132px;
   border-radius: 50%;
+  box-shadow: 0px 0px 5px #0000008c;
 }
 
 .foto:hover {
@@ -118,10 +123,25 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  background-color: #004266;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.containerExMembros {
+  position: relative;
+  width: 120%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e4e4;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 70px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1300px) {
@@ -136,17 +156,37 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .groupDiv {
+    min-width: 800px;
+    max-width: 980px;
+  }
+}
+
 @media (max-width: 768px) {
+  .groupDiv {
+    min-width: 540px;
+    max-width: 760px;
+  }
+
   .cardContent {
-    margin: 50px;
     margin-top: 100px;
   }
 
   .membersCard {
-    background-color: #ffffff;
     height: 180px;
-    width: 114%;
+    width: 109%;
     border-radius: 20px;
+  }
+
+  .container {
+    width: 114%;
+    margin-top: -20px;
+  }
+
+  .containerExMembros {
+    width: 114%;
+    margin-top: -20px;
   }
 
   .infoName {
@@ -162,9 +202,6 @@
     font-family: "Codec Pro Regular";
   }
 
-  .container {
-    margin-top: -20px;
-  }
 
   .infoScrum {
     margin-left: -20px;
@@ -218,20 +255,19 @@
 }
 
 @media (max-width: 545px) {
+  .groupDiv {
+    min-width: 300px;
+    max-width: 540px;
+  }
+
   .cardContent {
-    margin: 50px;
+    margin-left: 35px;
     margin-top: 100px;
   }
 
-  .container {
-    margin-top: -20px;
-
-  }
-
   .membersCard {
-    background-color: #ffffff;
     height: 180px;
-    width: 114%;
+    width: 109%;
     border-radius: 20px;
   }
 
@@ -300,12 +336,14 @@
 }
 
 @media (max-width: 320px) {
-  .cardContent {
-    margin: 50px;
-    margin-top: 100px;
+  .groupDiv {
+    min-width: 0px;
+    max-width: 280px;
   }
 
-  .container {
-    margin-top: -20px;
+
+  .cardContent {
+    margin-left: 15px;
+    margin-top: 100px;
   }
 }

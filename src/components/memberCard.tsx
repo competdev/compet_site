@@ -1,8 +1,8 @@
-import styles from '../styles/MemberCard.module.css'
+import styles from '../styles/MemberCard.module.css';
 import { Tooltip } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
-import Link from 'next/link'
+import Link from 'next/link';
 import React from 'react';
 
 // Arrow Function para personalização do ToolTip dos depoimentos.
@@ -41,7 +41,7 @@ export default function memberCard({ dados, membersPage, socialNetworks }) {
         <div className={styles.cardContent} key={data._id}>
           <div className={styles.membersCard}>
             <div className={styles.photoSpace}>
-              {renderMemberPhoto(data)}
+              {renderMemberPhoto(data, socialNetworks)}
             </div>
             {renderMemberName(data, firstBlank_space, lastBlank_space)}
             <div className={styles.infoCompet}>
@@ -56,25 +56,38 @@ export default function memberCard({ dados, membersPage, socialNetworks }) {
   )
 }
 
-const renderMemberPhoto = (data) => {
+const renderMemberPhoto = (data, socialNetworks) => {
   return (
     <div>
-      <div className={styles.container}>
-        <div>
-          {renderScrumIntercambio(data)}
+      {socialNetworks == true ?
+        <div className={styles.container}>
+          {renderContainerPhoto(data)}
         </div>
-        <div>
-          {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
-          {data.depoimentos.length != 0 ?
-            <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 700 }} title={data.depoimentos} placement="top" arrow>
-              <img className={styles.foto} src={data.url_imagem} />
-            </LightTooltip>
-            :
-            <img className={styles.fotoSemDep} src={data.url_imagem} />
-          }
-        </div>
-      </div>
+        :
+        <div className={styles.containerExMembros}>
+          {renderContainerPhoto(data)}
+        </div>}
     </div>
+  )
+}
+
+const renderContainerPhoto = (data) => {
+  return (
+    <>
+      <div>
+        {renderScrumIntercambio(data)}
+      </div>
+      <div>
+        {data.url_imagem.length == 0 ? data.url_imagem = 'https://i.ibb.co/3swTqhQ/default-photo.webp' : <></>}
+        {data.depoimentos.length != 0 ?
+          <LightTooltip TransitionComponent={Fade} TransitionProps={{ timeout: 700 }} title={data.depoimentos} placement="top" arrow>
+            <img className={styles.foto} src={data.url_imagem} />
+          </LightTooltip>
+          :
+          <img className={styles.fotoSemDep} src={data.url_imagem} />
+        }
+      </div>
+    </>
   )
 }
 
@@ -119,7 +132,7 @@ const renderSocialNetworks = (data) => {
         {data.email != "" ?
           <div>
             <Link href={'mailto:' + data.email}><a title='Email'>
-              <img className={styles.networkFavicon} src="https://i.ibb.co/nQrqLm3/mail-favicon.png" />
+              <img className={styles.networkFavicon} src="https://i.ibb.co/5ckzrdq/mail-icon.png" />
             </a></Link>
           </div>
           : <></>}
@@ -127,7 +140,7 @@ const renderSocialNetworks = (data) => {
         {data.lates != "" ?
           <div>
             <Link href={data.lates}><a title='Lattes'>
-              <div><img className={styles.networkFavicon} src="https://i.ibb.co/THvj51v/lattes-favicon.png" /></div>
+              <div><img className={styles.networkFavicon} src="https://i.ibb.co/r438RBd/lattes-icon.png" /></div>
             </a></Link>
           </div>
           : <></>}
