@@ -3,7 +3,7 @@
   src: url("fonts/CodecPro-Regular.ttf");
 }
 
-.pageContent {
+.body {
   overflow-x: scroll;
 }
 
@@ -16,4 +16,16 @@
 
 .sectionText {
   box-shadow: 0px 0px 5px #00000033;
+}
+
+.pageContent {
+  margin-top: -100px;
+}
+
+@media (max-width: 425px) {
+  .iconImg img {
+    width: 75px;
+    height: 75px;
+    border-radius: 37px;
+  }
 }
