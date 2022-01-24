@@ -1,6 +1,6 @@
 .slideContainer {
-  width: 100%;
-  background-color: #004266;
+  margin-top: 150px;
+  max-width: 90%;
 }
 
 .content {
@@ -14,7 +14,6 @@
   z-index: 2;
   top: 0;
   color: white;
-  background-color: #19DD39;
   outline: none;
   width: 40px;
   height: 100%;
@@ -23,7 +22,7 @@
   font-family: Verdana;
   font-size: 24px;
   font-weight: bold;
-};
+}
 
 .arrow:hover {
   background-color: yellow;
@@ -35,12 +34,16 @@
   }
 }
 
+.image {
+  max-height: 100%;
+}
+
 .legend {
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  -ms-transition: all .5s ease-in-out;
-  -o-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   position: absolute;
   bottom: 20px;
   left: 40px;
@@ -52,11 +55,11 @@
   padding: 10px;
   font-size: 12px;
   text-align: center;
-  -webkit-transition: opacity .35s ease-in-out;
-  -moz-transition: opacity .35s ease-in-out;
-  -ms-transition: opacity .35s ease-in-out;
-  -o-transition: opacity .35s ease-in-out;
-  transition: opacity .35s ease-in-out
+  -webkit-transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -ms-transition: opacity 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
 }
 
 .content:hover .legend {

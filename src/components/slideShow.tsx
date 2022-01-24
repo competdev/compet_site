@@ -16,25 +16,20 @@ const Legend = styled("p")({
 
 const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
   return (
-
     <div className={styles.slideContainer}>
       <div className={styles.content}>
         <Carousel
-          dynamicHeight={true} autoPlay showStatus={false} infiniteLoop showThumbs={false} emulateTouch
-          renderArrowPrev={(onClickHandler, hasPrev, label) =>
-              <button type="button" onClick={onClickHandler} title={label} className={styles.arrow} style={{ left: 0 }}>
-                {'<'}
-              </button>
-          }
-          renderArrowNext={(onClickHandler, hasNext, label) =>
-              <button type="button" onClick={onClickHandler} title={label} className={styles.arrow} style={{ right: 0 }}>
-                {'>'}
-              </button>
-          }
+          autoPlay
+          showStatus={false}
+          infiniteLoop
+          showArrows={false}
+          showThumbs={true}
+          thumbWidth={150}
+          emulateTouch
         >
           {imgList.map((element, index) => (
             <div>
-              <img src={element} />
+              <img className={styles.image} src={element} />
               <Legend className={styles.legend}>{txtList[index]}</Legend>
             </div>
           ))}
