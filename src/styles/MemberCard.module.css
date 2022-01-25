@@ -48,8 +48,7 @@
 
 .networkFavicon {
   margin: 5px;
-  height: 22px;
-  width: 22px;
+  width: 24px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #00000033;
 }
@@ -241,12 +240,9 @@
   }
 
   .networkFavicon {
-    margin: 3px;
-    margin-top: 7px;
-    height: 20px;
-    width: 20px;
+    width: 36px;
   }
-
+  
   .networkBlank {
     margin: 3px;
     height: 20px;
@@ -319,13 +315,6 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-  }
-
-  .networkFavicon {
-    margin: 3px;
-    margin-top: 7px;
-    height: 20px;
-    width: 20px;
   }
 
   .networkBlank {
