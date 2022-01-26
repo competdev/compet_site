@@ -1,5 +1,6 @@
 import SectionTitle from '../components/sectionTitle'
 import styles from '../styles/SocialMedia.module.css'
+import ReactPaginate from 'react-paginate';
 
 export default function News({ dados }) {
   const sectionTitle = "COMPET nas mídias"
