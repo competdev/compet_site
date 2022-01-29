@@ -38,6 +38,7 @@ const render_links = () => {
       <li><Link href="/sobre"><a className={styles.link}>Sobre</a></Link></li>
       <li><Link href="/interpet"><a className={styles.link}>InterPet</a></Link></li>
       <li><Link href="/contato"><a className={styles.link}>Contato</a></Link></li>
+      <li><Link href="http://compet.decom.cefetmg.br/moodle/"><a className={styles.link}>Moodle</a></Link></li>
     </ul>
   )
 }
