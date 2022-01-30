@@ -18,36 +18,18 @@ export default function News({ dados }) {
     <div>
       <SectionTitle title={sectionTitle} />
       <div className={styles.socialMediaContainer}>
-        <a target="_blank" href={dados.dados[0].link}>
+        {dados.dados.map(dados => (
+          <a target="_blank" href={dados.link}>
           <div className={styles.newsContainer}>
             <div className={styles.tituloNews}>
-              {dados.dados[0].titulo}
+              {dados.titulo}
             </div>
             <div className={styles.dataNews}>
-              {convertDate(dados.dados[0].data)}
+              {convertDate(dados.data)}
             </div>
           </div>
         </a>
-        <a target="_blank" href={dados.dados[1].link}>
-          <div className={styles.newsContainer}>
-            <div className={styles.tituloNews}>
-              {dados.dados[1].titulo}
-            </div>
-            <div className={styles.dataNews}>
-              {convertDate(dados.dados[1].data)}
-            </div>
-          </div>
-        </a>
-        <a target="_blank" href={dados.dados[2].link}>
-          <div className={styles.newsContainer}>
-            <div className={styles.tituloNews}>
-              {dados.dados[2].titulo}
-            </div>
-            <div className={styles.dataNews}>
-              {convertDate(dados.dados[2].data)}
-            </div>
-          </div>
-        </a>
+        ))}
       </div>
     </div>
   )
