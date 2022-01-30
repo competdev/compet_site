@@ -70,21 +70,29 @@ export default function News({ dados }) {
   )
 }
 
+const meses = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 function renderNews(dados){
   return (
     <>
-      {dados.map(dados => (
-        <a target="_blank" href={dados.link}>
-        <div className={styles.newsContainer}>
-          <div className={styles.tituloNews}>
-            {dados.titulo}
-          </div>
-          <div className={styles.dataNews}>
-            {convertDate(dados.data)}
-          </div>
-        </div>
-      </a>
-      ))}
+      {dados.map(dados => {
+        const [dia, mes] = convertDate(dados.data).split("/");
+        return (
+          <a target="_blank" href={dados.link}>
+            <div className={styles.newsContainer}>
+              <div className={styles.dataNews}>
+                <span className={styles.diaDataNews} > 
+                  {dia}
+                </span>
+                <span className={styles.mesDataNews} > 
+                  {meses[parseInt(mes)-1]}
+                </span>
+              </div>
+              <div className={styles.tituloNews}>
+                {dados.titulo}
+              </div>
+            </div>
+          </a>
+      )})}
     </>
    )
 }
