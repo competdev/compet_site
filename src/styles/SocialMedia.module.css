@@ -36,7 +36,7 @@
   align-items: center;
   max-width: 65%;
   font-weight: bolder;
-  background-color:lightgray;
+  background-color:rgb(236, 233, 233);
   padding: 20px;
   text-align:left;
   width: 100%; 
@@ -76,7 +76,7 @@
 
 .newsContainer:hover .tituloNews {
   /* font-weight: 400; */
-  background-color: rgb(189, 185, 185);
+  background-color: rgb(230, 221, 221);
 }
 
 .newsContainer:hover {
@@ -101,6 +101,9 @@
 @media (max-width: 375px) {
   .socialMediaContainer {
     width: 300px;
+  }
+  .tituloNews {
+    font-size: 15px;
   }
 }
 
