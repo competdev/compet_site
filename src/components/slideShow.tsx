@@ -1,5 +1,5 @@
-import { styled } from "@material-ui/core";
-import React from "react";
+import { Card, makeStyles, styled } from "@material-ui/core";
+import React, { useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../styles/SlideShow.module.css";
@@ -14,17 +14,28 @@ const Legend = styled("p")({
   margin: 20,
 });
 
+const useStyles = makeStyles(() => ({
+  style: {
+    "& .carousel .thumbs-wrapper": {
+      margin: 0,
+    },
+  },
+}));
+
 const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
+  const classes = useStyles();
+
   return (
-    <div className={styles.slideContainer}>
+    <Card className={styles.slideContainer}>
       <div className={styles.content}>
         <Carousel
           autoPlay
+          showIndicators={false}
+          className={classes.style}
           showStatus={false}
           infiniteLoop
-          showArrows={false}
           showThumbs={true}
-          thumbWidth={150}
+          thumbWidth={100}
           emulateTouch
         >
           {imgList.map((element, index) => (
@@ -35,7 +46,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
           ))}
         </Carousel>
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,6 +1,6 @@
 .slideContainer {
   margin-top: 150px;
-  max-width: 90%;
+  max-width: 95%;
 }
 
 .content {
@@ -45,15 +45,13 @@
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   position: absolute;
-  bottom: 20px;
-  left: 40px;
+  bottom: -15px;
   border-radius: 10px;
-  background: #19dd3a9c;
+  background: RGBA(0, 0, 0, 0.37);
   border: 1px solid rgba(0, 0, 0, 0.185);
   box-shadow: 0px 0px 5px #00000033;
   color: #fff;
-  padding: 10px;
-  font-size: 12px;
+  padding: 5px;
   text-align: center;
   -webkit-transition: opacity 0.35s ease-in-out;
   -moz-transition: opacity 0.35s ease-in-out;
@@ -63,5 +61,5 @@
 }
 
 .content:hover .legend {
-  background: #19dd3ad8;
+  background: #000000;
 }
