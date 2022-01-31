@@ -17,10 +17,14 @@ Home.getInitialProps = async () => {
 export default function Home({ dados }) {
   return (
     <div className={styles.container}>
-
+      <Menu />
       {
         <SlideShow
           imgList={[
+            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
+            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
+            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
+            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
             "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
             "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
           ]}
@@ -30,8 +34,7 @@ export default function Home({ dados }) {
       }
       <About />
       {renderSocialMedia({ dados })}
-
-
+      <Footer />
     </div>
   );
 }

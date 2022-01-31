@@ -26,7 +26,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
   const classes = useStyles();
 
   return (
-    <Card className={styles.slideContainer}>
+    <div className={styles.slideContainer}>
       <div className={styles.content}>
         <Carousel
           autoPlay
@@ -46,7 +46,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
           ))}
         </Carousel>
       </div>
-    </Card>
+    </div>
   );
 };
 
