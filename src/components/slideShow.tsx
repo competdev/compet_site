@@ -10,8 +10,8 @@ interface SlideShowProps {
 }
 
 const Legend = styled("p")({
-  fontSize: "20px !important",
-  margin: 20,
+  fontSize: "22px !important",
+  width: "100%",
 });
 
 const useStyles = makeStyles(() => ({
@@ -35,7 +35,7 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
           showStatus={false}
           infiniteLoop
           showThumbs={true}
-          thumbWidth={100}
+          thumbWidth={150}
           emulateTouch
         >
           {imgList.map((element, index) => (
