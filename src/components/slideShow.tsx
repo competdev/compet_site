@@ -19,6 +19,20 @@ const useStyles = makeStyles(() => ({
     "& .carousel .thumbs-wrapper": {
       margin: 0,
     },
+    "& .carousel .thumb": {
+      border: "none",
+      padding: 0,
+      opacity: 0.5,
+    },
+    "& .carousel .thumb.selected": {
+      border: "2px solid #000",
+      padding: 2,
+      opacity: 1,
+    },
+    "& .carousel .slider-wrapper": {
+      borderRadius: "10px 10px 0px 0px",
+      boxShadow: "180px 180px",
+    },
   },
 }));
 

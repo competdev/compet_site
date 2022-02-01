@@ -54,7 +54,7 @@
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   position: absolute;
-  bottom: -25px;
+  bottom: -20px;
   background: RGBA(0, 0, 0, 0.37);
   box-shadow: 0px 0px 5px #00000033;
   color: #fff;
