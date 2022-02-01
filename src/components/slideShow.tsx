@@ -10,7 +10,6 @@ interface SlideShowProps {
 }
 
 const Legend = styled("p")({
-  fontSize: "22px !important",
   width: "100%",
 });
 
@@ -20,18 +19,19 @@ const useStyles = makeStyles(() => ({
       margin: 0,
     },
     "& .carousel .thumb": {
-      border: "none",
       padding: 0,
       opacity: 0.5,
+      border: "1px solid #00000073",
     },
     "& .carousel .thumb.selected": {
       border: "2px solid #000",
-      padding: 2,
+      padding: 1,
       opacity: 1,
     },
     "& .carousel .slider-wrapper": {
+      border: "1px solid #004266a2",
+      borderBottom: "3px solid #004266",
       borderRadius: "10px 10px 0px 0px",
-      boxShadow: "180px 180px",
     },
   },
 }));

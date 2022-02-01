@@ -21,14 +21,12 @@ export default function Home({ dados }) {
       {
         <SlideShow
           imgList={[
-            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
-            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
-            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
-            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
-            "https://i.ibb.co/dpVVZnq/Boas-Festas.png",
-            "https://i.ibb.co/gggcn4J/img-Preenchendo.png",
+            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
+            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
+            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
+            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
           ]}
-          txtList={["O COMPET lhe deseja boas festas nesse fim de ano.",
+          txtList={["Grande parte da equipe na confraternização do COMPET realizada no ínicio de 2022.","O COMPET lhe deseja boas festas nesse fim de ano.",
             "Participação do COMPET no InterPET 2016."]}
         />
       }
