@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function News({ dados }) {
+export default function News(dadosNews) {
   const sectionTitle = "COMPET nas mídias"
   const classes = useStyles()
 
@@ -64,7 +64,7 @@ export default function News({ dados }) {
     <div>
       <SectionTitle title={sectionTitle} />
       <div className={styles.socialMediaContainer}>
-      {PaginatedItems(dados.dados, classes)}
+      {PaginatedItems(dadosNews.dados, classes)}
       </div>
     </div>
   )

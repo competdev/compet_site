@@ -10,34 +10,25 @@ import styles from "../styles/Home.module.css";
 import SlideShow from "../components/slideShow";
 
 Home.getInitialProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/news");
-  return { dados: response.data }
+  const newsResponse = await axios.get("http://localhost:3000/api/news");
+  const slideResponse = await axios.get("http://localhost:3000/api/slideShow");
+  return { dados: newsResponse.data, dadosSlide: slideResponse.data }
 }
 
-export default function Home({ dados }) {
+export default function Home({ dados, dadosSlide }) {
+
   return (
     <div className={styles.container}>
       <Menu />
-      {
-        <SlideShow
-          imgList={[
-            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
-            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
-            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
-            "https://i.ibb.co/fnw1Z5Q/Confraternizacao-2022.png",
-          ]}
-          txtList={["Grande parte da equipe na confraternização do COMPET realizada no ínicio de 2022.","O COMPET lhe deseja boas festas nesse fim de ano.",
-            "Participação do COMPET no InterPET 2016."]}
-        />
-      }
+      <SlideShow dadosSlide={dadosSlide}/>
       <About />
-      {renderSocialMedia({ dados })}
+      {renderSocialMedia({dados})}
       <Footer />
     </div>
   );
 }
 
-const renderSocialMedia = (dados) => {
+const renderSocialMedia = ({dados}) => {
   return (
     <div className={styles.socialMediaContainer}>
       <IgFeed />

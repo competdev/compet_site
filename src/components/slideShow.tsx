@@ -1,13 +1,8 @@
-import { Card, makeStyles, styled } from "@material-ui/core";
-import React, { useRef } from "react";
+import { makeStyles, styled } from "@material-ui/core";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../styles/SlideShow.module.css";
-
-interface SlideShowProps {
-  imgList: string[];
-  txtList: string[];
-}
 
 const Legend = styled("p")({
   width: "100%",
@@ -30,15 +25,15 @@ const useStyles = makeStyles(() => ({
     },
     "& .carousel .slider-wrapper": {
       border: "1px solid #004266a2",
-      borderBottom: "3px solid #004266",
+      borderBottom: "7px solid #004266",
       borderRadius: "10px 10px 0px 0px",
     },
   },
 }));
 
-const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
+const SlideShow = (data) => {
   const classes = useStyles();
-
+  console.log(data.dadosSlide);
   return (
     <div className={styles.slideContainer}>
       <div className={styles.content}>
@@ -52,10 +47,11 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
           thumbWidth={150}
           emulateTouch
         >
-          {imgList.map((element, index) => (
+          {data.dadosSlide.map(data => (
             <div>
-              <img className={styles.image} src={element} />
-              <Legend className={styles.legend}>{txtList[index]}</Legend>
+              <img className={styles.image} src={data.img}/>
+              {data.link != '-' ?  <a href={data.link}><Legend className={styles.legend}>{data.legenda}</Legend></a> 
+              : <Legend className={styles.legend}>{data.legenda}</Legend>}
             </div>
           ))}
         </Carousel>
@@ -63,5 +59,6 @@ const SlideShow: React.FC<SlideShowProps> = ({ imgList, txtList }) => {
     </div>
   );
 };
+
 
 export default SlideShow;
