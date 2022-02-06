@@ -76,8 +76,11 @@ export default function CustomizedTimeline() {
 
   if (isMobile) {
     return (
+      <>
+      <title>COMPET | Sobre</title>
+      <Menu />
+      {renderPageHeader()}
       <div className={classes.div}>
-        <Menu />
         <Timeline align='left' className={classes.timeline}>
           <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
@@ -287,15 +290,18 @@ export default function CustomizedTimeline() {
         </Timeline>
         <Footer />
       </div >
+      </>
     );
   }
 
   return (
+    <>
+    <title>COMPET | Sobre</title>
+    <Menu />
     <div className={styles.body}>
+    {renderPageHeader()}
       <div className={classes.div}>
-        <Menu />
         <div className={styles.pageContent}>
-          {renderPageHeader()}
           <Timeline align='alternate' className={classes.timeline}>
             <TimelineItem style={{ marginTop: 40 }}>
               <TimelineOppositeContent>
@@ -487,6 +493,7 @@ export default function CustomizedTimeline() {
         </div >
       </div>
     </div>
+    </>
   );
 }
 
