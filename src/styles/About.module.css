@@ -19,7 +19,7 @@
   width: 100%;
   display: inline-flex;
   margin-top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 5px #00000033;
 }
 
@@ -39,14 +39,20 @@
   height: 100%;
   margin-left: 40px;
   margin-right: 20px;
-  margin-top: 60px;
+  margin-top: 45px;
   background-color: #19DD39;
   border: 20px solid #19DD39;
   border-radius: 20px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  .img_InterPet img {
+    height: 200px;
+    margin-left: 20px;
+  }
+}
 
+@media (max-width: 1000px) {
   .img_InterPet {
     margin-top: 0px;
     width: 100%;
@@ -58,7 +64,6 @@
     margin-right: auto;
     justify-content: center;
     text-align: center;
-
   }
 
   .sobreInfo {
@@ -66,11 +71,12 @@
     margin-right: 25px;
     max-width: 900px;
     max-height: 1000px;
-    padding-bottom: 20px;
+    margin-top: -10px;
   }
 
   .aboutcard {
     display: block;
+    padding-bottom: 30px;
   }
 
   .text {
@@ -79,21 +85,30 @@
 
 }
 
-
-@media (max-width: 1024px) {
+@media (max-height: 800px) {
   .img_InterPet img {
-    height: 300px;
-    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px){
+  .text {
+    margin-top: 0px;
   }
 }
 
 @media (max-width: 540px) {
   .img_InterPet img {
     margin-top: 20px;
+    height: 135px;
   }
 
   .sobreInfo {
-    margin-top: -10px;
+    font-size: 20px;
+  }
+
+  .text {
+    margin-top: 0px;
   }
 
   .aboutcard {
@@ -101,16 +116,3 @@
   }
 }
 
-@media (max-width: 1023px) {
-  .img_InterPet img {
-    height: 250px;
-    margin-top: 20px;
-    margin-left: 0px;
-  }
-}
-
-@media (max-height: 800px) {
-  .img_InterPet img {
-    margin-top: 20px;
-  }
-}

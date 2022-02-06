@@ -70,3 +70,37 @@
 .content:hover .legend {
   background: #000000c4;
 }
+
+@media (max-width: 1440px){
+  .legend{
+    font-size: 24px;
+    padding-top: 7px;
+  }
+}
+
+@media (max-width: 1024px){
+  .legend{
+    font-size: 17px;
+    height: 17%;
+  }
+}
+
+@media (max-width: 545px){
+  .legend{
+    font-size: 14px;
+    height: 26%;
+  }
+}
+
+@media (max-width: 375px){
+  .legend{
+    font-size: 15px;
+    height: 35%;
+  }
+}
+
+@media (max-width: 320px){
+  .legend{
+    font-size: 14px;
+  }
+}

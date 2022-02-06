@@ -33,7 +33,6 @@ const useStyles = makeStyles(() => ({
 
 const SlideShow = (data) => {
   const classes = useStyles();
-  console.log(data.dadosSlide);
   return (
     <div className={styles.slideContainer}>
       <div className={styles.content}>
@@ -48,7 +47,7 @@ const SlideShow = (data) => {
           emulateTouch
         >
           {data.dadosSlide.map(data => (
-            <div>
+            <div key={data._id}>
               <img className={styles.image} src={data.img}/>
               {data.link != '-' ?  <a href={data.link}><Legend className={styles.legend}>{data.legenda}</Legend></a> 
               : <Legend className={styles.legend}>{data.legenda}</Legend>}

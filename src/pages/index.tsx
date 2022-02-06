@@ -19,11 +19,11 @@ export default function Home({ dados, dadosSlide }) {
 
   return (
     <div className={styles.container}>
-      <Menu />
+
       <SlideShow dadosSlide={dadosSlide}/>
       <About />
       {renderSocialMedia({dados})}
-      <Footer />
+      
     </div>
   );
 }
