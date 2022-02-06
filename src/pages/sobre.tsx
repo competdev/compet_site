@@ -73,29 +73,11 @@ const StylesTimelineItem = withStyles({
 
 export default function CustomizedTimeline() {
   const classes = useStyles();
-  /*
-  const [isMobile, setIsMobile] = useState(false);
-  const [isBrowser, setIsBrowser] = useState(false);
-  const [mobileRender, setMobileRender] = useState(false);
-  const [browserRender, setBrowserRender] = useState(false);
-  
-  if (wSize().width < 450 && mobileRender == false) {
-    setIsBrowser(false);
-    setIsMobile(true);
-    setBrowserRender(false);
-    setMobileRender(true);
-  }
-  if (wSize().width > 450 && browserRender == false) {
-    setIsMobile(false);
-    setIsBrowser(true);
-    setMobileRender(false);
-    setBrowserRender(true);
-  }
-  */
 
   if (isMobile) {
     return (
       <div className={classes.div}>
+        <Menu />
         <Timeline align='left' className={classes.timeline}>
           <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
@@ -303,6 +285,7 @@ export default function CustomizedTimeline() {
             </TimelineContent>
           </StylesTimelineItem>
         </Timeline>
+        <Footer />
       </div >
     );
   }
