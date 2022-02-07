@@ -95,6 +95,7 @@ export default function Contato() {
 
   return (
     <div className={styles.pageBody}>
+      <title>COMPET | Contato</title>
       <Menu />
       <PageHeader url={header_img_url} caption={false} />
       <SectionTitle title={sectionTitle} />

@@ -13,6 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
+    "instagram-feed-embed": "^1.0.1",
     "leaflet": "^1.7.1",
     "mongoose": "^5.13.2",
     "next": "^11.0.0",
@@ -24,6 +25,8 @@
     "react-modal": "^3.14.4",
     "react-native": "^0.66.1",
     "react-paginate": "^8.1.0",
+    "react-responsive-carousel": "^3.2.22",
+    "react-twitter-embed": "^4.0.4",
     "remove-accents": "^0.4.2"
   },
   "devDependencies": {
