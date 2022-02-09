@@ -199,19 +199,20 @@
 
 @media (max-width: 360px) {
   .nav_list {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 }
 
 @media (max-width: 359px) {
   .nav_list {
-    margin-top: 25px;
+    margin-top: 40px;
+    width: 80vw;
   }
 }
 
 @media (max-width: 320px) {
   .nav_list {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 }
 
