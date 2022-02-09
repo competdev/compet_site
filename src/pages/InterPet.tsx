@@ -19,6 +19,7 @@ export default function InterPet({ dados }) {
   const header_img_url = 'https://i.ibb.co/KD8ZJRd/interpet.png'
   return (
     <div className={styles.content}>
+      <title>COMPET | InterPet</title>
       <Menu />
       <PageHeader url={header_img_url} caption={false} />
       <AboutCard />

@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+.body {
+  overflow-x: scroll;
+}
+
+.iconImg img {
+  width: 105px;
+  height: 105px;
+  border-radius: 52px;
+  box-shadow: 0px 0px 5px #000000dc;
+}
+
+.sectionText {
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.pageContent {
+  margin-top: -100px;
+}
+
+@media (max-width: 425px) {
+  .iconImg img {
+    width: 75px;
+    height: 75px;
+    border-radius: 37px;
+  }
+}

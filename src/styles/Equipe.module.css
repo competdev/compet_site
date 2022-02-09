@@ -164,7 +164,7 @@
   }
 
   .loadMore {
-    margin-top: -90px;
+    margin-top: -20px;
     font-size: 150%;
     font-family: "Codec Pro Regular";
     max-width: 225px;
@@ -224,17 +224,10 @@
   }
 }
 
-
 @media (max-width: 460px) {
   .titleBody {
     margin-top: auto;
-
-
   }
-}
-
-@media (max-width: 768px) {
-  .bodyGroup {}
 }
 
 @media (max-width: 545px) {

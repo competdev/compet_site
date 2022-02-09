@@ -4,18 +4,21 @@ import React, { useState, useEffect } from 'react'
 import wSize from '../util/windowSize'
 
 export default function menu() {
-  const [toggleMenu, setToggleMenu] = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   const toggleNav = () => {
-    setToggleMenu(!toggleMenu)
-  }
+    setToggleMenu(!toggleMenu);
+  };
 
   return (
     <div className={styles.menu_body}>
       <div className={styles.nav}>
-        <div className={styles.logo}><Link href="../"><a>
-          <img src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
-        </a></Link>
+        <div className={styles.logo}>
+          <Link href='../'>
+            <a>
+              <img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' />
+            </a>
+          </Link>
         </div>
         {wSize().width > 1300 ? render_links() : (toggleMenu ? render_links() : <></>)}
         <div className={styles.mobile_menu} onClick={toggleNav}>
@@ -23,10 +26,9 @@ export default function menu() {
           <div className={styles.line}></div>
           <div className={styles.line}></div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
 
 const render_links = () => {
@@ -40,5 +42,5 @@ const render_links = () => {
       <li><Link href="/contato"><a className={styles.link}>Contato</a></Link></li>
       <li><Link href="http://compet.decom.cefetmg.br/moodle/"><a className={styles.link}>Moodle</a></Link></li>
     </ul>
-  )
-}
+  );
+};

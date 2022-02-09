@@ -1,4 +1,4 @@
-import styles from '../styles/SocialMedia.module.css'
+import styles from '../styles/SocialMediaComponent.module.css'
 
 export default function socialMedia({ media_type, text, url }) {
   const facebook_logo = 'https://i.ibb.co/mT4S0S9/facebook-icon.png'

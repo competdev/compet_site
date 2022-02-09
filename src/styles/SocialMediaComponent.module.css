@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("fonts/CodecPro-Regular.ttf");
+}
+
+.socialMedia {
+  display: inline-block;
+  margin: 20px;
+}
+
+.socialMedia:hover {
+  transform: scale(1.05);
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+}
+
+.socialMedia img {
+  width: 30px;
+  height: 30px;
+}
+
+.content {
+  display: inline-flex;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: 'Codec Pro Regular';
+  margin-top: 10px;
+  margin-left: 5px;
+  color: #004266;
+}
+
+@media (max-width:768px) {
+  .socialMedia {
+    margin: 10px;
+  }
+
+  .socialMedia img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .socialMedia {
+    margin: 5px;
+  }
+
+  .socialMedia img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+}
