@@ -1,0 +1,11 @@
+.partners {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.partners .partnersSlider {
+    display: block;
+    margin: auto;
+    max-width: 800px;
+    width: 90%;
+}
