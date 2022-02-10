@@ -1,0 +1,81 @@
+.slider {
+    position: relative;
+    width: 100%;
+}
+
+.slider .sliderContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 5px #00000033;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.slider button {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 10%;
+    height: 100%;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0px 0px 5px #00000033;
+    background-color: #004266;
+    color: white;
+    font-weight: bolder;
+    font-size: 5vw;
+    transition: all .1s ease;
+}
+
+.slider button:hover {
+    width: 11%;
+}
+
+.slider .leftArrow {
+    left: 0px;
+}
+
+.slider .rightArrow {
+    right: 0;
+}
+
+.slider .slidesContainer {
+    position: relative;
+    display: flex;
+    margin: 0 10%;
+    height: 100%;
+}
+
+.slider .slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    transition: all .5s ease;
+}
+
+.slider .slide {
+    display: inline-block;
+    margin: 5px;
+    height: 100%;
+}
+
+
+.slider .slide a {
+    display: inline-block;
+    height: calc(100% - 10px);
+}
+
+.slider .slide a img {
+    height: 100%;
+    box-shadow: 0px 0px 5px #00000033;
+}
+
+.slider .slide a:hover img {
+    box-shadow: 0px 0px 5px #00000066;
+}
