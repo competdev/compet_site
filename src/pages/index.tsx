@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import TwitterFeed from "../components/twitterFeed";
 import News from "../components/news";
 import About from "../components/about";
+import Partners from "../components/partners";
 
 import styles from "../styles/Home.module.css";
 import SlideShow from "../components/slideShow";
@@ -24,6 +25,7 @@ export default function Home({ dados, dadosSlide }) {
       <SlideShow dadosSlide={dadosSlide}/>
       <About />
       {renderSocialMedia({dados})}
+      <Partners />
     </div>
     <Footer />
     </div>
