@@ -13,10 +13,11 @@ import SlideShow from "../components/slideShow";
 Home.getInitialProps = async () => {
   const newsResponse = await axios.get("http://localhost:3000/api/news");
   const slideResponse = await axios.get("http://localhost:3000/api/slideShow");
-  return { dados: newsResponse.data, dadosSlide: slideResponse.data }
+  const partnersResponse = await axios.get("http://localhost:3000/api/parceiros")
+  return { dados: newsResponse.data, dadosSlide: slideResponse.data, dadosParceiros: partnersResponse.data }
 }
 
-export default function Home({ dados, dadosSlide }) {
+export default function Home({ dados, dadosSlide, dadosParceiros }) {
   return (
     <div className={styles.body}>
     <div className={styles.container}>
@@ -25,7 +26,7 @@ export default function Home({ dados, dadosSlide }) {
       <SlideShow dadosSlide={dadosSlide}/>
       <About />
       {renderSocialMedia({dados})}
-      <Partners />
+      <Partners data={dadosParceiros}/>
     </div>
     <Footer />
     </div>
@@ -37,7 +38,7 @@ const renderSocialMedia = ({dados}) => {
     <div className={styles.socialMediaContainer}>
       <IgFeed />
       <TwitterFeed />
-      <News dados={dados} />
+      <News dados={dados}/>
     </div>
   );
 };

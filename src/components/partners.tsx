@@ -18,11 +18,11 @@ const partners: SlideInterface[] = [
     { name: '', url: '', imgUrl: 'https://cdn-icons-png.flaticon.com/128/6812/6812624.png' },
 ]
 
-const Partners: React.FC = () => (
+const Partners: React.FC = (data) => (
     <div className={styles.partners} >
-        <SectionTitle title="Parcerias" />
+        <SectionTitle title="Parceiros" />
         <div className={styles.partnersSlider} >
-            <Slider slides={partners} slidesToShow={3.5} />
+            <Slider slides={data.data} slidesToShow={3.5} />
         </div>
     </div>
 )
