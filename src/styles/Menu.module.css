@@ -177,7 +177,7 @@
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 425px) {
   .nav_list {
     width: 60vw;
     right: -60px;
