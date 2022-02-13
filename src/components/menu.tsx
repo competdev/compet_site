@@ -1,7 +1,7 @@
-import styles from '../styles/Menu.module.css'
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import wSize from '../util/windowSize'
+import styles from '../styles/Menu.module.css'
 
 export default function menu() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -14,7 +14,7 @@ export default function menu() {
     <div className={styles.menu_body}>
       <div className={styles.nav}>
         <div className={styles.logo}>
-          <Link href='../'>
+          <Link href='/index'>
             <a>
               <img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' />
             </a>
