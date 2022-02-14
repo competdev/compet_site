@@ -79,7 +79,7 @@ function renderNews(dados){
         const [dia, mes] = convertDate(dados.data).split("/");
         return (
           <a target="_blank" href={dados.link}>
-            <div className={styles.newsContainer}>
+            <div className={styles.newsContainer} key={dados._id}>
               <div className={styles.dataNews}>
                 <span className={styles.diaDataNews} > 
                   {dia}

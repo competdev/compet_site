@@ -18,7 +18,6 @@ Index.getInitialProps = async () => {
 }
 
 export default function Index({ dados, dadosSlide, dadosParceiros }) {
-  console.log(dadosParceiros)
   return (
     <div className={styles.body}>
     <div className={styles.container}>

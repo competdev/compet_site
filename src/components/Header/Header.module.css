@@ -42,7 +42,7 @@
   -o-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .nav_list {
