@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+.info {
+  width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #004266;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Codec Pro Light'
+}
+
+@media (max-width:1024px) {
+  .info {
+    font-size: 22px;
+    max-width: 750px;
+  }
+}
+
+@media (max-width:768px) {
+  .info {
+    font-size: 17px;
+    max-width: 720px;
+  }
+}
+
+@media (max-width:540px) {
+  .info {
+    max-width: 490px;
+  }
+}
+
+@media (max-width:425px) {
+  .info {
+    font-size: 13px;
+    max-width: 380px;
+  }
+}
+
+@media (max-width:375px) {
+  .info {
+    max-width: 355px;
+  }
+}
+
+@media (max-width:320px) {
+  .info {
+    font-size: 13px;
+    max-width: 270px;
+  }
+}

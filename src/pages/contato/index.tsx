@@ -3,14 +3,14 @@ import { useState } from 'react'
 import Modal from 'react-modal'
 import styles from './Contato.module.css'
 
-import Menu from '../../components/menu'
-import PageHeader from '../../components/pageHeader'
-import SectionTitle from '../../components/sectionTitle'
-import SectionInfo from '../../components/sectionInfo'
-import SocialMedia from '../../components/socialMedia'
-import Footer from '../../components/footer'
+import Header from '../../components/Header'
+import PageHeader from '../../components/PageHeader'
+import SectionTitle from '../../components/SectionTitle'
+import SectionInfo from '../../components/SectionInfo'
+import SocialMediasContact from '../../components/SocialMediasContact'
+import Footer from '../../components/Footer'
 
-const Map = dynamic(() => import('../../components/map'), {
+const Map = dynamic(() => import('../../components/Map'), {
   ssr: false
 })
 
@@ -95,7 +95,7 @@ export default function Contato() {
   return (
     <div className={styles.pageBody}>
       <title>COMPET | Contato</title>
-      <Menu />
+      <Header />
       <PageHeader url={header_img_url} caption={false} />
       <SectionTitle title={sectionTitle} />
       <SectionInfo info={sectionInfo}/>
@@ -126,12 +126,12 @@ export default function Contato() {
       </div>
       <div className={styles.socialMediaArea}>
         <div className={styles.socialMediaLine1}>
-          <SocialMedia media_type='facebook' text='competcefetmg' url='https://www.facebook.com/competcefetmg/' />
-          <SocialMedia media_type='instagram' text='compet.cefet' url='https://www.instagram.com/compet.cefet/' />
+          <SocialMediasContact media_type='facebook' text='competcefetmg' url='https://www.facebook.com/competcefetmg/' />
+          <SocialMediasContact media_type='instagram' text='compet.cefet' url='https://www.instagram.com/compet.cefet/' />
         </div>
         <div className={styles.socialMediaLine2}>
-          <SocialMedia media_type='twitter' text='compet_cefet' url='https://twitter.com/compet_cefet' />
-          <SocialMedia media_type='linkedin' text='competcefetmg' url='https://www.linkedin.com/in/competcefetmg/' />
+          <SocialMediasContact media_type='twitter' text='compet_cefet' url='https://twitter.com/compet_cefet' />
+          <SocialMediasContact media_type='linkedin' text='competcefetmg' url='https://www.linkedin.com/in/competcefetmg/' />
         </div>
       </div>
       <Footer />

@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../../styles/fonts/Verdana.ttf");
+}
+
+.content {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1020px) {
+  .listContainer {
+    display: block;
+    font-size: 500px;
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

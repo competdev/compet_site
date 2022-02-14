@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../../styles/fonts/Verdana.ttf");
+}
+
+.groupDiv {
+  min-width: 1000px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+}
+
+.cardContent {
+  margin: 60px;
+  margin-left: 21px;
+  height: 140px;
+  width: 230px;
+  display: inline-block;
+  color: #151515;
+}
+
+.membersCard {
+  height: 120%;
+  font-size: 14px;
+  border-radius: 20px;
+  width: 120%;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  color: #151515;
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.infoName {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.infoCompet {
+  text-align: center;
+  margin-top: -20px;
+  font-size: 16px;
+  font-family: "Codec Pro Regular";
+}
+
+.networkGroup {
+  align-items: center;
+  text-align: center;
+  margin-top: 0px;
+  display: inline-flex;
+}
+
+.networkFavicon {
+  margin: 5px;
+  width: 24px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.networkBlank {
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.networkFavicon:hover {
+  transition: all 300ms ease;
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+}
+
+.infoScrum {
+  margin-left: -35px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(255, 14, 14);
+}
+
+.infoIntercamb {
+  margin-left: -35px;
+  text-align: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #19DD39;
+}
+
+.photoSpace {
+  width: 230px;
+}
+
+.foto {
+  margin-top: -66px;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.fotoSemDep {
+  margin-top: -66px;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #0000008c;
+}
+
+.foto:hover {
+  transition: all 600ms ease;
+  transform: scale(1.2);
+  border-radius: 42%;
+}
+
+.alignPhotoArea {
+  display: inline-flex;
+}
+
+.container {
+  position: relative;
+  width: 120%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #004266;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.containerExMembros {
+  position: relative;
+  width: 120%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e4e4;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1300px) {
+  .loadMore {
+    margin-top: 30px;
+    font-size: 170%;
+    font-family: "Codec Pro Regular";
+    max-width: 250px;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .groupDiv {
+    min-width: 800px;
+    max-width: 980px;
+  }
+}
+
+@media (max-width: 768px) {
+  .groupDiv {
+    min-width: 540px;
+    max-width: 760px;
+  }
+
+  .cardContent {
+    margin-top: 100px;
+  }
+
+  .membersCard {
+    height: 180px;
+    width: 109%;
+    border-radius: 20px;
+  }
+
+  .container {
+    width: 114%;
+    margin-top: -20px;
+  }
+
+  .containerExMembros {
+    width: 114%;
+    margin-top: -20px;
+  }
+
+  .infoName {
+    text-align: center;
+    margin-top: -1px;
+    font-size: 20px;
+  }
+
+  .infoCompet {
+    text-align: center;
+    margin-top: -12px;
+    font-size: 17px;
+    font-family: "Codec Pro Regular";
+  }
+
+
+  .infoScrum {
+    margin-left: -20px;
+    text-align: left;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: rgb(255, 14, 14);
+  }
+
+  .infoIntercamb {
+    margin-left: -20px;
+    text-align: center;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: #19DD39;
+  }
+
+  .photoSpace {
+    margin-top: 20px;
+    width: 220px;
+  }
+
+  .foto {
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .fotoSemDep {
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .networkFavicon {
+    width: 36px;
+  }
+  
+  .networkBlank {
+    margin: 3px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media (max-width: 545px) {
+  .groupDiv {
+    min-width: 300px;
+    max-width: 540px;
+  }
+
+  .cardContent {
+    margin-left: 35px;
+    margin-top: 100px;
+  }
+
+  .membersCard {
+    height: 180px;
+    width: 109%;
+    border-radius: 20px;
+  }
+
+  .infoName {
+    text-align: center;
+    margin-top: -1px;
+    font-size: 20px;
+  }
+
+  .infoCompet {
+    text-align: center;
+    margin-top: -12px;
+    font-size: 17px;
+    font-family: "Codec Pro Regular";
+  }
+
+  .infoScrum {
+    margin-left: -20px;
+    text-align: left;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: rgb(255, 14, 14);
+  }
+
+  .infoIntercamb {
+    margin-left: -20px;
+    text-align: center;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: #19DD39;
+  }
+
+  .photoSpace {
+    margin-top: 20px;
+    width: 220px;
+  }
+
+  .foto {
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .fotoSemDep {
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .networkBlank {
+    margin: 3px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .groupDiv {
+    min-width: 0px;
+    max-width: 280px;
+  }
+
+
+  .cardContent {
+    margin-left: 15px;
+    margin-top: 100px;
+  }
+}

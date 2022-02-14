@@ -1,13 +1,13 @@
 import axios from "axios";
 import styles from "./InterPet.module.css";
 
-import Menu from "../../components/menu";
-import PageHeader from '../../components/pageHeader';
-import AboutCard from "../../components/aboutCard"
-import PrincipalCard from "../../components/principalCard";
-import PastEditions from "../../components/pastEditions";
-import InterPetContact from "../../components/interPetContact";
-import Footer from "../../components/footer";
+import Header from "../../components/Header";
+import PageHeader from '../../components/PageHeader';
+import AboutCard from "../../components/AboutInterPet"
+import CurrEdition from "../../components/CurrEditionInterPet";
+import PastEditions from "../../components/PastEditionsInterPet";
+import ContactInterPet from "../../components/ContactInterPet";
+import Footer from "../../components/Footer";
 
 InterPet.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/interpet");
@@ -19,12 +19,12 @@ export default function InterPet({ dados }) {
   return (
     <div className={styles.content}>
       <title>COMPET | InterPet</title>
-      <Menu />
+      <Header />
       <PageHeader url={header_img_url} caption={false} />
       <AboutCard />
-      <PrincipalCard dados={dados} />
+      <CurrEdition dados={dados} />
       <PastEditions elements={dados} />
-      <InterPetContact />
+      <ContactInterPet />
       <Footer />
     </div>
   );

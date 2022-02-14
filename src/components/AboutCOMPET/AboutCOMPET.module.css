@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../../styles/fonts/Verdana.ttf");
+}
+
+.sobre {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.aboutcard {
+  justify-content: center;
+  margin-top: -30px;
+  width: 100%;
+  display: inline-flex;
+  margin-top: 0px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px #00000033;
+}
+
+.img_InterPet img {
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #000000d8;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.sobreInfo {
+  font-size: 21px;
+  font-family: "Codec Pro Regular";
+  max-width: 600px;
+  text-align: justify;
+  height: 100%;
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-top: 45px;
+  background-color: #19DD39;
+  border: 20px solid #19DD39;
+  border-radius: 20px;
+}
+
+@media (max-width: 1024px) {
+  .img_InterPet img {
+    height: 200px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .img_InterPet {
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .img_InterPet img {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sobreInfo {
+    margin-left: 25px;
+    margin-right: 25px;
+    max-width: 900px;
+    max-height: 1000px;
+    margin-top: -10px;
+  }
+
+  .aboutcard {
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  .text {
+    margin-top: 20px;
+  }
+
+}
+
+@media (max-height: 800px) {
+  .img_InterPet img {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px){
+  .text {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 540px) {
+  .img_InterPet img {
+    margin-top: 20px;
+    height: 135px;
+  }
+
+  .sobreInfo {
+    font-size: 20px;
+  }
+
+  .text {
+    margin-top: 0px;
+  }
+
+  .aboutcard {
+    padding-bottom: 30px;
+  }
+}
+

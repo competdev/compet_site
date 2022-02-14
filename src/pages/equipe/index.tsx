@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useState } from 'react'
 import styles from './Equipe.module.css'
 
-import Menu from '../../components/menu'
-import PageHeader from '../../components/pageHeader';
-import SectionTitle from '../../components/sectionTitle'
-import MemberCard from '../../components/memberCard'
-import Footer from '../../components/footer'
+import Header from '../../components/Header'
+import PageHeader from '../../components/PageHeader';
+import SectionTitle from '../../components/SectionTitle'
+import MemberCard from '../../components/MembersCard'
+import Footer from '../../components/Footer'
 
 const socialNetworks = true;
 
@@ -45,7 +45,7 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Membros atuais</title>
-      <Menu />
+      <Header />
       <PageHeader url={header_img_url} caption={true} />
       {renderTutores(tutores)}
       {renderScrumMaster(scrumMaster)}

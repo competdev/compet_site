@@ -5,11 +5,11 @@ import removeAccents from 'remove-accents';
 import { makeStyles } from '@material-ui/styles';
 import styles from "./Certificados.module.css";
 
-import Menu from '../../components/menu'
-import PageHeader from '../../components/pageHeader';
+import Header from '../../components/Header'
+import PageHeader from '../../components/PageHeader';
 import SearchBox from '../../components/SearchBox';
 import ReactPaginate from 'react-paginate';
-import Footer from '../../components/footer';
+import Footer from '../../components/Footer';
 
 
 Certificados.getInitialProps = async () => {
@@ -116,7 +116,7 @@ export default function Certificados({ dados }) {
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
-      <Menu />
+      <Header />
       <PageHeader url={header_img_url} caption={false} />
       {/*{renderCertificados(certificadoCOMPET)}*/}
       <div className={styles.searchContainer}>

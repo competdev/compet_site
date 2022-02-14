@@ -1,0 +1,274 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../../styles/fonts/Verdana.ttf");
+}
+
+.footer {
+  overflow: hidden;
+  text-align: center;
+  color: #004266;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.060);
+  border-top-left-radius: 33%;
+  border-top-right-radius: 33%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.container {
+  display: inline-flex;
+  font-size: 18;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.text_links_container {
+  width: 100%;
+  display: inline-flex;
+  font-size: 18;
+}
+
+.containerLinks {
+  display: flex;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.CEFETinfo {
+  margin: 30px;
+  margin-right: 15px;
+}
+
+.DECOMinfo {
+  margin: 30px;
+  margin-right: 15px;
+}
+
+.extraInfo {
+  margin: 30px;
+  margin-right: 15px;
+}
+
+.dtiInfo {
+  margin: 30px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.Links {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-right: 25px;
+  text-align: left;
+}
+
+.singleLink:hover {
+  transform: scale(1.2);
+}
+
+.adressCEFET {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.socialNetwork {
+  margin-top: 8vh;
+  height: 65px;
+  width: 80px;
+  min-width: 100px;
+  height: 100%;
+}
+
+.socialNetworkIcons {
+  margin: 5px;
+  height: 27px;
+  width: 27px;
+}
+
+.socialNetworkIcons:hover {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  border-top-right-radius: 43%;
+  border-bottom-left-radius: 43%;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+
+.logosExterna {
+  margin-top: 10px;
+  height: 72px;
+  width: 115px;
+}
+
+.logosExterna:hover {
+  transform: scale(1.2);
+}
+
+.Credits {
+  display: inline-flex;
+  font-style: italic;
+  color: rgb(0, 48, 90);
+  margin-top: 4px;
+  margin-bottom: 13px;
+}
+
+.textCredits {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.logoCOMPET {
+  width: 102px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.separator hr {
+  margin-top: 10px;
+  width: 100%;
+  display: none;
+  border: 0;
+  border-top: 1px solid rgba(0, 48, 90, 0.175);
+}
+
+@media (max-width: 1100px) {
+  .singleLink:hover {
+    transform: scale(1);
+    color: #19DD39;
+    font-weight: bolder;
+  }
+
+  .arrow {
+    margin-top: -10px;
+    margin-right: 5px;
+    border: solid #004266;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .footer {
+    border-top-left-radius: 7%;
+    border-top-right-radius: 7%;
+    width: 100%;
+  }
+
+  .container {
+    display: block;
+    width: auto;
+  }
+
+  .text_links_container {
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+    font-size: 18;
+    text-align: left;
+  }
+
+  .containerTitle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sectionTitle {
+    margin-top: -20px;
+    font-size: 15px;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+
+  .Links {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .LinksDECOM {
+    display: block;
+  }
+
+  .socialNetwork {
+    text-align: center;
+    margin-top: -20px;
+    min-width: 100%;
+  }
+
+  .adressCEFET {
+    margin-top: 10px;
+  }
+
+  .separator hr {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .text_links_container {
+    font-size: 13;
+  }
+
+  .sectionTitle {
+    font-size: 14px;
+  }
+
+  .Links {
+    font-size: 10px;
+  }
+
+  .socialNetworkIcons {
+    margin: 5px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .Credits {
+    display: inline-flex;
+    font-style: italic;
+    color: #004266;
+    margin-top: 20px;
+    margin-bottom: 13px;
+    font-size: 16px;
+  }
+
+  .logoCOMPET {
+    margin-top: -8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .sectionTitle {
+    font-size: 10px;
+  }
+
+  .Links {
+    font-size: 8px;
+  }
+
+  .adressCEFET {
+    font-size: 10px;
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

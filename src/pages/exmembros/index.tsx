@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useState } from 'react'
 import styles from './ExMembros.module.css'
 
-import Menu from '../../components/menu'
-import PageHeader from '../../components/pageHeader'
-import SectionTitle from '../../components/sectionTitle'
-import MemberCard from '../../components/memberCard'
-import Footer from '../../components/footer'
+import Header from '../../components/Header'
+import PageHeader from '../../components/PageHeader'
+import SectionTitle from '../../components/SectionTitle'
+import MemberCard from '../../components/MembersCard'
+import Footer from '../../components/Footer'
 
 const socialNetworks = false;
 
@@ -46,7 +46,7 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
-      <Menu />
+      <Header />
       <PageHeader url={'https://i.ibb.co/1TV1hgd/exmembros.png'} caption={true} />
       {renderBodyPage(dados, tutores, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalExMembros)}

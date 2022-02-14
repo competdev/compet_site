@@ -1,14 +1,14 @@
 import axios from 'axios'
 import styles from "./Index.module.css";
 
-import Menu from "../../components/menu";
-import SlideShow from "../../components/slideShow";
-import About from "../../components/about";
-import IgFeed from "../../components/instagramFeed";
-import TwitterFeed from "../../components/twitterFeed";
-import News from "../../components/news";
-import Partners from "../../components/partners";
-import Footer from "../../components/footer";
+import Header from "../../components/Header";
+import SlideShow from "../../components/SlideShow";
+import About from "../../components/AboutCOMPET";
+import InstagramFeed from "../../components/InstagramFeed";
+import TwitterFeed from "../../components/TwitterFeed";
+import NewsFeed from "../../components/NewsFeed";
+import Partners from "../../components/Partners";
+import Footer from "../../components/Footer";
 
 Index.getInitialProps = async () => {
   const newsResponse = await axios.get("http://localhost:3000/api/news");
@@ -18,14 +18,15 @@ Index.getInitialProps = async () => {
 }
 
 export default function Index({ dados, dadosSlide, dadosParceiros }) {
+  console.log(dadosParceiros)
   return (
     <div className={styles.body}>
     <div className={styles.container}>
       <title>COMPET</title>
-      <Menu />
+      <Header />
       <SlideShow dadosSlide={dadosSlide}/>
       <About />
-      {renderSocialMedia({dados})}
+      {renderSocialMediaFeed({dados})}
       <Partners data={dadosParceiros}/>
     </div>
     <Footer />
@@ -33,12 +34,12 @@ export default function Index({ dados, dadosSlide, dadosParceiros }) {
   );
 }
 
-const renderSocialMedia = ({dados}) => {
+const renderSocialMediaFeed = ({dados}) => {
   return (
     <div className={styles.socialMediaContainer}>
-      <IgFeed />
+      <InstagramFeed />
       <TwitterFeed />
-      <News dados={dados}/>
+      <NewsFeed dados={dados}/>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from '../../components/pageHeader';
+import PageHeader from '../../components/PageHeader';
 import { makeStyles } from "@material-ui/core/styles";
 import { isMobile } from "react-device-detect";
 import Timeline from "@material-ui/lab/Timeline";
@@ -13,8 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
 import styles from './Sobre.module.css'
 
-import Menu from "../../components/menu";
-import Footer from "../../components/footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const clock = 'https://i.ibb.co/QNYSh70/clock.png';
 const book = 'https://i.ibb.co/t87HGv3/book.png';
@@ -74,7 +74,7 @@ export default function CustomizedTimeline() {
     return (
       <>
       <title>COMPET | Sobre</title>
-      <Menu />
+      <Header />
       {renderPageHeader()}
       <div className={classes.div}>
         <Timeline align='left' className={classes.timeline}>
@@ -293,7 +293,7 @@ export default function CustomizedTimeline() {
   return (
     <>
     <title>COMPET | Sobre</title>
-    <Menu />
+    <Header />
     <div className={styles.body}>
     {renderPageHeader()}
       <div className={classes.div}>

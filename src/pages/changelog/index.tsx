@@ -1,9 +1,9 @@
 import axios from "axios";
 import styles from "./Changelog.module.css";
 
-import Menu from "../../components/menu";
-import SectionTitle from '../../components/sectionTitle';
-import Footer from "../../components/footer";
+import Header from "../../components/Header";
+import SectionTitle from '../../components/SectionTitle';
+import Footer from "../../components/Footer";
 
 Changelog.getInitialProps = async () => {
   const response = await axios.get("http://localhost:3000/api/changelog");
@@ -25,7 +25,7 @@ export default function Changelog({ dados }) {
   
   return (
     <div className={styles.bodyPage}>
-      <Menu />
+      <Header />
       <div className={styles.pageContent}>
         <SectionTitle title={sectionTitle} />
         {dados.map(data =>
