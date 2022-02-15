@@ -118,7 +118,6 @@ export default function Certificados({ dados }) {
       <title>COMPET | Certificados</title>
       <Header />
       <PageHeader url={header_img_url} caption={false} />
-      {/*{renderCertificados(certificadoCOMPET)}*/}
       <div className={styles.searchContainer}>
         <SearchBox placeholder="Pesquisar certificado..." setQuery={setQuery} />
       </div>
