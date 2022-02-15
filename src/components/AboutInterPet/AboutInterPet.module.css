@@ -9,10 +9,13 @@
 }
 
 .sobre {
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   margin-top: 10px;
-  margin-bottom: -50px;
-
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #00000033;
 }
 
 .aboutcard {
@@ -51,10 +54,12 @@
   text-align: justify;
   margin-top: 135px;
   margin-left: 40px;
-  max-width: 900px;
-  border-radius: 30px;
+  max-width: 60%;
+  border-radius: 35px;
   color: #000000;
-  margin-bottom: 100px;
+  margin-bottom: 35px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 1024px) {
@@ -74,7 +79,7 @@
   .sobreInfo {
     margin-left: auto;
     margin-right: auto;
-    max-width: 900px;
+    max-width: 60%;
     margin-top: 15px;
   }
 
@@ -93,7 +98,7 @@
 
   .sobreInfo {
     font-size: 21px;
-    max-width: 700px;
+    max-width: 80%;
   }
 }
 
@@ -109,7 +114,7 @@
 
   .sobreInfo {
     font-size: 20px;
-    max-width: 400px;
+    max-width: 80%;
     margin-top: -2px;
   }
 }
@@ -117,7 +122,7 @@
 @media (max-width: 375px) {
   .sobreInfo {
     font-size: 19px;
-    max-width: 350px;
+    max-width: 80%;
     margin-top: -10px;
   }
 }
@@ -125,7 +130,7 @@
 @media (max-width: 320px) {
   .sobreInfo {
     font-size: 18px;
-    max-width: 300px;
+    max-width: 80%;
   }
 }
 
@@ -136,6 +141,6 @@
 
   .sobreInfo {
     font-size: 17px;
-    max-width: 260px;
+    max-width: 80%;
   }
 }
