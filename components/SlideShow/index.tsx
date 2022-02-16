@@ -1,7 +1,7 @@
 import { makeStyles, styled } from "@material-ui/core";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./SlideShow.module.css";
 
 const Legend = styled("p")({
