@@ -1,14 +1,14 @@
 import axios from 'axios'
 import styles from "./Index.module.css";
 
-import Header from "../../components/Header";
-import SlideShow from "../../components/SlideShow";
-import About from "../../components/AboutCOMPET";
-import InstagramFeed from "../../components/InstagramFeed";
-import TwitterFeed from "../../components/TwitterFeed";
-import NewsFeed from "../../components/NewsFeed";
-import Partners from "../../components/Partners";
-import Footer from "../../components/Footer";
+import Header from "../components/Header";
+import SlideShow from "../components/SlideShow";
+import About from "../components/AboutCOMPET";
+import InstagramFeed from "../components/InstagramFeed";
+import TwitterFeed from "../components/TwitterFeed";
+import NewsFeed from "../components/NewsFeed";
+import Partners from "../components/Partners";
+import Footer from "../components/Footer";
 
 const vercelURL = "https://compet.vercel.app"
 const localURL = "http://localhost:3000"
