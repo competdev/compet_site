@@ -81,6 +81,8 @@
   text-align: center;
   font-size: 15px;
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .socialNetwork {
@@ -216,6 +218,7 @@
 
   .adressCEFET {
     margin-top: 10px;
+    max-width: 80%;
   }
 
   .separator hr {
@@ -268,7 +271,5 @@
   .adressCEFET {
     font-size: 10px;
     max-width: 180px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }

@@ -68,6 +68,12 @@
   margin-top: 20px;
 }
 
+.mapAdress {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .map {
   margin-top: 20px;
   width: 600px;

@@ -13,7 +13,7 @@
   text-align: center;
   font-size: 40px;
   color: #004266;
-  padding-top: 35px;
+  margin-top: -40px;
   margin-bottom: 30px;
   font-weight: bolder;
   font-family: 'Codec Pro Light'
@@ -22,7 +22,7 @@
 @media (max-width:1024px) {
   .title {
     font-size: 35px;
-    margin-top: 10px;
+    margin-top: -35px;
   }
 }
 
@@ -34,7 +34,9 @@
 
 @media (max-width:425px) {
   .title {
+    padding-top: 40px;
     font-size: 40px;
     margin-bottom: 15px;
+    margin-top: -60px;
   }
 }

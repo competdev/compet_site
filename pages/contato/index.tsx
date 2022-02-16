@@ -117,7 +117,7 @@ export default function Contato() {
           </div>
         </form>
         <div className={styles.mapContainer}>
-          <strong>Sede do COMPET:</strong> Av. Amazonas 7675, Nova Gameleira. Belo Horizonte
+          <div className={styles.mapAdress}><strong>Sede do COMPET:</strong> Av. Amazonas 7675, Nova Gameleira. Belo Horizonte</div>
           <div className={styles.map}>
             <Map />
           </div>

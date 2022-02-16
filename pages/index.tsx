@@ -1,5 +1,5 @@
 import axios from 'axios'
-import styles from "./Index.module.css";
+import styles from "../styles/Index.module.css";
 
 import Header from "../components/Header";
 import SlideShow from "../components/SlideShow";

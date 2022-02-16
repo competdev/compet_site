@@ -5,8 +5,9 @@ import SectionTitle from '../SectionTitle';
 export default function AboutInterPet() {
   const sectionTitle = "Sobre"
   return (
-    <div className={styles.sobre}>
+    <>
       <SectionTitle title={sectionTitle} />
+      <div className={styles.sobre}>
       <div className={styles.img_InterPet}>
         <div className={styles.img_container}>
           <img src="https://i.ibb.co/fGszj1d/inter-Pet-sobre.jpg" alt="" />
@@ -14,6 +15,7 @@ export default function AboutInterPet() {
       </div>
       {renderSobre()}
     </div>
+    </>
   )
 }
 
