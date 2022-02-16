@@ -9,9 +9,12 @@ import MemberCard from '../../components/MembersCard'
 import Footer from '../../components/Footer'
 
 const socialNetworks = true;
+const vercelURL = "https://compet.vercel.app"
+const localURL = "http://localhost:3000"
+const cefetURL = "http://compet.decom.cefetmg.br"
 
 Equipe.getInitialProps = async () => {
-  const response = await axios.get('http://localhost:3000/api/membros');
+  const response = await axios.get(vercelURL + "/api/membros");
 
   const membrosAtuais = response.data.filter(data => {
     return (data.membro_ativo == true && data.scrum_master == false && data.tutor == false);

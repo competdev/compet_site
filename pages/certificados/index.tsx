@@ -11,9 +11,13 @@ import SearchBox from '../../components/SearchBox';
 import ReactPaginate from 'react-paginate';
 import Footer from '../../components/Footer';
 
+const vercelURL = "https://compet.vercel.app"
+const localURL = "http://localhost:3000"
+const cefetURL = "http://compet.decom.cefetmg.br"
+
 
 Certificados.getInitialProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/certificados");
+  const response = await axios.get(vercelURL + "api/certificados");
   return { dados: response.data }
 }
 
