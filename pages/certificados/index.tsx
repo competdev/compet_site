@@ -173,11 +173,11 @@ function PaginatedItems(items, classes) {
       }
       <div className={styles.containerPaginate}>
         <ReactPaginate
-          nextLabel="Próximo"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={1}
           pageCount={pageCount}
-          previousLabel="Anterior"
+          previousLabel="<"
           pageClassName={classes.page_item}
           pageLinkClassName={classes.page_link}
           previousClassName={classes.page_prev}

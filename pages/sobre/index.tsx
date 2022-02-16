@@ -75,8 +75,8 @@ export default function CustomizedTimeline() {
       <>
       <title>COMPET | Sobre</title>
       <Header />
-      {renderPageHeader()}
       <div className={classes.div}>
+      {renderPageHeader()}
         <Timeline align='left' className={classes.timeline}>
           <StylesTimelineItem style={{ marginTop: 40 }}>
             <TimelineSeparator>
