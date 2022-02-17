@@ -14,7 +14,7 @@ export default function Header() {
     <div className={styles.menu_body}>
       <div className={styles.nav}>
         <div className={styles.logo}>
-          <Link href='/index'>
+          <Link href='/'>
             <a><img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' /></a>
           </Link>
         </div>
