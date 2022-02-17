@@ -112,25 +112,44 @@ export default function Certificados({ dados }) {
     return (certificado.titulo != 'Certificado e Declaração de Participação PET - COMPET')
   }
 
-  let certificadoCOMPET = dados.filter(COMPETParticipation)
-
-  dados = dados.filter(otherCertifieds)
+  function certificateSearch(certificado){
+    if(byTitle(certificado)){
+        return certificado;
+      } else {
+        return byName(certificado);
+    }
+  }
   
+  function byTitle(certificado){
+    return removeAccents(certificado.titulo.toLowerCase()).includes(query.toLowerCase())
+  }
+  
+  function byName(certificado){
+    let nameList = certificado.listaNomes;
+    let find = nameList.filter(element => {
+      if (removeAccents(element).toLowerCase().indexOf(removeAccents(query).toLowerCase()) !== -1) {
+        return true;
+      }
+    })
+  
+    if(find.length > 0){
+      return certificado;
+    }
+  }
+
+  let certificadoCOMPET = dados.filter(COMPETParticipation)
+  dados = dados.filter(otherCertifieds)
   let data = certificadoCOMPET.concat(dados)
+  
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Header />
       <PageHeader url={header_img_url} caption={false} />
       <div className={styles.searchContainer}>
-        <SearchBox placeholder="Pesquisar certificado..." setQuery={setQuery} />
+        <SearchBox placeholder="Digite seu nome ou o nome do evento" setQuery={setQuery} />
       </div>
-
-      {
-        PaginatedItems(data.filter((certificado) => {
-          return removeAccents(certificado.titulo.toLowerCase()).includes(query.toLowerCase())
-        }), classes)
-      }
+      {PaginatedItems((data.filter(certificateSearch)), classes)}
       <Footer />
     </div>
   );
@@ -194,9 +213,7 @@ function PaginatedItems(items, classes) {
       </div>
     </>
   )
-
 }
-
 
 
 

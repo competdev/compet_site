@@ -5,8 +5,9 @@
 
 .searchContainer {
   margin-top: -60px;
-  text-align: center;
-  margin-left: 55%;
+  display:flex;
+  justify-content: right;
+  margin-right: 10%;
 }
 
 .containerPaginate {
@@ -95,7 +96,15 @@
   list-style: none
 }
 
+@media (max-width: 768px){
+  .searchContainer {
+    justify-content: center;
+    margin-right: 0%;
+  }
+}
+
 @media (max-width: 550px) {
+
   .searchContainer {
     margin-top: -40px;
     margin-left: auto;
