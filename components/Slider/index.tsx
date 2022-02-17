@@ -5,6 +5,8 @@ export interface SlideInterface {
     name: string
     url: string
     imgUrl: string
+    width: number
+    height: number
 }
 
 export interface SliderProps {
@@ -60,10 +62,12 @@ const Slider: React.FC<SliderProps> = (props) => {
                         style={{ left: `${pos}%` }}
                     >
                         {
-                            props.slides.map(({name, url, imgUrl}, idx) => (
+                            props.slides.map(({name, url, imgUrl, width, height}, idx) => (
                                 <div className={styles.slide} key={idx}>
                                     <a href={url}>
-                                        <img src={imgUrl} alt={name}></img>
+                                        <img src={imgUrl} alt={name}
+                                            style={{ height: `${height / width * 100}%` }}
+                                        ></img>
                                     </a>
                                 </div>
                             ))
