@@ -17,7 +17,7 @@ const cefetURL = "http://compet.decom.cefetmg.br"
 
 
 Certificados.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/certificados");
+  const response = await axios.get(localURL + "/api/certificados");
   return { dados: response.data }
 }
 
