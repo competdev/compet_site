@@ -14,7 +14,7 @@ const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
 
 ExMembros.getInitialProps = async () => {
-  const response = await axios.get(process.env.HOST_URL + "/api/membros");
+  const response = await axios.get(localURL + "/api/membros");
 
   const exMembros = response.data.filter(data => {
     return (data.membro_ativo == false && data.tutor == false);

@@ -14,7 +14,7 @@ const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
 
 InterPet.getInitialProps = async () => {
-  const response = await axios.get(process.env.HOST_URL + "/api/interpet");
+  const response = await axios.get(localURL + "/api/interpet");
   return { dados: response.data };
 };
 
