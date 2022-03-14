@@ -15,6 +15,7 @@
   display: inline-flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  background-color: #f5f5f5;
 }
 
 .captions {
