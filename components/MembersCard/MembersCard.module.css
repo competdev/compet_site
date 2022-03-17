@@ -165,7 +165,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
   .groupDiv {
     min-width: 800px;
     max-width: 980px;
