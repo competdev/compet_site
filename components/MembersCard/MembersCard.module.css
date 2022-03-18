@@ -33,7 +33,7 @@
   background-color: rgb(255, 255, 255);
   display: inline-block;
   color: #151515;
-  box-shadow: 0px 0px 5px #00000033;
+  box-shadow: 0px 0px 5px #00000017;
 }
 
 .infoName {
@@ -104,7 +104,7 @@
   width: 132px;
   height: 132px;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px #00000033;
+  box-shadow: 0px 0px 5px #000000b9;
 }
 
 .fotoSemDep {
@@ -112,7 +112,7 @@
   width: 132px;
   height: 132px;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px #0000008c;
+  box-shadow: 0px 0px 5px #00000048;
 }
 
 .foto:hover {
