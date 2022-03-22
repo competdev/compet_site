@@ -5,7 +5,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { db } = await connectToDatabase();
 
   const certificados = await db
-    .collection("certificados")
+    .collection("certifieds")
     .find({})
     .sort({data : -1 })
     .toArray();
