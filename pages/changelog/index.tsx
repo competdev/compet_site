@@ -10,7 +10,7 @@ const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
 
 Changelog.getInitialProps = async () => {
-  const response = await axios.get(localURL + "/api/changelog");
+  const response = await axios.get(vercelURL + "/api/changelog");
   return { dados: response.data };
 };
 
