@@ -93,6 +93,7 @@
   width: 16px;
   border-radius: 50%;
   background-color: #19DD39;
+  margin-top: 4px;
 }
 
 .photoSpace {
@@ -105,7 +106,6 @@
   height: 132px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #000000b9;
-  font-size: 0px;
 }
 
 .fotoSemDep {
@@ -114,7 +114,6 @@
   height: 132px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #00000048;
-  font-size: 0px;
 }
 
 .foto:hover {
@@ -139,6 +138,7 @@
   border-top-right-radius: 20px;
   height: 70px;
   margin-bottom: 10px;
+  font-size: 0px;
 }
 
 .containerExMembros {
@@ -153,6 +153,8 @@
   border-top-right-radius: 20px;
   height: 70px;
   margin-bottom: 10px;
+  font-size: 0px;
+  color: transparent;
 }
 
 @media (max-width: 1300px) {
