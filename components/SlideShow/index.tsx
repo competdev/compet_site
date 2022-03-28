@@ -24,9 +24,9 @@ const useStyles = makeStyles(() => ({
       opacity: 1,
     },
     "& .carousel .slider-wrapper": {
-      border: "1px solid #004266a2",
       borderBottom: "7px solid #004266",
       borderRadius: "10px 10px 0px 0px",
+      border: "1px solid #00000049",
     },
   },
 }));

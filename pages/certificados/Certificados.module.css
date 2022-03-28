@@ -82,6 +82,10 @@
   font-weight: bold;
   margin-top: 15px;
   color: #004266;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
 }
 
 .certificadoLink:hover {

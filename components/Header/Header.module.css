@@ -34,6 +34,7 @@
   margin-left: 130%;
   height: 72px;
   width: 175px;
+  transition: all 400ms ease-in-out;
 }
 
 .logo img:hover {
@@ -42,7 +43,7 @@
   -o-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-  transition: all 200ms ease-in-out;
+  
 }
 
 .nav_list {
@@ -64,18 +65,29 @@
   opacity: 0.8;
   text-decoration: dashed;
   color: #19DD39;
+  transition: 0.2s;
 }
 
 .mobile_menu {
   display: none;
   cursor: pointer;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
 }
+
+
 
 .mobile_menu div {
   width: 32px;
   height: 2px;
   background-color: #004266;
   margin: 8px;
+}
+
+.mobile_menu:hover {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 1415px) {
