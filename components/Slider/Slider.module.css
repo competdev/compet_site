@@ -7,7 +7,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: 0px 0px 5px #00000033;
+    box-shadow: 0px 0px 5px #00000021;
     background-color: white;
     width: 100%;
     height: 100%;
@@ -31,8 +31,15 @@
     transition: all .1s ease;
 }
 
+.slider button{
+    transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+
 .slider button:hover {
-    width: 11%;
+    width: 13%;
 }
 
 .slider .leftArrow {
@@ -70,7 +77,7 @@
     height: calc(100% - 10px);
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 5px #00000033;
+    box-shadow: 0px 0px 5px #00000021;
 }
 
 .slider .slide a img {
@@ -78,6 +85,14 @@
     text-align: center;
 }
 
+.slider .slide a {
+   transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+
 .slider .slide a:hover {
+    transform: scale(1.02);
     box-shadow: 0px 0px 5px #00000066;
 }

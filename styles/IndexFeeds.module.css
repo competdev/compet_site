@@ -16,7 +16,6 @@
 
 .newsContainer {
   border-radius: 5px;
-  /* border: 5px 5px 0 5px solid rgba(0, 0, 0, 0.103); */
   border-width: 5px 5px 0 5px;
   border-style: solid;
   border-color: rgb(255, 255, 255);
@@ -38,17 +37,16 @@
   align-items: center;
   max-width: 65%;
   font-weight: bolder;
-  background-color:rgb(236, 233, 233);
+  background-color: #f5f5f5;
   padding: 20px;
   text-align:left;
   width: 100%; 
-  /* right: 100%; */
   height: 100%; 
+  border-radius: 5px;
 }
 
 .dataNews {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* font-size: 60px; */
+  font-family: "Codec Pro Regular";
   color: white;
   margin-top: auto;
   margin-bottom: auto;
@@ -64,26 +62,24 @@
   flex-direction: column;
   justify-content: center;
   font-weight: bold;
-  /* left: 100%; */
 }
 .dataNews .diaDataNews {
-  /* display: block; */
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .dataNews .mesDataNews {
-  /* display: block; */
-  font-size: 20px;
+  font-size: 25px;
 }
 
-.newsContainer:hover .tituloNews {
-  /* font-weight: 400; */
-  background-color: rgb(230, 221, 221);
+.newsContainer {
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
 }
 
 .newsContainer:hover {
-  background-color: rgb(230, 230, 230);
-  cursor: pointer;
+  border: 2px solid #004266;
 }
 
 @media (max-width: 1620px) {
@@ -101,6 +97,8 @@
 @media (max-width: 550px) {
   .socialMediaContainer {
     margin-bottom: 20%;
+    margin-left: auto;
+    margin-right: auto;
     width: 350px;
   }
 

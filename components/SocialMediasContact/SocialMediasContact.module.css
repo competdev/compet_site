@@ -11,14 +11,14 @@
 .socialMedia {
   display: inline-block;
   margin: 20px;
-}
-
-.socialMedia:hover {
-  transform: scale(1.05);
   transition: all 200ms ease-in-out;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
+}
+
+.socialMedia:hover {
+  transform: scale(1.05);
 }
 
 .socialMedia img {

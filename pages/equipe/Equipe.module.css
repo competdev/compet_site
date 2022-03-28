@@ -114,7 +114,6 @@
 
 .loadMore:hover .line {
   -webkit-transform: scaleX(0.5);
-  transition: all 1s linear, all 1s;
 }
 
 .line {
@@ -125,20 +124,28 @@
   border-radius: 90px;
   border: 4px solid #19dd39;
   margin-bottom: 50px;
+  transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
 }
 
 .loadMore:hover .lineRecolher {
   -webkit-transform: scaleX(0.5);
-  transition: all 1s linear, all 1s;
 }
 
 .lineRecolher {
+  background-color: #004266;
   margin-top: -1px;
   text-align: center;
   width: 100%;
   border-radius: 90px;
   border: 4px solid #004266;
   margin-bottom: 50px;
+  transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
 }
 
 @media (max-width: 1300px) {

@@ -18,7 +18,7 @@
   line-height: 30px;
   margin-bottom: 30px;
   background-color: #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 0px solid #ffffff;
   border-radius: 20px;
   box-shadow: 1px 1px 6px #00000011; 
   text-align: center;
@@ -26,9 +26,17 @@
 
 .searchIcon img {
   margin-top: 7px;
-  height: 29px;
-  width: 38px;
-  margin-right: 10px;
+  height: 30px;
+  width: 39px;
+  margin-right: 5px;
+  transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
+}
+
+.searchIcon:hover img {
+  transform: rotate(75deg) scale(1.2);;
 }
 
 

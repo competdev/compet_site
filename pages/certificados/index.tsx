@@ -146,7 +146,7 @@ export default function Certificados({ dados }) {
       <Header />
       <PageHeader url={header_img_url} caption={false} />
       <div className={styles.searchContainer}>
-        <SearchBox placeholder="Digite seu nome ou o nome do evento" setQuery={setQuery} />
+        <SearchBox placeholder="Pesquisar participante ou evento" setQuery={setQuery} />
       </div>
       {PaginatedItems((data.filter(certificateSearch)), classes)}
       <Footer />
