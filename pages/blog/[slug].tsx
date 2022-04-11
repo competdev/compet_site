@@ -1,0 +1,65 @@
+import axios from 'axios';
+import MarkdownIt from 'markdown-it';
+import styles from "./PostSlug.module.css";
+
+import Header from '../../components/Header'
+import Footer from '../../components/Footer';
+
+export default function PostPage({ post }){
+  const md = new MarkdownIt({
+    html: true,
+  });
+  const htmlContent = md.render(post.attributes.content);
+
+  return (
+    <div className={styles.content}>
+      <Header />
+      <div className={styles.post}>
+        <header>
+          <div className={styles.title}>{post.attributes.title}</div>
+          <div className={styles.description}>{post.attributes.description}</div>
+        </header>
+        <section dangerouslySetInnerHTML={{__html: htmlContent}}></section>
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
+export async function getStaticProps({ params }) {
+  let postId;
+  const postsRes = await axios.get("http://localhost:1337/api/posts");
+  const slugAndIds = postsRes.data.data.map(post => {
+    if(slugTitle(post.attributes.title) === params.slug){
+      postId = post.id;
+    }
+  });
+
+  const postRes = await axios.get("http://localhost:1337/api/posts/" + postId);
+
+  return {
+    props: {
+      post: postRes.data.data,
+    },
+  };  
+}
+
+export async function getStaticPaths() {
+  const postsRes = await axios.get("http://localhost:1337/api/posts");
+  const paths = postsRes.data.data.map(post => {
+    return {
+      params : {
+        slug: slugTitle(post.attributes.title),
+      }
+    }
+  });  
+
+  return {	
+    paths,
+    fallback: false,
+  }
+}
+
+function slugTitle(title){
+  return title.toLowerCase().replace(/ /g, "-").toString();
+}

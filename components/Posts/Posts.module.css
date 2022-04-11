@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+.post {
+  text-align: justify;
+  font-family: "Codec Pro Regular";
+}
+
+.postContent p {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+
+.postContent h2:hover {
+  color: #006699;
+  cursor: pointer;
+}

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+.content {
+  background-color: #f5f5f5;
+}
+
+.post {
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 9%;
+  padding-bottom: 3%;
+  overflow: hidden;
+}
+
+.title {
+  font-family: "Codec Pro Regular";
+  font-size: 52px;
+}
+
+.description {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+  text-align: justify;
+  margin-top: 20px;
+  font-style: italic;
+}
