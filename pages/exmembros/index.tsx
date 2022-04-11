@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { useState } from 'react'
 import styles from './ExMembros.module.css'
 
@@ -7,11 +8,15 @@ import PageHeader from '../../components/PageHeader'
 import SectionTitle from '../../components/SectionTitle'
 import MemberCard from '../../components/MembersCard'
 import Footer from '../../components/Footer'
+import Az from '../../components/OrderExmembros'
+import Za from '../../components/OrderExmembros'
 
 const socialNetworks = false;
 const vercelURL = "https://compet.vercel.app"
 const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
+
+const ativo = 0
 
 ExMembros.getInitialProps = async () => {
   const response = await axios.get(localURL + "/api/membros");
@@ -36,14 +41,14 @@ ExMembros.getInitialProps = async () => {
     if (lhs.nome != rhs.nome) return (lhs.nome < rhs.nome) ? 1 : -1;
     return 0;
   }
-
-  exMembros.sort(comp);
-  tutores.sort(comp);
+  exMembros.sort(Az);
+  tutores.sort(Az);
   return { dados: exMembros, tutores: tutores, totalExMembros: exMembros.length }
 };
 
 // Função principal exportando o html da pag.
 export default function ExMembros({ dados, tutores, totalExMembros }) {
+  
   let [membersPage, setMembersPage] = useState(8);
 
   return (
@@ -75,6 +80,8 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 
 const renderTutores = (tutores) => {
   const scrumMasterSection = "Ex-tutores"
+
+
   return (
     <div>
       <SectionTitle title={scrumMasterSection} />
