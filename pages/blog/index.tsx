@@ -23,7 +23,10 @@ export default function Blog({ posts }){
 }
 
 export async function getStaticProps(){
-  let postsRes = await axios.get("http://localhost:1337/api/posts");
+  let postsRes = await axios.get("http://localhost:1337/api/posts?populate=thumb");
+  postsRes.data.data.sort((a, b) => {
+    return Number(new Date(b.attributes.createdAt)) - Number(new Date(a.attributes.createdAt));
+  });
 
   return {
     props: {

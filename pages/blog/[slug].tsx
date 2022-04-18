@@ -15,11 +15,13 @@ export default function PostPage({ post }){
     <div className={styles.content}>
       <Header />
       <div className={styles.post}>
-        <header>
+        <header className={styles.header}>
           <div className={styles.title}>{post.attributes.title}</div>
           <div className={styles.description}>{post.attributes.description}</div>
+          <div className={styles.separator}></div>
+          <div className={styles.dateAndAuthor}> Postador por: <b>{post.attributes.author}</b> em <em>{post.attributes.date}</em></div>
         </header>
-        <section dangerouslySetInnerHTML={{__html: htmlContent}}></section>
+        <section className={styles.content} dangerouslySetInnerHTML={{__html: htmlContent}}></section>
       </div>
       <Footer />
     </div>

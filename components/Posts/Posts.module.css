@@ -8,9 +8,34 @@
   font-family: "Codec Pro Regular";
 }
 
-.postContent p {
+.postContent {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.postContent img {
+  border: 1px solid rgba(0, 0, 0, 0.487);
+  margin-right: 30px;
+  height: 300px;
+  width: 533px;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.postContent img:hover{
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+.description {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: small;
+}
+
+.dateAndAuthor {
+  font-size: 15px;
+  font-style: italic;
+  margin-top: -15px;
 }
 
 .postContent h2:hover {

@@ -8,12 +8,16 @@
 }
 
 .post {
-  width: 65%;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 9%;
   padding-bottom: 3%;
   overflow: hidden;
+}
+
+.header {
+  margin-bottom: 60px;
 }
 
 .title {
@@ -27,4 +31,21 @@
   text-align: justify;
   margin-top: 20px;
   font-style: italic;
+}
+
+.content {
+  text-align: justify;
+}
+
+.separator {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.dateAndAuthor {
+  font-family: "Codec Pro Regular";
+  font-size: 17px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
