@@ -5,6 +5,8 @@ import styles from "./PostSlug.module.css";
 import Header from '../../components/Header'
 import Footer from '../../components/Footer';
 
+const BLOG_API_URL = 'https://compet-blog.herokuapp.com/api/posts/';
+
 export default function PostPage({ post }){
   const md = new MarkdownIt({
     html: true,
@@ -30,14 +32,14 @@ export default function PostPage({ post }){
 
 export async function getStaticProps({ params }) {
   let postId;
-  const postsRes = await axios.get("http://localhost:1337/api/posts");
+  const postsRes = await axios.get(BLOG_API_URL);
   const slugAndIds = postsRes.data.data.map(post => {
     if(slugTitle(post.attributes.title) === params.slug){
       postId = post.id;
     }
   });
 
-  const postRes = await axios.get("http://localhost:1337/api/posts/" + postId);
+  const postRes = await axios.get(BLOG_API_URL + postId);
 
   return {
     props: {
@@ -47,7 +49,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const postsRes = await axios.get("http://localhost:1337/api/posts");
+  const postsRes = await axios.get(BLOG_API_URL);
   const paths = postsRes.data.data.map(post => {
     return {
       params : {

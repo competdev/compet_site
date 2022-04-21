@@ -6,6 +6,8 @@ import PageHeader from '../../components/PageHeader';
 import Posts from '../../components/Posts';
 import Footer from '../../components/Footer';
 
+const BLOG_API_URL = 'https://compet-blog.herokuapp.com/api/posts?populate=thumb';
+
 export default function Blog({ posts }){
   const header_img_url = "https://i.ibb.co/tDjGdZP/blog.png";
 
@@ -23,7 +25,7 @@ export default function Blog({ posts }){
 }
 
 export async function getStaticProps(){
-  let postsRes = await axios.get("http://localhost:1337/api/posts?populate=thumb");
+  let postsRes = await axios.get(BLOG_API_URL);
   postsRes.data.data.sort((a, b) => {
     return Number(new Date(b.attributes.createdAt)) - Number(new Date(a.attributes.createdAt));
   });

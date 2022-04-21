@@ -33,6 +33,7 @@ const render_links = () => {
   return (
     <ul className={styles.nav_list}>
       <li className = {styles.firstItem}><Link href="/certificados"><a className={styles.link}>Certificados</a></Link></li>
+      <li><Link href="/blog"><a className={styles.link}>Blog</a></Link></li>
       <li><Link href="/equipe"><a className={styles.link}>Equipe</a></Link></li>
       <li><Link href="/exmembros"><a className={styles.link}>Ex-membros</a></Link></li>
       <li><Link href="/sobre"><a className={styles.link}>Sobre</a></Link></li>
