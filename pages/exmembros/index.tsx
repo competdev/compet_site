@@ -80,10 +80,12 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 
 const renderTutores = (tutores) => {
   const scrumMasterSection = "Ex-tutores"
-
+  
 
   return (
+    
     <div>
+      <button onClick={this.Az()}>A-z</button>
       <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
