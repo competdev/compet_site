@@ -49,3 +49,91 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 1545px) {
+  .post {
+    padding-top: 12%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .post {
+    padding-top: 17%;
+  }
+}
+
+@media (max-width: 820px) {
+  .post {
+    padding-top: 22%;
+    width: 90%;
+  }
+
+  .description {
+    font-size: 22px;
+  }
+
+  .dateAndAuthor {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .post {
+    padding-top: 30%;
+  }
+}
+
+@media (max-width: 445px) {
+  .post {
+    padding-top: 36%;
+  }
+
+  .title {
+    font-size: 37px;
+    text-align: justify;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .dateAndAuthor {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 345px) {
+  .post {
+    padding-top: 40%;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .dateAndAuthor {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 315px) {
+  .post {
+    padding-top: 45%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .dateAndAuthor {
+    font-size: 13px;
+  }
+}

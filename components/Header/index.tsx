@@ -18,7 +18,7 @@ export default function Header() {
             <a><img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' /></a>
           </Link>
         </div>
-        {wSize().width > 1415 ? render_links() : (toggleMenu ? render_links() : <></>)}
+        {wSize().width > 1505 ? render_links() : (toggleMenu ? render_links() : <></>)}
         <div className={styles.mobile_menu} onClick={toggleNav}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
