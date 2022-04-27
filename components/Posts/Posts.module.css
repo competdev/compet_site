@@ -13,6 +13,13 @@
   margin-bottom: 50px;
 }
 
+.thumbnail {
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .postContent img {
   border: 1px solid rgba(0, 0, 0, 0.487);
   margin-right: 30px;
@@ -42,3 +49,61 @@
   color: #006699;
   cursor: pointer;
 }
+
+@media (max-width: 1345px){
+  .postContent img {
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media (max-width: 1100px) {
+  .postContent {
+    display: block
+  }
+
+  .contentBlock {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .postContent img {
+    width: 550px;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .contentBlock {
+    width: 90%;
+  }
+}
+
+@media (max-width: 630px) {
+  .postContent img {
+    height: 33%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 280px){
+  .description {
+    font-size: 15px;
+  }
+
+  .postContent h2 {
+    font-size: 20px;
+  }
+
+  .contentBlock {
+    width: 100%;
+  }
+
+  .dateAndAuthor {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+
+

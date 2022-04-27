@@ -75,7 +75,7 @@
   }
 }
 
-@media (max-width:425px) {
+@media (max-width: 500px) {
   .pageHeader img {
     width: 90%;
     height: 90%;

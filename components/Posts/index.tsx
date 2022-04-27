@@ -8,13 +8,12 @@ export default function Posts({posts}){
     <div className={styles.post}>
       {posts.map(post => ( slug = slugTitle(post.attributes.title),
         <div className={styles.postContent} key={post.id}>
-          {console.log(post.attributes.thumb)}
           <div className={styles.thumbnail}>
             <Link href="/blog/[slug]" as={`/blog/${slug}`}>
               <img src={apiURL + post.attributes.thumb.data.attributes.url} alt={post.attributes.title} />
             </Link>
           </div>
-          <div>
+          <div className={styles.contentBlock}>
             <Link href="/blog/[slug]" as={`/blog/${slug}`}>
               <h2>{post.attributes.title}</h2>
             </Link>

@@ -14,3 +14,21 @@
   border-radius: 10px;
   margin-bottom: 60px;
 }
+
+@media (max-width: 1735px){
+  .blogContent {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1345px){
+  .blogContent {
+    width: 97%;
+  }
+}
+
+@media (max-width: 500px){
+  .blogContent {
+    width: 100%;
+  }
+}
