@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { useState } from 'react'
 import styles from './ExMembros.module.css'
 
@@ -8,15 +7,11 @@ import PageHeader from '../../components/PageHeader'
 import SectionTitle from '../../components/SectionTitle'
 import MemberCard from '../../components/MembersCard'
 import Footer from '../../components/Footer'
-import Az from '../../components/OrderExmembros'
-import Za from '../../components/OrderExmembros'
 
 const socialNetworks = false;
 const vercelURL = "https://compet.vercel.app"
 const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
-
-const ativo = 0
 
 ExMembros.getInitialProps = async () => {
   const response = await axios.get(localURL + "/api/membros");
@@ -41,8 +36,7 @@ ExMembros.getInitialProps = async () => {
     if (lhs.nome != rhs.nome) return (lhs.nome < rhs.nome) ? 1 : -1;
     return 0;
   }
-  exMembros.sort(Az);
-  tutores.sort(Az);
+
   return { dados: exMembros, tutores: tutores, totalExMembros: exMembros.length }
 };
 
@@ -79,13 +73,28 @@ const renderBodyPage = (dados, tutores, membersPage) => {
 }
 
 const renderTutores = (tutores) => {
-  const scrumMasterSection = "Ex-tutores"
-  
+  const scrumMasterSection = "Ex-tutores";
+  // Criar variavel de estado e alternar estado dela entre A-Z e Z-A
+  let [sort, setSort] = useState(false);
+  let [sortType, setSortType] = useState("A - z");
+
+  function sortFunction(){
+    // Se o estado for false, ordenar A-Z, se for true, ordenar Z-A
+    setSort(!sort);
+    setSortType(!sort ? "Z - a" : "A - z");
+
+    if(sort){
+      tutores.sort();
+      console.log("A-z", tutores);
+    }else{
+      tutores.sort().reverse();
+      console.log("Z-a", tutores);
+    }
+  }
 
   return (
-    
     <div>
-      <button onClick={this.Az()}>A-z</button>
+      <button onClick={() => {sortFunction()}}>Ordenar por nome: <b>{sortType}</b></button>
       <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
