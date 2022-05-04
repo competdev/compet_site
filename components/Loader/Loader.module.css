@@ -1,0 +1,16 @@
+.loaderContainer {
+  z-index: 999999999;
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.578);
+}
+
+.loaderContainer img {
+  top: 9999999;
+  display: inline-block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}

@@ -10,7 +10,7 @@
 
 .menu_body {
   width: 100%;
-  z-index: 99000;
+  z-index: 1;
   position: fixed;
   top: 0;
 }
