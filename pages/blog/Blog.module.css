@@ -15,6 +15,14 @@
   margin-bottom: 60px;
 }
 
+.searchContainer {
+  margin-top: -60px;
+  display:flex;
+  justify-content: right;
+  margin-right: 5%;
+}
+
+
 @media (max-width: 1735px){
   .blogContent {
     width: 90%;
