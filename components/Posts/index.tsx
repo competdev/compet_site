@@ -10,7 +10,7 @@ export default function Posts({posts}){
         <div className={styles.postContent} key={post.id}>
           <div className={styles.thumbnail}>
             <Link href="/blog/[slug]" as={`/blog/${slug}`}>
-              <img src={apiURL + post.attributes.thumb.data.attributes.url} alt={post.attributes.title} />
+              <img src={post.attributes.thumb_url} alt={post.attributes.title} />
             </Link>
           </div>
           <div className={styles.contentBlock}>
