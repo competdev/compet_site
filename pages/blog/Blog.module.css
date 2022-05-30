@@ -35,6 +35,14 @@
   }
 }
 
+@media (max-width: 768px){
+  .searchContainer {
+    margin-top: -30px;
+    display:flex;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 500px){
   .blogContent {
     width: 100%;
