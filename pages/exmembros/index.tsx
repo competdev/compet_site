@@ -1,119 +1,158 @@
-import axios from 'axios';
-import { useState } from 'react'
-import styles from './ExMembros.module.css'
-
-import Header from '../../components/Header'
-import PageHeader from '../../components/PageHeader'
-import SectionTitle from '../../components/SectionTitle'
-import MemberCard from '../../components/MembersCard'
-import Footer from '../../components/Footer'
+import axios from "axios";
+import { useEffect, useReducer, useState } from "react";
+import { sortReducer } from "../../reducers/sortReducer";
+import { SortOrder } from "../../types/types";
+import styles from "./ExMembros.module.css";
+import Header from "../../components/Header";
+import PageHeader from "../../components/PageHeader";
+import SectionTitle from "../../components/SectionTitle";
+import MemberCard from "../../components/MembersCard";
+import Footer from "../../components/Footer";
 
 const socialNetworks = false;
-const vercelURL = "https://compet.vercel.app"
-const localURL = "http://localhost:3000"
-const cefetURL = "http://compet.decom.cefetmg.br"
+const vercelURL = "https://compet.vercel.app";
+const localURL = "http://localhost:3000";
+const cefetURL = "http://compet.decom.cefetmg.br";
 
 ExMembros.getInitialProps = async () => {
   const response = await axios.get(localURL + "/api/membros");
 
-  const exMembros = response.data.filter(data => {
-    return (data.membro_ativo == false && data.tutor == false);
+  const exMembros = response.data.filter((data) => {
+    return data.membro_ativo == false && data.tutor == false;
   });
 
-  const tutores = response.data.filter(data => {
-    return (data.membro_ativo == false && data.tutor == true);
-  })
+  const tutores = response.data.filter((data) => {
+    return data.membro_ativo == false && data.tutor == true;
+  });
 
-  const comp = (lhs, rhs) => {
-    const lhsAnoFim = (new Date(lhs.data_fim)).getFullYear();
-    const rhsAnoFim = (new Date(rhs.data_fim)).getFullYear();
-    if (lhsAnoFim != rhsAnoFim) return (lhsAnoFim < rhsAnoFim) ? 1 : -1;
-
-    const lhsAnoInicio = (new Date(lhs.data_inicio)).getFullYear();
-    const rhsAnoInicio = (new Date(rhs.data_inicio)).getFullYear();
-    if (lhsAnoInicio != rhsAnoInicio) return (lhsAnoInicio < rhsAnoInicio) ? 1 : -1;
-
-    if (lhs.nome != rhs.nome) return (lhs.nome < rhs.nome) ? 1 : -1;
-    return 0;
-  }
-
-  exMembros.sort(comp);
-  tutores.sort(comp);
-  return { dados: exMembros, tutores: tutores, totalExMembros: exMembros.length }
+  return {
+    dados: exMembros,
+    tutores: tutores,
+    totalExMembros: exMembros.length,
+  };
 };
 
 // Função principal exportando o html da pag.
 export default function ExMembros({ dados, tutores, totalExMembros }) {
-  let [membersPage, setMembersPage] = useState(8);
+  const [membersPage, setMembersPage] = useState(8);
+  const [tutoresState, dispatchTutores] = useReducer(sortReducer, tutores);
+  const [exMembrosState, dispatchExMembros] = useReducer(sortReducer, dados);
+
+  const [sortType, setSortType] = useState(SortOrder.DATE_DESC);
+  function handleSelect(event) {
+    setSortType(event.target.value);
+  }
+
+  useEffect(() => {
+    switch (sortType) {
+      case SortOrder.NAME_ASC:
+        dispatchTutores({ type: SortOrder.NAME_ASC });
+        dispatchExMembros({ type: SortOrder.NAME_ASC });
+        break;
+      case SortOrder.NAME_DESC:
+        dispatchTutores({ type: SortOrder.NAME_DESC });
+        dispatchExMembros({ type: SortOrder.NAME_DESC });
+        break;
+      case SortOrder.DATE_ASC:
+        dispatchTutores({ type: SortOrder.DATE_ASC });
+        dispatchExMembros({ type: SortOrder.DATE_ASC });
+        break;
+      case SortOrder.DATE_DESC:
+        dispatchTutores({ type: SortOrder.DATE_DESC });
+        dispatchExMembros({ type: SortOrder.DATE_DESC });
+        break;
+    }
+  }, [sortType]);
 
   return (
     <div className={styles.groupDiv}>
       <title>COMPET | Ex-membros</title>
       <Header />
-      <PageHeader url={'https://i.ibb.co/1TV1hgd/exmembros.png'} caption={true} />
-      {renderBodyPage(dados, tutores, membersPage)}
+      <PageHeader
+        url={"https://i.ibb.co/1TV1hgd/exmembros.png"}
+        caption={true}
+        sortType={sortType}
+        handleSelect={handleSelect}
+      />
+      {renderBodyPage(exMembrosState, tutoresState, membersPage)}
       {renderVerMais(membersPage, setMembersPage, totalExMembros)}
       <Footer />
-    </div >
-  )
+    </div>
+  );
 }
 
-const renderBodyPage = (dados, tutores, membersPage) => {
-  const scrumMasterSection = "Ex-membros"
+const renderBodyPage = (exMembrosState, tutoresState, membersPage) => {
+  const scrumMasterSection = "Ex-membros";
+
   return (
-    <div>
-      {renderTutores(tutores)}
+    <main>
+      {renderTutores(tutoresState)}
       <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
-          {renderMemberArea(dados, membersPage)}
+          {renderMemberArea(exMembrosState, membersPage)}
         </div>
       </div>
-    </div>
-  )
-}
+    </main>
+  );
+};
 
-const renderTutores = (tutores) => {
-  const scrumMasterSection = "Ex-tutores"
+const renderTutores = (tutoresState) => {
+  const scrumMasterSection = "Ex-tutores";
+
   return (
-    <div>
+    <>
       <SectionTitle title={scrumMasterSection} />
       <div className={styles.bodyGroup}>
         <div className={styles.containerMembers}>
           <div className={styles.membersAreaTutor}>
-            <MemberCard dados={tutores} membersPage={tutores.length} socialNetworks={socialNetworks} />
+            {tutoresState && (
+              <MemberCard
+                dados={tutoresState}
+                membersPage={tutoresState.length}
+                socialNetworks={socialNetworks}
+              />
+            )}
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-const renderMemberArea = (dados, membersPage) => {
+const renderMemberArea = (exMembrosState, membersPage) => {
   return (
-    <div>
-      <div className={styles.membersArea}>
-        <MemberCard dados={dados} membersPage={membersPage} socialNetworks={socialNetworks} />
-      </div>
+    <div className={styles.membersArea}>
+      {exMembrosState && (
+        <MemberCard
+          dados={exMembrosState}
+          membersPage={membersPage}
+          socialNetworks={socialNetworks}
+        />
+      )}
     </div>
-  )
-}
+  );
+};
 
 const renderVerMais = (membersPage, setMembersPage, totalExMembros) => {
   return (
-    <div>
-      <div className={styles.loadArea}>
-        {membersPage < totalExMembros ?
-          <div onClick={() => setMembersPage(membersPage + 8)}
-            className={styles.loadMore}>
-            <strong>Ver mais<hr className={styles.line}></hr></strong>
-          </div>
-          :
-          <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
-            <strong>Recolher<hr className={styles.lineRecolher}></hr></strong>
-          </div>
-        }
-      </div>
+    <div className={styles.loadArea}>
+      {membersPage < totalExMembros ? (
+        <div
+          onClick={() => setMembersPage(membersPage + 8)}
+          className={styles.loadMore}
+        >
+          <strong>
+            Ver mais<hr className={styles.line}></hr>
+          </strong>
+        </div>
+      ) : (
+        <div onClick={() => setMembersPage(8)} className={styles.loadMore}>
+          <strong>
+            Recolher<hr className={styles.lineRecolher}></hr>
+          </strong>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};

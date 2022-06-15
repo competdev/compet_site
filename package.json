@@ -9,15 +9,15 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
+    "fast-sort": "^3.2.0",
     "instagram-feed-embed": "^1.0.1",
     "leaflet": "^1.7.1",
     "markdown-it": "^12.3.2",
     "mongoose": "^5.13.2",
-    "next": "^11.0.0",
+    "next": "^11.1.4",
     "nodemailer": "^6.7.2",
     "react": "17.0.2",
     "react-device-detect": "^2.1.2",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/leaflet": "^1.7.6",
     "@types/react": "17.0.11",
+    "prettier": "^2.6.2",
     "typescript": "4.3.4"
   }
 }
