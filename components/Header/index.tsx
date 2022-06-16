@@ -11,8 +11,7 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.menu_body}>
-      <div className={styles.nav}>
+    <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link href='/'>
             <a><img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' /></a>
@@ -24,15 +23,15 @@ export default function Header() {
           <div className={styles.line}></div>
           <div className={styles.line}></div>
         </div>
-      </div>
-    </div>
+      
+    </nav>
   );
 }
 
 const render_links = () => {
   return (
     <ul className={styles.nav_list}>
-      <li className = {styles.firstItem}><Link href="/certificados"><a className={styles.link}>Certificados</a></Link></li>
+      <li><Link href="/certificados"><a className={styles.link}>Certificados</a></Link></li>
       <li><Link href="/blog"><a className={styles.link}>Blog</a></Link></li>
       <li><Link href="/equipe"><a className={styles.link}>Equipe</a></Link></li>
       <li><Link href="/exmembros"><a className={styles.link}>Ex-membros</a></Link></li>
