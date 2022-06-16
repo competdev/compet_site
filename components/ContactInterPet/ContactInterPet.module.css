@@ -7,17 +7,7 @@
   font-family: "Verdana";
   src: url("../../styles/fonts/Verdana.ttf");
 }
-ul.contact{
-  list-style: none;
-  display: flex;
-  
-  align-items: flex-start;
-}ul.contact>li{
-  margin: 0px 20px;
-}
-ul.contact a:hover{
-  color: #19DD39;
-}
+
 .container {
   margin-top: 90px;
 }
