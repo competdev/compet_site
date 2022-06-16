@@ -85,7 +85,7 @@ transition: all 300ms ease-in-out;
   transform: scale(1.2);
 }
 
-.adressCEFET {
+.addressCEFET {
   text-align: center;
   font-size: 15px;
   margin-top: 10px;
@@ -224,7 +224,7 @@ transition: all 300ms ease-in-out;
     min-width: 100%;
   }
 
-  .adressCEFET {
+  .addressCEFET {
     margin-top: 10px;
     max-width: 80%;
   }
@@ -276,7 +276,7 @@ transition: all 300ms ease-in-out;
     font-size: 8px;
   }
 
-  .adressCEFET {
+  .addressCEFET {
     font-size: 10px;
     max-width: 180px;
   }
