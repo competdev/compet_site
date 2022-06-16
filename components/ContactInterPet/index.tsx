@@ -6,23 +6,28 @@ import SectionTitle from '../SectionTitle';
 export default function ContactInterPet() {
     const sectionTitle = "Contato"
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <SectionTitle title={sectionTitle} />
             <div className={styles.card}>
                 <div className={styles.title}>DIRGRAD</div>
                 <div className={styles.cardContent}>
                     <div className={styles.containerContato}>{renderContato()}</div>
                     <div className={styles.addressCEFET}>
-                        <p className={styles.addressText}>
+                        <address className={styles.addressText}>
                             Campus Nova Suíça - Avenida Amazonas, Nº 5253 - Bairro Nova Suíça
-                        </p>
-                        <p className={styles.addressEmail}>
-                            <a href="mailto:dirgrad@cefetmg.br"> dirgrad@cefetmg.br</a> - (31) 3319-7033
-                        </p>
+                        </address>
+                        <ul className={styles.contact}>
+                            <li>    
+                                <p> Email :<a href="mailto:dirgrad@cefetmg.br"> dirgrad@cefetmg.br</a></p>
+                            </li>
+                            <li>
+                                <p>Telefone :<a href="tel:+553133197033"> (31) 3319-7033</a></p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     )
 }
