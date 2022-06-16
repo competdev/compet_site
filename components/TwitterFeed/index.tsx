@@ -4,9 +4,9 @@ import styles from '../../styles/IndexFeeds.module.css'
 import SectionTitle from '../SectionTitle'
 
 const TwitterFeed: React.FC = () => (
-    <div>
+    <section id="Twitter-feed">
         <SectionTitle title={'Twitter'} />
-        <div className={styles.socialMediaContainer}>
+        <article className={styles.socialMediaContainer}>
             <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="compet_cefet"
@@ -14,8 +14,8 @@ const TwitterFeed: React.FC = () => (
                 noFooter
                 options={{ width: 480, height: 480 }}
             />
-        </div>
-    </div >
+        </article>
+    </section >
 )
 
 export default TwitterFeed
