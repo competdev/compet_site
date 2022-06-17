@@ -13,7 +13,14 @@
   width: 100%;
   margin-bottom: 70px;
 }
-
+.aboutLink{
+  color:#004266;
+  font-size: 1.5em;
+}
+.aboutLink>a:hover{
+  text-decoration: underline;
+  color: white;
+}
 .aboutcard {
   justify-content: center;
   margin-top: 30px;
@@ -82,7 +89,7 @@
   .text {
     margin-top: 20px;
   }
-
+  
 }
 
 @media (max-height: 800px) {
