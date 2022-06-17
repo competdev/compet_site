@@ -16,10 +16,9 @@
 
 .aboutcard {
   justify-content: center;
-  margin-top: -30px;
+  margin-top: 30px;
   width: 100%;
   display: inline-flex;
-  margin-top: 0px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 5px #00000033;
 }
