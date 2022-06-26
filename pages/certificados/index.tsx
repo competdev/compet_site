@@ -144,7 +144,7 @@ export default function Certificados({ dados }) {
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>
       <Header />
-      <PageHeader url={header_img_url} caption={false} />
+      <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <div className={styles.searchContainer}>
         <SearchBox placeholder="Pesquisar participante ou evento" setQuery={setQuery} />
       </div>
