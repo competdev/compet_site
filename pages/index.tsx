@@ -13,11 +13,12 @@ import Footer from "../components/Footer";
 const vercelURL = "https://compet.vercel.app"
 const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
+const HOST_URL = process.env.HOST_URL;
 
 Index.getInitialProps = async () => {
-  const newsResponse = await axios.get(localURL + "/api/news");
-  const slideResponse = await axios.get(localURL + "/api/slideShow");
-  const partnersResponse = await axios.get(localURL + "/api/parceiros")
+  const newsResponse = await axios.get(HOST_URL + "/api/news");
+  const slideResponse = await axios.get(HOST_URL + "/api/slideShow");
+  const partnersResponse = await axios.get(HOST_URL + "/api/parceiros")
   return { dados: newsResponse.data, dadosSlide: slideResponse.data, dadosParceiros: partnersResponse.data }
 }
 
