@@ -15,9 +15,9 @@ const localURL = "http://localhost:3000"
 const cefetURL = "http://compet.decom.cefetmg.br"
 
 Index.getInitialProps = async () => {
-  const newsResponse = await axios.get(vercelURL + "/api/news");
-  const slideResponse = await axios.get(vercelURL + "/api/slideShow");
-  const partnersResponse = await axios.get(vercelURL + "/api/parceiros")
+  const newsResponse = await axios.get(localURL + "/api/news");
+  const slideResponse = await axios.get(localURL + "/api/slideShow");
+  const partnersResponse = await axios.get(localURL + "/api/parceiros")
   return { dados: newsResponse.data, dadosSlide: slideResponse.data, dadosParceiros: partnersResponse.data }
 }
 

@@ -90,7 +90,7 @@
   transform: rotate(180deg);
 }
 
-@media (max-width: 1415px) {
+@media (max-width: 1505px) {
   .mobile_menu {
     display: block;
     margin-right: 7%;
