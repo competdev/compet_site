@@ -81,7 +81,7 @@ export default function Blog({ posts }){
       <div className={styles.page}>
       <title>COMPET | Blog</title>
       <Header />
-      <PageHeader url={header_img_url} caption={false} />
+      <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <div className={styles.searchContainer}>
         <SearchBox placeholder="Pesquisar postagens" setQuery={setQuery} />
       </div>
