@@ -496,6 +496,6 @@ export default function CustomizedTimeline() {
 const renderPageHeader = () => {
   const header_img_url = "https://i.ibb.co/3dyKHJ3/sobre.png"
   return (
-    <PageHeader url={header_img_url} caption={false} />
+    <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
   )
 }

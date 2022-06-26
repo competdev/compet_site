@@ -96,7 +96,7 @@ export default function Contato() {
     <div className={styles.pageBody}>
       <title>COMPET | Contato</title>
       <Header />
-      <PageHeader url={header_img_url} caption={false} />
+      <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <SectionTitle title={sectionTitle} />
       <SectionInfo info={sectionInfo}/>
       <Modal

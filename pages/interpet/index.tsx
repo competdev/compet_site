@@ -24,7 +24,7 @@ export default function InterPet({ dados }) {
     <div className={styles.content}>
       <title>COMPET | InterPet</title>
       <Header />
-      <PageHeader url={header_img_url} caption={false} />
+      <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <AboutCard />
       <CurrEdition dados={dados} />
       <PastEditions elements={dados} />
