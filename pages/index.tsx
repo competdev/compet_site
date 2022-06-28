@@ -16,9 +16,9 @@ const cefetURL = "http://compet.decom.cefetmg.br"
 const HOST_URL = process.env.HOST_URL;
 
 Index.getInitialProps = async () => {
-  const newsResponse = await axios.get(HOST_URL + "/api/news");
-  const slideResponse = await axios.get(HOST_URL + "/api/slideShow");
-  const partnersResponse = await axios.get(HOST_URL + "/api/parceiros")
+  const newsResponse = await axios.get(vercelURL + "/api/news");
+  const slideResponse = await axios.get(vercelURL + "/api/slideShow");
+  const partnersResponse = await axios.get(vercelURL + "/api/parceiros")
   return { dados: newsResponse.data, dadosSlide: slideResponse.data, dadosParceiros: partnersResponse.data }
 }
 
