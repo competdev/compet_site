@@ -41,6 +41,7 @@ export default function Feedei() {
             <a href={item?.permalink} target="_blank">
               <PostContent {...item}></PostContent>
             </a>
+            <hr/>
           </div>
         );
       })}

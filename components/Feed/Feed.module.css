@@ -3,14 +3,28 @@
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: auto;
-    margin: auto;
     max-height: 480px;
     max-width: 465px;
     min-width: 320px;
     height: 480px;
-    background-color:rgb(250,250,250);
     border-radius: 3%;
 }
+.feed_Container::-webkit-scrollbar {
+  width: 20px;
+  padding: 20px;
+}
+
+.feed_Container::-webkit-scrollbar-track {
+  background: #e6e6e6;
+}
+
+.feed_Container::-webkit-scrollbar-thumb {
+  background-color: #004266;
+  border: none;
+  border-radius: 10px;
+  height:40px;
+}
+
 .link,.link:visited{
     color: black;
 }

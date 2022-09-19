@@ -10,11 +10,11 @@ export default function AboutCOMPET() {
 
 const renderSobre = () => {
   return (
-    <section id="about">
+    <section id="about" className={styles.about}>
       <SectionTitle title={"Sobre nós"}/>
       <div className={styles.aboutcard}>
         <div className={styles.img_InterPet}>
-          <img src="https://i.ibb.co/HFHt1Kq/0006.png" alt="" />
+          <img src="https://i.ibb.co/HFHt1Kq/0006.png" alt="" className={styles.sexo}/>
         </div>
         <article className={styles.sobreInfo}>
           <p className={styles.text}>O PET da Engenharia de Computação do CEFETMG, COMPET, tem como objetivo

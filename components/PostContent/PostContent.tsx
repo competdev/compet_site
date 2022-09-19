@@ -9,6 +9,7 @@ interface IPropsPostContent {
   timestamp: string;
 }
 function PostContent(props: IPropsPostContent) {
+  const date = new Date(props.timestamp).toLocaleDateString();
   return (
     <div className={styles.post_Container}>
       <div className={styles.post_Media}>
@@ -42,7 +43,7 @@ function PostContent(props: IPropsPostContent) {
         </p>
       </div>
       <div className={styles.date}>
-        <p>{props.timestamp}</p>
+        <p>{date}</p>
       </div>
     </div>
   );

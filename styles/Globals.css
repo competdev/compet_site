@@ -22,11 +22,11 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
   background: #e6e6e6;
 }
-
-.insta{
-  margin-top: 2em;
-}
 body::-webkit-scrollbar-thumb {
   background-color: #004266;
   border-radius: 10px; 
+}
+hr{
+  color: #f5f5f5;
+
 }
