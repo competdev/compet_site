@@ -1,6 +1,5 @@
 import PostHeader from "./PostHeader/PostHeader";
 import styles from "./Feed.module.css";
-import profile from "../../public/logo.png";
 import PostContent from "../PostContent/PostContent";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -29,9 +28,9 @@ export default function Feedei() {
   }, []);
   return (
     <div className={styles.feed_Container}>
-      {IfeedList?.map((item) => {
+      {IfeedList?.map((item,key) => {
         return (
-          <div>
+          <div key = {key}>
             <a href="https://instagram.com/compet.cefet" target="_blank" className={styles.link}>
               <PostHeader
                 src={"https://i.ibb.co/PY1byp5/Logo-2021-Fundo-Branco-sem-texto.png"}
@@ -39,7 +38,7 @@ export default function Feedei() {
                 profileName={item?.username}
               ></PostHeader>
             </a>
-            <a key={item?.id} href={item?.permalink} target="_blank">
+            <a href={item?.permalink} target="_blank">
               <PostContent {...item}></PostContent>
             </a>
           </div>
