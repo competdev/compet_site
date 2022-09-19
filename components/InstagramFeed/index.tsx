@@ -1,4 +1,4 @@
-import Feed from "instagram-feed-embed";
+import Feed from "../Feed/Feedei";
 import styles from '../../styles/IndexFeeds.module.css'
 
 import SectionTitle from '../SectionTitle';
@@ -10,10 +10,6 @@ export default function igFeed() {
       <SectionTitle title={sectionTitle} />
       <article className={styles.socialMediaContainer}>
         <Feed
-          userName="compet.cefet"
-          limit={5}
-          width="465"
-          maxContainerHeight="480"
         />
       </article>
     </section>

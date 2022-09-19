@@ -1,0 +1,21 @@
+.header_Container{
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 2em;
+}
+.profile_Picture{
+width: 32px;
+height: 32px;
+border-radius: 100%;
+background-color: white;
+display: flex;
+justify-content: center;
+align-content: center;
+}
+.profile_Name{
+    margin-left: .4em;
+}
+.profile_Name :hover{
+    color: rgba(19, 19, 19, 0.849);
+}

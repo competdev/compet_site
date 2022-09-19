@@ -1,0 +1,62 @@
+.post_Container {
+  display: flex;
+  flex-direction: column;
+}
+.post_Container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.post_Media {
+  margin-bottom: 2em;
+  display: flex;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  padding-left: 0.4em;
+}
+.like:hover {
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg)
+    brightness(119%) contrast(119%);
+}
+.chat {
+  width: 48px;
+  height: 48px;
+  padding-left: 0.4em;
+}
+.save {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 0.4em;
+}
+.post_Interactions {
+  margin-bottom: 0.6em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.caption p {
+  padding: 0;
+  display: flexbox;
+  text-align: start;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height:4em;
+}
+.date p {
+  font-size: small;
+  color: rgb(105, 105, 105);
+  text-align: start;
+  padding: 0;
+  margin: 0;
+  max-width: 15ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
