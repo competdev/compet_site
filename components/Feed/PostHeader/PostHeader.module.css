@@ -2,9 +2,9 @@
     display:flex;
     justify-content: start;
     align-items: center;
-    margin-top: 2em;
 }
 .profile_Picture{
+margin-left: 1em;
 width: 32px;
 height: 32px;
 border-radius: 100%;
@@ -12,6 +12,9 @@ background-color: white;
 display: flex;
 justify-content: center;
 align-content: center;
+}
+.profile_Picture:hover{
+    background-color: #e1e1e1;
 }
 .profile_Name{
     margin-left: .4em;

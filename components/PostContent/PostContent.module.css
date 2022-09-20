@@ -14,7 +14,6 @@
 .icon {
   width: 32px;
   height: 32px;
-  padding-left: 0.4em;
 }
 .like:hover {
   filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg)
@@ -35,27 +34,29 @@
 }
 .post_Interactions {
   margin-bottom: 0.6em;
+  margin-left: 1em;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .caption p {
-  padding: 0;
   display: flexbox;
   text-align: start;
   margin: 0;
+  margin-left: 1em;
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   height:4em;
 }
 .date p {
+  margin: 0;
+  padding: 0;
   font-size: small;
   color: rgb(105, 105, 105);
   text-align: start;
-  padding: 0;
-  margin: 0;
   margin-top: .6em;
+  margin-left: 1em;
   max-width: 15ch;
   overflow: hidden;
   text-overflow: ellipsis;

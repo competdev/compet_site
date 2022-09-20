@@ -30,7 +30,7 @@ export default function Feedei() {
     <div className={styles.feed_Container}>
       {IfeedList?.map((item,key) => {
         return (
-          <div key = {key}>
+          <div key = {key} className={styles.feed_Item}>
             <a href="https://instagram.com/compet.cefet" target="_blank" className={styles.link}>
               <PostHeader
                 src={"https://i.ibb.co/PY1byp5/Logo-2021-Fundo-Branco-sem-texto.png"}
@@ -41,7 +41,6 @@ export default function Feedei() {
             <a href={item?.permalink} target="_blank">
               <PostContent {...item}></PostContent>
             </a>
-            <hr/>
           </div>
         );
       })}
