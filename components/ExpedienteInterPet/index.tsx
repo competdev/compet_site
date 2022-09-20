@@ -1,63 +1,32 @@
 import styles from "./ExpedienteInterPet.module.css";
 
-import SectionTitle from "../SectionTitle";
-
 export default function ExpedienteInterPet() {
-  const sectionTitle = "Expediente";
   return (
-    <>
-      <SectionTitle title={sectionTitle} />
-      <div className={styles.sobre}>
-        <div className={styles.img_InterPet}></div>
-        {renderExpediente()}
-      </div>
-    </>
-  );
-}
-
-const renderExpediente = () => {
-  return (
-    <div className={styles.aboutcard}>
-      <div className={styles.sobreInfo}>
-        <strong>CORPO EDITORIAL</strong>
-        <br />
-        <br />
-        <strong>Editor Chefe</strong>
-        <br />
-        Sandro Renato Dias
-        <br />
-        <br />
-        <strong>Editor Adjunto</strong>
-        <br />
-        Joana Ancila Pessoa Forte Avelino
-        <br />
-        <br />
-        <strong>Conselho Editorial</strong>
-        <br /> Hermes Augusto Oliveira Rabelo
-        <br /> André Rodrigues da Cruz
-        <br /> Joana Ancila Pessoa Forte Avelino
-        <br /> Sandro Renato Dias
-        <br /> Mayk Jonhon de Carvalho Souza
-        <br />
-        <br />
-        <strong>DIAGRAMAÇÃO</strong>
-        <br /> Joana Ancila Pessoa Forte Avelino
-        <br />
+    <div className={styles.aboutCard}>
+      <div className={styles.sidePanel}>
+        <img src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png" width={300}/>
       </div>
       <div className={styles.sobreInfo}>
-        <p>
-          <strong>Periodicidade:</strong> ANUAL
-        </p>
-        <p>
-          <strong>Autor Corporativo: </strong> CEFET MG
-        </p>
-        <div style={{ fontSize: 15, color: "gray" }}>
-          <p>Campus I</p>
-          <p>
-            Av. Amazonas, 5.253, Bairro Nova Suíça, Belo Horizonte/MG, CEP:
-            30.421-169
-          </p>
-          <p>Tel. (31) 3319-7000</p>
+        <h1 className={styles.title}>Expediente</h1>
+        <div className={styles.content}>
+          <div>
+            <strong className={styles.header}>Conselho Editorial</strong>
+            <p>Hermes Augusto Oliveira Rabelo</p>
+            <p>André Rodrigues da Cruz</p>
+            <p>Joana Ancila Pessoa Forte Avelino</p>
+            <p>Sandro Renato Dias</p>
+            <p>Mayk Jonhon de Carvalho Souza</p>
+            <strong className={styles.header}>Autor Corporativo</strong>
+            <p>CEFET MG</p>
+          </div>
+          <div>
+            <strong className={styles.header}>Editor Adjunto</strong>
+            <p>Joana Ancila Pessoa Forte Avelino</p>
+            <strong className={styles.header}>Diagramação</strong>
+            <p>Joana Ancila Pessoa Forte Avelino</p>
+            <strong className={styles.header}>Periodicidade</strong>
+            <p>ANUAL</p>
+          </div>
         </div>
       </div>
     </div>

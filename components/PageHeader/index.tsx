@@ -1,6 +1,6 @@
 import styles from "./PageHeader.module.css";
 
-export default function PageHeader({ url, caption, sortType, handleSelect }) {
+export default function PageHeader({ url, caption, sortType = "name_asc", handleSelect = null }) {
   if (caption == false) {
     return (
       <div className={styles.pageHeader}>

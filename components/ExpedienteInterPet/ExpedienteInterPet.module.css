@@ -8,72 +8,53 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.sobre {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  margin-top: 15px;
-  background-color: white;
+.aboutCard {
+  background-color: #004266;
   box-shadow: 0px 0px 5px #00000017;
-}
-
-.aboutcard {
-  justify-content: center;
-  margin-top: -130px;
   width: 100%;
-  display: inline-flex;
-}
-
-.img_InterPet {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img_container {
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img_InterPet img {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  height: 300px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px #00000027;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  column-gap: 40px;
 }
 
 .sobreInfo {
-  font-size: 23px;
+  background-color: white;
+  width: 100%;
   font-family: "Codec Pro Regular";
+  font-size: 15px;
+}
+
+.title {
+  color: #004266;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.content {
   text-align: center;
-  margin-top: 150px;
-  margin-left: 40px;
-  max-width: 60%;
-  border-radius: 35px;
-  color: #000000;
-  margin-bottom: 35px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  column-gap: 20px;
+}
+
+.header {
+  font-size: larger;
+}
+
+.sidePanel {
+  background-color: #004266;
+}
+
+.sidePanel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 80px solid white;
+  border-left: 80px solid red;
+  width: 0;
 }
 
 @media (max-width: 1024px) {
-  .img_InterPet {
-    margin-top: 50px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .img_InterPet img {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    text-align: center;
-  }
-
   .sobreInfo {
     margin-left: auto;
     margin-right: auto;
@@ -81,7 +62,7 @@
     margin-top: 15px;
   }
 
-  .aboutcard {
+  .aboutCard {
     margin-top: 20px;
   }
   .sobre {
@@ -102,11 +83,6 @@
 }
 
 @media (max-width: 425px) {
-  .img_InterPet img {
-    height: 225px;
-    width: 230px;
-  }
-
   .sobre {
     margin-top: -30px;
   }
