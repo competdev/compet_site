@@ -14,7 +14,7 @@ const renderSobre = () => {
       <SectionTitle title={"Sobre nós"}/>
       <div className={styles.aboutcard}>
         <div className={styles.img_InterPet}>
-          <img src="https://i.ibb.co/HFHt1Kq/0006.png" alt="" className={styles.sexo}/>
+          <img src="https://i.ibb.co/HFHt1Kq/0006.png" alt=""/>
         </div>
         <article className={styles.sobreInfo}>
           <p className={styles.text}>O PET da Engenharia de Computação do CEFETMG, COMPET, tem como objetivo
