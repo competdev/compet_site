@@ -4,7 +4,7 @@ import styles from "../styles/Index.module.css";
 import Header from "../components/Header";
 import SlideShow from "../components/SlideShow";
 import About from "../components/AboutCOMPET";
-import InstagramFeed from "../components/InstagramFeed";
+//import InstagramFeed from "../components/InstagramFeed";
 import TwitterFeed from "../components/TwitterFeed";
 import NewsFeed from "../components/NewsFeed";
 import Partners from "../components/Partners";
@@ -40,7 +40,7 @@ export default function Index({ dados, dadosSlide, dadosParceiros }) {
 const renderSocialMediaFeed = ({dados}) => {
   return (
     <div className={styles.socialMediaContainer}>
-      <InstagramFeed />
+      {/*<InstagramFeed />*/}
       <TwitterFeed />
       <NewsFeed dados={dados}/>
     </div>
