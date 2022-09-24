@@ -3,8 +3,8 @@ import styles from "./PageHeader.module.css";
 interface IPageHeaderProps{
   url:string;
   caption:boolean;
-  sortType:"name_asc"|"name_desc"|"date_asc"|"date_desc";
-  handleSelect: ChangeEventHandler;
+  sortType?:"name_asc"|"name_desc"|"date_asc"|"date_desc";
+  handleSelect?: ChangeEventHandler;
 }
 export default function PageHeader({ url, caption, sortType, handleSelect }:IPageHeaderProps) {
   if (caption == false) {
