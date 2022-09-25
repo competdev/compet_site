@@ -3,7 +3,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./SlideShow.module.css";
-
+import SectionTitle from "../SectionTitle";
 const Legend = styled("p")({
   width: "100%",
 });
@@ -34,7 +34,8 @@ const useStyles = makeStyles(() => ({
 const SlideShow = (data) => {
   const classes = useStyles();
   return (
-    <div className={styles.slideContainer}>
+    <section id="in-progress"className={styles.slideContainer}>
+    <SectionTitle title={"O que temos feito"}/>
       <div className={styles.content}>
         <Carousel
           autoPlay
@@ -55,7 +56,7 @@ const SlideShow = (data) => {
           ))}
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 };
 

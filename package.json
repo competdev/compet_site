@@ -13,7 +13,6 @@
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "fast-sort": "^3.2.0",
-    "instagram-feed-embed": "^1.0.1",
     "leaflet": "^1.7.1",
     "markdown-it": "^12.3.2",
     "mongoose": "^5.13.2",

@@ -7,15 +7,15 @@ const horarioAulas = 'https://www.decom.cefetmg.br/horarios-2020/';
 
 export default function Footer() {
   return (
-    <div>
-      <div className={styles.footer}>
+    <footer className={styles.footer}>
+      
         <div className={styles.container}>
           {renderTextLinks()}
         </div>
-        {renderAdressCEFET()}
+        {renderAddressCEFET()}
         {renderCredits()}
-      </div>
-    </div>
+      
+    </footer>
   )
 }
 
@@ -152,10 +152,10 @@ const renderCredits = () => {
   )
 }
 
-const renderAdressCEFET = () => {
+const renderAddressCEFET = () => {
   return (
-    <div className={styles.adressCEFET}>
+    <address className={styles.addressCEFET}>
       Av. Amazonas 7675, Nova Gameleira. Belo Horizonte - MG - Brasil | CEP: 30510-000
-    </div>
+    </address>
   )
 }

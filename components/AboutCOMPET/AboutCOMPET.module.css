@@ -14,12 +14,26 @@
   margin-bottom: 70px;
 }
 
+.aboutLink {
+  color: #004266;
+  font-size: 1.5em;
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+}
+
+
+.aboutLink>a:hover {
+  font-weight: bolder;
+}
+
 .aboutcard {
   justify-content: center;
-  margin-top: -30px;
+  align-items: center;
+  margin-top: 30px;
   width: 100%;
-  display: inline-flex;
-  margin-top: 0px;
+  display: flex;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 5px #00000033;
 }
@@ -33,6 +47,9 @@
 }
 
 .sobreInfo {
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 2em;
   font-size: 21px;
   font-family: "Codec Pro Regular";
   max-width: 600px;
@@ -76,7 +93,6 @@
   }
 
   .aboutcard {
-    display: block;
     padding-bottom: 30px;
   }
 
@@ -92,7 +108,7 @@
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .text {
     margin-top: 0px;
   }
@@ -116,4 +132,3 @@
     padding-bottom: 30px;
   }
 }
-
