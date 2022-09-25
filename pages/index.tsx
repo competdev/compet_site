@@ -39,10 +39,10 @@ export default function Index({ dados, dadosSlide, dadosParceiros }) {
 
 const renderSocialMediaFeed = ({dados}) => {
   return (
-    <div className={styles.socialMediaContainer}>
+    <section className={styles.socialMediaContainer}>
       <InstagramFeed />
       <TwitterFeed />
       <NewsFeed dados={dados}/>
-    </div>
+    </section>
   );
 };

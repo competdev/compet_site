@@ -2,8 +2,10 @@ import styles from './SectionTitle.module.css';
 
 export default function SectionTitle({ title }) {
   return (
-    <div className={styles.title}>
-      {title}
-    </div>
+    <header className={styles.title}>
+      <h3>
+        {title}
+        </h3>
+    </header>
   )
 } 

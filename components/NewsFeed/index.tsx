@@ -62,12 +62,12 @@ export default function NewsFeed(dadosNews) {
   const classes = useStyles()
 
   return (
-    <div>
+    <section id="compet-Journals">
       <SectionTitle title={sectionTitle} />
       <div className={styles.socialMediaContainer}>
       {PaginatedItems(dadosNews.dados, classes)}
       </div>
-    </div>
+    </section>
   )
 }
 
@@ -81,18 +81,22 @@ function renderNews(dados){
           <a target="_blank" href={dados.link} key={dados._id}>
             <div className={styles.newsContainer}>
               <div className={styles.dataNews}>
+            <time dateTime={convertDate(dados.data)}>  
                 <span className={styles.diaDataNews} > 
                   {dia}
                 </span>
                 <span className={styles.mesDataNews} > 
                   {meses[parseInt(mes)-1]}
                 </span>
-              </div>
-              <div className={styles.tituloNews}>
+              </time>
+                </div>
+              <article className={styles.tituloNews}>
                 {dados.titulo}
-              </div>
+              </article>
             </div>
           </a>
+              
+          
       )})}
     </>
    )
@@ -141,7 +145,8 @@ function convertDate(stringDate) {
 
   const day = date.getDate().toString().padStart(2, '0')
   const month = (date.getMonth() + 1).toString().padStart(2, '0')
-
-  const formatted = `${day}/${month}`
+  const year = date.getFullYear();
+  const formatted = `${day}/${month}/${year}`
   return formatted
 }
+

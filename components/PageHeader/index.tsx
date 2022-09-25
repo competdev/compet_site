@@ -1,6 +1,12 @@
+import { ChangeEventHandler } from "react";
 import styles from "./PageHeader.module.css";
-
-export default function PageHeader({ url, caption, sortType, handleSelect }) {
+interface IPageHeaderProps{
+  url: string;
+  caption?: boolean;
+  sortType?:"name_asc"|"name_desc"|"date_asc"|"date_desc";
+  handleSelect?:ChangeEventHandler;
+}
+export default function PageHeader({ url, caption, sortType, handleSelect }:IPageHeaderProps) {
   if (caption == false) {
     return (
       <div className={styles.pageHeader}>

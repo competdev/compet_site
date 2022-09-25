@@ -55,7 +55,7 @@ const PastEditionsInterPet: React.FC<PastEditionsProps> = ({ elements }) => {
   elements = elements.filter(actualEdition)
 
   return (
-    <div className={styles.content}>
+    <section className={styles.content}>
       <SectionTitle title={sectionTitle} />
       <List
         style={{
@@ -120,7 +120,7 @@ const PastEditionsInterPet: React.FC<PastEditionsProps> = ({ elements }) => {
           ))}
         </div>
       </List>
-    </div>
+    </section>
   );
 };
 
