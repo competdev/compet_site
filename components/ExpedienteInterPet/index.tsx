@@ -3,9 +3,7 @@ import styles from "./ExpedienteInterPet.module.css";
 export default function ExpedienteInterPet() {
   return (
     <div className={styles.aboutCard}>
-      <div className={styles.sidePanel}>
-        <img src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png" width={300}/>
-      </div>
+      <img src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png" width={300} />
       <div className={styles.sobreInfo}>
         <h1 className={styles.title}>Expediente</h1>
         <div className={styles.content}>

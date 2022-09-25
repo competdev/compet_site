@@ -9,23 +9,21 @@
 }
 
 .aboutCard {
-  background-color: #004266;
+  background-color: white;
   box-shadow: 0px 0px 5px #00000017;
   width: 100%;
   display: flex;
-  column-gap: 40px;
+  column-gap: 20px;
 }
 
 .sobreInfo {
-  background-color: white;
-  width: 100%;
   font-family: "Codec Pro Regular";
-  font-size: 15px;
+  margin-left: 30px;
 }
 
 .title {
   color: #004266;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -33,25 +31,11 @@
 .content {
   text-align: center;
   display: flex;
-  column-gap: 20px;
+  column-gap: 30px;
 }
 
 .header {
   font-size: larger;
-}
-
-.sidePanel {
-  background-color: #004266;
-}
-
-.sidePanel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 80px solid white;
-  border-left: 80px solid red;
-  width: 0;
 }
 
 @media (max-width: 1024px) {
