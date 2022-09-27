@@ -29,7 +29,7 @@ export default function Feedei() {
   return (
     <div className={styles.feed_Container}>
       {IfeedList?.map((item,key) => {
-        return (
+        return item.media_type!=="CAROUSEL_ALBUM"?(
           <div key = {key} className={styles.feed_Item}>
             <a href="https://instagram.com/compet.cefet" target="_blank" className={styles.link}>
               <PostHeader
@@ -42,7 +42,7 @@ export default function Feedei() {
               <PostContent {...item}></PostContent>
             </a>
           </div>
-        );
+        ):<></>
       })}
     </div>
   );
