@@ -8,8 +8,9 @@ const TwitterFeed: React.FC = () => (
         <SectionTitle title={'Twitter'} />
         <article className={styles.socialMediaContainer}>
             <TwitterTimelineEmbed
-                sourceType="profile"
-                screenName="compet_cefet"
+                sourceType="timeline"
+                id=""
+                widgetId=""
             />
         </article>
     </section >
