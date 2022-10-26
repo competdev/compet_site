@@ -139,7 +139,11 @@
     margin-bottom: 10%;
   }
 }
-
+@media (max-width: 375px) {
+    .socialMediaContainer {
+      width: 100px;
+    }
+}
 @media (max-width: 375px) {
   .socialMediaContainer {
     width: 300px;
