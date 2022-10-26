@@ -140,8 +140,8 @@
   }
 }
 @media (max-width: 375px) {
-    .socialMediaContainer {
-      width: 100px;
+    .socialMediaContainerTwitter {
+      width: 250px;
     }
 }
 @media (max-width: 375px) {
