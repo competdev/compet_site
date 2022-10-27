@@ -6,7 +6,7 @@ import SectionTitle from '../SectionTitle'
 const TwitterFeed: React.FC = () => (
     <section id="Twitter-feed">
         <SectionTitle title={'Twitter'} />
-        <article className={styles.socialMediaContainerTwitter}>
+        <article className={styles.socialMediaContainerTwi}>
             <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="compet_cefet"
