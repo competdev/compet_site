@@ -8,7 +8,7 @@ export default function igFeed() {
   return (
     <section id="Instagram-Feed">
       <SectionTitle title={sectionTitle} />
-      <article className={styles.socialMediaContainer}>
+      <article className={styles.socialMediaContainerInsta}>
         <Feed
         />
       </article>

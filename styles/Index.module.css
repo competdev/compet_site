@@ -27,3 +27,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.socialMediaContainerInsta {
+  display: inline-flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
