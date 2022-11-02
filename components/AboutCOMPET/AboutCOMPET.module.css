@@ -29,17 +29,19 @@
 }
 
 .aboutcard {
-  justify-content: center;
-  align-items: center;
   margin-top: 30px;
   width: 100%;
   display: flex;
-  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(255,255,255);
   box-shadow: 0px 0px 5px #00000033;
 }
 
 .img_InterPet img {
-  height: 200px;
+  width: 100;
+  height: auto;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #000000d8;
   margin-bottom: 30px;
@@ -48,13 +50,13 @@
 
 .sobreInfo {
   justify-content: center;
-  align-content: center;
   margin-bottom: 2em;
-  font-size: 21px;
+  font-size: 1.25rem;
   font-family: "Codec Pro Regular";
-  max-width: 600px;
-  text-align: justify;
-  height: 100%;
+  width: 600px;
+  min-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: 40px;
   margin-right: 20px;
   margin-top: 45px;
