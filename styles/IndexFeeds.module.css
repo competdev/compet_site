@@ -16,6 +16,19 @@
   border: #20202033 1px solid;
 }
 
+.socialMediaContainerTwitter {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #00000033;
+  margin-right: 2em;
+  margin-left: 2em;
+  height: 480px;
+  width: 480px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  border: #20202033 1px solid;
+}
+
 .newsContainer {
   border-radius: 5px;
   border-width: 5px 5px 0 5px;
@@ -105,8 +118,16 @@
     width: 350px;
   }
 
+  .socialMediaContainerTwitter {
+    margin-bottom: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+  }
+
   .tituloNews {
     font-size: 17px;
+
   }
 
   .dataNews {
@@ -119,7 +140,11 @@
     margin-bottom: 10%;
   }
 }
-
+@media (max-width: 375px) {
+    .socialMediaContainerTwitter {
+      width: 300px;
+    }
+}
 @media (max-width: 375px) {
   .socialMediaContainer {
     width: 300px;
@@ -134,7 +159,9 @@
   .socialMediaContainer {
     width: 240px;
   }
-
+  .socialMediaContainerTwitter {
+    width: 240px;
+  }
   .tituloNews {
     font-size: 15px;
   }
