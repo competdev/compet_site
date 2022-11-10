@@ -18,3 +18,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.socialMediaContainerTwitter {
+  display: inline-flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}

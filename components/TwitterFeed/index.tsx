@@ -6,17 +6,16 @@ import SectionTitle from '../SectionTitle'
 const TwitterFeed: React.FC = () => (
     <section id="Twitter-feed">
         <SectionTitle title={'Twitter'} />
-        <article >
+        <article className={styles.socialMediaContainer} >
             <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="compet_cefet"
                 noHeader
                 noFooter
                 options={{ width: 480, height: 480 }}
-                
+                noScrollbar
             />
         </article>
     </section >
 )
-
 export default TwitterFeed

@@ -1,6 +1,5 @@
 import axios from 'axios'
 import styles from "../styles/Index.module.css";
-
 import Header from "../components/Header";
 import SlideShow from "../components/SlideShow";
 import About from "../components/AboutCOMPET";
