@@ -68,18 +68,18 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Blog({ posts }){
+export default function Blog({ posts }) {
   const classes = useStyles()
   const header_img_url = "https://i.ibb.co/tDjGdZP/blog.png"
   const [query, setQuery] = useState("")
 
-  function postsSearch(posts){
+  function postsSearch(posts) {
     return removeAccents(posts.attributes.title.toLowerCase()).includes(query.toLowerCase())
   }
 
-  return(
-      <div className={styles.page}>
-      <title>COMPET | Blog</title>
+  return (
+    <div className={styles.page}>
+      {/* <title>COMPET | Blog</title>
       <Header />
       <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <div className={styles.searchContainer}>
@@ -89,23 +89,24 @@ export default function Blog({ posts }){
         {PaginatedItems((posts.filter(postsSearch)), classes)}
       </div>
       <div className={styles.socialMediaContainer}></div>
-      <Footer />
+      <Footer /> */}
+      Under construction
     </div>
-  )  
+  )
 }
 
-export async function getStaticProps(){
-  let postsRes = await axios.get(BLOG_API_URL);
-  postsRes.data.data.sort((a, b) => {
-    return Number(new Date(b.attributes.createdAt)) - Number(new Date(a.attributes.createdAt));
-  });
+// export async function getStaticProps(){
+//   let postsRes = await axios.get(BLOG_API_URL);
+//   postsRes.data.data.sort((a, b) => {
+//     return Number(new Date(b.attributes.createdAt)) - Number(new Date(a.attributes.createdAt));
+//   });
 
-  return {
-    props: {
-      posts: postsRes.data.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       posts: postsRes.data.data,
+//     },
+//   };
+// }
 
 
 function PaginatedItems(items, classes) {
@@ -119,7 +120,7 @@ function PaginatedItems(items, classes) {
 
   return (
     <>
-      <Posts posts = {items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage)} />
+      <Posts posts={items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage)} />
       <ReactPaginate
         nextLabel=">"
         onPageChange={handlePageClick}
