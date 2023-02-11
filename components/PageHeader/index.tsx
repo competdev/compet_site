@@ -7,17 +7,13 @@ interface IPageHeaderProps{
   handleSelect?: ChangeEventHandler;
 }
 export default function PageHeader({ url, caption, sortType = "name_asc", handleSelect = null }:IPageHeaderProps) {
-  if (caption == false) {
-    return (
-      <div className={styles.pageHeader}>
-        <img src={url} alt="" />
-      </div>
-    );
-  } else {
-    return (
-      <>
+  return (
+    <>
+      {caption === false ?
+        <img src={url} className={styles.pageHeader} />
+        :
         <div className={styles.pageHeader}>
-          <img src={url} alt="" />
+          <img src={url} style={{ objectFit: 'cover' }} />
           <div className={styles.captions}>
             <div className={styles.alignCaption}>
               <div className={styles.infoScrum}></div>
@@ -34,20 +30,7 @@ export default function PageHeader({ url, caption, sortType = "name_asc", handle
             </div>
           </div>
         </div>
-
-        <div className={styles.alignSelect}>
-          <select
-            value={sortType}
-            onChange={handleSelect}
-            className={styles.select}
-          >
-            <option value="name_asc">Nome ascendente</option>
-            <option value="name_desc">Nome descendente</option>
-            <option value="date_asc">Data de saída ascendente</option>
-            <option value="date_desc">Data de saída descendente</option>
-          </select>
-        </div>
-      </>
-    );
-  }
+      }
+    </>
+  );
 }

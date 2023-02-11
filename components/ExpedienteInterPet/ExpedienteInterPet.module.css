@@ -8,100 +8,62 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.aboutCard {
-  background-color: white;
-  box-shadow: 0px 0px 5px #00000017;
-  width: 100%;
-  display: flex;
-  column-gap: 20px;
-  justify-content: center;
-  align-items: center;
+.person {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-.sobreInfo {
-  font-family: "Codec Pro Regular";
-  margin-left: 30px;
+.aboutCard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 15vh;
+}
+
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #004266;
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 10rem;
 }
 
 .title {
+  display: block;
   color: #004266;
-  font-size: 40px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 40px;
 }
 
 .content {
+  font-family: "Codec Pro Regular";
+  margin-top: 2rem;
   text-align: center;
   display: flex;
-  column-gap: 30px;
+  flex-wrap: wrap;
+}
+
+.peopleBlock {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .header {
-  font-size: larger;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-@media (max-width: 1024px) {
-  .sobreInfo {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 60%;
-    margin-top: 15px;
-  }
-
-  .aboutCard {
-    margin-top: 20px;
-  }
-  .sobre {
-    margin-bottom: -80px;
-    margin-top: -19px;
-  }
-}
-
-@media (max-width: 768px) {
-  .sobre {
-    margin-top: 20px;
-  }
-
-  .sobreInfo {
-    font-size: 21px;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 425px) {
-  .sobre {
-    margin-top: -30px;
-  }
-
-  .sobreInfo {
-    font-size: 20px;
-    max-width: 80%;
-    margin-top: -2px;
-  }
-}
-
-@media (max-width: 375px) {
-  .sobreInfo {
-    font-size: 19px;
-    max-width: 80%;
-    margin-top: -10px;
-  }
-}
-
-@media (max-width: 320px) {
-  .sobreInfo {
-    font-size: 18px;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 280px) {
-  .img_InterPet {
-    height: 200px;
-  }
-
-  .sobreInfo {
-    font-size: 17px;
-    max-width: 80%;
+@media (min-width: 930px) {
+  .imageContainer {
+    width: 15rem;
   }
 }

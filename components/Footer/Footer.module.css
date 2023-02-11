@@ -9,6 +9,7 @@
 }
 
 .footer {
+  margin-top: 10vh;
   overflow: hidden;
   text-align: center;
   color: #004266;
@@ -267,7 +268,7 @@ transition: all 300ms ease-in-out;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 415px) {
   .sectionTitle {
     font-size: 10px;
   }

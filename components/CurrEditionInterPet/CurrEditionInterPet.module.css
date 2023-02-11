@@ -9,10 +9,11 @@
 }
 
 .container {
-  margin-top: 90px;
+  margin-top: 4rem;
   background-color: #f5f5f5;
   text-align: center;
   font-family: 'Codec Pro Regular';
+  padding: 1.5rem;
 }
 
 .card {

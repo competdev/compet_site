@@ -16,8 +16,6 @@ function convertDate(stringDate) {
 }
 
 export default function CurrEditionInterPet({ dados }) {
-  const sectionTitle = "Edição Atual"
-
   function isActual(data) {
     return data.atual == 'true'
   }
@@ -26,7 +24,7 @@ export default function CurrEditionInterPet({ dados }) {
 
   return (
     <div className={styles.container}>
-      <SectionTitle title={sectionTitle} />
+      <SectionTitle title="Edição Atual" />
       <Link href={edicao_atual[0].link}><a target="_blank">
         <div className={styles.card}>
           <img className={styles.cardImg} src={edicao_atual[0].img} />

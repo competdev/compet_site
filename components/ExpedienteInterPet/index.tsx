@@ -3,28 +3,29 @@ import styles from "./ExpedienteInterPet.module.css";
 export default function ExpedienteInterPet() {
   return (
     <div className={styles.aboutCard}>
-      <img src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png" width={300} />
-      <div className={styles.sobreInfo}>
-        <h1 className={styles.title}>Expediente</h1>
-        <div className={styles.content}>
-          <div>
-            <strong className={styles.header}>Conselho Editorial</strong>
-            <p>Hermes Augusto Oliveira Rabelo</p>
-            <p>André Rodrigues da Cruz</p>
-            <p>Joana Ancila Pessoa Forte Avelino</p>
-            <p>Sandro Renato Dias</p>
-            <p>Mayk Jonhon de Carvalho Souza</p>
-            <strong className={styles.header}>Autor Corporativo</strong>
-            <p>CEFET MG</p>
-          </div>
-          <div>
-            <strong className={styles.header}>Editor Adjunto</strong>
-            <p>Joana Ancila Pessoa Forte Avelino</p>
-            <strong className={styles.header}>Diagramação</strong>
-            <p>Joana Ancila Pessoa Forte Avelino</p>
-            <strong className={styles.header}>Periodicidade</strong>
-            <p>ANUAL</p>
-          </div>
+      <div className={styles.imageContainer}>
+        <img src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png" />
+        <span>Editor chefe</span>
+        <span>Sandro Renato Dias</span>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.peopleBlock}>
+          <span className={styles.header}>Conselho Editorial</span>
+          <span className={styles.person}>Hermes Augusto Oliveira Rabelo</span>
+          <span className={styles.person}>André Rodrigues da Cruz</span>
+          <span className={styles.person}>Joana Ancila Pessoa Forte Avelino</span>
+          <span className={styles.person}>Sandro Renato Dias</span>
+          <span className={styles.person}>Mayk Jonhon de Carvalho Souza</span>
+          <span className={styles.header}>Autor Corporativo</span>
+          <span className={styles.person}>CEFET MG</span>
+        </div>
+        <div className={styles.peopleBlock}>
+          <span className={styles.header}>Editor Adjunto</span>
+          <span className={styles.person}>Joana Ancila Pessoa Forte Avelino</span>
+          <span className={styles.header}>Diagramação</span>
+          <span className={styles.person}>Joana Ancila Pessoa Forte Avelino</span>
+          <span className={styles.header}>Periodicidade</span>
+          <span className={styles.person}>ANUAL</span>
         </div>
       </div>
     </div>

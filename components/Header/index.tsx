@@ -11,10 +11,11 @@ export default function Header() {
   };
 
   return (
-    <nav className={styles.nav}>
+    <header className={styles.menu_body}>
+      <div className={styles.nav}>
         <div className={styles.logo}>
           <Link href='/'>
-            <a><img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' /></a>
+            <img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' />
           </Link>
         </div>
         {wSize().width > 1505 ? render_links() : (toggleMenu ? render_links() : <></>)}
@@ -23,8 +24,8 @@ export default function Header() {
           <div className={styles.line}></div>
           <div className={styles.line}></div>
         </div>
-      
-    </nav>
+      </div>
+    </header>
   );
 }
 
