@@ -8,138 +8,41 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
+.outerWrapper{
+  margin-top: 4rem;
+}
+
 .sobre {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  margin-top: 15px;
-  background-color: white;
-  box-shadow: 0px 0px 5px #00000017;
-}
-
-.aboutcard {
-  justify-content: center;
-  margin-top: -130px;
-  width: 100%;
-  display: inline-flex;
-}
-
-.img_InterPet {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img_container {
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img_InterPet img {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  height: 300px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px #00000027;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sobreInfo {
-  font-size: 18px;
   font-family: "Codec Pro Regular";
-  text-align: justify;
-  margin-top: 130px;
-  margin-left: 40px;
-  max-width: 60%;
-  border-radius: 35px;
-  color: #000000;
-  margin-bottom: 35px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  font-size: 1.5rem;
 
-@media (max-width: 1024px) {
-  .img_InterPet {
-    margin-top: 50px;
-    width: 100%;
-    text-align: center;
-  }
+  margin-top: 2rem;
+  box-shadow: 0px 0px 5px #00000017;
 
-  .img_InterPet img {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    text-align: center;
-  }
+  padding: 1.5rem;
 
-  .sobreInfo {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 60%;
-    margin-top: 15px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 
-  .aboutcard {
-    margin-top: 20px;
-  }
-  .sobre {
-    margin-bottom: -80px;
-    margin-top: -19px;
-  }
 }
 
 @media (max-width: 768px) {
   .sobre {
-    margin-top: 20px;
-  }
-
-  .sobreInfo {
-    font-size: 21px;
-    max-width: 80%;
+    font-size: 1.2rem;
   }
 }
 
-@media (max-width: 425px) {
-  .img_InterPet img {
-    height: 225px;
-    width: 230px;
-  }
-
+@media (max-width: 576px) {
   .sobre {
-    margin-top: -30px;
-  }
-
-  .sobreInfo {
-    font-size: 20px;
-    max-width: 80%;
-    margin-top: -2px;
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 375px) {
-  .sobreInfo {
-    font-size: 19px;
-    max-width: 80%;
-    margin-top: -10px;
-  }
-}
-
-@media (max-width: 320px) {
-  .sobreInfo {
-    font-size: 18px;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 280px) {
-  .img_InterPet {
-    height: 200px;
-  }
-
-  .sobreInfo {
-    font-size: 17px;
-    max-width: 80%;
+@media (min-width: 900px) {
+  .outerWrapper {
+    padding: 1.5rem;
   }
 }
