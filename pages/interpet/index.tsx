@@ -1,5 +1,6 @@
-import axios from "axios";
 import styles from "./InterPet.module.css";
+import axios from "axios";
+import { NEXT_URL } from "../../util/config";
 
 import Header from "../../components/Header";
 import PageHeader from "../../components/PageHeader";
@@ -11,12 +12,8 @@ import Footer from "../../components/Footer";
 import ExpedienteInterPet from "../../components/ExpedienteInterPet";
 import NormasInterPet from "../../components/NormasInterPet";
 
-const vercelURL = "https://compet.vercel.app";
-const localURL = "http://localhost:3000";
-const cefetURL = "http://compet.decom.cefetmg.br";
-
 InterPet.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/interpet");
+  const response = await axios.get(NEXT_URL + "/api/interpet");
   return { dados: response.data };
 };
 

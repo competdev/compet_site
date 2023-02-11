@@ -4,6 +4,7 @@ import Link from 'next/link'
 import removeAccents from 'remove-accents';
 import { makeStyles } from '@material-ui/styles';
 import styles from "./Certificados.module.css";
+import { NEXT_URL } from "../../util/config";
 
 import Header from '../../components/Header'
 import PageHeader from '../../components/PageHeader';
@@ -11,12 +12,9 @@ import SearchBox from '../../components/SearchBox';
 import ReactPaginate from 'react-paginate';
 import Footer from '../../components/Footer';
 
-const vercelURL = "https://compet.vercel.app"
-const localURL = "http://localhost:3000"
-const cefetURL = "http://compet.decom.cefetmg.br"
 
 Certificados.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/certificados");
+  const response = await axios.get(NEXT_URL + "/api/certificados");
   return { dados: response.data }
 }
 
@@ -111,27 +109,27 @@ export default function Certificados({ dados }) {
     return (certificado.titulo != 'Certificado e Declaração de Participação PET - COMPET')
   }
 
-  function certificateSearch(certificado){
-    if(byTitle(certificado)){
-        return certificado;
-      } else {
-        return byName(certificado);
+  function certificateSearch(certificado) {
+    if (byTitle(certificado)) {
+      return certificado;
+    } else {
+      return byName(certificado);
     }
   }
-  
-  function byTitle(certificado){
+
+  function byTitle(certificado) {
     return removeAccents(certificado.titulo.toLowerCase()).includes(query.toLowerCase())
   }
-  
-  function byName(certificado){
+
+  function byName(certificado) {
     let nameList = certificado.listaNomes;
     let find = nameList.filter(element => {
       if (removeAccents(element).toLowerCase().indexOf(removeAccents(query).toLowerCase()) !== -1) {
         return true;
       }
     })
-  
-    if(find.length > 0){
+
+    if (find.length > 0) {
       return certificado;
     }
   }
@@ -139,7 +137,7 @@ export default function Certificados({ dados }) {
   let certificadoCOMPET = dados.filter(COMPETParticipation)
   dados = dados.filter(otherCertifieds)
   let data = certificadoCOMPET.concat(dados)
-  
+
   return (
     <div className={styles.pageContent}>
       <title>COMPET | Certificados</title>

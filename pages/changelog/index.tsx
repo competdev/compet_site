@@ -1,16 +1,14 @@
-import axios from "axios";
 import styles from "./Changelog.module.css";
+import axios from "axios";
+import { NEXT_URL } from "../../util/config";
+
 
 import Header from "../../components/Header";
 import SectionTitle from '../../components/SectionTitle';
 import Footer from "../../components/Footer";
 
-const vercelURL = "https://compet.vercel.app"
-const localURL = "http://localhost:3000"
-const cefetURL = "http://compet.decom.cefetmg.br"
-
 Changelog.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/changelog");
+  const response = await axios.get(NEXT_URL + "/api/changelog");
   return { dados: response.data };
 };
 

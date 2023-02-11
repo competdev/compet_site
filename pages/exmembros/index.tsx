@@ -1,8 +1,10 @@
+import styles from "./ExMembros.module.css";
 import axios from "axios";
 import { useEffect, useReducer, useState } from "react";
 import { sortReducer } from "../../reducers/sortReducer";
 import { SortOrder } from "../../types/types";
-import styles from "./ExMembros.module.css";
+import { NEXT_URL } from "../../util/config";
+
 import Header from "../../components/Header";
 import PageHeader from "../../components/PageHeader";
 import SectionTitle from "../../components/SectionTitle";
@@ -10,12 +12,9 @@ import MemberCard from "../../components/MembersCard";
 import Footer from "../../components/Footer";
 
 const socialNetworks = false;
-const vercelURL = "https://compet.vercel.app";
-const localURL = "http://localhost:3000";
-const cefetURL = "http://compet.decom.cefetmg.br";
 
 ExMembros.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/membros");
+  const response = await axios.get(NEXT_URL + "/api/membros");
 
   const exMembros = response.data.filter((data) => {
     return data.membro_ativo == false && data.tutor == false;

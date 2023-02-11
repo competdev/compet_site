@@ -9,15 +9,12 @@ import NewsFeed from "../components/NewsFeed";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 
-const vercelURL = "https://compet.vercel.app"
-const localURL = "http://localhost:3000"
-const cefetURL = "http://compet.decom.cefetmg.br"
-const HOST_URL = process.env.HOST_URL;
+import { NEXT_URL } from '../util/config';
 
 Index.getInitialProps = async () => {
-  const newsResponse = await axios.get(vercelURL + "/api/news");
-  const slideResponse = await axios.get(vercelURL + "/api/slideShow");
-  const partnersResponse = await axios.get(vercelURL + "/api/parceiros")
+  const newsResponse = await axios.get(NEXT_URL + "/api/news");
+  const slideResponse = await axios.get(NEXT_URL + "/api/slideShow");
+  const partnersResponse = await axios.get(NEXT_URL + "/api/parceiros")
   return { dados: newsResponse.data, dadosSlide: slideResponse.data, dadosParceiros: partnersResponse.data }
 }
 

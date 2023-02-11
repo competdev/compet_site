@@ -1,8 +1,9 @@
+import styles from "./Equipe.module.css";
 import axios from "axios";
 import { useState, useEffect, useReducer } from "react";
 import { sortReducer } from "../../reducers/sortReducer";
 import { SortAction, SortOrder } from "../../types/types";
-import styles from "./Equipe.module.css";
+import { NEXT_URL } from "../../util/config";
 
 import Header from "../../components/Header";
 import PageHeader from "../../components/PageHeader";
@@ -11,12 +12,9 @@ import MemberCard from "../../components/MembersCard";
 import Footer from "../../components/Footer";
 
 const socialNetworks = true;
-const vercelURL = "https://compet.vercel.app";
-const localURL = "http://localhost:3000";
-const cefetURL = "http://compet.decom.cefetmg.br";
 
 Equipe.getInitialProps = async () => {
-  const response = await axios.get(vercelURL + "/api/membros");
+  const response = await axios.get(NEXT_URL + "/api/membros");
 
   const membrosAtuais = response.data.filter((data) => {
     return (
