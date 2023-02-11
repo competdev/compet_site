@@ -37,7 +37,7 @@ export default function Index({ dados, dadosSlide, dadosParceiros }) {
 const renderSocialMediaFeed = ({dados}) => {
   return (
     <section className={styles.socialMediaContainer}>
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
       <TwitterFeed />
       <NewsFeed dados={dados}/>
     </section>

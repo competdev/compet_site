@@ -17,7 +17,7 @@ export default function Posts({posts}){
             <Link href="/blog/[slug]" as={`/blog/${slug}`}>
               <h2>{post.attributes.title}</h2>
             </Link>
-            <p className={styles.dateAndAuthor}>{post.attributes.date} - Postador por: <b>{post.attributes.author}</b></p>
+            <p className={styles.dateAndAuthor}>{post.attributes.date} - Postado por: <b>{post.attributes.author}</b></p>
             <p className={styles.description}>{post.attributes.description}</p>
           </div>
         </div>
