@@ -8,3 +8,37 @@ export enum SortOrder {
 export interface SortAction {
   type: SortOrder;
 }
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  start_date: string;
+  thumb:string;
+  members: Member[];
+  tutors: Tutor[];
+  partners?: Partner[];
+}
+type Partner = {
+  id: string;
+  name: string;
+  email: string;
+  imgUrl: string;
+  url: string;
+}
+type Member = {
+  id: string;
+  name: string;
+  role: string;
+  email: string;
+  linkedin: string;
+  github: string;
+  urlImg: string;
+  statement:string
+}
+type Tutor = {
+  id: string;
+  name: string;
+  email: string;
+  linkedin: string;
+  urlImg: string;
+}

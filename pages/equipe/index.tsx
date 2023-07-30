@@ -2,7 +2,7 @@ import styles from "./Equipe.module.css";
 import axios from "axios";
 import { useState, useEffect, useReducer } from "react";
 import { sortReducer } from "../../reducers/sortReducer";
-import { SortAction, SortOrder } from "../../types/types";
+import { SortOrder } from "../../types/types";
 import { NEXT_URL } from "../../util/config";
 
 import Header from "../../components/Header";
@@ -31,12 +31,6 @@ Equipe.getInitialProps = async () => {
   const tutores = response.data.filter((data) => {
     return data.membro_ativo == true && data.tutor == true;
   });
-
-  function byName(member1, member2) {
-    if (member1.nome < member2.nome) return -1;
-    if (member1.nome > member2.nome) return 1;
-    return 0;
-  }
   
   return {
     membros: membrosAtuais,
