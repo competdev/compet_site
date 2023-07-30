@@ -49,23 +49,35 @@ export default function Projetos ({projects}:{projects:Project[]}){
                     </div>
                   <p className={styles.memberStatement}>{member.statement}</p>
                   <div className={styles.memberFooter}>
-
-                  <a className={styles.icon} href={`mailto:${member.email}`} about={`send email to ${member.name}`}><MailIcon/></a>
-                  <a className={styles.icon} href={member.github}><GithubIcon/></a>
-                  <a className={styles.icon} href={member.linkedin}><LinkedinIcon/></a>
+                    <a className={styles.icon} href={`mailto:${member.email}`} about={`send email to ${member.name}`}><MailIcon/></a>
+                    <a className={styles.icon} href={member.github}><GithubIcon/></a>
+                    <a className={styles.icon} href={member.linkedin}><LinkedinIcon/></a>
                   </div>
                   </div>
                 ))}
               </div>
               <h3>Coordenadores do projeto</h3>
+              <div className={styles.tutorsContainer}>
               {projeto.tutors.map((tutor)=>(
-                <div id={tutor.id} key={`member-${tutor.id}`}>
-                <h3>{tutor.name}</h3>
-                <a href={`mailto:${tutor.email}`} about={`send email to ${tutor.name}`}>email</a>
-                <img src={tutor.urlImg} alt={`image of ${tutor.name}`}/>
-                <a href={tutor.linkedin}>Linkedin</a>
+                <div id={tutor.id} key={`member-${tutor.id}`} className={styles.tutor}>
+                  <div className={styles.tutorHeader}>
+                    <img src={tutor.urlImg} alt={`image of ${tutor.name}`}/>
+                    <h3>{tutor.name}</h3>
+                  </div>
+                <div className={styles.tutorContent}>
+                <p>{tutor.resume}</p>
+                <div className={styles.tutorFooter} style={{position:'absolute',bottom:0,right:0,padding:'.5rem'}}>
+                    <a className={styles.icon} href={`mailto:${tutor.email}`} about={`send email to ${tutor.name}`}>
+                      <MailIcon/>
+                    </a>
+                    <a className={styles.icon} href={tutor.linkedin}>
+                      <LinkedinIcon/>
+                    </a>
+                </div>
+                </div>
                 </div>
               ))}
+              </div>
             </div>
           ))
         }

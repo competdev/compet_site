@@ -40,5 +40,6 @@ type Tutor = {
   name: string;
   email: string;
   linkedin: string;
+  resume: string;
   urlImg: string;
 }

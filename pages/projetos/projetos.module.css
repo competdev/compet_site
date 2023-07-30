@@ -43,7 +43,63 @@
   animation: appear 2s ease-in-out;
   animation-timeline: view();
   animation-range: entry -10% cover 50%;
-
+}
+.tutorsContainer{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+  width: 100%;
+}
+.tutorContent{
+  background-color: #19DD39;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+  color:#000;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-block-start: 11rem;
+}
+.tutorHeader{
+  display: flex;
+  flex-direction: column;
+  gap:.5rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  top: -3rem;
+}
+.tutorHeader img{
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.tutor{
+  position: relative;
+  margin-block: 2rem;
+}
+.tutorHeader h3{
+  margin: 0;
+  padding:0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.tutorContent p{
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-align: justify;
+  margin: 0;
+  text-justify: newspaper;
+  width: 100%;
+  max-width: 800px;
 }
 .descriptionContainer p{
   font-size: 1.3rem;
@@ -117,6 +173,10 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
+}
+.tutorFooter{
+  display: flex;
+  gap:1rem;
 }
 .icon{
   width: 2rem;

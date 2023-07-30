@@ -47,14 +47,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           name:"Sandro Renato Dias",
           email:"sandroRenato@gmail.com",
           linkedin:"https://www.linkedin.com/in/sandroRenato/",
-          urlImg:"https://www.linkedin.com/in/sandroRenato/picture"
+          resume:"O professor Sandro Renato Dias é um educador altamente respeitado e dedicado no Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG). Com vasta experiência acadêmica e profissional, ele é reconhecido por sua paixão pelo ensino e sua habilidade em transmitir conhecimentos complexos de forma clara e acessível aos alunos. Atuando em diversas disciplinas relacionadas à engenharia e tecnologia, o professor Sandro demonstra profundo compromisso com o desenvolvimento intelectual de seus alunos, incentivando o pensamento crítico e o aprendizado prático. Sua abordagem pedagógica inovadora e sua capacidade de estabelecer conexões entre a teoria e a prática inspiram os estudantes a alcançar seu pleno potencial. Além de suas contribuições para o ensino, o professor Sandro também desempenha um papel ativo em pesquisas e projetos acadêmicos relevantes. Sua expertise e envolvimento na comunidade acadêmica fazem dele uma figura respeitada e admirada por colegas e estudantes.",
+          urlImg:"https://i.ibb.co/vQr2VJ6/tutor-Sandro-Dias.jpg"
         },
         {
           id:'2',
           name:"André da cruz",
           email:"andredacruz@gmail.com",
           linkedin:"https://www.linkedin.com/in/andredacruz/",
-          urlImg:"https://www.linkedin.com/in/andredacruz/picture"
+          urlImg:"https://i.ibb.co/Dr2JKs8/co-tutor-Andr-Rodrigues.jpg",
+          resume:"O professor André da Cruz é um educador exemplar no Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG). Com uma carreira sólida e uma vasta experiência na área acadêmica, ele é amplamente reconhecido por sua expertise em temas relacionados à ciência da computação e engenharia de software. Como docente, o professor André é elogiado por sua abordagem didática envolvente e interativa, que estimula o interesse dos alunos pelo aprendizado. Sua habilidade em descomplicar conceitos complexos e torná-los acessíveis a todos os níveis de conhecimento é uma característica marcante de suas aulas. Além de suas habilidades de ensino, o professor André também é ativo em projetos de pesquisa e desenvolvimento, contribuindo para o avanço da tecnologia e da inovação no campo da ciência da computação. Sua dedicação à pesquisa e sua capacidade de aplicar conhecimentos teóricos em projetos práticos inspiram seus alunos a explorarem novas fronteiras do conhecimento."
         }
       ]
     }
