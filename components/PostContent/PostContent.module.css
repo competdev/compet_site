@@ -40,14 +40,13 @@
   align-items: center;
 }
 .caption p {
-  display: flexbox;
-  text-align: start;
   margin: 0;
   margin-left: 1em;
-  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height:4em;
 }
 .date p {
   margin: 0;
