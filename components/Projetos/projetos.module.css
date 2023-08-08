@@ -1,0 +1,157 @@
+.member {
+  display: flex;
+  flex-direction: column;
+  background-color: #004266;
+  color: #FFF;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem 0.5rem;
+  position: relative;
+  max-width: 400px;
+
+}
+
+.memberHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  align-self: flex-start;
+}
+
+.memberHeader img {
+  position: absolute;
+  top: -2rem;
+  right: 1.5rem;
+  height: 8rem;
+  border: 5px solid #004266;
+  width: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.memberHeader>p {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.memberFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.tutorsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.linkedin {
+  color: #0e76a8;
+}
+
+.mail {
+  color: #D44638;
+}
+
+.tutorContent {
+  background-color: #19DD39;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #000;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-block: 1rem;
+}
+
+.tutorHeader {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: -3rem;
+}
+
+.tutorHeader img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tutor {
+  position: relative;
+  margin-block: 2rem;
+}
+
+.tutorContent p {
+  font-weight: 300;
+  text-align: justify;
+  margin: 0;
+  text-justify: newspaper;
+  width: 100%;
+  max-width: 800px;
+  max-height: 400px;
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media screen and (max-width: 375px) {
+  .tutorContent p{
+    -webkit-line-clamp: 8;
+  }
+}
+.tutorFooter {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: .25rem;
+}
+
+.icon:hover {
+  background-color: rgba(255, 255, 255, .1);
+  transition: background-color .2s ease-in-out;
+}
+
+@keyframes from-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

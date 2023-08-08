@@ -9,7 +9,7 @@ export interface SortAction {
   type: SortOrder;
 }
 export interface Project {
-  id: number;
+  id: string;
   name: string;
   description: string;
   start_date: string;
@@ -21,11 +21,10 @@ export interface Project {
 type Partner = {
   id: string;
   name: string;
-  email: string;
   imgUrl: string;
   url: string;
 }
-type Member = {
+export type Member = {
   id: string;
   name: string;
   role: string;
@@ -35,7 +34,7 @@ type Member = {
   urlImg: string;
   statement:string
 }
-type Tutor = {
+export type Tutor = {
   id: string;
   name: string;
   email: string;

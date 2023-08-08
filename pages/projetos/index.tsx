@@ -1,88 +1,53 @@
-import styles from './projetos.module.css'
-import axios from 'axios'
+import Link from "next/link";
+import { Project } from "../../types/types";
+import { useRouter } from "next/router";
+import { NextPageContext } from "next";
+import axios from "axios";
 import { NEXT_URL } from "../../util/config";
-import { Project } from '../../types/types';
-import Head from 'next/dist/shared/lib/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
-Projetos.getInitialProps = async () => {
-  const response = await axios.get(NEXT_URL + "/api/projetos");
-  const projects :Project[] = response.data
-  return {projects}
+import styles from './projetos.module.css'
+import { Box, Heading, Text } from "@codelife-ui/react";
+import Image from "next/image";
+Projetos.getInitialProps = async (ctx: NextPageContext) => {
+  const apiUrl = NEXT_URL + `/api${ctx.pathname}`
+  const response = await axios.get(apiUrl);
+  const projects: Project[] = response.data
+  const aboutProjects = "Os projetos do COMPET são relacionados a tríade de ensino, pesquisa e extensão e buscam desenvolver soluções por meio da tecnologia para problemas reais, impactando na comunidade em torno do CEFET-MG ou na sociedade como um todo. Com projetos em parceria com outras universidades de Minas Gerais e no mundo, o compet se destaca entre os outros PETS do CEFET-MG trazendo orgulho para a instituição e para os membros que o compõem."
+  return { projects, aboutProjects }
 }
-export default function Projetos ({projects}:{projects:Project[]}){
-  return(
-    
+export default function Projetos({ projects, aboutProjects }: { projects: Project[], aboutProjects?: String }) {
+  const projetos = projects.map(project => {
+    return { name: project.name, thumb: project.thumb, id: project.id }
+  })
+  const { pathname } = useRouter()
+  return (
     <>
-      <Head>
-        <title>COMPET | Projetos</title>
-      </Head>
-      <div style={{marginBlock:'5rem'}}>
-        <Header/>
+    <Header />
+    <main style={{margin:"1rem"}}>
+      <Heading size={"xl"} css={{
+        marginBlockStart: '5rem',
+        textAlign: 'center',
+      }}>Projetos</Heading>
+      <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
+        <Text css={{
+          marginBlock: '1rem',
+          width: '100%',
+          maxWidth: '800px',
+        }}>{aboutProjects}</Text>
+        <div className={styles.card}>
+          {projetos.map(project => (
+            <Link key={project.id} href={`${pathname}/${project.id}`} style={{width:'25%',display:"flex",flexDirection:"column",alignItems:"center"}}>
+              <Heading size={"lg"} as={"h3"}>{project.name}</Heading>
+              <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.image} />
+            </Link>
+          ))}
+        </div>
       </div>
 
-      <main className={styles.main}>
-        {
-          projects.map((projeto)=>(
-            <div key={`project-${projeto.id}`} className={styles.project}>
-              <h2>{projeto.name}</h2>
-              <img src={projeto.thumb} alt={`thumbnail of ${projeto.name}`} className={styles.thumb}/>
-              <h3>Sobre o projeto</h3>
-              <div className={styles.descriptionContainer}>
-              <p style={{marginBlock:'1rem' , fontSize:'.8rem', fontWeight:700}}>
-                Projeto criado em:
-                <time dateTime={projeto.start_date}> {new Date(projeto.start_date).toLocaleDateString("pt-BR")}</time>
-              </p>
-              {projeto.description.split('.').map((sentence,index)=>index!==projeto.description.split('.').length-1&&(
-                <p key={sentence.split(' ')[0]}>{sentence}.</p>
-              ))}
-              </div>
-              <h3>Membros</h3>
-              <div className={styles.membersContainer}>
-                {projeto.members.map((member)=>(
-                  <div id={member.id} key={`member-${member.id}`}className={styles.member}>
-                    <div className={styles.memberHeader}>
-                    <img src={member.urlImg} alt={`image of ${member.name}`} />
-                    <h3 className={styles.memberName}>{member.name}</h3>
-                    <p>{member.role}</p>
-                    </div>
-                  <p className={styles.memberStatement}>{member.statement}</p>
-                  <div className={styles.memberFooter}>
-                    <a className={styles.icon} href={`mailto:${member.email}`} about={`send email to ${member.name}`}><MailIcon/></a>
-                    <a className={styles.icon} href={member.github}><GithubIcon/></a>
-                    <a className={styles.icon} href={member.linkedin}><LinkedinIcon/></a>
-                  </div>
-                  </div>
-                ))}
-              </div>
-              <h3>Coordenadores do projeto</h3>
-              <div className={styles.tutorsContainer}>
-              {projeto.tutors.map((tutor)=>(
-                <div id={tutor.id} key={`member-${tutor.id}`} className={styles.tutor}>
-                  <div className={styles.tutorHeader}>
-                    <img src={tutor.urlImg} alt={`image of ${tutor.name}`}/>
-                    <h3>{tutor.name}</h3>
-                  </div>
-                <div className={styles.tutorContent}>
-                <p>{tutor.resume}</p>
-                <div className={styles.tutorFooter} style={{position:'absolute',bottom:0,right:0,padding:'.5rem'}}>
-                    <a className={styles.icon} href={`mailto:${tutor.email}`} about={`send email to ${tutor.name}`}>
-                      <MailIcon/>
-                    </a>
-                    <a className={styles.icon} href={tutor.linkedin}>
-                      <LinkedinIcon/>
-                    </a>
-                </div>
-                </div>
-                </div>
-              ))}
-              </div>
-            </div>
-          ))
-        }
-      </main>
-      <Footer/>
+    </main>
+
+      <Footer />
     </>
   )
 }

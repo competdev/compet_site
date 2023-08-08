@@ -1,8 +1,9 @@
 import { connectToDatabase } from "../../util/mongodb";
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { projetos } from "../../util/constants";
+import { projetos } from "../../../util/constants";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
+  const {projectId} = req.query;
   //const { db } = await connectToDatabase();
 //
   //const projetos = await db
@@ -12,6 +13,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   //  .toArray();
 //
   //res.json(projetos);
-    return res.json(projetos)
-
+  const projeto = projetos.find(projeto => projeto.id === projectId)
+  if(projeto){
+    return res.json(projeto)
+  }
+  return res.status(400).json({error:"Projeto não encontrado"})
 };
