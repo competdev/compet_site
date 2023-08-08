@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from 'react'
 import Link from 'next/link'
 import removeAccents from 'remove-accents';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import styles from "./Certificados.module.css";
 import { NEXT_URL } from "../../util/config";
 
@@ -161,7 +161,7 @@ const renderCertificados = (dadosAtuais) => {
             <div ><img src={loadPhotos(certificado.compet_talks, certificado.compbio, certificado.titulo)} alt="" className={styles.certificadoImg} /></div>
             <div className={styles.certificadoTitulo}>{certificado.titulo}</div>
             <div className={styles.certificadoData}>{convertDate(certificado.data)}</div>
-            <div className={styles.certificadoLink}><Link href={certificado.link}><a target="_blank">Acessar</a></Link>
+            <div className={styles.certificadoLink}><Link href={certificado.link}target="_blank">Acessar</Link>
             </div>
           </div>
         ))}

@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import { useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import styles from '../../styles/IndexFeeds.module.css'

@@ -54,9 +54,9 @@ const renderCEFETInfo = () => {
 const renderLinksCEFET = () => {
   return (
     <div className={styles.CEFETLinks}>
-      <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/"><a>Site</a></Link></div>
-      <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do"><a>SIGAA</a></Link></div>
-      <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/"><a>AVA</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.cefetmg.br/home/">Site</Link></div>
+      <div className={styles.singleLink}><Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do">SIGAA</Link></div>
+      <div className={styles.singleLink}><Link href="https://ava.cefetmg.br/">AVA</Link></div>
     </div>
   )
 }
@@ -82,9 +82,9 @@ const renderDECOMInfo = () => {
 const renderLinksDECOM = () => {
   return (
     <div className={styles.LinksDECOM}>
-      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/"><a>Site</a></Link></div>
-      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf"><a>Grade Curricular</a></Link></div>
-      <div className={styles.singleLink}><Link href={horarioAulas}><a>Horário de aulas</a></Link></div>
+      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/">Site</Link></div>
+      <div className={styles.singleLink}><Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf">Grade Curricular</Link></div>
+      <div className={styles.singleLink}><Link href={horarioAulas}>Horário de aulas</Link></div>
     </div>
   )
 }
@@ -109,24 +109,24 @@ const renderLinksCOGPDC = () => {
   return (
     <div className={styles.containerLinks}>
       <div className={styles.Links}>
-        <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/"><a>ADM (BH)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/"><a>ConecTTE (BH)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/"><a>Eng. Materiais (BH)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi"><a>Ambiental (BH)</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://petadmcefetmg.wordpress.com/">ADM (BH)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.petconectte.cefetmg.br/">ConecTTE (BH)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.demat.cefetmg.br/pet-programa-ed/">Eng. Materiais (BH)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi">Ambiental (BH)</Link></div>
       </div>
 
       <div className={styles.Links}>
-        <div className={styles.singleLink}><Link href="https://trincabotz.com.br/"><a>Eng. de Minas (Araxá)</a></Link></div>
-        <div className={styles.singleLink}><Link href="http://www.formulacefast.com/"><a>EAI (Araxá)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Civil (Curvelo)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh"><a>Eng. Mecatrônica (Divinópolis)</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://trincabotz.com.br/">Eng. de Minas (Araxá)</Link></div>
+        <div className={styles.singleLink}><Link href="http://www.formulacefast.com/">EAI (Araxá)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh">Civil (Curvelo)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh">Eng. Mecatrônica (Divinópolis)</Link></div>
       </div>
 
       <div className={styles.Links}>
-        <div className={styles.singleLink}><Link href="https://www.peteenepomuceno.com.br/"><a>Eng. Elétrica (Nepomuceno)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. de Controle e Automação (Leopoldina)</a></Link></div>
-        <div className={styles.singleLink}><Link href=""><a>Interdisciplinar (Timóteo)</a></Link></div>
-        <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/"><a>Eng. Civil (Varginha)</a></Link></div>
+        <div className={styles.singleLink}><Link href="https://www.peteenepomuceno.com.br/">Eng. Elétrica (Nepomuceno)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/">Eng. de Controle e Automação (Leopoldina)</Link></div>
+        <div className={styles.singleLink}><Link href="">Interdisciplinar (Timóteo)</Link></div>
+        <div className={styles.singleLink}><Link href="https://www.ecofet.com.br/">Eng. Civil (Varginha)</Link></div>
       </div>
     </div>
   )
@@ -135,10 +135,10 @@ const renderLinksCOGPDC = () => {
 const renderSocialNetwork = () => {
   return (
     <div className={styles.socialNetwork}>
-      <Link href={'https://www.instagram.com/compet.cefet/'}><a title='Instagram'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/61Y0dqL/instagram-icon.png" /></a></Link>
-      <Link href={'https://www.linkedin.com/in/competcefetmg/'}><a title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></a></Link>
-      <Link href={'https://www.facebook.com/competcefetmg'}><a title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/mT4S0S9/facebook-icon.png" /></a></Link>
-      <Link href={'https://twitter.com/compet_cefet'}><a title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Zfb5rRR/twitter-icon.png" /></a></Link>
+      <Link href={'https://www.instagram.com/compet.cefet/'}title='Instagram'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/61Y0dqL/instagram-icon.png" /></Link>
+      <Link href={'https://www.linkedin.com/in/competcefetmg/'}title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></Link>
+      <Link href={'https://www.facebook.com/competcefetmg'}title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/mT4S0S9/facebook-icon.png" /></Link>
+      <Link href={'https://twitter.com/compet_cefet'}title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Zfb5rRR/twitter-icon.png" /></Link>
     </div>
   )
 }

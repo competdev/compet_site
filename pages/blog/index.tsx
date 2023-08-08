@@ -2,7 +2,7 @@ import axios from "axios";
 import removeAccents from 'remove-accents';
 import { useState } from 'react'
 import ReactPaginate from 'react-paginate';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 import styles from "./Blog.module.css";
 
 import Header from '../../components/Header'

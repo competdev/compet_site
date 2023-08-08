@@ -1,4 +1,4 @@
-import { makeStyles, styled } from "@material-ui/core";
+import { makeStyles, styled } from "@mui/styles";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";

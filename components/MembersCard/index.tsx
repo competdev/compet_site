@@ -1,11 +1,11 @@
-import { Tooltip } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import Fade from '@material-ui/core/Fade';
+import { Tooltip } from '@mui/material';
+import { withStyles } from '@mui/styles';
+import Fade from '@mui/material/Fade';
 import Link from 'next/link';
 import React from 'react';
 import styles from './MembersCard.module.css';
 
-const LightTooltip = withStyles((theme) => ({
+const LightTooltip = withStyles((_theme: any) => ({
   tooltip: {
     backgroundColor: "#004266",
     borderRadius: "20px",
@@ -130,26 +130,26 @@ const renderSocialNetworks = (data) => {
       <div className={styles.networkGroup}>
         {data.email != "" ?
           <div>
-            <Link href={'mailto:' + data.email}><a title='Email'>
+            <Link href={'mailto:' + data.email}title='Email'>
               <img className={styles.networkFavicon} src="https://i.ibb.co/5ckzrdq/mail-icon.png" />
-            </a></Link>
+            </Link>
           </div>
           : <></>}
 
         {data.lates != "" ?
           <div>
-            <Link href={data.lates}><a title='Lattes'>
+            <Link href={data.lates}title='Lattes'>
               <div><img className={styles.networkFavicon} src="https://i.ibb.co/r438RBd/lattes-icon.png" /></div>
-            </a></Link>
+            </Link>
           </div>
           : <></>}
 
 
         {data.linkedin != "" ?
           <div>
-            <Link href={data.linkedin}><a title='LinkedIn'>
+            <Link href={data.linkedin}title='LinkedIn'>
               <div><img className={styles.networkFavicon} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></div>
-            </a></Link>
+            </Link>
           </div>
           : <></>}
       </div>
