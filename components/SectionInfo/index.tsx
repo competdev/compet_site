@@ -1,9 +1,5 @@
-import styles from './SectionInfo.module.css';
+import styles from "./SectionInfo.module.css"
 
 export default function SectionInfo({ info }) {
-  return (
-    <div className={styles.info}>
-      {info}
-    </div>
-  )
-} 
+    return <div className={styles.info}>{info}</div>
+}
