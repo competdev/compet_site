@@ -1,5 +1,7 @@
-build
-backup-build
+.next
+
+.prettierrc
+.eslintrc
 
 *.html
 *.css
