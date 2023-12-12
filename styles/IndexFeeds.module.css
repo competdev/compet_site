@@ -84,6 +84,43 @@
   border: 2px solid #004266;
 }
 
+.playlistContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.25rem;
+  margin: 0.25rem 0.25rem;
+  border: 2px solid #ffffff;
+  border-radius: 0.5rem;
+}
+
+.playlistContainer:hover { 
+  border: 2px solid #004266;
+}
+
+.playlistContainer img {
+  margin: auto 0;
+}
+
+.playlistData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.playlistTitle {
+  font-family: "Codec Pro Regular";
+  color: #004266;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.playlistDescription {
+  font-family: "Codec Pro Regular";
+  color: #19DD39;
+  font-weight: bold;
+  /* font-size: 1.25rem; */
+}
+
 @media (max-width: 1620px) {
   .socialMediaContainer {
     margin-bottom: 14%;

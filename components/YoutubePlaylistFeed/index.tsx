@@ -4,20 +4,44 @@ import SectionTitle from "../SectionTitle"
 import axios from "axios"
 
 type YoutubePlaylist = {
-    // items(id,snippet(title,channelId,description,thumbnails(default)))
     id: string
     snippet: {
         title: string
         channelId: string
         description: string
         thumbnails: {
-            medium: {
+            standard: {
                 height: number
                 width: number
                 url: string
             }
         }
     }
+}
+
+const PlaylistCard = (props: { playlist: YoutubePlaylist }) => {
+    return (
+        <a href={`https://www.youtube.com/playlist?list=${props.playlist.id}`} target="_blank">
+            <div className={styles.playlistContainer}>
+                <div className={styles.playlistData}>
+                    <span className={styles.playlistTitle}>{props.playlist.snippet.title}</span>
+                    {props.playlist.snippet.description ? (
+                        <span className={styles.playlistDescription}>
+                            {props.playlist.snippet.description.length < 140
+                                ? props.playlist.snippet.description
+                                : props.playlist.snippet.description.substring(0, 140) + "..."}
+                        </span>
+                    ) : null}
+                </div>
+                <img
+                    height={144}
+                    width={192}
+                    src={props.playlist.snippet.thumbnails.standard.url}
+                    alt={props.playlist.snippet.title}
+                />
+            </div>
+        </a>
+    )
 }
 
 const YoutubeFeed = () => {
@@ -28,7 +52,7 @@ const YoutubeFeed = () => {
         const channelId = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || "UCeuOOmA8OJcOwyFsUuk8Ccw"
         const key = "AIzaSyBdzzSPKK4vKBzgCp7JUlaR4nJL-a2Qy34"
         const part = "snippet,contentDetails"
-        const fields = "items(id,snippet(title,channelId,description,thumbnails(medium)))"
+        const fields = "items(id,snippet(title,channelId,description,thumbnails(standard)))"
 
         axios({
             method: "GET",
@@ -53,16 +77,7 @@ const YoutubeFeed = () => {
             <SectionTitle title="Youtube" />
             <article className={styles.socialMediaContainer}>
                 {playlistData.map(playlist => (
-                    <div style={{ marginBottom: "1rem" }}>
-                        <div>{playlist.snippet.title}</div>
-                        <img
-                            height={playlist.snippet.thumbnails.medium.height}
-                            width={playlist.snippet.thumbnails.medium.width}
-                            src={playlist.snippet.thumbnails.medium.url}
-                            alt={playlist.snippet.title}
-                        />
-                        {/* <div>{playlist.snippet.description}</div> */}
-                    </div>
+                    <PlaylistCard playlist={playlist} />
                 ))}
             </article>
         </section>
