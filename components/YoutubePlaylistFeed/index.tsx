@@ -20,17 +20,18 @@ type YoutubePlaylist = {
 }
 
 const PlaylistCard = (props: { playlist: YoutubePlaylist }) => {
+    const formattedDescription =
+        props.playlist.snippet.description.length < 140
+            ? props.playlist.snippet.description
+            : props.playlist.snippet.description.substring(0, 140) + "..."
+
     return (
         <a href={`https://www.youtube.com/playlist?list=${props.playlist.id}`} target="_blank">
             <div className={styles.playlistContainer}>
                 <div className={styles.playlistData}>
                     <span className={styles.playlistTitle}>{props.playlist.snippet.title}</span>
                     {props.playlist.snippet.description ? (
-                        <span className={styles.playlistDescription}>
-                            {props.playlist.snippet.description.length < 140
-                                ? props.playlist.snippet.description
-                                : props.playlist.snippet.description.substring(0, 140) + "..."}
-                        </span>
+                        <span className={styles.playlistDescription}>{formattedDescription}</span>
                     ) : null}
                 </div>
                 <img
@@ -50,7 +51,7 @@ const YoutubeFeed = () => {
     const getPlaylists = async () => {
         const url = "https://content-youtube.googleapis.com/youtube/v3/playlists"
         const channelId = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || "UCeuOOmA8OJcOwyFsUuk8Ccw"
-        const key = "AIzaSyBdzzSPKK4vKBzgCp7JUlaR4nJL-a2Qy34"
+        const key = process.env.YOUTUBE_API_KEY || "AIzaSyBlW9RsUuVwe5Q5jCAEi07unynregYh_jc"
         const part = "snippet,contentDetails"
         const fields = "items(id,snippet(title,channelId,description,thumbnails(standard)))"
 
