@@ -15,6 +15,18 @@
   overflow-x: auto;
   border: #20202033 1px solid;
 }
+
+
+/* Uncomment to hide scrollbar of all social feeds
+.socialMediaContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.socialMediaContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} */
+
 .newsContainer {
   border-radius: 5px;
   border-width: 5px 5px 0 5px;
@@ -100,12 +112,15 @@
 
 .playlistContainer img {
   margin: auto 0;
+  border-radius: 0.5em;
 }
 
 .playlistData {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  flex: 1;
+  margin: 0 0.5em;
 }
 
 .playlistTitle {
@@ -113,12 +128,15 @@
   color: #004266;
   font-weight: bold;
   font-size: 1.25rem;
+  text-align: center;
 }
+
 .playlistDescription {
   font-family: "Codec Pro Regular";
   color: #19DD39;
-  font-weight: bold;
+  /* font-weight: bold; */
   /* font-size: 1.25rem; */
+  text-align: justify;
 }
 
 @media (max-width: 1620px) {
