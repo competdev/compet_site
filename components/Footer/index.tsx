@@ -1,34 +1,34 @@
 import Link from "next/link"
-import React, { useState } from "react"
+import { useState } from "react"
 import wSize from "../../util/windowSize"
 import styles from "./Footer.module.css"
-
-const horarioAulas = "https://www.decom.cefetmg.br/horarios-2020/"
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
-            <div className={styles.container}>{renderTextLinks()}</div>
-            {renderAddressCEFET()}
-            {renderCredits()}
+            <div className={styles.container}>
+                <FooterLinks />
+            </div>
+            <AddressCEFET />
+            <Credits />
         </footer>
     )
 }
 
-const renderTextLinks = () => {
+const FooterLinks = () => {
     return (
         <div>
             <div className={styles.text_links_container}>
-                {renderCEFETInfo()}
-                {renderDECOMInfo()}
-                {renderExtraInfo()}
-                {renderSocialNetwork()}
+                <InfoCEFET />
+                <InfoDECOM />
+                <InfoExtra />
+                <LinksSocialNetwork />
             </div>
         </div>
     )
 }
 
-const renderCEFETInfo = () => {
+const InfoCEFET = () => {
     const [toggleFooter, setToggleFooter] = useState(false)
 
     const toggleArrow = () => {
@@ -46,20 +46,14 @@ const renderCEFETInfo = () => {
                 {" "}
                 <hr></hr>
                 <div className={styles.Links}>
-                    {wSize().width > 1100 ? (
-                        renderLinksCEFET()
-                    ) : toggleFooter ? (
-                        renderLinksCEFET()
-                    ) : (
-                        <></>
-                    )}
+                    {wSize().width > 1100 ? <LinksCEFET /> : toggleFooter ? <LinksCEFET /> : <></>}
                 </div>
             </div>
         </div>
     )
 }
 
-const renderLinksCEFET = () => {
+const LinksCEFET = () => {
     return (
         <div className={styles.CEFETLinks}>
             <div className={styles.singleLink}>
@@ -81,7 +75,7 @@ const renderLinksCEFET = () => {
     )
 }
 
-const renderDECOMInfo = () => {
+const InfoDECOM = () => {
     const [toggleFooter, setToggleFooter] = useState(false)
 
     const toggleArrow = () => {
@@ -99,20 +93,14 @@ const renderDECOMInfo = () => {
                 {" "}
                 <hr></hr>
                 <div className={styles.Links}>
-                    {wSize().width > 1100 ? (
-                        renderLinksDECOM()
-                    ) : toggleFooter ? (
-                        renderLinksDECOM()
-                    ) : (
-                        <></>
-                    )}
+                    {wSize().width > 1100 ? <LinksDECOM /> : toggleFooter ? <LinksDECOM /> : <></>}
                 </div>
             </div>
         </div>
     )
 }
 
-const renderLinksDECOM = () => {
+const LinksDECOM = () => {
     return (
         <div className={styles.LinksDECOM}>
             <div className={styles.singleLink}>
@@ -120,21 +108,21 @@ const renderLinksDECOM = () => {
                     <a>Site</a>
                 </Link>
             </div>
-            <div className={styles.singleLink}>
+            {/* <div className={styles.singleLink}>
                 <Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf">
                     <a>Grade Curricular</a>
                 </Link>
-            </div>
-            <div className={styles.singleLink}>
+            </div> */}
+            {/* <div className={styles.singleLink}>
                 <Link href={horarioAulas}>
                     <a>Horário de aulas</a>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }
 
-const renderExtraInfo = () => {
+const InfoExtra = () => {
     const [toggleFooter, setToggleFooter] = useState(false)
 
     const toggleArrow = () => {
@@ -153,19 +141,13 @@ const renderExtraInfo = () => {
             <div className={styles.separator}>
                 {" "}
                 <hr></hr>
-                {wSize().width > 1100 ? (
-                    renderLinksCOGPDC()
-                ) : toggleFooter ? (
-                    renderLinksCOGPDC()
-                ) : (
-                    <></>
-                )}
+                {wSize().width > 1100 ? <LinksCOGPDC /> : toggleFooter ? <LinksCOGPDC /> : <></>}
             </div>
         </div>
     )
 }
 
-const renderLinksCOGPDC = () => {
+const LinksCOGPDC = () => {
     return (
         <div className={styles.containerLinks}>
             <div className={styles.Links}>
@@ -240,7 +222,7 @@ const renderLinksCOGPDC = () => {
     )
 }
 
-const renderSocialNetwork = () => {
+const LinksSocialNetwork = () => {
     return (
         <div className={styles.socialNetwork}>
             <Link href={"https://www.instagram.com/compet.cefet/"}>
@@ -279,7 +261,7 @@ const renderSocialNetwork = () => {
     )
 }
 
-const renderCredits = () => {
+const Credits = () => {
     return (
         <div className={styles.Credits}>
             <div className={styles.textCredits}>Desenvolvido por</div>
@@ -291,7 +273,7 @@ const renderCredits = () => {
     )
 }
 
-const renderAddressCEFET = () => {
+const AddressCEFET = () => {
     return (
         <address className={styles.addressCEFET}>
             Av. Amazonas 7675, Nova Gameleira. Belo Horizonte - MG - Brasil | CEP: 30510-000
