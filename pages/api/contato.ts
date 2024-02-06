@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer"
-import dotenv from 'dotenv'
+import dotenv from "dotenv"
 dotenv.config()
 
 export default async (req, res) => {
@@ -8,19 +8,19 @@ export default async (req, res) => {
         const { SENDER_EMAIL, SENDER_PASS, RECIPIENT_EMAIL } = process.env
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            service: "gmail",
             secure: true,
             auth: {
                 user: SENDER_EMAIL,
                 pass: SENDER_PASS,
-            }
+            },
         })
 
         const mailOptions = {
             from: `${name} <${SENDER_EMAIL}>`,
             to: [RECIPIENT_EMAIL],
             subject: `[Contato COMPET Site] - ${subject}`,
-            text: `${message}\n---\nEnviado por: ${name} <${email}>`
+            text: `${message}\n---\nEnviado por: ${name} <${email}>`,
         }
 
         await transporter.sendMail(mailOptions)

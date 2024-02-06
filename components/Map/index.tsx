@@ -8,15 +8,17 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png"
 
 L.Marker.prototype.options.icon = L.icon({
     iconUrl: icon.src,
-    shadowUrl: iconShadow.src
-});
+    shadowUrl: iconShadow.src,
+})
 
 const Map = () => {
     const position: L.LatLngTuple = [-19.9390501, -43.9991923]
     const zoom = 13
     return (
         <MapContainer
-            center={position} zoom={zoom} scrollWheelZoom={true}
+            center={position}
+            zoom={zoom}
+            scrollWheelZoom={true}
             style={{ height: 400, width: "100%" }}
         >
             <TileLayer
@@ -24,9 +26,7 @@ const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={position}>
-                <Popup>
-                    Sede do COMPET no CEFET-MG Campus Nova Gameleira
-                </Popup>
+                <Popup>Sede do COMPET no CEFET-MG Campus Nova Gameleira</Popup>
             </Marker>
         </MapContainer>
     )

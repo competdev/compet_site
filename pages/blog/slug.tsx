@@ -45,7 +45,7 @@
 //     props: {
 //       post: postRes.data.data,
 //     },
-//   };  
+//   };
 // }
 
 // export async function getStaticPaths() {
@@ -56,9 +56,9 @@
 //         slug: slugTitle(post.attributes.title),
 //       }
 //     }
-//   });  
+//   });
 
-//   return {	
+//   return {
 //     paths,
 //     fallback: false,
 //   }
@@ -69,9 +69,5 @@
 // }
 
 export default function PostPage() {
-  return (
-    <div>
-      Under construction
-    </div>
-  )
+    return <div>Under construction</div>
 }
