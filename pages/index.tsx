@@ -5,6 +5,7 @@ import SlideShow from "../components/SlideShow"
 import About from "../components/AboutCOMPET"
 import InstagramFeed from "../components/InstagramFeed"
 import TwitterFeed from "../components/TwitterFeed"
+import YoutubeFeed from "../components/YoutubePlaylistFeed"
 import NewsFeed from "../components/NewsFeed"
 import Partners from "../components/Partners"
 import Footer from "../components/Footer"
@@ -43,6 +44,7 @@ const renderSocialMediaFeed = ({ dados }) => {
         <section className={styles.socialMediaContainer}>
             {<InstagramFeed />}
             <TwitterFeed />
+            <YoutubeFeed />
             <NewsFeed dados={dados} />
         </section>
     )
