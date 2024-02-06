@@ -34,12 +34,13 @@ const InfoCEFET = () => {
     const toggleArrow = () => {
         setToggleFooter(!toggleFooter)
     }
+
     return (
         <div className={styles.CEFETinfo}>
             <div>
-                <div className={styles.containerTitle}>
+                <div className={styles.containerTitle} onClick={toggleArrow}>
                     <div className={styles.sectionTitle}>CEFET</div>
-                    <div onClick={toggleArrow} className={styles.arrow}></div>
+                    <div className={styles.arrow}></div>
                 </div>
             </div>
             <div className={styles.separator}>
@@ -81,12 +82,13 @@ const InfoDECOM = () => {
     const toggleArrow = () => {
         setToggleFooter(!toggleFooter)
     }
+
     return (
         <div className={styles.DECOMinfo}>
             <div>
-                <div className={styles.containerTitle}>
+                <div className={styles.containerTitle} onClick={toggleArrow}>
                     <div className={styles.sectionTitle}>DECOM</div>
-                    <div onClick={toggleArrow} className={styles.arrow}></div>
+                    <div className={styles.arrow}></div>
                 </div>
             </div>
             <div className={styles.separator}>
@@ -128,96 +130,83 @@ const InfoExtra = () => {
     const toggleArrow = () => {
         setToggleFooter(!toggleFooter)
     }
+
     return (
         <div className={styles.extraInfo}>
             <div>
-                <div className={styles.containerTitle}>
+                <div className={styles.containerTitle} onClick={toggleArrow}>
                     <div className={styles.sectionTitle}>
                         CONHEÇA OUTROS GRUPOS PET DO CEFET-MG!
                     </div>
-                    <div onClick={toggleArrow} className={styles.arrow}></div>
+                    <div className={styles.arrow}></div>
                 </div>
             </div>
             <div className={styles.separator}>
-                {" "}
-                <hr></hr>
                 {wSize().width > 1100 ? <LinksCOGPDC /> : toggleFooter ? <LinksCOGPDC /> : <></>}
             </div>
         </div>
     )
 }
 
+const linksGruposPET = [
+    {
+        label: "ADM (BH)",
+        href: "https://petadmcefetmg.wordpress.com/",
+    },
+    {
+        label: "Eng. Mecatrônica (Divinópolis)",
+        href: "https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh",
+    },
+    {
+        label: "Civil (Curvelo)",
+        href: "https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh",
+    },
+    {
+        label: "ConecTTE (BH)",
+        href: "https://www.petconectte.cefetmg.br/",
+    },
+    {
+        label: "Eng. de Controle e Automação (Leopoldina)",
+        href: "https://www.ecofet.com.br/",
+    },
+    {
+        label: "EAI (Araxá)",
+        href: "http://www.formulacefast.com/",
+    },
+    {
+        label: "Eng. Materiais (BH)",
+        href: "https://www.demat.cefetmg.br/pet-programa-ed/",
+    },
+    {
+        label: "Interdisciplinar (Timóteo)",
+        href: "/",
+    },
+    {
+        label: "Eng. de Minas (Araxá)",
+        href: "https://trincabotz.com.br/",
+    },
+    {
+        label: "Ambiental (BH)",
+        href: "https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi",
+    },
+    {
+        label: "Eng. Elétrica (Nepomuceno)",
+        href: "https://www.peteenepomuceno.com.br/",
+    },
+    {
+        label: "Eng. Civil (Varginha)",
+        href: "https://www.ecofet.com.br/",
+    },
+]
+
 const LinksCOGPDC = () => {
     return (
-        <div className={styles.containerLinks}>
-            <div className={styles.Links}>
-                <div className={styles.singleLink}>
-                    <Link href="https://petadmcefetmg.wordpress.com/">
-                        <a>ADM (BH)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.petconectte.cefetmg.br/">
-                        <a>ConecTTE (BH)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.demat.cefetmg.br/pet-programa-ed/">
-                        <a>Eng. Materiais (BH)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi">
-                        <a>Ambiental (BH)</a>
-                    </Link>
-                </div>
-            </div>
-
-            <div className={styles.Links}>
-                <div className={styles.singleLink}>
-                    <Link href="https://trincabotz.com.br/">
-                        <a>Eng. de Minas (Araxá)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="http://www.formulacefast.com/">
-                        <a>EAI (Araxá)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh">
-                        <a>Civil (Curvelo)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh">
-                        <a>Eng. Mecatrônica (Divinópolis)</a>
-                    </Link>
-                </div>
-            </div>
-
-            <div className={styles.Links}>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.peteenepomuceno.com.br/">
-                        <a>Eng. Elétrica (Nepomuceno)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.ecofet.com.br/">
-                        <a>Eng. de Controle e Automação (Leopoldina)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="">
-                        <a>Interdisciplinar (Timóteo)</a>
-                    </Link>
-                </div>
-                <div className={styles.singleLink}>
-                    <Link href="https://www.ecofet.com.br/">
-                        <a>Eng. Civil (Varginha)</a>
-                    </Link>
-                </div>
-            </div>
+        <div className={styles.containerLinksCOGPDC}>
+            {linksGruposPET.map(grupo => (
+                <span className={styles.singleLink}>
+                    <Link href={grupo.href}>{grupo.label}</Link>
+                </span>
+            ))}
         </div>
     )
 }

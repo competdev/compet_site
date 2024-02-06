@@ -36,14 +36,10 @@
   font-size: 18;
 }
 
-.containerLinks {
-  display: flex;
-}
-
 .sectionTitle {
   font-weight: bold;
-  margin-top: 10px;
-  text-align: left;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .CEFETinfo {
@@ -67,10 +63,22 @@
   text-align: center;
 }
 
-.Links {
+.links {
   font-size: 12px;
   margin-top: 10px;
   margin-right: 25px;
+  text-align: center;
+}
+
+.containerLinksCOGPDC {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 0.5rem;
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.containerLinksCOGPDC .singleLink {
   text-align: center;
 }
 
@@ -210,12 +218,12 @@ transition: all 300ms ease-in-out;
     overflow-x: hidden;
   }
 
-  .Links {
+  .links {
     font-size: 12px;
     font-style: italic;
   }
 
-  .LinksDECOM {
+  .linksDECOM {
     display: block;
   }
 
@@ -244,7 +252,7 @@ transition: all 300ms ease-in-out;
     font-size: 14px;
   }
 
-  .Links {
+  .links {
     font-size: 10px;
   }
 
@@ -266,6 +274,10 @@ transition: all 300ms ease-in-out;
   .logoCOMPET {
     margin-top: -8px;
   }
+
+  .containerLinksCOGPDC {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 415px) {
@@ -273,7 +285,7 @@ transition: all 300ms ease-in-out;
     font-size: 10px;
   }
 
-  .Links {
+  .links {
     font-size: 8px;
   }
 
