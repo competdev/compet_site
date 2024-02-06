@@ -78,15 +78,13 @@
   width: 100%;
 }
 
-.containerLinksCOGPDC .singleLink {
-  text-align: center;
-}
-
 .singleLink {
-transition: all 300ms ease-in-out;
--webkit-transition: all 300ms ease-in-out;
--moz-transition: all 300ms ease-in-out;
--o-transition: all 300ms ease-in-out;
+  font-size: 0.75rem;
+  text-align: center;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
 }
 
 .singleLink:hover {
