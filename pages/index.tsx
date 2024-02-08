@@ -13,13 +13,16 @@ import Footer from "../components/Footer"
 import { NEXT_URL } from "../util/config"
 
 Index.getInitialProps = async () => {
-    const newsResponse = await axios.get(NEXT_URL + "/api/news")
-    const slideResponse = await axios.get(NEXT_URL + "/api/slideShow")
-    const partnersResponse = await axios.get(NEXT_URL + "/api/parceiros")
+    const news = axios.get(NEXT_URL + "/api/news")
+    const slide = axios.get(NEXT_URL + "/api/slideShow")
+    const partners = axios.get(NEXT_URL + "/api/parceiros")
+
+    const [newsRes, slideRes, partnersRes] = await Promise.all([news, slide, partners])
+
     return {
-        dados: newsResponse.data,
-        dadosSlide: slideResponse.data,
-        dadosParceiros: partnersResponse.data,
+        dados: newsRes.data,
+        dadosSlide: slideRes.data,
+        dadosParceiros: partnersRes.data,
     }
 }
 
