@@ -64,7 +64,9 @@
   border: 20px solid #19DD39;
   border-radius: 20px;
 }
-
+.text{
+  text-align: justify;
+}
 @media (max-width: 1024px) {
   .img_InterPet img {
     height: 200px;
