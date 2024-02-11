@@ -1,11 +1,11 @@
-import { Tooltip } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
-import Fade from "@material-ui/core/Fade"
-import Link from "next/link"
-import React from "react"
-import styles from "./MembersCard.module.css"
+import { Tooltip } from '@mui/material';
+import { withStyles } from '@mui/styles';
+import Fade from '@mui/material/Fade';
+import Link from 'next/link';
+import React from 'react';
+import styles from './MembersCard.module.css';
 
-const LightTooltip = withStyles(theme => ({
+const LightTooltip = withStyles((_theme: any) => ({
     tooltip: {
         backgroundColor: "#004266",
         borderRadius: "20px",
@@ -14,18 +14,17 @@ const LightTooltip = withStyles(theme => ({
         maxWidth: 500,
         fontFamily: "Verdana",
         fontSize: 15,
-        textAlign: "justify",
+        textAlign: "justify"
     },
     arrow: {
         fontSize: 25,
         width: 25,
         "&::before": {
             backgroundColor: "#004266",
-            boxSizing: "border-box",
-        },
+            boxSizing: "border-box"
+        }
     },
-}))(Tooltip)
-
+}))(Tooltip);
 // Função principal exportando o html da pag.
 export default function memberCard({ dados, membersPage, socialNetworks }) {
     let firstBlank_space
@@ -131,7 +130,7 @@ const renderInfoCompet = (data, socialNetworks) => {
     return (
         <div>
             {data.data_fim.split("-")[0] != data.data_inicio.split("-")[0] &&
-            socialNetworks == false ? (
+                socialNetworks == false ? (
                 <div>
                     {" "}
                     COMPET{" "}
@@ -149,58 +148,34 @@ const renderInfoCompet = (data, socialNetworks) => {
     )
 }
 
-const renderSocialNetworks = data => {
+const renderSocialNetworks = (data) => {
     return (
         <div>
             <div className={styles.networkGroup}>
-                {data.email != "" ? (
+                {data.email != "" ?
                     <div>
-                        <Link href={"mailto:" + data.email}>
-                            <a title="Email">
-                                <img
-                                    className={styles.networkFavicon}
-                                    src="https://i.ibb.co/5ckzrdq/mail-icon.png"
-                                />
-                            </a>
+                        <Link href={'mailto:' + data.email} title='Email'>
+                            <img className={styles.networkFavicon} src="https://i.ibb.co/5ckzrdq/mail-icon.png" />
                         </Link>
                     </div>
-                ) : (
-                    <></>
-                )}
+                    : <></>}
 
-                {data.lates != "" ? (
+                {data.lates != "" ?
                     <div>
-                        <Link href={data.lates}>
-                            <a title="Lattes">
-                                <div>
-                                    <img
-                                        className={styles.networkFavicon}
-                                        src="https://i.ibb.co/r438RBd/lattes-icon.png"
-                                    />
-                                </div>
-                            </a>
+                        <Link href={data.lates} title='Lattes'>
+                            <div><img className={styles.networkFavicon} src="https://i.ibb.co/r438RBd/lattes-icon.png" /></div>
                         </Link>
                     </div>
-                ) : (
-                    <></>
-                )}
+                    : <></>}
 
-                {data.linkedin != "" ? (
+
+                {data.linkedin != "" ?
                     <div>
-                        <Link href={data.linkedin}>
-                            <a title="LinkedIn">
-                                <div>
-                                    <img
-                                        className={styles.networkFavicon}
-                                        src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
-                                    />
-                                </div>
-                            </a>
+                        <Link href={data.linkedin} title='LinkedIn'>
+                            <div><img className={styles.networkFavicon} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></div>
                         </Link>
                     </div>
-                ) : (
-                    <></>
-                )}
+                    : <></>}
             </div>
         </div>
     )

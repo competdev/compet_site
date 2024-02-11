@@ -1,7 +1,7 @@
-import { makeStyles } from "@material-ui/styles"
-import { useState } from "react"
-import ReactPaginate from "react-paginate"
-import styles from "../../styles/IndexFeeds.module.css"
+import { makeStyles } from '@mui/styles';
+import { useState } from 'react'
+import ReactPaginate from 'react-paginate';
+import styles from '../../styles/IndexFeeds.module.css'
 
 import SectionTitle from "../SectionTitle"
 

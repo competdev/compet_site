@@ -6,10 +6,10 @@ import {
     List,
     ListItem,
     ListProps,
-    makeStyles,
     Typography,
-} from "@material-ui/core"
-import styles from "./PastEditionsInterPet.module.css"
+} from "@mui/material";
+import { makeStyles } from "@mui/styles"
+import styles from "./PastEditionsInterPet.module.css";
 
 import SectionTitle from "../SectionTitle"
 

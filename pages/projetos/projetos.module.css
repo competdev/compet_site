@@ -1,0 +1,14 @@
+.card{
+display: flex;
+gap:1rem;
+align-items: center;
+justify-content: center;
+padding-inline: 1rem;
+flex-wrap: wrap;
+}
+.image{
+  width: 30%;
+  aspect-ratio: 1/1;
+  min-width: 10rem;
+  border-radius: 50%;
+}

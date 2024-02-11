@@ -26,3 +26,9 @@ body::-webkit-scrollbar-thumb {
   background-color: #004266;
   border-radius: 10px; 
 }
+:root{
+  --primary-color: #004266;
+  --secondary-color: #19DD39;
+  --text-color: #000;
+  --background-color: #e6e6e6;
+}

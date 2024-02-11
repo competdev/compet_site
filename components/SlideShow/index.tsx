@@ -1,9 +1,9 @@
-import { makeStyles, styled } from "@material-ui/core"
-import React from "react"
-import { Carousel } from "react-responsive-carousel"
-import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"
-import styles from "./SlideShow.module.css"
-import SectionTitle from "../SectionTitle"
+import { makeStyles, styled } from "@mui/styles";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+import styles from "./SlideShow.module.css";
+import SectionTitle from "../SectionTitle";
 const Legend = styled("p")({
     width: "100%",
 })
