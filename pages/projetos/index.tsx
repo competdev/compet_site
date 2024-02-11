@@ -21,33 +21,35 @@ export default function Projetos({ projects, aboutProjects }: { projects: Projec
     return { name: project.nome, thumb: project.thumb, id: project.id }
   })
   const { pathname } = useRouter()
-  return (
-    <>
-      <Header />
-      <main style={{ margin: "1rem" }}>
-        <Heading size={"xl"} css={{
-          marginBlockStart: '5rem',
-          textAlign: 'center',
-        }}>Projetos</Heading>
-        <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
-          <Text css={{
-            marginBlock: '1rem',
-            width: '100%',
-            maxWidth: '800px',
-          }}>{aboutProjects}</Text>
-          <div className={styles.card}>
-            {projetos.map(project => (
-              <Link key={project.id} href={`${pathname}/${project.name}`} style={{ width: '25%', display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <Heading size={"lg"} as={"h3"}>{project.name}</Heading>
-                <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.image} />
-              </Link>
-            ))}
-          </div>
+  return <>
+    <Header />
+    <main style={{ margin: "1rem" }}>
+      <Heading size={"xl"} css={{
+        marginBlockStart: '5rem',
+        textAlign: 'center',
+      }}>Projetos</Heading>
+      <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
+        <Text css={{
+          marginBlock: '1rem',
+          width: '100%',
+          maxWidth: '800px',
+        }}>{aboutProjects}</Text>
+        <div className={styles.card}>
+          {projetos.map(project => (
+            <Link
+              key={project.id}
+              href={`${pathname}/${project.name}`}
+              style={{ width: '25%', display: "flex", flexDirection: "column", alignItems: "center" }}
+              legacyBehavior>
+              <Heading size={"lg"} as={"h3"}>{project.name}</Heading>
+              <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.image} />
+            </Link>
+          ))}
         </div>
+      </div>
 
-      </main>
+    </main>
 
-      <Footer />
-    </>
-  )
+    <Footer />
+  </>;
 }

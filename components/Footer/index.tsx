@@ -59,21 +59,21 @@ const LinksCEFET = () => {
         <div className={styles.CEFETLinks}>
             <div className={styles.singleLink}>
                 <Link href="https://www.cefetmg.br/home/">
-                    <a>Site</a>
+                    Site
                 </Link>
             </div>
             <div className={styles.singleLink}>
                 <Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do">
-                    <a>SIGAA</a>
+                    SIGAA
                 </Link>
             </div>
             <div className={styles.singleLink}>
                 <Link href="https://ava.cefetmg.br/">
-                    <a>AVA</a>
+                    AVA
                 </Link>
             </div>
         </div>
-    )
+    );
 }
 
 const InfoDECOM = () => {
@@ -107,7 +107,7 @@ const LinksDECOM = () => {
         <div className={styles.LinksDECOM}>
             <div className={styles.singleLink}>
                 <Link href="https://www.decom.cefetmg.br/">
-                    <a>Site</a>
+                    Site
                 </Link>
             </div>
             {/* <div className={styles.singleLink}>
@@ -121,7 +121,7 @@ const LinksDECOM = () => {
                 </Link>
             </div> */}
         </div>
-    )
+    );
 }
 
 const InfoExtra = () => {
@@ -204,50 +204,50 @@ const LinksCOGPDC = () => {
         <div className={styles.containerLinksCOGPDC}>
             {linksGruposPET.map(grupo => (
                 <span className={styles.singleLink}>
-                    <Link href={grupo.href}>{grupo.label}</Link>
+                    <Link href={grupo.href} legacyBehavior>{grupo.label}</Link>
                 </span>
             ))}
         </div>
-    )
+    );
 }
 
 const LinksSocialNetwork = () => {
     return (
         <div className={styles.socialNetwork}>
-            <Link href={"https://www.instagram.com/compet.cefet/"}>
-                <a title="Instagram">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/61Y0dqL/instagram-icon.png"
-                    />
-                </a>
+            <Link href={"https://www.instagram.com/compet.cefet/"} title="Instagram">
+
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/61Y0dqL/instagram-icon.png"
+                />
+
             </Link>
-            <Link href={"https://www.linkedin.com/in/competcefetmg/"}>
-                <a title="LinkedIn">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
-                    />
-                </a>
+            <Link href={"https://www.linkedin.com/in/competcefetmg/"} title="LinkedIn">
+
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
+                />
+
             </Link>
-            <Link href={"https://www.facebook.com/competcefetmg"}>
-                <a title="Facebook">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/mT4S0S9/facebook-icon.png"
-                    />
-                </a>
+            <Link href={"https://www.facebook.com/competcefetmg"} title="Facebook">
+
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/mT4S0S9/facebook-icon.png"
+                />
+
             </Link>
-            <Link href={"https://twitter.com/compet_cefet"}>
-                <a title="Twitter">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/Zfb5rRR/twitter-icon.png"
-                    />
-                </a>
+            <Link href={"https://twitter.com/compet_cefet"} title="Twitter">
+
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/Zfb5rRR/twitter-icon.png"
+                />
+
             </Link>
         </div>
-    )
+    );
 }
 
 const Credits = () => {

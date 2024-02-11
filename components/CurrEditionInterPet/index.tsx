@@ -25,7 +25,7 @@ export default function CurrEditionInterPet({ dados }) {
   return (
     <div className={styles.container}>
       <SectionTitle title="Edição Atual" />
-      <Link href={edicao_atual[0].link} target="_blank">
+      <Link href={edicao_atual[0].link} target="_blank" legacyBehavior>
         <div className={styles.card}>
           <img className={styles.cardImg} src={edicao_atual[0].img} />
           <div className={styles.infoCard}>
@@ -36,5 +36,5 @@ export default function CurrEditionInterPet({ dados }) {
         </div>
       </Link>
     </div>
-  )
+  );
 }

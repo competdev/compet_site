@@ -12,7 +12,7 @@ export default function Posts({ posts }) {
                     (
                         <div className={styles.postContent} key={post.id}>
                             <div className={styles.thumbnail}>
-                                <Link href="/blog/[slug]" as={`/blog/${slug}`}>
+                                <Link href="/blog/[slug]" as={`/blog/${slug}`} legacyBehavior>
                                     <img
                                         src={post.attributes.thumb_url}
                                         alt={post.attributes.title}
@@ -20,7 +20,7 @@ export default function Posts({ posts }) {
                                 </Link>
                             </div>
                             <div className={styles.contentBlock}>
-                                <Link href="/blog/[slug]" as={`/blog/${slug}`}>
+                                <Link href="/blog/[slug]" as={`/blog/${slug}`} legacyBehavior>
                                     <h2>{post.attributes.title}</h2>
                                 </Link>
                                 <p className={styles.dateAndAuthor}>
@@ -34,9 +34,9 @@ export default function Posts({ posts }) {
                 )
             )}
         </div>
-    )
+    );
 }
 
 function slugTitle(title) {
-    return title.toLowerCase().replace(/ /g, "-")
+    return title.toLowerCase().replace(/ /g, "-");
 }

@@ -38,10 +38,16 @@ const renderContato = () => {
 const renderSocialNetwork = () => {
     return (
         <div className={styles.socialNetwork}>
-            <Link href={'https://www.instagram.com/cefetmg/'} title='Instagram'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/61Y0dqL/instagram-icon.png" /></Link>
-            <Link href={'https://www.linkedin.com/school/centro-federal-de-educa%C3%A7%C3%A3o-tecnol%C3%B3gica-de-minas-gerais/mycompany/'} title='LinkedIn'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></Link>
-            <Link href={'https://www.facebook.com/cefetmg'} title='Facebook'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/mT4S0S9/facebook-icon.png" /></Link>
-            <Link href={'https://twitter.com/cefet_mg'} title='Twitter'><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Zfb5rRR/twitter-icon.png" /></Link>
+            <Link
+                href={'https://www.instagram.com/cefetmg/'}
+                title='Instagram'
+                legacyBehavior><img className={styles.socialNetworkIcons} src="https://i.ibb.co/61Y0dqL/instagram-icon.png" /></Link>
+            <Link
+                href={'https://www.linkedin.com/school/centro-federal-de-educa%C3%A7%C3%A3o-tecnol%C3%B3gica-de-minas-gerais/mycompany/'}
+                title='LinkedIn'
+                legacyBehavior><img className={styles.socialNetworkIcons} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></Link>
+            <Link href={'https://www.facebook.com/cefetmg'} title='Facebook' legacyBehavior><img className={styles.socialNetworkIcons} src="https://i.ibb.co/mT4S0S9/facebook-icon.png" /></Link>
+            <Link href={'https://twitter.com/cefet_mg'} title='Twitter' legacyBehavior><img className={styles.socialNetworkIcons} src="https://i.ibb.co/Zfb5rRR/twitter-icon.png" /></Link>
         </div>
-    )
+    );
 }

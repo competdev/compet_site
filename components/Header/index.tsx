@@ -15,7 +15,7 @@ export default function Header() {
         <header className={styles.menu_body}>
             <div className={styles.nav}>
                 <div className={styles.logo}>
-                    <Link href="/">
+                    <Link href="/" legacyBehavior>
                         <img src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
                     </Link>
                 </div>
@@ -27,14 +27,14 @@ export default function Header() {
                 </div>
             </div>
         </header>
-    )
+    );
 }
 const render_links = () => {
     return (
         <ul className={styles.nav_list}>
             {pages.map((page) => (
                 <li key={page.title}>
-                    <Link href={page.link} className={styles.link}>{page.title}
+                    <Link href={page.link} className={styles.link} legacyBehavior>{page.title}
                     </Link>
                 </li>
             ))}

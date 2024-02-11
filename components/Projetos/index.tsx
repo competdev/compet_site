@@ -9,10 +9,17 @@ const TutorComponent: TItemComponent<Tutor> = ({ email, id, linkedin, nome, resu
       <img src={urlImg} alt={`image of ${nome}`} />
       <Heading as={"h3"}>{nome}</Heading>
       <div className={styles.tutorFooter}>
-        <Link className={`${styles.icon} ${styles.mail}`} href={`mailto:${email}`} about={`send email to ${nome}`}>
+        <Link
+          className={`${styles.icon} ${styles.mail}`}
+          href={`mailto:${email}`}
+          about={`send email to ${nome}`}
+          legacyBehavior>
           <Mail />
         </Link>
-        <Link className={`${styles.icon} ${styles.linkedin}`} href={linkedin}>
+        <Link
+          className={`${styles.icon} ${styles.linkedin}`}
+          href={linkedin}
+          legacyBehavior>
           <LinkedIn />
         </Link>
       </div>
