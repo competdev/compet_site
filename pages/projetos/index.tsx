@@ -18,7 +18,7 @@ Projetos.getInitialProps = async (ctx: NextPageContext) => {
 }
 export default function Projetos({ projects, aboutProjects }: { projects: Project[], aboutProjects?: String }) {
   const projetos = projects.map(project => {
-    return { name: project.name, thumb: project.thumb, id: project.id }
+    return { name: project.nome, thumb: project.thumb, id: project.id }
   })
   const { pathname } = useRouter()
   return (
@@ -37,7 +37,7 @@ export default function Projetos({ projects, aboutProjects }: { projects: Projec
           }}>{aboutProjects}</Text>
           <div className={styles.card}>
             {projetos.map(project => (
-              <Link key={project.id} href={`${pathname}/${project.id}`} style={{ width: '25%', display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Link key={project.id} href={`${pathname}/${project.name}`} style={{ width: '25%', display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Heading size={"lg"} as={"h3"}>{project.name}</Heading>
                 <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.image} />
               </Link>

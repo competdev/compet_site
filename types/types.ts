@@ -10,33 +10,33 @@ export interface SortAction {
 }
 export interface Project {
   id: string;
-  name: string;
-  description: string;
-  start_date: string;
-  thumb:string;
+  nome: string;
+  descricao: string;
+  data_inicio: string;
+  thumb: string;
   members: Member[];
   tutors: Tutor[];
   partners?: Partner[];
 }
 type Partner = {
   id: string;
-  name: string;
+  nome: string;
   imgUrl: string;
   url: string;
 }
 export type Member = {
   id: string;
-  name: string;
+  nome: string;
   role: string;
   email: string;
   linkedin: string;
   github: string;
   urlImg: string;
-  statement:string
+  statement: string
 }
 export type Tutor = {
   id: string;
-  name: string;
+  nome: string;
   email: string;
   linkedin: string;
   resume: string;

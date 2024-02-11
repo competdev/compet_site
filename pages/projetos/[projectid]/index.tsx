@@ -31,55 +31,74 @@ export default function Projetos({ project, error }: { project: Project, error?:
       <main className={styles.main}>
 
         <section key={`project-${project.id}`} className={styles.project}>
-          <Heading size={"2xl"} css={{ textAlign: "center" }}>{project.name} </Heading>
-          <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.thumb} />
+          <Heading size={"2xl"} css={{ textAlign: "center" }}>{project.nome} </Heading>
+          <img src={project.thumb} alt={`thumbnail of ${project.nome}`} className={styles.thumb} />
           <Text size={"sm"} css={{ textAlign: "center" }}>
             Projeto criado em:
-            <time dateTime={project.start_date}> {new Date(project.start_date).toLocaleDateString("pt-BR")}</time>
+            <time dateTime={project.data_inicio}> {new Date(project.data_inicio).toLocaleDateString("pt-BR")}</time>
           </Text>
           <Heading as={"h3"} size={"xl"} css={{ textAlign: "center" }}>Sobre o projeto</Heading>
           <section id='about-project' className={styles.descriptionContainer}>
-            {project.description.split('.').map((sentence, index) => index !== project.description.split('.').length - 1 && (
+            {project?.descricao?.split('.')?.map((sentence, index) => index !== project.descricao?.split('.')?.length - 1 && (
               <Text key={sentence.split(' ')[0]} size={"lg"}>{sentence}.</Text>
             ))}
           </section>
-          <Heading as={"h3"} size={'lg'} css={{ textAlign: "center" }}>Membros</Heading>
-          <div className={`${styles.membersContainer} ${darkTheme}`}>
-            {<MemberCarousel items={project.members} />}
-          </div>
+          {project.members?.length > 0 ? (
+            <>
+              <Heading as={"h3"} size={'lg'} css={{ textAlign: "center" }}>Membros</Heading>
+              <div className={`${styles.membersContainer} ${darkTheme}`}>
+                {<MemberCarousel items={project.members} />}
+              </div>
+            </>
+          ) : null}
           <Heading as={"h3"} size={'lg'} css={{ textAlign: "center" }}>Coordenadores do projeto</Heading>
-          <Box elevation={0} className={`${styles.tutorsContainer}`}>
+          <Box elevation={'0'} css={{
+            alignSelf: "center",
+            position: "relative",
+            width: "100%",
+            maxWidth: '800px'
+          }} className={`${styles.tutorsContainer}`}>
             {<TutorCarousel items={project.tutors} />}
+            <Image src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" alt="compet-logo" style={{
+              position: "absolute",
+              bottom: "1rem",
+              right: "3rem",
+              filter: "grayscale(1)"
+            }}
+              width={80}
+              height={40}
+            />
+
           </Box>
         </section>
         {project.partners &&
           (
             <section className={`${styles.main}`} >
               <Heading as={"h3"} size={"xl"} css={{ textAlign: "center" }}>Parceiros</Heading>
-              <div style={{display:'flex',gap:"1rem",marginBlock:"2rem",flexWrap:'wrap'}}>
-              {
-                project.partners.map((partner, index) => (
+              <div style={{ display: 'flex', gap: "1rem", marginBlock: "2rem", flexWrap: 'wrap' }}>
+                {
+                  project.partners.map((partner, index) => (
 
-              <Card.Root css={{
-                backgroundColor:`$codelife-${index%2==0?index%4==0?"tertiary":"secondary":"primary"}-300`
-              }}>
-                <Card.Header css={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <div className={styles.partnerIcon}>
-                    <img src={partner.imgUrl} alt={`image of ${partner.name}`} />
-                  </div>
-                  <Heading sr-only>{partner.name}</Heading>
-                </Card.Header>
-                <Button
-                  as={'a'}
-                  about={partner.name}
-                  href={partner.url}
-                  variant={index%2==0?index%4==0?"primary":"secondary":"tertiary"}
-                >
-                  Conhecer
-                </Button>
-              </Card.Root>
-                ))
-              }
+                    <Card.Root css={{
+                      backgroundColor: `$codelife-${index % 2 == 0 ? index % 4 == 0 ? "tertiary" : "secondary" : "primary"}-300`
+                    }}>
+                      <Card.Header css={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div className={styles.partnerIcon}>
+                          <img src={partner.imgUrl} alt={`image of ${partner.nome}`} />
+                        </div>
+                        <Heading sr-only>{partner.nome}</Heading>
+                      </Card.Header>
+                      <Button
+                        as={'a'}
+                        about={partner.nome}
+                        href={partner.url}
+                        variant={index % 2 == 0 ? index % 4 == 0 ? "primary" : "secondary" : "tertiary"}
+                      >
+                        Conhecer
+                      </Button>
+                    </Card.Root>
+                  ))
+                }
               </div>
             </section>
           )}

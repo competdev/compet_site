@@ -28,6 +28,7 @@
   gap:.25rem;
   width: 100%;
   align-items: center;
+  text-align: justify;
   justify-content: center;
   animation: appear 2s ease-in-out;
   animation-timeline: view();
