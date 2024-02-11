@@ -15,7 +15,7 @@ Projetos.getInitialProps = async (ctx: NextPageContext) => {
   if (response.status !== 200) return { error: response.status, project: null }
   const project: Project = response.data
   return { project }
-}
+};
 export default function Projetos({ project, error }: { project: Project, error?: string | number }) {
   if (error) return (<h1>{error}</h1>)
   return (
