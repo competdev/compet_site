@@ -25,28 +25,6 @@ const LightTooltip = withStyles((_theme: any) => ({
         }
     },
 }))(Tooltip);
-
-const LightTooltip = withStyles(theme => ({
-    tooltip: {
-        backgroundColor: "#004266",
-        borderRadius: "20px",
-        padding: "25px",
-        color: "#fdfdfd",
-        maxWidth: 500,
-        fontFamily: "Verdana",
-        fontSize: 15,
-        textAlign: "justify",
-    },
-    arrow: {
-        fontSize: 25,
-        width: 25,
-        "&::before": {
-            backgroundColor: "#004266",
-            boxSizing: "border-box",
-        },
-    },
-}))(Tooltip)
-
 // Função principal exportando o html da pag.
 export default function memberCard({ dados, membersPage, socialNetworks }) {
     let firstBlank_space

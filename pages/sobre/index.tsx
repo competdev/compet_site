@@ -77,7 +77,7 @@ export default function CustomizedTimeline() {
                 <Header />
                 <div className={classes.div}>
                     {renderPageHeader()}
-                    <Timeline align="left" className={classes.timeline}>
+                    <Timeline className={classes.timeline}>
                         <StylesTimelineItem style={{ marginTop: 40 }}>
                             <TimelineSeparator>
                                 <div className={styles.iconImg}>
@@ -340,7 +340,7 @@ export default function CustomizedTimeline() {
                 {renderPageHeader()}
                 <div className={classes.div}>
                     <div className={styles.pageContent}>
-                        <Timeline align="alternate" className={classes.timeline}>
+                        <Timeline className={classes.timeline}>
                             <TimelineItem style={{ marginTop: 40 }}>
                                 <TimelineOppositeContent>
                                     <Typography
