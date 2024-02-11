@@ -5,81 +5,80 @@ import ReactPaginate from 'react-paginate';
 import { makeStyles } from '@mui/styles';
 import styles from "./Blog.module.css";
 
-import Header from '../../components/Header'
-import PageHeader from '../../components/PageHeader';
-import SearchBox from '../../components/SearchBox';
-import Posts from '../../components/Posts';
-import Footer from '../../components/Footer';
+import Header from "../../components/Header"
+import PageHeader from "../../components/PageHeader"
+import SearchBox from "../../components/SearchBox"
+import Posts from "../../components/Posts"
+import Footer from "../../components/Footer"
 
-const BLOG_API_URL = 'https://compet-blog.herokuapp.com/api/posts?populate=thumb';
+const BLOG_API_URL = "https://compet-blog.herokuapp.com/api/posts?populate=thumb"
 
-const useStyles = makeStyles((theme) => ({
-  pagination: {
-    listStyle: "none",
-    fontSize: "17px",
-    display: "flex",
-    paddingLeft: "0px",
-    justifyContent: "center",
-  },
-  page_link: {
-    fontWeight: "bold",
-    display: "flex",
-    position: "relative",
-    color: "#004266",
-    textDecoration: "none",
-    border: "1px solid #d8d9da",
-    backgroundColor: "#fff",
-    padding: ".555rem .795rem",
-    transition: "color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out",
-    "&:hover": {
-      color: "#0a58ca",
-      backgroundColor: "#e9ecef",
-      borderColor: "#99999984",
+const useStyles = makeStyles(theme => ({
+    pagination: {
+        listStyle: "none",
+        fontSize: "17px",
+        display: "flex",
+        paddingLeft: "0px",
+        justifyContent: "center",
     },
-  },
-  page_prev: {
-    border: "1px solid #d8d9da",
-    backgroundColor: "#fff",
-    padding: ".555rem .795rem",
-    borderTopLeftRadius: "50px",
-    borderBottomLeftRadius: "50px",
-    "&:hover": {
-      color: "#0a58ca",
-      backgroundColor: "#e9ecef",
-      borderColor: "#99999984",
+    page_link: {
+        fontWeight: "bold",
+        display: "flex",
+        position: "relative",
+        color: "#004266",
+        textDecoration: "none",
+        border: "1px solid #d8d9da",
+        backgroundColor: "#fff",
+        padding: ".555rem .795rem",
+        transition:
+            "color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out",
+        "&:hover": {
+            color: "#0a58ca",
+            backgroundColor: "#e9ecef",
+            borderColor: "#99999984",
+        },
     },
-  },
-  page_next: {
-    border: "1px solid #d8d9da",
-    backgroundColor: "#fff",
-    padding: ".555rem .795rem",
-    borderTopRightRadius: "50px",
-    borderBottomRightRadius: "50px",
-    "&:hover": {
-      color: "#0a58ca",
-      backgroundColor: "#e9ecef",
-      borderColor: "#99999984",
+    page_prev: {
+        border: "1px solid #d8d9da",
+        backgroundColor: "#fff",
+        padding: ".555rem .795rem",
+        borderTopLeftRadius: "50px",
+        borderBottomLeftRadius: "50px",
+        "&:hover": {
+            color: "#0a58ca",
+            backgroundColor: "#e9ecef",
+            borderColor: "#99999984",
+        },
     },
-  },
-  activeLink: {
-    border: '1px solid #0a58ca'
-  }
-}));
-
-
+    page_next: {
+        border: "1px solid #d8d9da",
+        backgroundColor: "#fff",
+        padding: ".555rem .795rem",
+        borderTopRightRadius: "50px",
+        borderBottomRightRadius: "50px",
+        "&:hover": {
+            color: "#0a58ca",
+            backgroundColor: "#e9ecef",
+            borderColor: "#99999984",
+        },
+    },
+    activeLink: {
+        border: "1px solid #0a58ca",
+    },
+}))
 
 export default function Blog({ posts }) {
-  const classes = useStyles()
-  const header_img_url = "https://i.ibb.co/tDjGdZP/blog.png"
-  const [query, setQuery] = useState("")
+    const classes = useStyles()
+    const header_img_url = "https://i.ibb.co/tDjGdZP/blog.png"
+    const [query, setQuery] = useState("")
 
-  function postsSearch(posts) {
-    return removeAccents(posts.attributes.title.toLowerCase()).includes(query.toLowerCase())
-  }
+    function postsSearch(posts) {
+        return removeAccents(posts.attributes.title.toLowerCase()).includes(query.toLowerCase())
+    }
 
-  return (
-    <div className={styles.page}>
-      {/* <title>COMPET | Blog</title>
+    return (
+        <div className={styles.page}>
+            {/* <title>COMPET | Blog</title>
       <Header />
       <PageHeader url={header_img_url} caption={false} sortType={undefined} handleSelect={undefined} />
       <div className={styles.searchContainer}>
@@ -90,9 +89,9 @@ export default function Blog({ posts }) {
       </div>
       <div className={styles.socialMediaContainer}></div>
       <Footer /> */}
-      Under construction
-    </div>
-  )
+            Under construction
+        </div>
+    )
 }
 
 // export async function getStaticProps(){
@@ -108,41 +107,39 @@ export default function Blog({ posts }) {
 //   };
 // }
 
-
 function PaginatedItems(items, classes) {
-  const itemsPerPage = 3;
-  const pageCount = Math.ceil(items.length / itemsPerPage)
-  const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = 3
+    const pageCount = Math.ceil(items.length / itemsPerPage)
+    const [itemOffset, setItemOffset] = useState(0)
 
-  const handlePageClick = (event) => {
-    setItemOffset(event.selected);
-  };
+    const handlePageClick = event => {
+        setItemOffset(event.selected)
+    }
 
-  return (
-    <>
-      <Posts posts={items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage)} />
-      <ReactPaginate
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={1}
-        pageCount={pageCount}
-        previousLabel="<"
-        pageClassName={classes.page_item}
-        pageLinkClassName={classes.page_link}
-        previousClassName={classes.page_prev}
-        previousLinkClassName={classes.page_prev_link}
-        nextClassName={classes.page_next}
-        nextLinkClassName={classes.page_next_link}
-        breakLabel="..."
-        breakClassName={classes.page_item}
-        breakLinkClassName={classes.page_link}
-        containerClassName={classes.pagination}
-        activeClassName={classes.active}
-        activeLinkClassName={classes.activeLink}
-      />
-    </>
-  )
+    return (
+        <>
+            <Posts
+                posts={items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage)}
+            />
+            <ReactPaginate
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={1}
+                pageCount={pageCount}
+                previousLabel="<"
+                pageClassName={classes.page_item}
+                pageLinkClassName={classes.page_link}
+                previousClassName={classes.page_prev}
+                previousLinkClassName={classes.page_prev_link}
+                nextClassName={classes.page_next}
+                nextLinkClassName={classes.page_next_link}
+                breakLabel="..."
+                breakClassName={classes.page_item}
+                breakLinkClassName={classes.page_link}
+                containerClassName={classes.pagination}
+                activeClassName={classes.active}
+                activeLinkClassName={classes.activeLink}
+            />
+        </>
+    )
 }
-
-
-

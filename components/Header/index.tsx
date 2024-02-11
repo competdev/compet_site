@@ -1,43 +1,43 @@
-import Link from 'next/link'
-import React, { useState } from 'react'
-import wSize from '../../util/windowSize'
-import styles from './Header.module.css'
+import Link from "next/link"
+import React, { useState } from "react"
+import wSize from "../../util/windowSize"
+import styles from "./Header.module.css"
+import { pages } from '../../util/constants';
 
 export default function Header() {
-  const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggleMenu, setToggleMenu] = useState(false)
 
-  const toggleNav = () => {
-    setToggleMenu(!toggleMenu);
-  };
+    const toggleNav = () => {
+        setToggleMenu(!toggleMenu)
+    }
 
-  return (
-    <header className={styles.menu_body}>
-      <div className={styles.nav}>
-        <div className={styles.logo}>
-          <Link href='/'>
-            <img src='https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png' />
-          </Link>
-        </div>
-        {wSize().width > 1505 ? render_links() : (toggleMenu ? render_links() : <></>)}
-        <div className={styles.mobile_menu} onClick={toggleNav}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-        </div>
-      </div>
-    </header>
-  );
+    return (
+        <header className={styles.menu_body}>
+            <div className={styles.nav}>
+                <div className={styles.logo}>
+                    <Link href="/">
+                        <img src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png" />
+                    </Link>
+                </div>
+                {wSize().width > 1505 ? render_links() : toggleMenu ? render_links() : <></>}
+                <div className={styles.mobile_menu} onClick={toggleNav}>
+                    <div className={styles.line}></div>
+                    <div className={styles.line}></div>
+                    <div className={styles.line}></div>
+                </div>
+            </div>
+        </header>
+    )
 }
-import { pages } from '../../util/constants';
 const render_links = () => {
-  return (
-    <ul className={styles.nav_list}>
-      {pages.map((page) => (
-        <li key={page.title}>
-          <Link href={page.link}className={styles.link}>{page.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
+    return (
+        <ul className={styles.nav_list}>
+            {pages.map((page) => (
+                <li key={page.title}>
+                    <Link href={page.link} className={styles.link}>{page.title}
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    );
 };
