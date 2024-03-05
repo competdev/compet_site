@@ -58,18 +58,18 @@ const LinksCEFET = () => {
     return (
         <div className={styles.CEFETLinks}>
             <div className={styles.singleLink}>
-                <Link href="https://www.cefetmg.br/home/">
-                    <a>Site</a>
+                <Link href="https://www.cefetmg.br/home/" target="_blank">
+                    Site
                 </Link>
             </div>
             <div className={styles.singleLink}>
-                <Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do">
-                    <a>SIGAA</a>
+                <Link href="https://sig.cefetmg.br/sigaa/verTelaLogin.do" target="_blank">
+                    SIGAA
                 </Link>
             </div>
             <div className={styles.singleLink}>
-                <Link href="https://ava.cefetmg.br/">
-                    <a>AVA</a>
+                <Link href="https://ava.cefetmg.br/" target="_blank">
+                    AVA
                 </Link>
             </div>
         </div>
@@ -106,18 +106,18 @@ const LinksDECOM = () => {
     return (
         <div className={styles.LinksDECOM}>
             <div className={styles.singleLink}>
-                <Link href="https://www.decom.cefetmg.br/">
-                    <a>Site</a>
+                <Link href="https://www.decom.cefetmg.br/" target="_blank">
+                    Site
                 </Link>
             </div>
             {/* <div className={styles.singleLink}>
-                <Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf">
-                    <a>Grade Curricular</a>
+                <Link href="https://www.decom.cefetmg.br/wp-content/uploads/sites/34/2017/03/matriz_curricular_engcomp.pdf" target="_blank">
+                    Grade Curricular
                 </Link>
             </div> */}
             {/* <div className={styles.singleLink}>
-                <Link href={horarioAulas}>
-                    <a>Horário de aulas</a>
+                <Link href={horarioAulas} target="_blank">
+                    Horário de aulas
                 </Link>
             </div> */}
         </div>
@@ -204,7 +204,7 @@ const LinksCOGPDC = () => {
         <div className={styles.containerLinksCOGPDC}>
             {linksGruposPET.map(grupo => (
                 <span className={styles.singleLink}>
-                    <Link href={grupo.href}>{grupo.label}</Link>
+                    <Link href={grupo.href} target="_blank">{grupo.label}</Link>
                 </span>
             ))}
         </div>
@@ -214,37 +214,29 @@ const LinksCOGPDC = () => {
 const LinksSocialNetwork = () => {
     return (
         <div className={styles.socialNetwork}>
-            <Link href={"https://www.instagram.com/compet.cefet/"}>
-                <a title="Instagram">
+            <Link href={"https://www.instagram.com/compet.cefet/"} target="_blank" title="Instagram">
                     <img
                         className={styles.socialNetworkIcons}
                         src="https://i.ibb.co/61Y0dqL/instagram-icon.png"
                     />
-                </a>
             </Link>
-            <Link href={"https://www.linkedin.com/in/competcefetmg/"}>
-                <a title="LinkedIn">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
-                    />
-                </a>
+            <Link href={"https://www.linkedin.com/in/competcefetmg/"} target="_blank" title="LinkedIn">
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
+                />
             </Link>
-            <Link href={"https://www.facebook.com/competcefetmg"}>
-                <a title="Facebook">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/mT4S0S9/facebook-icon.png"
-                    />
-                </a>
+            <Link href={"https://www.facebook.com/competcefetmg"} target="_blank" title="Facebook">
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/mT4S0S9/facebook-icon.png"
+                />
             </Link>
-            <Link href={"https://twitter.com/compet_cefet"}>
-                <a title="Twitter">
-                    <img
-                        className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/Zfb5rRR/twitter-icon.png"
-                    />
-                </a>
+            <Link href={"https://twitter.com/compet_cefet"} target="_blank" title="Twitter">
+                <img
+                    className={styles.socialNetworkIcons}
+                    src="https://i.ibb.co/Zfb5rRR/twitter-icon.png"
+                />
             </Link>
         </div>
     )

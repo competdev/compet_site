@@ -181,8 +181,8 @@ const renderCertificados = dadosAtuais => {
                             {convertDate(certificado.data)}
                         </div>
                         <div className={styles.certificadoLink}>
-                            <Link href={certificado.link}>
-                                <a target="_blank">Acessar</a>
+                            <Link href={certificado.link} target="_blank">
+                                Acessar
                             </Link>
                         </div>
                     </div>
