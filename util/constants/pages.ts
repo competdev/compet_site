@@ -28,7 +28,11 @@ export const pages = [
       title:'Contato'
   },
     {
-      link: 'http://compet.decom.cefetmg.br/moodle/',
+    link: '/sobrecurso',
+    title:'Sobre o Curso'
+  },
+    {
+      link: 'https://ava.cefetmg.br/',
       title:'Moodle'
   },
 ]
