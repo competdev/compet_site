@@ -41,7 +41,11 @@ const useStyles = makeStyles(theme => ({
     body: {
         margin: 10,
     },
-    timeline: { alignContent: "justify", fontFamily: "Codec Pro Regular" },
+    timeline: { 
+        alignContent: "justify", 
+        fontFamily: "Codec Pro Regular",
+        width: 1300
+    },
     icon: {
         height: 110,
         width: 110,
@@ -337,13 +341,14 @@ export default function CustomizedTimeline() {
     return (
         <>
             <title>COMPET | Sobre o Curso</title>
-            <Header />
+            <Header/>
             <div className={styles.body}>
                 {renderPageHeader()}
                 <div className={classes.div}>
                     <div className={styles.pageContent}>
                         <Timeline className={classes.timeline}>
-                            <TimelineItem style={{ marginTop: 40 }}>
+                            
+                            <TimelineItem style={{ marginTop: 40}}>
                                 <TimelineOppositeContent>
                                     <Typography
                                         variant="h6"
@@ -387,24 +392,31 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                    A cada início de semestre, o cefet disponibiliza o calendário acadêmico, que contém informações sobre as datas de início e término das aulas, feriados, recessos, entre outros.
+                                                A cada início de semestre, o cefet disponibiliza o
+                                                calendário acadêmico, que contém informações sobre
+                                                as datas de início e término das aulas, feriados,
+                                                recessos, entre outros.
                                             </Typography>
-                                            <Link style={{
+                                            <Link
+                                                style={{
                                                     marginTop: 10,
                                                     fontFamily: "Codec Pro Regular",
                                                     textAlign: "justify",
                                                     margin: 20,
-                                                }} href="https://www.dirgrad.cefetmg.br/dirgrad/calendario/" target="_blank" rel="noopener noreferrer">
-  Acesse os Calendários Acadêmicos Clicando Aqui.
-</Link>
+                                                }}
+                                                href="https://www.dirgrad.cefetmg.br/dirgrad/calendario/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Acesse os Calendários Acadêmicos Clicando Aqui.
+                                            </Link>
                                             <Typography
                                                 style={{
                                                     fontFamily: "Codec Pro Regular",
                                                     textAlign: "justify",
                                                     margin: 20,
                                                 }}
-
-                                                ></Typography>
+                                            ></Typography>
                                             <Typography
                                                 style={{
                                                     marginTop: 10,
@@ -413,64 +425,103 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                    Cada matéria tem um número de horas (e créditos), tendo um número máximo de faltas permitidas. Confira abaixo a tabela:
+                                                Cada matéria tem um número de horas (e créditos),
+                                                tendo um número máximo de faltas permitidas. Confira
+                                                abaixo a tabela:
                                             </Typography>
                                             <Typography
-  style={{
-    marginTop: 10,
-    fontFamily: "Codec Pro Regular",
-    textAlign: "justify",
-    margin: 20,
-  }}
->
-  <table style={{border: '2px solid black', borderCollapse: 'collapse'}}>
-    <thead>
-      <tr>
-        <th style={{textAlign: 'center'}}>Horas</th>
-        <th>|</th>
-        <th style={{textAlign: 'center'}}>Créditos</th>
-        <th>|</th>
-        <th style={{textAlign: 'center'}}>Máximo de Faltas(h)</th>
-        <th>|</th>
-        <th style={{textAlign: 'center'}}>Máximo de Faltas(dias)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style={{textAlign: 'center'}}>30</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>2</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>7,5</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>3</td>
-      </tr>
-      <tr>
-        <td style={{textAlign: 'center'}}>60</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>4</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>15</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>7</td>
-      </tr>
-      <tr>
-        <td style={{textAlign: 'center'}}>90</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>6</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>22,5</td>
-        <td>|</td>
-        <td style={{textAlign: 'center'}}>11</td>
-      </tr>
-    </tbody>
-  </table>
-</Typography>
-                                            
+                                                style={{
+                                                    marginTop: 10,
+                                                    fontFamily: "Codec Pro Regular",
+                                                    textAlign: "justify",
+                                                    margin: 20,
+                                                }}
+                                            >
+                                                <table
+                                                    style={{
+                                                        border: "2px solid black",
+                                                        borderCollapse: "collapse",
+                                                    }}
+                                                >
+                                                    <thead>
+                                                        <tr>
+                                                            <th style={{ textAlign: "center" }}>
+                                                                Horas
+                                                            </th>
+                                                            <th>|</th>
+                                                            <th style={{ textAlign: "center" }}>
+                                                                Créditos
+                                                            </th>
+                                                            <th>|</th>
+                                                            <th style={{ textAlign: "center" }}>
+                                                                Máximo de Faltas(h)
+                                                            </th>
+                                                            <th>|</th>
+                                                            <th style={{ textAlign: "center" }}>
+                                                                Máximo de Faltas(dias)
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                30
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                2
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                7,5
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                3
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                60
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                4
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                15
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                7
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                90
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                6
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                22,5
+                                                            </td>
+                                                            <td>|</td>
+                                                            <td style={{ textAlign: "center" }}>
+                                                                11
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </Typography>
                                         </div>
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
+
                             <TimelineItem style={{ marginTop: 40 }}>
                                 <TimelineOppositeContent>
                                     <Typography
@@ -521,6 +572,7 @@ export default function CustomizedTimeline() {
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
+
                             <TimelineItem style={{ marginTop: 40 }}>
                                 <TimelineOppositeContent>
                                     <Typography
@@ -564,6 +616,7 @@ export default function CustomizedTimeline() {
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
+
                             <TimelineItem style={{ marginTop: 40 }}>
                                 <TimelineOppositeContent>
                                     <Typography
@@ -605,6 +658,7 @@ export default function CustomizedTimeline() {
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
+
                         </Timeline>
                         <Footer />
                     </div>
