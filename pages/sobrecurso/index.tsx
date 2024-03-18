@@ -84,7 +84,7 @@ export default function CustomizedTimeline() {
                 <div className={classes.div}>
                     {renderPageHeader()}
                     <Timeline className={classes.timeline}>
-                        <StylesTimelineItem style={{ marginTop: 40 }}>
+                        <StylesTimelineItem style={{ marginTop: 40}}>
                             <TimelineSeparator>
                                 <div className={styles.iconImg}>
                                     <img src={clock} alt="" />
@@ -533,7 +533,7 @@ export default function CustomizedTimeline() {
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Foco
+                                        Informação teste 1
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -560,13 +560,9 @@ export default function CustomizedTimeline() {
                                                     marginBottom: 20,
                                                 }}
                                             >
-                                                O foco do grupo é disseminar informação técnica,
-                                                construir soluções envolvendo tecnologias
-                                                computacionais, organizar eventos de cunho
-                                                tecnológico, estimular a execução de trabalhos
-                                                científicos na área e projetos de extensão, engajar
-                                                os alunos da instituição nos respectivos cursos e
-                                                realizar atividades sociais.
+                                                Novo PPC <br/>
+                                                a. imagem novo PPC <br/>
+                                                b. link para novo Novo PPC
                                             </Typography>
                                         </div>
                                     </Paper>
@@ -584,7 +580,7 @@ export default function CustomizedTimeline() {
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Estrutura Organizacional
+                                        Informação teste 2
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -603,15 +599,9 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            A estrutura organizacional interna do COMPET funciona
-                                            como se fosse uma empresa. Os tutores, que coordenam o
-                                            grupo, atuam como chefes. Um dos COMPETianos é, por
-                                            eleição, o Scrum Master que deve liderar todas as
-                                            equipes, que são divididas em Desenvolvimento,
-                                            Administração, Eventos e Marketing. Cada equipe é
-                                            responsável por um conjunto de atividades da respectiva
-                                            área. Semanalmente, há a reunião do grupo, momento em
-                                            que as tarefas são assinaladas, discutidas e avaliadas.
+                                            Emails da coordenação <br/>
+                                            a. Coordenador: Bruno (bsantos@cefetmg.br)<br/>
+                                            b. Jeferson (jeferson@cefetmg.br)
                                         </Typography>
                                     </Paper>
                                 </TimelineContent>
@@ -628,7 +618,7 @@ export default function CustomizedTimeline() {
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Ensino, Pesquisa e Extensão
+                                        Informação teste 3
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -646,18 +636,130 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            Há, naturalmente, um passeio formal no tripé Ensino,
-                                            Pesquisa e Extensão para atender demandas que nos chegam
-                                            dos mais diferentes ramos do conhecimento. Dessa forma,
-                                            proporciona-se uma formação extracurricular sólida aos
-                                            COMPETianos que, espontaneamente, se destacam no mercado
-                                            de trabalho por carregarem uma experiência rica de
-                                            realizações em equipe. Durante um ano, cada bolsista ou
-                                            voluntário executa mais de 100 horas de atividades.
+                                            Regulamentos e Normas<br/>
+                                            a. Regulamentos: Regulamentos e Normas<br/>
+                                            b. Normas-Graduacao: https://www.dirgrad.cefetmg.br/wp-content/uploads/sites/81/2017/09/Normas_CEPE_2007_com-Res.-CEPE.pdf
                                         </Typography>
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
+
+                            <TimelineItem style={{ marginTop: 40 }}>
+                                <TimelineOppositeContent>
+                                    <Typography
+                                        variant="h6"
+                                        color="textSecondary"
+                                        style={{
+                                            color: "#ffffff",
+                                            fontWeight: "bold",
+                                            fontFamily: "Codec Pro Regular",
+                                        }}
+                                    >
+                                        Informação teste 4
+                                    </Typography>
+                                </TimelineOppositeContent>
+                                <TimelineSeparator>
+                                    <div className={styles.iconImg}>
+                                        <img src={book} alt="" />
+                                    </div>
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                    <Paper elevation={3} className={classes.paper}>
+                                        <Typography variant="h6" component="h1"></Typography>
+                                        <Typography
+                                            style={{
+                                                fontFamily: "Codec Pro Regular",
+                                                textAlign: "justify",
+                                                margin: 20,
+                                            }}
+                                        >
+                                            Grupos Acadêmicos de Engenharia de Computação CEFET MG (Organizado por Período)<br/>
+                                                Banco de Dados (BD)<br/>
+                                                BANCO DE DADOS (BD/LBD)<br/>
+
+                                                Princípios de Comunicação de Dados (PCD)<br/>
+
+                                                IHC<br/>
+
+                                                Inteligência Computacional<br/>
+
+                                                Programação WEB<br/>
+
+                                                OTM 2<br/>
+
+                                                TCCs<br/>
+
+                                                Metodologia de pesquisa<br/>
+
+                                                CDSD<br/>
+
+                                                Sistema Distribuídos<br/>
+
+                                                MDS<br/>
+
+                                                AEDS 2 / AOC 2<br/>
+
+                                                RI<br/>
+
+                                                AOC I/ LAOC I<br/>
+
+                                                Robótica<br/>
+
+                                                Psicologia 6M56<br/>
+
+                                                Sistemas Operacionais<br/>
+
+                                                Compiladores<br/>
+
+                                                Sinais e Sistemas Lineares<br/>
+
+                                                Redes de Computadores<br/>
+
+                                                Introdução à ADM<br/>
+
+                                                LFA<br/>
+
+                                                Introdução ao Direito<br/>
+
+                                                CSD / LCSD<br/>
+
+                                                IA<br/>
+
+                                                Algebra (Giancarlo)<br/>
+
+                                                Algebra (Jose Jozelmo)<br/>
+
+                                                Aprendizado de Máquina<br/>
+
+                                                Linux<br/>
+
+                                                LP<br/> 
+
+                                                Fisica 3 (Leonardo)<br/>
+
+                                                Eng de Software<br/>
+
+                                                OTM 1<br/>
+
+                                                Gestão Ambiental (Arnaldo)<br/>
+
+                                                Contexto Social<br/>
+
+                                                Sociologia (Fabia)<br/>
+
+                                                Economia (Hermes)<br/>
+
+                                                Libras (Roberta)<br/>
+
+                                                Eletrônica<br/>
+
+                                                Estágio Supervisionado<br/>
+
+                                                Organização Empresarial<br/> 
+                                        </Typography>
+                                    </Paper>
+                                </TimelineContent>
+                            </TimelineItem> 
 
                         </Timeline>
                         <Footer />
