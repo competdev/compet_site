@@ -16,6 +16,7 @@ import styles from "./Sobrecurso.module.css"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import Link from "next/link"
+import { blue } from "@mui/material/colors"
 
 const clock = "https://i.ibb.co/QNYSh70/clock.png"
 const book = "https://i.ibb.co/t87HGv3/book.png"
@@ -343,7 +344,7 @@ export default function CustomizedTimeline() {
             <title>COMPET | Sobre o Curso</title>
             <Header/>
             <div className={styles.body}>
-                {renderPageHeader()}
+                <br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <div className={classes.div}>
                     <div className={styles.pageContent}>
                         <Timeline className={classes.timeline}>
@@ -402,6 +403,7 @@ export default function CustomizedTimeline() {
                                                     marginTop: 10,
                                                     fontFamily: "Codec Pro Regular",
                                                     textAlign: "justify",
+                                                    color: "#004266",
                                                     margin: 20,
                                                 }}
                                                 href="https://www.dirgrad.cefetmg.br/dirgrad/calendario/"
@@ -528,12 +530,12 @@ export default function CustomizedTimeline() {
                                         variant="h6"
                                         color="textSecondary"
                                         style={{
-                                            color: "#ffffff",
+                                            color: "#004266",
                                             fontWeight: "bold",
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Informação teste 1
+                                        Da grade
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -549,7 +551,7 @@ export default function CustomizedTimeline() {
                                         style={{ display: "flex" }}
                                     >
                                         <div>
-                                            <Typography variant="h6" component="h1"></Typography>
+                                            <Typography variant="h6" component="h1">Novo PPC</Typography>
                                             <Typography
                                                 style={{
                                                     fontFamily: "Codec Pro Regular",
@@ -560,9 +562,22 @@ export default function CustomizedTimeline() {
                                                     marginBottom: 20,
                                                 }}
                                             >
-                                                Novo PPC <br/>
-                                                a. imagem novo PPC <br/>
-                                                b. link para novo Novo PPC
+                                                a. imagem novo PPC :<br/>
+                                                <img src="https://www.eng-computacao.bh.cefetmg.br/wp-content/uploads/sites/188/2023/03/grade2023.png" style={{width: 450 }} alt="" />
+                                                <Link
+                                                    style={{
+                                                        marginTop: 10,
+                                                        fontFamily: "Codec Pro Regular",
+                                                        textAlign: "justify",
+                                                        color: "#004266",
+                                                        margin: 20,
+                                                    }}
+                                                    href="https://www.eng-computacao.bh.cefetmg.br/novo-ppc/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                Clique aqui para acessar o novo PPC
+                                                </Link>
                                             </Typography>
                                         </div>
                                     </Paper>
@@ -575,12 +590,12 @@ export default function CustomizedTimeline() {
                                         variant="h6"
                                         color="textSecondary"
                                         style={{
-                                            color: "#ffffff",
+                                            color: "#004266",
                                             fontWeight: "bold",
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Informação teste 2
+                                        Secretaria
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -591,7 +606,7 @@ export default function CustomizedTimeline() {
                                 </TimelineSeparator>
                                 <TimelineContent>
                                     <Paper elevation={3} className={classes.paper}>
-                                        <Typography variant="h6" component="h1"></Typography>
+                                        <Typography variant="h6" component="h1">Emails da coordenação <br/></Typography>
                                         <Typography
                                             style={{
                                                 fontFamily: "Codec Pro Regular",
@@ -599,9 +614,23 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            Emails da coordenação <br/>
                                             a. Coordenador: Bruno (bsantos@cefetmg.br)<br/>
-                                            b. Jeferson (jeferson@cefetmg.br)
+                                            b. Jeferson (jeferson@cefetmg.br) <br/><br/>
+                                            <Link
+                                                    style={{
+                                                        marginTop: 10,
+                                                        fontFamily: "Codec Pro Regular",
+                                                        textAlign: "justify",
+                                                        color: "#004266",
+                                                        margin: 20,
+                                                    }}
+                                                    href="https://www.decom.cefetmg.br/pessoas/professores-efetivos/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                Clique aqui para acessar a página com todos os professores do departamento
+                                            </Link>
+                                            
                                         </Typography>
                                     </Paper>
                                 </TimelineContent>
@@ -613,12 +642,12 @@ export default function CustomizedTimeline() {
                                         variant="h6"
                                         color="textSecondary"
                                         style={{
-                                            color: "#ffffff",
+                                            color: "#004266",
                                             fontWeight: "bold",
                                             fontFamily: "Codec Pro Regular",
                                         }}
                                     >
-                                        Informação teste 3
+                                        Normas
                                     </Typography>
                                 </TimelineOppositeContent>
                                 <TimelineSeparator>
@@ -628,7 +657,7 @@ export default function CustomizedTimeline() {
                                 </TimelineSeparator>
                                 <TimelineContent>
                                     <Paper elevation={3} className={classes.paper}>
-                                        <Typography variant="h6" component="h1"></Typography>
+                                        <Typography variant="h6" component="h1">Regulamentos e Normas</Typography>
                                         <Typography
                                             style={{
                                                 fontFamily: "Codec Pro Regular",
@@ -636,9 +665,35 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            Regulamentos e Normas<br/>
-                                            a. Regulamentos: Regulamentos e Normas<br/>
-                                            b. Normas-Graduacao: https://www.dirgrad.cefetmg.br/wp-content/uploads/sites/81/2017/09/Normas_CEPE_2007_com-Res.-CEPE.pdf
+                                            <Link
+                                                    style={{
+                                                        marginTop: 10,
+                                                        fontFamily: "Codec Pro Regular",
+                                                        textAlign: "justify",
+                                                        color: "#004266",
+                                                        margin: 20,
+                                                    }}
+                                                    href="https://www.dirgrad.cefetmg.br/dirgrad/regulamentos-e-normas/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                a. Regulamentos: Regulamentos e Normas<br/>
+                                            </Link>
+                                            <Link
+                                                    style={{
+                                                        marginTop: 10,
+                                                        fontFamily: "Codec Pro Regular",
+                                                        textAlign: "justify",
+                                                        color: "#004266",
+                                                        margin: 20,
+                                                    }}
+                                                    href="https://www.dirgrad.cefetmg.br/wp-content/uploads/sites/81/2017/09/Normas_CEPE_2007_com-Res.-CEPE.pdf"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                b. Normas-Graduacao: <br/>
+                                            </Link>
+                                            
                                         </Typography>
                                     </Paper>
                                 </TimelineContent>
@@ -674,88 +729,87 @@ export default function CustomizedTimeline() {
                                             }}
                                         >
                                             Grupos Acadêmicos de Engenharia de Computação CEFET MG (Organizado por Período)<br/>
-                                                Banco de Dados (BD)<br/>
-                                                BANCO DE DADOS (BD/LBD)<br/>
+                                                Banco de Dados (BD)<br/><br/>
 
-                                                Princípios de Comunicação de Dados (PCD)<br/>
+                                                Princípios de Comunicação de Dados (PCD)<br/><br/>
 
-                                                IHC<br/>
+                                                IHC<br/><br/>
 
-                                                Inteligência Computacional<br/>
+                                                Inteligência Computacional<br/><br/>
 
-                                                Programação WEB<br/>
+                                                Programação WEB<br/><br/>
 
-                                                OTM 2<br/>
+                                                OTM 2<br/><br/>
 
-                                                TCCs<br/>
+                                                TCCs<br/><br/>
 
-                                                Metodologia de pesquisa<br/>
+                                                Metodologia de pesquisa<br/><br/>
 
-                                                CDSD<br/>
+                                                CDSD<br/><br/>
 
-                                                Sistema Distribuídos<br/>
+                                                Sistema Distribuídos<br/><br/>
 
-                                                MDS<br/>
+                                                MDS<br/><br/>
 
-                                                AEDS 2 / AOC 2<br/>
+                                                AEDS 2 / AOC 2<br/><br/>
 
-                                                RI<br/>
+                                                RI<br/><br/>
 
-                                                AOC I/ LAOC I<br/>
+                                                AOC I/ LAOC I<br/><br/>
 
-                                                Robótica<br/>
+                                                Robótica<br/><br/>
 
-                                                Psicologia 6M56<br/>
+                                                Psicologia 6M56<br/><br/>
 
-                                                Sistemas Operacionais<br/>
+                                                Sistemas Operacionais<br/><br/>
 
-                                                Compiladores<br/>
+                                                Compiladores<br/><br/>
 
-                                                Sinais e Sistemas Lineares<br/>
+                                                Sinais e Sistemas Lineares<br/><br/>
 
-                                                Redes de Computadores<br/>
+                                                Redes de Computadores<br/><br/>
 
-                                                Introdução à ADM<br/>
+                                                Introdução à ADM<br/><br/>
 
-                                                LFA<br/>
+                                                LFA<br/><br/>
 
-                                                Introdução ao Direito<br/>
+                                                Introdução ao Direito<br/><br/>
 
-                                                CSD / LCSD<br/>
+                                                CSD / LCSD<br/><br/>
 
-                                                IA<br/>
+                                                IA<br/><br/>
 
-                                                Algebra (Giancarlo)<br/>
+                                                Algebra (Giancarlo)<br/><br/>
 
-                                                Algebra (Jose Jozelmo)<br/>
+                                                Algebra (Jose Jozelmo)<br/><br/>
 
-                                                Aprendizado de Máquina<br/>
+                                                Aprendizado de Máquina<br/><br/>
 
-                                                Linux<br/>
+                                                Linux<br/><br/>
 
-                                                LP<br/> 
+                                                LP<br/><br/>
 
-                                                Fisica 3 (Leonardo)<br/>
+                                                Fisica 3 (Leonardo)<br/><br/>
 
-                                                Eng de Software<br/>
+                                                Eng de Software<br/><br/>
 
-                                                OTM 1<br/>
+                                                OTM 1<br/><br/>
 
-                                                Gestão Ambiental (Arnaldo)<br/>
+                                                Gestão Ambiental (Arnaldo)<br/><br/>
 
-                                                Contexto Social<br/>
+                                                Contexto Social<br/><br/>
 
-                                                Sociologia (Fabia)<br/>
+                                                Sociologia (Fabia)<br/><br/>
 
-                                                Economia (Hermes)<br/>
+                                                Economia (Hermes)<br/><br/>
 
-                                                Libras (Roberta)<br/>
+                                                Libras (Roberta)<br/><br/>
 
-                                                Eletrônica<br/>
+                                                Eletrônica<br/><br/>
 
-                                                Estágio Supervisionado<br/>
+                                                Estágio Supervisionado<br/><br/>
 
-                                                Organização Empresarial<br/> 
+                                                Organização Empresarial<br/><br/>
                                         </Typography>
                                     </Paper>
                                 </TimelineContent>
