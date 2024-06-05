@@ -1,0 +1,19 @@
+.materias{
+    display:flex;
+}
+.divisao{
+    height:2px;
+    width:100%;
+    background:grey;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.materiasColuna{
+    width:10%;
+}
+.opcoes{
+    margin-top:5%;
+}
+.fluxoMaterias{
+    
+}
