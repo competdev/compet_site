@@ -31,6 +31,11 @@ export default function Fluxo_materias({dados}) {
     const [habilitados, setHabilitados] = useState<string[]>(vetInicialHabilitado);
     let contador = -1;
     const [tentativa, setTentativa] = useState(0)
+    const vetPrerequisitosAux = dados.map(
+        dado=>{
+            return dado.prerequisitos
+        }
+    )
     const materias = dados.map(
         dado=>{
             contador++
@@ -40,9 +45,10 @@ export default function Fluxo_materias({dados}) {
                     nome:dado.nome,
                     natureza:dado.natureza,
                     periodo:dado.periodo,
-                    prerequisitos:dado.prerequisitos,
+                    prerequisitos:vetPrerequisitosAux[contador],
                     tipo:tipos[contador],
-                    habilitado:habilitados[contador]
+                    habilitado:habilitados[contador],
+                    prerequisitosAuxiliar:vetPrerequisitosAux[contador]
                 }
             )
         }
@@ -75,20 +81,36 @@ export default function Fluxo_materias({dados}) {
     }
     function fezMateria(nome: string, pos:number){
         materias.forEach((materia) => {
-            if(materia.prerequisitos.length){
-                let index = materia.prerequisitos.indexOf(nome);
-                if (index > -1) {
-                    materia.prerequisitos.splice(index, 1);
-                    fezMateria(nome,pos)
+            
+            if(tipo == 3){
+                let index = materia.prerequisitosAuxiliar.indexOf(nome);
+                if (index > -1 && !materia.prerequisitosAuxiliar.includes(nome)){
+                    console.log("entrou")
+                    materia.prerequisitos.push(nome)
+                    const novosTipos = tipos
+                    novosTipos[materia.pos]=4
+                    mudarTipos(novosTipos)
+                    const novosHabilitados = habilitados
+                    novosHabilitados[materia.pos]="none"
+                    mudarHabilitados(novosHabilitados)
                 }
             }
             else{
-                const novosTipos = tipos
-                novosTipos[materia.pos]=novosTipos[materia.pos]==1?1:0
-                mudarTipos(novosTipos)
-                const novosHabilitados = habilitados
-                novosHabilitados[materia.pos]=""
-                mudarHabilitados(novosHabilitados)
+                if(materia.prerequisitos.length){
+                    let index = materia.prerequisitos.indexOf(nome);
+                    if (index > -1) {
+                        materia.prerequisitos.splice(index, 1);
+                        fezMateria(nome,pos)
+                    }
+                }
+                else{
+                    const novosTipos = tipos
+                    novosTipos[materia.pos]=novosTipos[materia.pos]==1?1:novosTipos[materia.pos]==2?2:novosTipos[materia.pos]==3?3:0;
+                    mudarTipos(novosTipos)
+                    const novosHabilitados = habilitados
+                    novosHabilitados[materia.pos]=""
+                    mudarHabilitados(novosHabilitados)
+                }
             }
         });
     }
@@ -131,7 +153,7 @@ export default function Fluxo_materias({dados}) {
                                             const novosTipos = tipos
                                             novosTipos[materia.pos]=tipo
                                             mudarTipos(novosTipos)
-                                            if(tipo==1){
+                                            if(tipo==1 || 2 || 3){
                                                 fezMateria(materia.nome,materia.pos)
                                             }
                                         }}
@@ -173,7 +195,7 @@ export default function Fluxo_materias({dados}) {
                                             const novosTipos = tipos
                                             novosTipos[materia.pos]=tipo
                                             mudarTipos(novosTipos)
-                                            if(tipo==1){
+                                            if(tipo==1 || 2 || 3){
                                                 fezMateria(materia.nome,materia.pos)
                                             }
                                         }}
