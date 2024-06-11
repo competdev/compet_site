@@ -169,12 +169,23 @@ export default function Fluxo_materias({dados}) {
                             if(materia.natureza!="OB" && materia.periodo==periodo){
                                 return(
                                     <div key={materia.nome}
-                                    onClick={()=>{
-                                        let novosTipos = tipos
-                                        novosTipos[materia.pos]=tipo
-                                        setTipos(novosTipos)
-                                    }}>
-                                        <CardMateria key={materia.nome}
+                                        onClick={()=>{
+                                            const novosTipos = tipos
+                                            novosTipos[materia.pos]=tipo
+                                            mudarTipos(novosTipos)
+                                            if(tipo==1){
+                                                fezMateria(materia.nome,materia.pos)
+                                            }
+                                        }}
+                                    
+                                        style={
+                                            {
+                                                backgroundColor:cor[materia.tipo],
+                                                pointerEvents:materia.habilitado
+                                            }
+                                        }    
+                                    >
+                                        <CardMateria
                                             props={{
                                                 nome:materia.nome,
                                                 periodo:materia.periodo,
