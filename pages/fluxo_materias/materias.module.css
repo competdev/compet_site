@@ -1,19 +1,86 @@
+@font-face {
+    font-family: "Verdana";
+    src: url("../../styles/fonts/Verdana.ttf");
+}
+
+@font-face {
+    font-family: "Codec Pro Regular";
+    src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+.opcoes {
+    margin-top:7%;
+    margin-bottom: -2%;
+    font-family: "Codec Pro Regular";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rolamento {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 .materias{
     display:flex;
+    white-space: nowrap;
+    margin-right: 1%;
 }
-.divisao{
-    height:2px;
-    width:100%;
-    background:grey;
-    margin-top:20px;
-    margin-bottom:20px;
+
+.colunaMateriasObrigatorias{
+    width:17em;
+    margin-right: 1rem;
 }
-.materiasColuna{
-    width:10%;
+
+.colunaMateriasOptativas{
+    width:17em;
+    margin-right: 1rem;
+    margin-left: -0.5rem;
 }
-.opcoes{
-    margin-top:5%;
+
+.cardMaterias {
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 0.2em 0.1em 0.2em #00000013;
+    width: 17em;
+    height: 6em;
+    margin: 2%;
+    white-space: pre-line;
+    flex-wrap: wrap;
+    padding:2px;
+
 }
-.fluxoMaterias{
-    
+
+.cardMaterias:hover {
+    border: 0.1em solid #19DD39;
+}
+
+.nomeMateria {
+    font-family: "Codec Pro Regular";
+    font-weight: bold;
+    font-size: 1.2rem; 
+}
+
+.periodoMateria, .naturezaMateria {
+    font-family: "Verdana";
+    font-size: 1rem;
+
+}
+
+.obrigatoriedade {
+    font-family: "Codec Pro Regular";
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin-top: 2.5em;
+    margin-left: 0.2em;
+}
+
+.divisoria {
+    height: 0.2rem;
+    width: 100%;
+    border-top: 0.2rem dashed grey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    clear: both;
 }
