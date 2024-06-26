@@ -14,9 +14,11 @@ Fluxo_materias.getInitialProps = async () => {
     return { dados: response.data }
 }
 
+
 export default function Fluxo_materias({ dados }) {
     const periodos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-    const cor = ["", "green", "blue", "red", "grey"];
+    const cor = ["", "#19dd3ac7", "#0042669a", "#ff0000c2", "#929292c2"];
+
     const vetInicialTipos = dados.map(dado => {
         if (dado.prerequisitos.length) { return (4) }
         return (0)
@@ -115,6 +117,7 @@ export default function Fluxo_materias({ dados }) {
         });
     }
 
+
     /* MATÉRIAS E OPÇÕES */
     return (
         <section className={styles.fluxoMaterias}>
@@ -142,16 +145,22 @@ export default function Fluxo_materias({ dados }) {
                     Desejo trancar
                 </label>
             </div>
+            <div className={styles.divisoria} />
+
             <div className={styles.rolamento}>
                 {/* MATÉRIAS OBRIGATÓRIAS */}
                 <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
                 {<div className={styles.materias}>
                     {periodos.map(periodo => {
+
                         return (
                             <div className={styles.colunaMateriasObrigatorias}>
+                                <div className={styles.periodoMateria}>{periodo}º PERÍODO</div>
                                 {materias.map(materia => {
+
                                     if (materia.natureza == "OB" && materia.periodo == periodo) {
                                         return (
+
                                             <div key={materia.nome} className={styles.cardMaterias}
                                                 onClick={() => {
                                                     const novosTipos = tipos
@@ -168,10 +177,22 @@ export default function Fluxo_materias({ dados }) {
                                                         pointerEvents: materia.habilitado
                                                     }
                                                 }
+
+                                                onMouseOver={(e) => {
+                                                    e.currentTarget.style.borderWidth = "3px";
+                                                    e.currentTarget.style.borderColor = cor[tipo];
+                                                    e.currentTarget.style.pointerEvents = materia.habilitado;
+
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.borderWidth = "1px";
+                                                    e.currentTarget.style.borderColor = 'black';
+                                                    e.currentTarget.style.pointerEvents = 'auto';
+                                                }}
                                             >
                                                 <div className={styles.nomeMateria}>{materia.nome}</div>
-                                                <div className={styles.periodoMateria}>Período: {materia.periodo}º</div>
-                                                <div className={styles.naturezaMateria}>{materia.natureza}</div>
+                                                {/* <div className={styles.periodoMateria}>Período: {materia.periodo}º</div>
+                                                <div className={styles.naturezaMateria}>{materia.natureza}</div> */}
                                             </div>
                                         )
                                     }
@@ -184,6 +205,7 @@ export default function Fluxo_materias({ dados }) {
                 {/* MATÉRIAS OPTATIVAS */}
                 <div className={styles.obrigatoriedade}>OPTATIVAS</div>
                 {<div className={styles.materias}>
+                    <div className={styles.espacamento} />
                     {periodos.map(periodo => {
                         return (
                             <div className={styles.colunaMateriasOptativas}>
@@ -206,10 +228,22 @@ export default function Fluxo_materias({ dados }) {
                                                         pointerEvents: materia.habilitado
                                                     }
                                                 }
+
+                                                onMouseOver={(e) => {
+                                                    e.currentTarget.style.borderWidth = "3px";
+                                                    e.currentTarget.style.borderColor = cor[tipo];
+                                                    e.currentTarget.style.pointerEvents = materia.habilitado;
+
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.borderWidth = "1px";
+                                                    e.currentTarget.style.borderColor = 'black';
+                                                    e.currentTarget.style.pointerEvents = 'auto';
+                                                }}
                                             >
                                                 <div className={styles.nomeMateria}>{materia.nome}</div>
-                                                <div className={styles.periodoMateria}>Período: {materia.periodo}º</div>
-                                                <div className={styles.naturezaMateria}>{materia.natureza}</div>
+                                                {/* <div className={styles.periodoMateria}>Período: {materia.periodo}º</div>
+                                                <div className={styles.naturezaMateria}>{materia.natureza}</div> */}
                                             </div>
                                         )
                                     }
