@@ -24,97 +24,96 @@ export default function Fluxo_materias({ dados }) {
         return (0)
     }
     )
-    const vetInicialHabilitado = vetInicialTipos.map(dado => {
-        if (dado == 4) { return ("none") }
-        return ("")
-    }
+    const vetInicialHabilitado = vetInicialTipos.map(dado=>{
+            if(dado==4){return("none")}
+            return("")
+        }
     )
     const [tipos, setTipos] = useState<number[]>(vetInicialTipos);
     const [habilitados, setHabilitados] = useState<string[]>(vetInicialHabilitado);
     let contador = -1;
     const [tentativa, setTentativa] = useState(0)
-    const vetPrerequisitosAux = dados.map(
-        dado => {
+    const vetPrerequisitos = dados.map(
+        dado=>{
             return dado.prerequisitos
         }
     )
     const materias = dados.map(
-        dado => {
+        dado=>{
             contador++
-            return (
+            return(
                 {
-                    pos: contador,
-                    nome: dado.nome,
-                    natureza: dado.natureza,
-                    periodo: dado.periodo,
-                    prerequisitos: vetPrerequisitosAux[contador],
-                    tipo: tipos[contador],
-                    habilitado: habilitados[contador],
-                    prerequisitosAuxiliar: vetPrerequisitosAux[contador]
+                    pos:contador,
+                    nome:dado.nome,
+                    natureza:dado.natureza,
+                    periodo:dado.periodo,
+                    prerequisitos:vetPrerequisitos[contador],
+                    tipo:tipos[contador],
+                    habilitado:habilitados[contador]
                 }
             )
         }
     )
-    const [tipo, setTipo] = useState<number>(0)
-    React.useEffect(() => {
+    const [tipo,setTipo] = useState<number>(0)
+    const [atualiza,setAtualiza] = useState<string>("a")
+    React.useEffect(()=>{
         setTipos(tipos)
         setHabilitados(habilitados)
-    }, [tentativa])
+    },[habilitados,atualiza])
     function handleChange(event) {
         setTipo(event.target.value);
     }
-    function mudarTipos(novosTipos: number[]) {
-        setTipos(novosTipos)
-        if (tentativa == novosTipos[0]) {
-            setTentativa(10)
-        }
-        else {
-            setTentativa(novosTipos[0])
-        }
-    }
-    function mudarHabilitados(novosHabilitados: string[]) {
-        setHabilitados(novosHabilitados)
-        if (tentativa == novosHabilitados[0].length) {
-            setTentativa(10)
-        }
-        else {
-            setTentativa(novosHabilitados[0].length)
-        }
-    }
-    function fezMateria(nome: string, pos: number) {
-        materias.forEach((materia) => {
-
-            if (tipo == 3) {
-                let index = materia.prerequisitosAuxiliar.indexOf(nome);
-                if (index > -1 && !materia.prerequisitosAuxiliar.includes(nome)) {
-                    console.log("entrou")
-                    materia.prerequisitos.push(nome)
-                    const novosTipos = tipos
-                    novosTipos[materia.pos] = 4
-                    mudarTipos(novosTipos)
-                    const novosHabilitados = habilitados
-                    novosHabilitados[materia.pos] = "none"
-                    mudarHabilitados(novosHabilitados)
+    const [vetFeitas,setVetFeitas] = useState<String[]>([])
+    const [fez,setFez] = useState<String>("a")
+    React.useEffect(()=>{
+        materias.forEach((materia)=>{
+            let novosTipos = tipos
+            let habilitado = "", temPrerequisito = false
+            
+            materia.prerequisitos.forEach((prerequisito)=>{
+                if(vetFeitas.indexOf(prerequisito)==-1){
+                    temPrerequisito = true
                 }
+            })
+            if(temPrerequisito){
+                habilitado = "none"
+                novosTipos[materia.pos]=4
             }
-            else {
-                if (materia.prerequisitos.length) {
-                    let index = materia.prerequisitos.indexOf(nome);
-                    if (index > -1) {
-                        materia.prerequisitos.splice(index, 1);
-                        fezMateria(nome, pos)
-                    }
-                }
-                else {
-                    const novosTipos = tipos
-                    novosTipos[materia.pos] = novosTipos[materia.pos] == 1 ? 1 : novosTipos[materia.pos] == 2 ? 2 : novosTipos[materia.pos] == 3 ? 3 : 0;
-                    mudarTipos(novosTipos)
-                    const novosHabilitados = habilitados
-                    novosHabilitados[materia.pos] = ""
-                    mudarHabilitados(novosHabilitados)
-                }
+            else{
+                novosTipos[materia.pos]=novosTipos[materia.pos]==1?1:novosTipos[materia.pos]==2?2:novosTipos[materia.pos]==3?3:0;
             }
-        });
+            setTipos(novosTipos)
+            let novosHabilitados = habilitados
+            novosHabilitados[materia.pos]=habilitado
+            setHabilitados(novosHabilitados)
+            if(atualiza=="a"){
+                setAtualiza("b")
+            }
+            else{
+                setAtualiza("a")
+            }
+        })
+    },[fez])
+    
+    function fezMateria(nome: string, pos:number){
+        
+        let novasFeitas = vetFeitas
+        if(tipo!=3){
+            novasFeitas.push(nome)
+        }
+        else{
+            let index = novasFeitas.indexOf(nome)
+            if (index > -1) {
+                novasFeitas.splice(index, 1);
+            }
+        }
+        setVetFeitas(novasFeitas)
+        if(fez=="a"){
+            setFez("b")
+        }
+        else{
+            setFez("a")
+        }
     }
 
 
@@ -165,7 +164,7 @@ export default function Fluxo_materias({ dados }) {
                                                 onClick={() => {
                                                     const novosTipos = tipos
                                                     novosTipos[materia.pos] = tipo
-                                                    mudarTipos(novosTipos)
+                                                    setTipos(novosTipos)
                                                     if (tipo == 1 || 2 || 3) {
                                                         fezMateria(materia.nome, materia.pos)
                                                     }
@@ -216,7 +215,7 @@ export default function Fluxo_materias({ dados }) {
                                                 onClick={() => {
                                                     const novosTipos = tipos
                                                     novosTipos[materia.pos] = tipo
-                                                    mudarTipos(novosTipos)
+                                                    setTipos(novosTipos)
                                                     if (tipo == 1 || 2 || 3) {
                                                         fezMateria(materia.nome, materia.pos)
                                                     }
