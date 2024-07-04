@@ -25,6 +25,7 @@
   border-bottom-left-radius: 20%;
   border-bottom-right-radius: 20%;
   box-shadow: 0px -13px 20px #000000;
+  
 }
 
 .logo img {
@@ -52,6 +53,9 @@
   font-size: 20px;
   font-weight: bold;
   color: #004266;
+
+  flex-shrink: 0; /* Impede que encolha além do conteúdo */
+  white-space: nowrap; /* Evita que os itens do menu quebrem em várias linhas */
 }
 
 .link {
@@ -93,7 +97,6 @@
     margin-right: 7%;
   }
 
- 
 
   .nav_list {
     z-index: -1;

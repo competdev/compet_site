@@ -13,8 +13,66 @@
     margin-top: 5em;
     margin-left: 0.5em;
     font-family: "Codec Pro Regular";
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
+}
+
+.opcoes p{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.3em;
+    line-height: 0.8em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #000;
+    
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.opcoes p:hover{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.3em;
+    line-height: 0.8em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #19dd3ac7;
+    color: #19dd3ac7;
+    
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.tooltipIcon{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.1em;
+    line-height: 0.7em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #000;
+    margin-bottom: -1em;
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.tooltipIcon:hover{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.1em;
+    line-height: 0.7em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #19dd3ac7;
+    color: #19dd3ac7;
+    margin-bottom: -1em;
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
 }
 
 .rolamento {
@@ -36,7 +94,6 @@
     font-family: "Verdana";
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 0.5em;
     margin-bottom: 1rem;
     margin-top: 1rem;
     color: #000;
@@ -49,22 +106,16 @@
     margin-right: 1%;
 }
 
-.colunaMateriasObrigatorias {
-    width: 17em;
+.colunaMaterias {
+    width:17em;
     margin-right: 1rem;
-}
-
-.colunaMateriasOptativas {
-    width: 17em;
-    margin-right: 1rem;
-    margin-left: -0.5rem;
 }
 
 .cardMaterias {
     border-radius: 10px;
     border: 1px solid black;
     width: 17em;
-    height: 4.5em;
+    height: 5.4em;
     margin: 2%;
     white-space: pre-line;
     flex-wrap: wrap;
@@ -88,9 +139,6 @@
     clear: both;
 }
 
-.espacamento {
-    margin-left: 18em;
-}
 
 .help-icon {
     color:#fff;
@@ -107,6 +155,9 @@
     box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
 }
 
+.arredaDiv {
+    margin-right: 3em;
+}
 
 .help-icon:hover .help-text {
     display: block;
