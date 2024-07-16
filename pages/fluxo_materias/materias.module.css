@@ -95,7 +95,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     color: #000;
     text-align: center;
 }
@@ -114,12 +114,16 @@
 .cardMaterias {
     border-radius: 10px;
     border: 1px solid black;
-    width: 17em;
+    width: 15em;
     height: 5.4em;
-    margin: 2%;
+    margin: 0.3em;
     white-space: pre-line;
     flex-wrap: wrap;
-    padding: 2px;
+    padding: 0.2em;
+
+    font-family: "Codec Pro Regular";
+    font-weight: bold;
+    font-size: 1.14rem;
 }
 
 .nomeMateria {

@@ -19,9 +19,7 @@ InterPet.getInitialProps = async () => {
 export default function InterPet({ dados }) {
     return (
         <>
-            <Head>
-                <title>COMPET | InterPet</title>
-            </Head>
+            
             <Header />
             <div style={{ padding: "1rem" }}>
                 <ExpedienteInterPet />

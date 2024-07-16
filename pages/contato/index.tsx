@@ -2,6 +2,7 @@ import dynamic from "next/dynamic"
 import { useState } from "react"
 import Modal from "react-modal"
 import styles from "./Contato.module.css"
+import Head from "next/head"
 
 import Header from "../../components/Header"
 import PageHeader from "../../components/PageHeader"
@@ -97,7 +98,9 @@ export default function Contato() {
 
     return (
         <div className={styles.pageBody}>
-            <title>COMPET | Contato</title>
+            <Head>
+                <title>COMPET | Contato</title>
+            </Head>
             <Header />
             <PageHeader
                 url={header_img_url}

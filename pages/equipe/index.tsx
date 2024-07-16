@@ -4,6 +4,7 @@ import { useState, useEffect, useReducer } from "react"
 import { sortReducer } from "../../reducers/sortReducer"
 import { SortAction, SortOrder } from "../../types/types"
 import { NEXT_URL } from "../../util/config"
+import Head from "next/head"
 
 import Header from "../../components/Header"
 import PageHeader from "../../components/PageHeader"
@@ -77,7 +78,9 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
 
     return (
         <div className={styles.groupDiv}>
-            <title>COMPET | Membros atuais</title>
+            <Head>
+                <title>COMPET | Equipe</title>
+            </Head>
             <Header />
             <PageHeader
                 url={header_img_url}

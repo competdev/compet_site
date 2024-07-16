@@ -1,7 +1,7 @@
 export const pages = [
   {
     link:'/fluxo_materias',
-    title:'Fluxo Materias'
+    title:'Fluxo de Matérias'
   },
     {
       link: '/certificados',
