@@ -57,12 +57,39 @@ export default function Fluxo_materias() {
     const [modo, setModo] = useState<number>(0);
     const [materiasFeitas, setMateriasFeitas] = useState<string[]>([]);
     const [materiasTrancadas, setMateriasTrancadas] = useState<string[]>([]);
+    const [materiasTrancadasInput, setMateriasTrancadasInput] = useState<string[]>([]);
     const [materiasDisponiveis, setMateriasDisponiveis] = useState<Periodo[]>([]);
 
     React.useEffect(() => {
         const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias, materiasFeitas, materiasPorPeriodo });
         setMateriasDisponiveis(novasMateriasDisponiveis);
     }, [materiasFeitas, materiasTrancadas]);
+
+    React.useEffect(() => {
+
+        const currInput = [...materiasTrancadasInput];
+
+        const atrasadas = materiasAtrasadas({
+            ehCorequisitoDe,
+            ehPreRequisitoDe,
+            materias,
+            materiasATrancar: currInput,
+            materiasFeitas
+        });
+
+        const novasTrancadas: string [] = [];
+
+        atrasadas.forEach(a => {
+            for(const ob of a.obrigatorias)
+                novasTrancadas.push(ob);
+
+            for(const op of a.optativas)
+                novasTrancadas.push(op);
+        });
+
+        setMateriasTrancadas(novasTrancadas);
+        
+    }, [materiasTrancadasInput]);
 
     function opcaoSelecionada(event) {
         setModo(Number(event.target.value));
@@ -93,35 +120,19 @@ export default function Fluxo_materias() {
 
     function materiaTrancada(nome: string) {
         
-        setMateriasTrancadas(prevState => {
-            if (materiasTrancadas.includes(nome)) {
-                return prevState.filter(materia => materia !== nome);
-            } else if (!prevState.includes(nome)) {
-                return [...prevState, nome];
-            }
-            return prevState;
-        });
-        
-    
-        const atrasadas = materiasAtrasadas({
-            ehCorequisitoDe,
-            ehPreRequisitoDe,
-            materias,
-            materiasATrancar: [...materiasTrancadas, nome],
-            materiasFeitas
-        });
+        if(materiasTrancadas.includes(nome) && !materiasTrancadasInput.includes(nome)) return; 
 
-        const novasTrancadas: string [] = []
+        if(materiasTrancadasInput.includes(nome)) {
+            setMateriasTrancadasInput(materiasTrancadasInput.filter(materia => materia !== nome));
+        } else {
+            setMateriasTrancadasInput([...materiasTrancadasInput, nome]);
+        }
 
-        atrasadas.forEach(a => {
-            for(const ob of a.obrigatorias)
-                novasTrancadas.push(ob)
-
-            for(const op of a.optativas)
-                novasTrancadas.push(op)
-        })
-
-        setMateriasTrancadas(novasTrancadas)
+        if(materiasTrancadas.includes(nome)) {
+            setMateriasTrancadas(materiasTrancadas.filter(materia => materia !== nome));
+        } else {
+            setMateriasTrancadas([...materiasTrancadas, nome]);
+        }
     }
     
 
@@ -204,7 +215,9 @@ export default function Fluxo_materias() {
                                                     style={(() => {
                                                         let style = { backgroundColor: "#929292c2" }; // default grey
                                                         
-                                                        if (materiasTrancadas.includes(materia)) {
+                                                        if(materiasTrancadasInput.includes(materia)) {
+                                                            style = { backgroundColor: "purple" }; // red
+                                                        } else if (materiasTrancadas.includes(materia)) {
                                                             style = { backgroundColor: "#a52727c2" }; // red
                                                         } else if (materiasFeitas.includes(materia)) {
                                                             style = { backgroundColor: "#19dd3ac7" }; // red
@@ -253,13 +266,16 @@ export default function Fluxo_materias() {
 
                                                     style={(() => {
                                                         let style = { backgroundColor: "#929292c2" }; // default grey
-                                                        if (materiasTrancadas.includes(materia)) {
+                                                        
+                                                        if(materiasTrancadasInput.includes(materia)) {
+                                                            style = { backgroundColor: "purple" }; // red
+                                                        } else if (materiasTrancadas.includes(materia)) {
                                                             style = { backgroundColor: "#a52727c2" }; // red
                                                         } else if (materiasFeitas.includes(materia)) {
                                                             style = { backgroundColor: "#19dd3ac7" }; // red
                                                         } else if(materiasDisponiveis[i] == undefined) {
                                                             style = { backgroundColor: "#929292c2" };
-                                                        } else if(materiasDisponiveis[i].obrigatorias.includes(materia)) {
+                                                        } else if(materiasDisponiveis[i].optativas.includes(materia)) {
                                                             style = { backgroundColor: "white" };
                                                         } else {
                                                             style = { backgroundColor: "#929292c2" };
