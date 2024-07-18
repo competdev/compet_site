@@ -80,6 +80,8 @@ const LightTooltip = withStyles((theme) => ({
 
 export default function Fluxo_materias() {
 
+    const [isToggled, setIsToggled] = useState(false);
+
     const [modo, setModo] = useState<number>(0);
     const [materiasFeitas, setMateriasFeitas] = useState<string[]>([]);
     const [materiasFeitasInput, setMateriasFeitasInput] = useState<string[]>([]);
@@ -87,6 +89,22 @@ export default function Fluxo_materias() {
     const [materiasTrancadasInput, setMateriasTrancadasInput] = useState<string[]>([]);
     const [materiasDisponiveis, setMateriasDisponiveis] = useState<Periodo[]>([]);
     const [db, setDb] = useState<LocalDB>(dbNovo);
+
+    const toggleButton = () => {
+        setIsToggled(prevState => !prevState);
+    }
+
+    React.useEffect(() => {
+
+        setMateriasFeitas([]);
+        setMateriasFeitasInput([]);
+        setMateriasTrancadas([]);
+        setMateriasTrancadasInput([]);
+        setMateriasDisponiveis([]);
+
+        const selectedDb = isToggled ? dbNovo : dbVelho;
+        setDb(selectedDb);
+    }, [isToggled]);
 
     React.useEffect(() => {
         const novasMateriasDisponiveis = showmateriasDisponivelsAgora({materias: db.materias , materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo});
@@ -211,7 +229,12 @@ export default function Fluxo_materias() {
                             Reiniciar
                         </button>
                     </label>
-
+                    <label>
+                {/* Toggle button */}
+                <button onClick={toggleButton}>
+                    { isToggled ? 'Nova' : 'Velha'}
+                </button>
+            </label>
                     <LightTooltip
                         TransitionComponent={Fade}
                         TransitionProps={{ timeout: 700 }}
