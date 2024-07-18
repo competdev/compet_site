@@ -25,6 +25,7 @@
   border-bottom-left-radius: 20%;
   border-bottom-right-radius: 20%;
   box-shadow: 0px -13px 20px #000000;
+  
 }
 
 .logo img {
@@ -74,8 +75,6 @@
   -o-transition: all 300ms ease-in-out;
 }
 
-
-
 .mobile_menu div {
   width: 32px;
   height: 2px;
@@ -93,7 +92,6 @@
     margin-right: 7%;
   }
 
- 
 
   .nav_list {
     z-index: -1;

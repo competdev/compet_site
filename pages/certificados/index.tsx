@@ -5,6 +5,7 @@ import removeAccents from 'remove-accents';
 import { makeStyles } from '@mui/styles';
 import styles from "./Certificados.module.css";
 import { NEXT_URL } from "../../util/config";
+import Head from "next/head"
 import Header from "../../components/Header"
 import PageHeader from "../../components/PageHeader"
 import SearchBox from "../../components/SearchBox"
@@ -142,7 +143,9 @@ export default function Certificados({ dados }) {
 
     return (
         <div className={styles.pageContent}>
-            <title>COMPET | Certificados</title>
+            <Head>
+                <title>COMPET | Certificados</title>
+            </Head>
             <Header />
             <PageHeader
                 url={header_img_url}

@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from './projetos.module.css'
 import { Box, Heading, Text } from "@codelife-ui/react";
+import Head from 'next/head';
 import Image from "next/image";
 Projetos.getInitialProps = async (ctx: NextPageContext) => {
   const apiUrl = NEXT_URL + `/api/${ctx.pathname}`
@@ -23,6 +24,9 @@ export default function Projetos({ projects, aboutProjects }: { projects: Projec
   const { pathname } = useRouter()
   return (
     <>
+      <Head>
+        <title>COMPET | Projetos</title>
+      </Head>
       <Header />
       <main style={{ margin: "1rem" }}>
         <Heading size={"xl"} css={{

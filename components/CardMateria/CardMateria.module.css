@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Verdana";
+    src: url("../../styles/fonts/Verdana.ttf");
+}
+.cardMateria{
+    white-space: pre-line;
+
+    flex-wrap: wrap;
+    padding:2px;
+    margin: 2%;
+    height: 6em;
+    width: 18em;
+    font-family: "Verdana";
+}

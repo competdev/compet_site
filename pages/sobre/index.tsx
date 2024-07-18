@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { withStyles } from "@mui/styles";
 import styles from './Sobre.module.css'
 
+import Head from "next/head"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
@@ -73,7 +74,9 @@ export default function CustomizedTimeline() {
     if (isMobile) {
         return (
             <>
-                <title>COMPET | Sobre</title>
+                <Head>
+                    <title>COMPET | Sobre</title>
+                </Head>
                 <Header />
                 <div className={classes.div}>
                     {renderPageHeader()}

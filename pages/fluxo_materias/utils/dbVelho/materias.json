@@ -1,0 +1,188 @@
+[
+  {
+    "obrigatorias": [],
+    "optativas": [],
+    "periodo": "0"
+  },
+  {
+    "obrigatorias": [
+      "Cálculo I",
+      "Geometria Analítica e Álgebra Vetorial",
+      "Matemática Discreta",
+      "Programação de Computadores I",
+      "Lab. de Programação de Computadores I",
+      "Introdução à Engenharia de Computação",
+      "Português Instrumental",
+      "Metodologia Cientifica"
+    ],
+    "optativas": [
+      "Ed. Corporal e Formação Humana"
+    ],
+    "periodo": "1"
+  },
+  {
+    "obrigatorias": [
+      "Cálculo II",
+      "Física I",
+      "Programação de Computadores II",
+      "Lab. de Programação de Computadores II",
+      "Inglês Instrumental I",
+      "Computação Gráfica",
+      "Sistemas Digitais para Computação",
+      "Laboratório de Sistemas Digitais para Computação",
+      "Filosofia da Tecnologia"
+    ],
+    "optativas": [
+      "Química",
+      "Laboratório de Química"
+    ],
+    "periodo": "2"
+  },
+  {
+    "obrigatorias": [
+      "Cálculo III",
+      "Física II",
+      "Física Experimental I",
+      "Algoritmos e Estruturas de Dados I",
+      "Lab. Algoritmos e Estruturas de Dados I",
+      "Métodos Numéricos Computacionais",
+      "Arquitetura e Organização de Computadores I",
+      "Lab. Arquitetura e Organização de Computadores I"
+    ],
+    "optativas": [
+      "Inglês Instrumental II",
+      "Estatística"
+    ],
+    "periodo": "3"
+  },
+  {
+    "obrigatorias": [
+      "Física III",
+      "Física Experimental II",
+      "Algoritmos e Estruturas de Dados II",
+      "Lab. Algoritmos e Estruturas de Dados II",
+      "Linguagens de Programação",
+      "Laboratório de Linguagens de Programação",
+      "Arquitetura e Organização de Computadores II",
+      "Cálculo IV"
+    ],
+    "optativas": [
+      "Inglês Instrumental III",
+      "Métodos Numéricos Computacionais Avançados",
+      "Tópicos Especiais em Programação de Computadores",
+      "Tópicos Especiais em Computação e Algoritmos",
+      "Tópicos Especiais em Matemática",
+      "Tópicos Especiais em Física",
+      "Variáveis Complexas"
+    ],
+    "periodo": "4"
+  },
+  {
+    "obrigatorias": [
+      "Modelagem e Desenvolvimento de Software",
+      "Lab. Modelagem e Desenvolvimento de Software",
+      "Banco de Dados I",
+      "Laboratório de Banco de Dados I",
+      "Linguagens Formais e Autômatos",
+      "Princípios de Comunicação de Dados",
+      "Álgebra Linear"
+    ],
+    "optativas": [
+      "Inglês Instrumental IV",
+      "Modelagem de Sistemas Dinâmicos",
+      "Arquitetura e Organização de Computadores III",
+      "Instrumentação",
+      "Laboratório de Instrumentação",
+      "Introdução a Física Moderna",
+      "Tópicos Especiais em Arquitetura de Computadores",
+      "Tópicos Especiais em Humanidades"
+    ],
+    "periodo": "5"
+  },
+  {
+    "obrigatorias": [
+      "Engenharia de Software I",
+      "Redes de Computadores I",
+      "Laboratório de Redes de Computadores I",
+      "Sistemas Operacionais",
+      "Laboratório de Sistemas Operacionais",
+      "Controle de Sistemas Dinâmicos",
+      "Lab. de Controle de Sistemas Dinâmicos"
+    ],
+    "optativas": [
+      "Introdução à Economia",
+      "Banco de Dados II",
+      "Sistemas Multimídia",
+      "Microprocessadores e Microcontroladores",
+      "Laboratório de Microprocessadores e Microcontroladores"
+    ],
+    "periodo": "6"
+  },
+  {
+    "obrigatorias": [
+      "Inteligência Artificial",
+      "Laboratório de Inteligência Artificial",
+      "Compiladores",
+      "Psicologia Aplicada às Organizações",
+      "Otimização I",
+      "Controle Digital de Sistemas Dinâmicos",
+      "Lab. Controle Digital de Sistemas Dinâmicos"
+    ],
+    "optativas": [
+      "Introdução ao Direito",
+      "Automação de Processos Contínuos",
+      "Lab. de Automação de Processos Contínuos",
+      "Robótica",
+      "Engenharia de Software II",
+      "Redes de Computadores II",
+      "Tópicos Especiais em Engenharia de Software",
+      "Tópicos Especiais em Ciências Socias Aplicadas"
+    ],
+    "periodo": "7"
+  },
+  {
+    "obrigatorias": [
+      "Interação Humano-Computador",
+      "Sistemas Distribuídos",
+      "Otimização II",
+      "Introdução à Administração",
+      "Introdução à Administração",
+      "Inteligência Computacional I"
+    ],
+    "optativas": [
+      "Sistemas Bio-Inspirados",
+      "Inteligência Computacional para Otimização",
+      "Automação de Processos de Manufatura",
+      "Automação de Processos de Manufatura",
+      "Gestão Ambiental",
+      "Tóp. Especiais em Redes e Sistemas Distribuídos"
+    ],
+    "periodo": "8"
+  },
+  {
+    "obrigatorias": [
+      "Trabalho de Conclusão do Curso I",
+      "Contexto Social e Profissional da Eng. de Computação",
+      "Introdução à Sociologia",
+      "Organização Empresarial A",
+      "Metodologia de Pesquisa"
+    ],
+    "optativas": [
+      "Inteligência Computacional II",
+      "Computação Evolucionaria",
+      "Sistemas de Tempo Real",
+      "Tópicos Especiais em Sistemas Inteligentes",
+      "Tóp. Esp. Sistemas e Processos Produtivos",
+      "Otimização Combinatória"
+    ],
+    "periodo": "9"
+  },
+  {
+    "obrigatorias": [
+      "Trabalho de Conclusão do Curso II",
+      "Estágio Supervisionado"
+    ],
+    "optativas": [],
+    "periodo": "10"
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "Cálculo com Funções de uma Variável Real": [
+    "Integração e Séries",
+    "Cálculo com Funções de Várias Variáveis I",
+    "Fundamentos de Mecânica"
+  ],
+  "Geometria Analítica e Álgebra Linear": [
+    "Cálculo com Funções de Várias Variáveis I",
+    "Álgebra Linear",
+    "Fundamentos de Mecânica",
+    "Computação Gráfica",
+    "Visão Computacional"
+  ],
+  "Integração e Séries": [
+    "Cálculo com Funções de Várias Variáveis II",
+    "Equações Diferenciais Ordinárias",
+    "Estatística"
+  ],
+  "Cálculo com Funções de Várias Variáveis I": [
+    "Cálculo com Funções de Várias Variáveis II",
+    "Equações Diferenciais Ordinárias"
+  ],
+  "Fundamentos de Mecânica": [
+    "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)",
+    "Física Experimental - MOFT"
+  ],
+  "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)": [
+    "Fundamentos de Eletromagnetismo"
+  ],
+  "Física Experimental - MOFT": [
+    "Física Experimental - EOFM"
+  ],
+  "Lógica de Programação": [
+    "Programação Orientada a Objetos",
+    "Laboratório de Programação Orientada a Objetos",
+    "Métodos Numéricos Computacionais",
+    "Visão Computacional",
+    "Sistemas Digitais para Computação",
+    "Laboratório de Sistemas Digitais para Computação"
+  ],
+  "Laboratório de Lógica de Programação": [
+    "Programação Orientada a Objetos",
+    "Laboratório de Programação Orientada a Objetos",
+    "Métodos Numéricos Computacionais",
+    "Visão Computacional",
+    "Sistemas Digitais para Computação",
+    "Laboratório de Sistemas Digitais para Computação"
+  ],
+  "Programação Orientada a Objetos": [
+    "Algoritmos e Estruturas de Dados I",
+    "Laboratório de Algoritmos e Estruturas de Dados I"
+  ],
+  "Laboratório de Programação Orientada a Objetos": [
+    "Algoritmos e Estruturas de Dados I",
+    "Laboratório de Algoritmos e Estruturas de Dados I"
+  ],
+  "Algoritmos e Estruturas de Dados I": [
+    "Algoritmos e Estruturas de Dados II",
+    "Linguagens de Programação",
+    "Linguagens Formais e Autômatos",
+    "Computação Gráfica",
+    "Engenharia de Software I",
+    "Laboratório de Engenharia de Software I"
+  ],
+  "Laboratório de Algoritmos e Estruturas de Dados I": [
+    "Algoritmos e Estruturas de Dados II",
+    "Linguagens de Programação",
+    "Linguagens Formais e Autômatos",
+    "Computação Gráfica",
+    "Engenharia de Software I",
+    "Laboratório de Engenharia de Software I"
+  ],
+  "Algoritmos e Estruturas de Dados II": [
+    "Grafos",
+    "Desenvolvimento de Jogos Digitais",
+    "Banco de Dados I",
+    "Laboratório de Banco de Dados I",
+    "Recuperação de Informação",
+    "Inteligência Artificial",
+    "Otimização I"
+  ],
+  "Matemática Discreta": [
+    "Linguagens Formais e Autômatos"
+  ],
+  "Linguagens Formais e Autômatos": [
+    "Compiladores"
+  ],
+  "Linguagens de Programação": [
+    "Compiladores"
+  ],
+  "Arquitetura e Organização de Computadores I": [
+    "Compiladores",
+    "Arquitetura e Organização de Computadores II",
+    "Sistemas Operacionais",
+    "Fundamentos de Microcontroladores",
+    "Laboratório de Fundamentos de Microcontroladores"
+  ],
+  "Computação Gráfica": [
+    "Desenvolvimento de Jogos Digitais"
+  ],
+  "Métodos Numéricos Computacionais": [
+    "Visão Computacional",
+    "Inteligência Artificial",
+    "Otimização I"
+  ],
+  "Sistemas Digitais para Computação": [
+    "Arquitetura e Organização de Computadores I",
+    "Laboratório de Arquitetura e Organização de Computadores I",
+    "Redes de Computadores I",
+    "Laboratório de Redes de Computadores I"
+  ],
+  "Laboratório de Sistemas Digitais para Computação": [
+    "Arquitetura e Organização de Computadores I",
+    "Laboratório de Arquitetura e Organização de Computadores I",
+    "Redes de Computadores I",
+    "Laboratório de Redes de Computadores I"
+  ],
+  "Laboratório de Arquitetura e Organização de Computadores I": [
+    "Arquitetura e Organização de Computadores II",
+    "Fundamentos de Microcontroladores",
+    "Laboratório de Fundamentos de Microcontroladores"
+  ],
+  "Circuitos Elétricos": [
+    "Eletrônica para Computação",
+    "Laboratório de Eletrônica para Computação",
+    "Sinais e Sistemas",
+    "Laboratório de Sinais e Sistemas"
+  ],
+  "Redes de Computadores I": [
+    "Sistemas Distribuídos",
+    "Redes de Computadores II",
+    "Segurança da Informação"
+  ],
+  "Laboratório de Redes de Computadores I": [
+    "Sistemas Distribuídos",
+    "Redes de Computadores II",
+    "Segurança da Informação"
+  ],
+  "Sistemas Operacionais": [
+    "Sistemas Distribuídos",
+    "Análise de Desempenho de Sistemas Computacionais",
+    "Segurança da Informação"
+  ],
+  "Arquitetura e Organização de Computadores II": [
+    "Programação Paralela"
+  ],
+  "Banco de Dados I": [
+    "Segurança da Informação",
+    "Programação Web",
+    "Banco de Dados II"
+  ],
+  "Engenharia de Software I": [
+    "Engenharia de Software II",
+    "Interação Humano-Computador",
+    "Programação Web"
+  ],
+  "Laboratório de Engenharia de Software I": [
+    "Engenharia de Software II",
+    "Interação Humano-Computador",
+    "Programação Web"
+  ],
+  "Laboratório de Banco de Dados I": [
+    "Programação Web",
+    "Banco de Dados II"
+  ],
+  "Engenharia de Software II": [
+    "Gestão de Projetos de Engenharia de Computação"
+  ],
+  "Inteligência Artificial": [
+    "Aprendizado de Máquina"
+  ],
+  "Estatística": [
+    "Otimização II"
+  ],
+  "Otimização I": [
+    "Otimização II"
+  ],
+  "Equações Diferenciais Ordinárias": [
+    "Sinais e Sistemas",
+    "Laboratório de Sinais e Sistemas"
+  ],
+  "Sinais e Sistemas": [
+    "Sistemas de Controle",
+    "Laboratório de Sistemas de Controle"
+  ],
+  "Laboratório de Sinais e Sistemas": [
+    "Sistemas de Controle",
+    "Laboratório de Sistemas de Controle"
+  ],
+  "Sistemas de Controle": [
+    "Robótica"
+  ],
+  "Laboratório de Sistemas de Controle": [
+    "Robótica"
+  ],
+  "Fundamentos de Microcontroladores": [
+    "Arquitetura de Sistemas Embarcados"
+  ],
+  "Laboratório de Fundamentos de Microcontroladores": [
+    "Arquitetura de Sistemas Embarcados"
+  ],
+  "Libras I": [
+    "Libras II"
+  ],
+  "Inglês Instrumental I": [
+    "Inglês Instrumental II"
+  ]
+}

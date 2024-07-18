@@ -1,0 +1,97 @@
+{
+  "Equações Diferenciais Ordinárias": [
+    "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)",
+    "Métodos Numéricos Computacionais"
+  ],
+  "Física Experimental – MOFT": [
+    "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)"
+  ],
+  "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)": [
+    "Física Experimental - MOFT"
+  ],
+  "Física Experimental - EOFM": [
+    "Fundamentos de Eletromagnetismo"
+  ],
+  "Fundamentos de Eletromagnetismo": [
+    "Física Experimental - EOFM",
+    "Circuitos Elétricos"
+  ],
+  "Laboratório de Química": [
+    "Química"
+  ],
+  "Química": [
+    "Laboratório de Química"
+  ],
+  "Laboratório de Lógica de Programação": [
+    "Lógica de Programação"
+  ],
+  "Lógica de Programação": [
+    "Laboratório de Lógica de Programação"
+  ],
+  "Laboratório de Programação Orientada a Objetos": [
+    "Programação Orientada a Objetos"
+  ],
+  "Programação Orientada a Objetos": [
+    "Laboratório de Programação Orientada a Objetos"
+  ],
+  "Laboratório de Algoritmos e Estruturas de Dados I": [
+    "Algoritmos e Estruturas de Dados I"
+  ],
+  "Algoritmos e Estruturas de Dados I": [
+    "Laboratório de Algoritmos e Estruturas de Dados I"
+  ],
+  "Laboratório de Sistemas Digitais para Computação": [
+    "Sistemas Digitais para Computação"
+  ],
+  "Sistemas Digitais para Computação": [
+    "Laboratório de Sistemas Digitais para Computação"
+  ],
+  "Laboratório de Arquitetura e Organização de Computadores I": [
+    "Arquitetura e Organização de Computadores I"
+  ],
+  "Arquitetura e Organização de Computadores I": [
+    "Laboratório de Arquitetura e Organização de Computadores I"
+  ],
+  "Laboratório de Eletrônica para Computação": [
+    "Eletrônica para Computação"
+  ],
+  "Eletrônica para Computação": [
+    "Laboratório de Eletrônica para Computação"
+  ],
+  "Laboratório de Redes de Computadores I": [
+    "Redes de Computadores I"
+  ],
+  "Redes de Computadores I": [
+    "Laboratório de Redes de Computadores I"
+  ],
+  "Laboratório de Engenharia de Software I": [
+    "Engenharia de Software I"
+  ],
+  "Engenharia de Software I": [
+    "Laboratório de Engenharia de Software I"
+  ],
+  "Laboratório de Banco de Dados I": [
+    "Banco de Dados I"
+  ],
+  "Banco de Dados I": [
+    "Laboratório de Banco de Dados I"
+  ],
+  "Laboratório de Sinais e Sistemas": [
+    "Sinais e Sistemas"
+  ],
+  "Sinais e Sistemas": [
+    "Laboratório de Sinais e Sistemas"
+  ],
+  "Laboratório de Sistemas de Controle": [
+    "Sistemas de Controle"
+  ],
+  "Sistemas de Controle": [
+    "Laboratório de Sistemas de Controle"
+  ],
+  "Laboratório de Fundamentos de Microcontroladores": [
+    "Fundamentos de Microcontroladores"
+  ],
+  "Fundamentos de Microcontroladores": [
+    "Laboratório de Fundamentos de Microcontroladores"
+  ]
+}
