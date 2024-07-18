@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-import axios from "axios";
-import { NEXT_URL } from "../../util/config";
-
 import Head from 'next/dist/shared/lib/head';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -12,14 +9,44 @@ import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
 import styles from "./materias.module.css";
 
-import ehPreRequisitoDe from "./utils/dbNovo/ehPreRequisitoDe.json";
-import ehCorequisitoDe from "./utils/dbNovo/ehCorequisitoDe.json";
-import materias from "./utils/dbNovo/materiasObj.json";
-import materiasPorPeriodo from "./utils/dbNovo/materias.json";
+import ehPreRequisitoDeNovo from "./utils/dbNovo/ehPreRequisitoDe.json";
+import ehCorequisitoDeNovo from "./utils/dbNovo/ehCorequisitoDe.json";
+import materiasNovo from "./utils/dbNovo/materiasObj.json";
+import materiasPorPeriodoNovo from "./utils/dbNovo/materias.json";
+
+import ehPreRequisitoDeVelho from "./utils/dbVelho/ehPreRequisitoDe.json";
+import ehCorequisitoDeVelho from "./utils/dbVelho/ehCorequisitoDe.json";
+import materiasVelho from "./utils/dbVelho/materiasObj.json";
+import materiasPorPeriodoVelho from "./utils/dbVelho/materias.json";
 
 import { materiasAtrasadas } from './utils/global/materiasAtrasadas';
 import { showmateriasDisponivelsAgora } from './utils/global/showMateriasAllowedPreRequisitos';
-import { Periodo } from './utils/global/interfaces';
+import { Materias, Periodo } from './utils/global/interfaces';
+import { removeDiff } from './utils/global/removeDisponiveis';
+
+interface LocalDB {
+    skipNumer: number,
+    ehPreRequisitoDe: { [key: string]: string[] },
+    ehCorequisitoDe: { [key: string]: string[] },
+    materias: Materias[],
+    materiasPorPeriodo: Periodo[]
+}
+
+const dbNovo = {
+    skipNumer: 1,
+    ehPreRequisitoDe: ehPreRequisitoDeNovo,
+    ehCorequisitoDe: ehCorequisitoDeNovo,
+    materias: materiasNovo,
+    materiasPorPeriodo: materiasPorPeriodoNovo
+};
+
+const dbVelho = {
+    skipNumer: 0,
+    ehPreRequisitoDe: ehPreRequisitoDeVelho,
+    ehCorequisitoDe: ehCorequisitoDeVelho,
+    materias: materiasVelho,
+    materiasPorPeriodo: materiasPorPeriodoVelho
+};
 
 const LightTooltip = withStyles((theme) => ({
     tooltip: {
@@ -52,27 +79,57 @@ const LightTooltip = withStyles((theme) => ({
 }))(Tooltip);
 
 export default function Fluxo_materias() {
-    const periodos = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-    const cor = ["", "#19dd3ac7", "#0042669a", "#a52727c2", "#929292c2"];
+
+    const [isToggled, setIsToggled] = useState(false);
+
     const [modo, setModo] = useState<number>(0);
     const [materiasFeitas, setMateriasFeitas] = useState<string[]>([]);
+    const [materiasFeitasInput, setMateriasFeitasInput] = useState<string[]>([]);
     const [materiasTrancadas, setMateriasTrancadas] = useState<string[]>([]);
     const [materiasTrancadasInput, setMateriasTrancadasInput] = useState<string[]>([]);
     const [materiasDisponiveis, setMateriasDisponiveis] = useState<Periodo[]>([]);
+    const [db, setDb] = useState<LocalDB>(dbNovo);
+
+    const toggleButton = () => {
+        setIsToggled(prevState => !prevState);
+    }
 
     React.useEffect(() => {
-        const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias, materiasFeitas, materiasPorPeriodo });
+
+        setMateriasFeitas([]);
+        setMateriasFeitasInput([]);
+        setMateriasTrancadas([]);
+        setMateriasTrancadasInput([]);
+        setMateriasDisponiveis([]);
+
+        const selectedDb = isToggled ? dbNovo : dbVelho;
+        setDb(selectedDb);
+    }, [isToggled]);
+
+    React.useEffect(() => {
+        const novasMateriasDisponiveis = showmateriasDisponivelsAgora({materias: db.materias , materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo});
         setMateriasDisponiveis(novasMateriasDisponiveis);
-    }, [materiasFeitas, materiasTrancadas]);
+
+        const alteracao = removeDiff({
+            ehCorequisitoDe: db.ehCorequisitoDe, 
+            ehPreRequisitoDe : 
+            db.ehPreRequisitoDe,
+            anterior: materiasFeitas, 
+            atual: materiasFeitasInput
+        })
+
+        setMateriasFeitas(alteracao.materiasFeitas);
+
+    }, [materiasFeitas, materiasFeitasInput]);
 
     React.useEffect(() => {
 
         const currInput = [...materiasTrancadasInput];
 
         const atrasadas = materiasAtrasadas({
-            ehCorequisitoDe,
-            ehPreRequisitoDe,
-            materias,
+            ehCorequisitoDe: db.ehCorequisitoDe,
+            ehPreRequisitoDe: db.ehPreRequisitoDe,
+            materias: db.materias,
             materiasATrancar: currInput,
             materiasFeitas
         });
@@ -97,9 +154,11 @@ export default function Fluxo_materias() {
 
     function materiaFeita(idx: number, nome: string) {
         if  (materiasFeitas.includes(nome)) {
-            setMateriasFeitas(materiasFeitas.filter(materia => materia !== nome));
+            // console.log("Materias Feitas Input: ", materiasFeitasInput);
+            setMateriasFeitasInput(materiasFeitasInput.filter(materia => materia !== nome));
+            // setMateriasFeitas(materiasFeitas.filter(materia => materia !== nome));
         } else {
-            const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias, materiasFeitas, materiasPorPeriodo });
+            const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias: db.materias, materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo });
             setMateriasDisponiveis(novasMateriasDisponiveis);
             
             const isDisponivel = novasMateriasDisponiveis.find(periodo => {
@@ -108,6 +167,13 @@ export default function Fluxo_materias() {
 
             if (isDisponivel) {
                 setMateriasFeitas(prevState => {
+                    if (!prevState.includes(nome)) {
+                        return [...prevState, nome];
+                    }
+                    return prevState;
+                });
+
+                setMateriasFeitasInput(prevState => {
                     if (!prevState.includes(nome)) {
                         return [...prevState, nome];
                     }
@@ -163,7 +229,12 @@ export default function Fluxo_materias() {
                             Reiniciar
                         </button>
                     </label>
-
+                    <label>
+                {/* Toggle button */}
+                <button onClick={toggleButton}>
+                    { isToggled ? 'Nova' : 'Velha'}
+                </button>
+            </label>
                     <LightTooltip
                         TransitionComponent={Fade}
                         TransitionProps={{ timeout: 700 }}
@@ -201,7 +272,7 @@ export default function Fluxo_materias() {
                                     <div key={i} className={styles.colunaMaterias}>
                                         <div className={styles.periodoMateria}>Período {i}</div>
                                         <div>
-                                            {materiasPorPeriodo[i].obrigatorias.map((materia, idx) => (
+                                            {db.materiasPorPeriodo[i].obrigatorias.map((materia, idx) => (
                                                 <div key={idx} className={styles.cardMaterias}
                                                     onClick={
                                                         () => {
@@ -248,12 +319,12 @@ export default function Fluxo_materias() {
                         {(() => {
                             const elements = [];
                             for (let i = 0; i <= 10; i++) {
-                                if (i === 1) continue;
+                                if (i === db.skipNumer) continue;
                                 elements.push(
                                     <div key={i} className={styles.colunaMaterias}>
                                         <div className={styles.periodoMateria}>Período {i}</div>
                                         <div>
-                                            {materiasPorPeriodo[i].optativas.map((materia, idx) => (
+                                            {db.materiasPorPeriodo[i].optativas.map((materia, idx) => (
                                                 <div key={idx} className={styles.cardMaterias}
                                                     onClick={
                                                         () => {
