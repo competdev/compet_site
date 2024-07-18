@@ -107,14 +107,14 @@ export default function Fluxo_materias() {
     }, [isToggled]);
 
     React.useEffect(() => {
-        const novasMateriasDisponiveis = showmateriasDisponivelsAgora({materias: db.materias , materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo});
+        const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias: db.materias, materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo });
         setMateriasDisponiveis(novasMateriasDisponiveis);
 
         const alteracao = removeDiff({
-            ehCorequisitoDe: db.ehCorequisitoDe, 
-            ehPreRequisitoDe : 
-            db.ehPreRequisitoDe,
-            anterior: materiasFeitas, 
+            ehCorequisitoDe: db.ehCorequisitoDe,
+            ehPreRequisitoDe:
+                db.ehPreRequisitoDe,
+            anterior: materiasFeitas,
             atual: materiasFeitasInput
         })
 
@@ -134,18 +134,18 @@ export default function Fluxo_materias() {
             materiasFeitas
         });
 
-        const novasTrancadas: string [] = [];
+        const novasTrancadas: string[] = [];
 
         atrasadas.forEach(a => {
-            for(const ob of a.obrigatorias)
+            for (const ob of a.obrigatorias)
                 novasTrancadas.push(ob);
 
-            for(const op of a.optativas)
+            for (const op of a.optativas)
                 novasTrancadas.push(op);
         });
 
         setMateriasTrancadas(novasTrancadas);
-        
+
     }, [materiasTrancadasInput]);
 
     function opcaoSelecionada(event) {
@@ -153,14 +153,14 @@ export default function Fluxo_materias() {
     }
 
     function materiaFeita(idx: number, nome: string) {
-        if  (materiasFeitas.includes(nome)) {
+        if (materiasFeitas.includes(nome)) {
             // console.log("Materias Feitas Input: ", materiasFeitasInput);
             setMateriasFeitasInput(materiasFeitasInput.filter(materia => materia !== nome));
             // setMateriasFeitas(materiasFeitas.filter(materia => materia !== nome));
         } else {
             const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias: db.materias, materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo });
             setMateriasDisponiveis(novasMateriasDisponiveis);
-            
+
             const isDisponivel = novasMateriasDisponiveis.find(periodo => {
                 return periodo.obrigatorias.includes(nome) || periodo.optativas.includes(nome);
             });
@@ -181,26 +181,37 @@ export default function Fluxo_materias() {
                 });
             }
         }
-            
+
     }
 
     function materiaTrancada(nome: string) {
-        
-        if(materiasTrancadas.includes(nome) && !materiasTrancadasInput.includes(nome)) return; 
 
-        if(materiasTrancadasInput.includes(nome)) {
+        if (materiasTrancadas.includes(nome) && !materiasTrancadasInput.includes(nome)) return;
+
+        if (materiasTrancadasInput.includes(nome)) {
             setMateriasTrancadasInput(materiasTrancadasInput.filter(materia => materia !== nome));
         } else {
             setMateriasTrancadasInput([...materiasTrancadasInput, nome]);
         }
 
-        if(materiasTrancadas.includes(nome)) {
+        if (materiasTrancadas.includes(nome)) {
             setMateriasTrancadas(materiasTrancadas.filter(materia => materia !== nome));
         } else {
             setMateriasTrancadas([...materiasTrancadas, nome]);
         }
     }
-    
+
+    function reiniciar () {
+        setMateriasFeitas([]);
+        setMateriasFeitasInput([]);
+        setMateriasTrancadas([]);
+        setMateriasTrancadasInput([]);
+        setMateriasDisponiveis([]);
+
+        setDb(isToggled ? dbNovo : dbVelho);
+        setModo(0);
+    }
+
 
     return (
         <>
@@ -213,6 +224,7 @@ export default function Fluxo_materias() {
                     <label className="radioButtons">
                         <input
                             type="radio" className={styles.fez} name="etapa" value={1}
+                            checked={modo === 1}
                             onChange={opcaoSelecionada}
                         />
                         Concluída
@@ -220,28 +232,29 @@ export default function Fluxo_materias() {
                     <label>
                         <input
                             type="radio" className={styles.trancou} name="etapa" value={2}
+                            checked={modo === 2}
                             onChange={opcaoSelecionada}
                         />
                         Desejo trancar
                     </label>
                     <label>
-                        <button onClick={() => window.location.reload()}>
+                        <button className={styles.botoes} onClick={reiniciar}>
                             Reiniciar
                         </button>
                     </label>
                     <label>
-                {/* Toggle button */}
-                <button onClick={toggleButton}>
-                    { isToggled ? 'Nova' : 'Velha'}
-                </button>
-            </label>
+                        {/* Drop-list */}
+                        <select className={styles.botoes} onChange={toggleButton}>
+                            <option value="Velha">Velha</option>
+                            <option value="Nova">Nova</option>
+                        </select>
+                    </label>
                     <LightTooltip
                         TransitionComponent={Fade}
                         TransitionProps={{ timeout: 700 }}
                         title={
                             <span>
-                                <strong>Concluída</strong> - matérias que já foram concluídas<br />
-                                <strong>Farei</strong> - matérias que serão/estão sendo feitas nesse semestre <br />
+                                <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita<br />
                                 <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
                             </span>
                         }
@@ -278,30 +291,46 @@ export default function Fluxo_materias() {
                                                         () => {
                                                             if (modo == 1)
                                                                 materiaFeita(idx, materia)
-                                                            else if(modo == 2)
+                                                            else if (modo == 2)
                                                                 materiaTrancada(materia)
                                                         }
                                                     }
 
                                                     style={(() => {
                                                         let style = { backgroundColor: "#929292c2" }; // default grey
-                                                        
-                                                        if(materiasTrancadasInput.includes(materia)) {
-                                                            style = { backgroundColor: "purple" }; // red
-                                                        } else if (materiasTrancadas.includes(materia)) {
-                                                            style = { backgroundColor: "#a52727c2" }; // red
-                                                        } else if (materiasFeitas.includes(materia)) {
-                                                            style = { backgroundColor: "#19dd3ac7" }; // red
-                                                        } else if(materiasDisponiveis[i] == undefined) {
-                                                            style = { backgroundColor: "#929292c2" };
-                                                        } else if(materiasDisponiveis[i].obrigatorias.includes(materia)) {
-                                                            style = { backgroundColor: "white" };
-                                                        } else {
-                                                            style = { backgroundColor: "#929292c2" };
-                                                        }
 
+                                                        if (materiasTrancadasInput.includes(materia)) {
+                                                            style = { backgroundColor: "#b3060693" }; // red
+                                                        } else if (materiasTrancadas.includes(materia)) {
+                                                            style = { backgroundColor: "#3a1c1ca4" }; // brown
+                                                        } else if (materiasFeitas.includes(materia)) {
+                                                            style = { backgroundColor: "#19dd3ac7" }; // green
+                                                        } else if (materiasDisponiveis[i] == undefined) {
+                                                            style = { backgroundColor: "#929292c2" }; //gray
+                                                        } else if (materiasDisponiveis[i].obrigatorias.includes(materia)) {
+                                                            style = { backgroundColor: "white" }; //white
+                                                        } else {
+                                                            style = { backgroundColor: "#929292c2" }; //gray
+                                                        }
                                                         return style;
                                                     })()}
+
+                                                    onMouseOver={(e) => {
+                                                        const target = e.currentTarget;
+                                                        if (window.getComputedStyle(target).backgroundColor !== "rgba(146, 146, 146, 0.76)") {
+                                                            target.style.borderWidth = "3px";
+                                                            target.style.borderColor = modo == 1 ? "#19dd3ac7" : modo == 2 ? "#b3060693" : "#000";
+                                                            target.style.transform = "scale(1.04)";
+                                                            target.style.zIndex = "1";
+                                                        }
+                                                    }}
+                                                    onMouseOut={(e) => {
+                                                        const target = e.currentTarget;
+                                                        target.style.borderWidth = "1px";
+                                                        target.style.borderColor = 'black';
+                                                        target.style.transform = "scale(1)";
+                                                        target.style.zIndex = "0";
+                                                    }}
                                                 >
                                                     {materia}</div>
                                             ))}
@@ -330,30 +359,46 @@ export default function Fluxo_materias() {
                                                         () => {
                                                             if (modo == 1)
                                                                 materiaFeita(idx, materia)
-                                                            else if(modo == 2)
+                                                            else if (modo == 2)
                                                                 materiaTrancada(materia)
                                                         }
                                                     }
 
                                                     style={(() => {
                                                         let style = { backgroundColor: "#929292c2" }; // default grey
-                                                        
-                                                        if(materiasTrancadasInput.includes(materia)) {
-                                                            style = { backgroundColor: "purple" }; // red
-                                                        } else if (materiasTrancadas.includes(materia)) {
-                                                            style = { backgroundColor: "#a52727c2" }; // red
-                                                        } else if (materiasFeitas.includes(materia)) {
-                                                            style = { backgroundColor: "#19dd3ac7" }; // red
-                                                        } else if(materiasDisponiveis[i] == undefined) {
-                                                            style = { backgroundColor: "#929292c2" };
-                                                        } else if(materiasDisponiveis[i].optativas.includes(materia)) {
-                                                            style = { backgroundColor: "white" };
-                                                        } else {
-                                                            style = { backgroundColor: "#929292c2" };
-                                                        }
 
+                                                        if (materiasTrancadasInput.includes(materia)) {
+                                                            style = { backgroundColor: "#b3060693" }; // red
+                                                        } else if (materiasTrancadas.includes(materia)) {
+                                                            style = { backgroundColor: "#3a1c1ca4" }; // brown
+                                                        } else if (materiasFeitas.includes(materia)) {
+                                                            style = { backgroundColor: "#19dd3ac7" }; // green
+                                                        } else if (materiasDisponiveis[i] == undefined) {
+                                                            style = { backgroundColor: "#929292c2" }; //gray
+                                                        } else if (materiasDisponiveis[i].optativas.includes(materia)) {
+                                                            style = { backgroundColor: "white" }; //white
+                                                        } else {
+                                                            style = { backgroundColor: "#929292c2" }; //gray
+                                                        }
                                                         return style;
                                                     })()}
+
+                                                    onMouseOver={(e) => {
+                                                        const target = e.currentTarget;
+                                                        if (window.getComputedStyle(target).backgroundColor !== "rgba(146, 146, 146, 0.76)") {
+                                                            target.style.borderWidth = "2px";
+                                                            target.style.borderColor = modo == 1 ? "#19dd3ac7" : modo == 2 ? "#b3060693" : "#000";
+                                                            target.style.transform = "scale(1.04)";
+                                                            target.style.zIndex = "1";
+                                                        }
+                                                    }}
+                                                    onMouseOut={(e) => {
+                                                        const target = e.currentTarget;
+                                                        target.style.borderWidth = "1px";
+                                                        target.style.borderColor = 'black';
+                                                        target.style.transform = "scale(1)";
+                                                        target.style.zIndex = "0";
+                                                    }}
                                                 >
                                                     {materia}</div>
                                             ))}
@@ -364,7 +409,7 @@ export default function Fluxo_materias() {
                             return elements;
                         })()}
                     </div>
-                    
+
 
                 </div>
                 <Footer />

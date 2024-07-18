@@ -17,7 +17,7 @@
     font-weight: bold;
 }
 
-.opcoes p{
+.opcoes p {
     display: inline-block;
     margin-left: 0.5em;
     width: 1.3em;
@@ -31,7 +31,7 @@
     font-size: 0.9rem;
 }
 
-.opcoes p:hover{
+.opcoes p:hover { 
     display: inline-block;
     margin-left: 0.5em;
     width: 1.3em;
@@ -46,7 +46,31 @@
     font-size: 0.9rem;
 }
 
-.tooltipIcon{
+.botoes {
+    border-radius: 0.2em;
+    border: 0.12em solid #012c44; 
+    font-family: "Verdana";
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #004266;
+    background-color: #ffffffde;
+    margin-left: 0.5em;
+
+    transition: border-width 0.3s ease, border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.botoes:hover {
+    border-radius: 0.2em;
+    border: 0.16em solid #012c44;
+    margin-left: 0.5em;
+    font-family: "Verdana";
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000;
+    background-color: #ffffffde;
+}  
+
+.tooltipIcon {
     display: inline-block;
     margin-left: 0.5em;
     width: 1.1em;
@@ -60,7 +84,7 @@
     font-size: 0.9rem;
 }
 
-.tooltipIcon:hover{
+.tooltipIcon:hover {
     display: inline-block;
     margin-left: 0.5em;
     width: 1.1em;
@@ -107,20 +131,21 @@
 }
 
 .colunaMaterias {
-    width:17em;
+    width:19em;
     margin-right: 1rem;
 }
 
 .cardMaterias {
     border-radius: 10px;
     border: 1px solid black;
-    width: 15em;
+    width: 16em;
     height: 5.4em;
     margin: 0.3em;
     white-space: pre-line;
     flex-wrap: wrap;
-    padding: 0.2em;
-
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    transition: border-width 0.3s, border-color 0.3s, transform 0.3s;
     font-family: "Codec Pro Regular";
     font-weight: bold;
     font-size: 1.14rem;
@@ -157,10 +182,6 @@
     -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
     box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
-}
-
-.arredaDiv {
-    margin-right: 3em;
 }
 
 .help-icon:hover .help-text {
