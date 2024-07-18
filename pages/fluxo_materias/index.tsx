@@ -22,6 +22,7 @@ import materiasPorPeriodoVelho from "./utils/dbVelho/materias.json";
 import { materiasAtrasadas } from './utils/global/materiasAtrasadas';
 import { showmateriasDisponivelsAgora } from './utils/global/showMateriasAllowedPreRequisitos';
 import { Materias, Periodo } from './utils/global/interfaces';
+import { removeDiff } from './utils/global/removeDisponiveis';
 
 interface LocalDB {
     skipNumer: number,
@@ -81,6 +82,7 @@ export default function Fluxo_materias() {
 
     const [modo, setModo] = useState<number>(0);
     const [materiasFeitas, setMateriasFeitas] = useState<string[]>([]);
+    const [materiasFeitasInput, setMateriasFeitasInput] = useState<string[]>([]);
     const [materiasTrancadas, setMateriasTrancadas] = useState<string[]>([]);
     const [materiasTrancadasInput, setMateriasTrancadasInput] = useState<string[]>([]);
     const [materiasDisponiveis, setMateriasDisponiveis] = useState<Periodo[]>([]);
@@ -89,7 +91,18 @@ export default function Fluxo_materias() {
     React.useEffect(() => {
         const novasMateriasDisponiveis = showmateriasDisponivelsAgora({materias: db.materias , materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo});
         setMateriasDisponiveis(novasMateriasDisponiveis);
-    }, [materiasFeitas, materiasTrancadas]);
+
+        const alteracao = removeDiff({
+            ehCorequisitoDe: db.ehCorequisitoDe, 
+            ehPreRequisitoDe : 
+            db.ehPreRequisitoDe,
+            anterior: materiasFeitas, 
+            atual: materiasFeitasInput
+        })
+
+        setMateriasFeitas(alteracao.materiasFeitas);
+
+    }, [materiasFeitas, materiasFeitasInput]);
 
     React.useEffect(() => {
 
@@ -123,7 +136,9 @@ export default function Fluxo_materias() {
 
     function materiaFeita(idx: number, nome: string) {
         if  (materiasFeitas.includes(nome)) {
-            setMateriasFeitas(materiasFeitas.filter(materia => materia !== nome));
+            // console.log("Materias Feitas Input: ", materiasFeitasInput);
+            setMateriasFeitasInput(materiasFeitasInput.filter(materia => materia !== nome));
+            // setMateriasFeitas(materiasFeitas.filter(materia => materia !== nome));
         } else {
             const novasMateriasDisponiveis = showmateriasDisponivelsAgora({ materias: db.materias, materiasFeitas, materiasPorPeriodo: db.materiasPorPeriodo });
             setMateriasDisponiveis(novasMateriasDisponiveis);
@@ -134,6 +149,13 @@ export default function Fluxo_materias() {
 
             if (isDisponivel) {
                 setMateriasFeitas(prevState => {
+                    if (!prevState.includes(nome)) {
+                        return [...prevState, nome];
+                    }
+                    return prevState;
+                });
+
+                setMateriasFeitasInput(prevState => {
                     if (!prevState.includes(nome)) {
                         return [...prevState, nome];
                     }
