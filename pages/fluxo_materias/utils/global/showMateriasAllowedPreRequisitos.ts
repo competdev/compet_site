@@ -78,7 +78,9 @@ export function showmateriasDisponivelsAgora({ materias, materiasFeitas, materia
 
     const materiasVaiVem : Map<string, string[]> = new Map()
 
-    for (const materia of materiasQueAtendemPreRequisitos) {
+    const materiasQueAtendemPreRequisitosArray = Array.from(materiasQueAtendemPreRequisitos)
+
+    for (const materia of materiasQueAtendemPreRequisitosArray) {
     
         const materiaObj = materias.find(materiaObj => materiaObj.nome === materia) as Materias
         if(materiaObj.corequisitos.length == 0) continue
