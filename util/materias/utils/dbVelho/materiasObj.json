@@ -740,8 +740,9 @@
         "corequisitos": [],
         "prerequisitos": [
             "Álgebra Linear",
+            "Algoritmos e Estruturas de Dados II",
             "Lab. Algoritmos e Estruturas de Dados II",
-            "Métodos Numéricos Computacionais Avançados"
+            "Métodos Numéricos Computacionais"
         ]
     },
     {
@@ -872,13 +873,6 @@
         "prerequisitos": [
             "Otimização I"
         ]
-    },
-    {
-        "nome": "Introdução à Administração",
-        "periodo": "8",
-        "natureza": "OB",
-        "corequisitos": [],
-        "prerequisitos": []
     },
     {
         "nome": "Introdução à Administração",
