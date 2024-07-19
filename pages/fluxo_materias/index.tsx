@@ -9,20 +9,20 @@ import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
 import styles from "./materias.module.css";
 
-import ehPreRequisitoDeNovo from "./utils/dbNovo/ehPreRequisitoDe.json";
-import ehCorequisitoDeNovo from "./utils/dbNovo/ehCorequisitoDe.json";
-import materiasNovo from "./utils/dbNovo/materiasObj.json";
-import materiasPorPeriodoNovo from "./utils/dbNovo/materias.json";
+import ehPreRequisitoDeNovo from "../../util/materias/utils/dbNovo/ehPreRequisitoDe.json";
+import ehCorequisitoDeNovo from "../../util/materias/utils/dbNovo/ehCorequisitoDe.json";
+import materiasNovo from "../../util/materias/utils/dbNovo/materiasObj.json";
+import materiasPorPeriodoNovo from "../../util/materias/utils/dbNovo/materias.json";
 
-import ehPreRequisitoDeVelho from "./utils/dbVelho/ehPreRequisitoDe.json";
-import ehCorequisitoDeVelho from "./utils/dbVelho/ehCorequisitoDe.json";
-import materiasVelho from "./utils/dbVelho/materiasObj.json";
-import materiasPorPeriodoVelho from "./utils/dbVelho/materias.json";
+import ehPreRequisitoDeVelho from "../../util/materias/utils/dbVelho/ehPreRequisitoDe.json";
+import ehCorequisitoDeVelho from "../../util/materias/utils/dbVelho/ehCorequisitoDe.json";
+import materiasVelho from "../../util/materias/utils/dbVelho/materiasObj.json";
+import materiasPorPeriodoVelho from "../../util/materias/utils/dbVelho/materias.json";
 
-import { materiasAtrasadas } from './utils/global/materiasAtrasadas';
-import { showmateriasDisponivelsAgora } from './utils/global/showMateriasAllowedPreRequisitos';
-import { Materias, Periodo } from './utils/global/interfaces';
-import { removeDiff } from './utils/global/removeDisponiveis';
+import { materiasAtrasadas } from '../../util/materias/utils/global/materiasAtrasadas';
+import { showmateriasDisponivelsAgora } from '../../util/materias/utils/global/showMateriasAllowedPreRequisitos';
+import { Materias, Periodo } from '../../util/materias/utils/global/interfaces';
+import { removeDiff } from '../../util/materias/utils/global/removeDisponiveis';
 
 interface LocalDB {
     skipNumer: number,
