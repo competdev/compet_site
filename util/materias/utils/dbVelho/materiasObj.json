@@ -340,6 +340,16 @@
         ]
     },
     {
+        "nome": "Lab. Arquitetura e Organização de Computadores II",
+        "periodo": "4",
+        "natureza": "OB",
+        "corequisitos": [],
+        "prerequisitos": [
+            "Arquitetura e Organização de Computadores I",
+            "Lab. Arquitetura e Organização de Computadores I"
+        ]
+    },
+    {
         "nome": "Cálculo IV",
         "periodo": "4",
         "natureza": "OB",
