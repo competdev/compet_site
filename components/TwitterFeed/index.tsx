@@ -1,12 +1,12 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed"
-import styles from '../../styles/IndexFeeds.module.css'
+import styles from "../../styles/IndexFeeds.module.css"
 
-import SectionTitle from '../SectionTitle'
+import SectionTitle from "../SectionTitle"
 
 const TwitterFeed: React.FC = () => (
     <section id="Twitter-feed">
-        <SectionTitle title={'Twitter'} />
-        <article className={styles.socialMediaContainer} >
+        <SectionTitle title={"Twitter"} />
+        <article className={styles.socialMediaContainer}>
             <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="compet_cefet"
@@ -16,6 +16,6 @@ const TwitterFeed: React.FC = () => (
                 noScrollbar
             />
         </article>
-    </section >
+    </section>
 )
 export default TwitterFeed

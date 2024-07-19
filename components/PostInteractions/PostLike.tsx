@@ -1,9 +1,9 @@
 interface IPostIcon {
-  src: string;
-  className?: string;
+    src: string
+    className?: string
 }
 function PostLike(props: IPostIcon) {
-  return <img src={props.src} className={props.className?props.className:''}/>;
+    return <img src={props.src} className={props.className ? props.className : ""} />
 }
 
-export default PostLike;
+export default PostLike

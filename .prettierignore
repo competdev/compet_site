@@ -1,0 +1,10 @@
+.next
+
+.prettierrc
+.eslintrc
+
+*.html
+*.css
+*.json
+*.yaml
+*.md

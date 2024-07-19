@@ -1,0 +1,241 @@
+{
+  "Cálculo I": [
+    "Cálculo II",
+    "Física I"
+  ],
+  "Programação de Computadores I": [
+    "Programação de Computadores II",
+    "Lab. de Programação de Computadores II",
+    "Computação Gráfica",
+    "Sistemas Digitais para Computação",
+    "Laboratório de Sistemas Digitais para Computação"
+  ],
+  "Lab. de Programação de Computadores I": [
+    "Programação de Computadores II",
+    "Lab. de Programação de Computadores II",
+    "Computação Gráfica",
+    "Sistemas Digitais para Computação",
+    "Laboratório de Sistemas Digitais para Computação"
+  ],
+  "Geometria Analítica e Álgebra Vetorial": [
+    "Computação Gráfica",
+    "Álgebra Linear"
+  ],
+  "Cálculo II": [
+    "Cálculo III",
+    "Física II",
+    "Álgebra Linear"
+  ],
+  "Física I": [
+    "Física II"
+  ],
+  "Programação de Computadores II": [
+    "Algoritmos e Estruturas de Dados I",
+    "Lab. Algoritmos e Estruturas de Dados I",
+    "Métodos Numéricos Computacionais"
+  ],
+  "Lab. de Programação de Computadores II": [
+    "Algoritmos e Estruturas de Dados I",
+    "Lab. Algoritmos e Estruturas de Dados I",
+    "Métodos Numéricos Computacionais"
+  ],
+  "Sistemas Digitais para Computação": [
+    "Arquitetura e Organização de Computadores I",
+    "Lab. Arquitetura e Organização de Computadores I",
+    "Princípios de Comunicação de Dados"
+  ],
+  "Laboratório de Sistemas Digitais para Computação": [
+    "Arquitetura e Organização de Computadores I",
+    "Lab. Arquitetura e Organização de Computadores I",
+    "Princípios de Comunicação de Dados"
+  ],
+  "Inglês Instrumental I": [
+    "Inglês Instrumental II"
+  ],
+  "Física II": [
+    "Física III",
+    "Robótica"
+  ],
+  "Física Experimental I": [
+    "Física Experimental II"
+  ],
+  "Algoritmos e Estruturas de Dados I": [
+    "Algoritmos e Estruturas de Dados II",
+    "Lab. Algoritmos e Estruturas de Dados II",
+    "Linguagens de Programação",
+    "Laboratório de Linguagens de Programação"
+  ],
+  "Lab. Algoritmos e Estruturas de Dados I": [
+    "Algoritmos e Estruturas de Dados II",
+    "Lab. Algoritmos e Estruturas de Dados II",
+    "Linguagens de Programação",
+    "Laboratório de Linguagens de Programação"
+  ],
+  "Arquitetura e Organização de Computadores I": [
+    "Arquitetura e Organização de Computadores II"
+  ],
+  "Lab. Arquitetura e Organização de Computadores I": [
+    "Arquitetura e Organização de Computadores II"
+  ],
+  "Cálculo III": [
+    "Cálculo IV"
+  ],
+  "Inglês Instrumental II": [
+    "Inglês Instrumental III"
+  ],
+  "Métodos Numéricos Computacionais": [
+    "Métodos Numéricos Computacionais Avançados",
+    "Modelagem de Sistemas Dinâmicos",
+    "Controle de Sistemas Dinâmicos",
+    "Lab. de Controle de Sistemas Dinâmicos",
+    "Introdução à Economia",
+    "Inteligência Artificial"
+  ],
+  "Linguagens de Programação": [
+    "Modelagem e Desenvolvimento de Software",
+    "Lab. Modelagem e Desenvolvimento de Software",
+    "Linguagens Formais e Autômatos",
+    "Compiladores"
+  ],
+  "Laboratório de Linguagens de Programação": [
+    "Modelagem e Desenvolvimento de Software",
+    "Lab. Modelagem e Desenvolvimento de Software",
+    "Linguagens Formais e Autômatos"
+  ],
+  "Algoritmos e Estruturas de Dados II": [
+    "Banco de Dados I",
+    "Laboratório de Banco de Dados I",
+    "Inteligência Artificial",
+    "Laboratório de Inteligência Artificial",
+    "Compiladores"
+  ],
+  "Lab. Algoritmos e Estruturas de Dados II": [
+    "Banco de Dados I",
+    "Laboratório de Banco de Dados I",
+    "Inteligência Artificial",
+    "Laboratório de Inteligência Artificial",
+    "Compiladores",
+    "Otimização I"
+  ],
+  "Matemática Discreta": [
+    "Linguagens Formais e Autômatos"
+  ],
+  "Física III": [
+    "Princípios de Comunicação de Dados",
+    "Instrumentação",
+    "Introdução a Física Moderna"
+  ],
+  "Inglês Instrumental III": [
+    "Inglês Instrumental IV"
+  ],
+  "Arquitetura e Organização de Computadores II": [
+    "Arquitetura e Organização de Computadores III",
+    "Sistemas Operacionais",
+    "Laboratório de Sistemas Operacionais",
+    "Microprocessadores e Microcontroladores",
+    "Laboratório de Microprocessadores e Microcontroladores"
+  ],
+  "Lab. Arquitetura e Organização de Computadores II": [
+    "Arquitetura e Organização de Computadores III",
+    "Sistemas Operacionais",
+    "Laboratório de Sistemas Operacionais",
+    "Microprocessadores e Microcontroladores",
+    "Laboratório de Microprocessadores e Microcontroladores"
+  ],
+  "Modelagem e Desenvolvimento de Software": [
+    "Engenharia de Software I",
+    "Interação Humano-Computador",
+    "Sistemas de Tempo Real"
+  ],
+  "Lab. Modelagem e Desenvolvimento de Software": [
+    "Engenharia de Software I",
+    "Interação Humano-Computador",
+    "Sistemas de Tempo Real"
+  ],
+  "Princípios de Comunicação de Dados": [
+    "Redes de Computadores I",
+    "Laboratório de Redes de Computadores I"
+  ],
+  "Banco de Dados I": [
+    "Banco de Dados II"
+  ],
+  "Laboratório de Banco de Dados I": [
+    "Banco de Dados II"
+  ],
+  "Computação Gráfica": [
+    "Sistemas Multimídia"
+  ],
+  "Álgebra Linear": [
+    "Inteligência Artificial",
+    "Otimização I"
+  ],
+  "Linguagens Formais e Autômatos": [
+    "Compiladores"
+  ],
+  "Métodos Numéricos Computacionais Avançados": [
+    "Otimização I"
+  ],
+  "Controle de Sistemas Dinâmicos": [
+    "Controle Digital de Sistemas Dinâmicos",
+    "Lab. Controle Digital de Sistemas Dinâmicos",
+    "Automação de Processos Contínuos",
+    "Lab. de Automação de Processos Contínuos",
+    "Robótica"
+  ],
+  "Lab. de Controle de Sistemas Dinâmicos": [
+    "Controle Digital de Sistemas Dinâmicos",
+    "Lab. Controle Digital de Sistemas Dinâmicos",
+    "Automação de Processos Contínuos",
+    "Lab. de Automação de Processos Contínuos",
+    "Robótica"
+  ],
+  "Engenharia de Software I": [
+    "Engenharia de Software II"
+  ],
+  "Laboratório de Engenharia de Software I": [
+    "Engenharia de Software II"
+  ],
+  "Redes de Computadores I": [
+    "Redes de Computadores II"
+  ],
+  "Laboratório de Redes de Computadores I": [
+    "Redes de Computadores II"
+  ],
+  "Sistemas Operacionais": [
+    "Sistemas Distribuídos"
+  ],
+  "Laboratório de Sistemas Operacionais": [
+    "Sistemas Distribuídos"
+  ],
+  "Otimização I": [
+    "Otimização II",
+    "Inteligência Computacional para Otimização",
+    "Otimização Combinatória"
+  ],
+  "Inteligência Artificial": [
+    "Inteligência Computacional I",
+    "Sistemas Bio-Inspirados",
+    "Inteligência Computacional II",
+    "Computação Evolucionaria"
+  ],
+  "Laboratório de Inteligência Artificial": [
+    "Inteligência Computacional I",
+    "Sistemas Bio-Inspirados",
+    "Inteligência Computacional II",
+    "Computação Evolucionaria"
+  ],
+  "Automação de Processos Contínuos": [
+    "Automação de Processos de Manufatura",
+    "Automação de Processos de Manufatura"
+  ],
+  "Lab. de Automação de Processos Contínuos": [
+    "Automação de Processos de Manufatura",
+    "Automação de Processos de Manufatura"
+  ],
+  "Sistemas Distribuídos": [
+    "Sistemas de Tempo Real"
+  ],
+  "Trabalho de Conclusão do Curso I": [
+    "Trabalho de Conclusão do Curso II"
+  ]
+}

@@ -1,0 +1,925 @@
+[
+  {
+    "nome": "Cálculo com Funções de uma Variável Real",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Geometria Analítica e Álgebra Linear",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Integração e Séries",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Cálculo com Funções de uma Variável Real"
+    ]
+  },
+  {
+    "nome": "Cálculo com Funções de Várias Variáveis I",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Cálculo com Funções de uma Variável Real",
+      "Geometria Analítica e Álgebra Linear"
+    ]
+  },
+  {
+    "nome": "Cálculo com Funções de Várias Variáveis II",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Integração e Séries",
+      "Cálculo com Funções de Várias Variáveis I"
+    ]
+  },
+  {
+    "nome": "Equações Diferenciais Ordinárias",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Integração e Séries",
+      "Cálculo com Funções de Várias Variáveis I"
+    ]
+  },
+  {
+    "nome": "Álgebra Linear",
+    "periodo": "4",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Geometria Analítica e Álgebra Linear"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Matemática",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Fundamentos de Mecânica",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Cálculo com Funções de uma Variável Real",
+      "Geometria Analítica e Álgebra Linear"
+    ]
+  },
+  {
+    "nome": "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Equações Diferenciais Ordinárias",
+      "Física Experimental – MOFT"
+    ],
+    "prerequisitos": [
+      "Fundamentos de Mecânica"
+    ]
+  },
+  {
+    "nome": "Física Experimental - MOFT",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)"
+    ],
+    "prerequisitos": [
+      "Fundamentos de Mecânica"
+    ]
+  },
+  {
+    "nome": "Fundamentos de Eletromagnetismo",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [
+      "Física Experimental - EOFM"
+    ],
+    "prerequisitos": [
+      "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)"
+    ]
+  },
+  {
+    "nome": "Física Experimental - EOFM",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [
+      "Fundamentos de Eletromagnetismo"
+    ],
+    "prerequisitos": [
+      "Física Experimental - MOFT"
+    ]
+  },
+  {
+    "nome": "Física Básica",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Química",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [
+      "Laboratório de Química"
+    ],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Laboratório de Química",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [
+      "Química"
+    ],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Tópicos Especiais em Física e Química",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Lógica de Programação",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Lógica de Programação"
+    ],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Laboratório de Lógica de Programação",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [
+      "Lógica de Programação"
+    ],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Matemática Discreta",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Programação Orientada a Objetos",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Programação Orientada a Objetos"
+    ],
+    "prerequisitos": [
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação"
+    ]
+  },
+  {
+    "nome": "Laboratório de Programação Orientada a Objetos",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [
+      "Programação Orientada a Objetos"
+    ],
+    "prerequisitos": [
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação"
+    ]
+  },
+  {
+    "nome": "Algoritmos e Estruturas de Dados I",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ],
+    "prerequisitos": [
+      "Programação Orientada a Objetos",
+      "Laboratório de Programação Orientada a Objetos"
+    ]
+  },
+  {
+    "nome": "Laboratório de Algoritmos e Estruturas de Dados I",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Algoritmos e Estruturas de Dados I"
+    ],
+    "prerequisitos": [
+      "Programação Orientada a Objetos",
+      "Laboratório de Programação Orientada a Objetos"
+    ]
+  },
+  {
+    "nome": "Algoritmos e Estruturas de Dados II",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ]
+  },
+  {
+    "nome": "Estatística",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Integração e Séries"
+    ]
+  },
+  {
+    "nome": "Métodos Numéricos Computacionais",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [
+      "Equações Diferenciais Ordinárias"
+    ],
+    "prerequisitos": [
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação"
+    ]
+  },
+  {
+    "nome": "Grafos",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II"
+    ]
+  },
+  {
+    "nome": "Linguagens de Programação",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ]
+  },
+  {
+    "nome": "Linguagens Formais e Autômatos",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Matemática Discreta",
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ]
+  },
+  {
+    "nome": "Computação Gráfica",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I",
+      "Geometria Analítica e Álgebra Linear"
+    ]
+  },
+  {
+    "nome": "Compiladores",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Linguagens Formais e Autômatos",
+      "Linguagens de Programação",
+      "Arquitetura e Organização de Computadores I"
+    ]
+  },
+  {
+    "nome": "Desenvolvimento de Jogos Digitais",
+    "periodo": "8",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II",
+      "Computação Gráfica"
+    ]
+  },
+  {
+    "nome": "Visão Computacional",
+    "periodo": "5",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Geometria Analítica e Álgebra Linear",
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação",
+      "Métodos Numéricos Computacionais"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Fundamentos da Computação",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Sistemas Digitais para Computação",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Sistemas Digitais para Computação"
+    ],
+    "prerequisitos": [
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação"
+    ]
+  },
+  {
+    "nome": "Laboratório de Sistemas Digitais para Computação",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [
+      "Sistemas Digitais para Computação"
+    ],
+    "prerequisitos": [
+      "Lógica de Programação",
+      "Laboratório de Lógica de Programação"
+    ]
+  },
+  {
+    "nome": "Arquitetura e Organização de Computadores I",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Arquitetura e Organização de Computadores I"
+    ],
+    "prerequisitos": [
+      "Sistemas Digitais para Computação",
+      "Laboratório de Sistemas Digitais para Computação"
+    ]
+  },
+  {
+    "nome": "Laboratório de Arquitetura e Organização de Computadores I",
+    "periodo": "3",
+    "natureza": "OB",
+    "corequisitos": [
+      "Arquitetura e Organização de Computadores I"
+    ],
+    "prerequisitos": [
+      "Sistemas Digitais para Computação",
+      "Laboratório de Sistemas Digitais para Computação"
+    ]
+  },
+  {
+    "nome": "Arquitetura e Organização de Computadores II",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Arquitetura e Organização de Computadores I",
+      "Laboratório de Arquitetura e Organização de Computadores I"
+    ]
+  },
+  {
+    "nome": "Circuitos Elétricos",
+    "periodo": "4",
+    "natureza": "OB",
+    "corequisitos": [
+      "Fundamentos de Eletromagnetismo"
+    ],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Eletrônica para Computação",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Eletrônica para Computação"
+    ],
+    "prerequisitos": [
+      "Circuitos Elétricos"
+    ]
+  },
+  {
+    "nome": "Laboratório de Eletrônica para Computação",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Eletrônica para Computação"
+    ],
+    "prerequisitos": [
+      "Circuitos Elétricos"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Fundamentos da Engenharia de Computação",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Sistemas Operacionais",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Arquitetura e Organização de Computadores I"
+    ]
+  },
+  {
+    "nome": "Redes de Computadores I",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Redes de Computadores I"
+    ],
+    "prerequisitos": [
+      "Sistemas Digitais para Computação",
+      "Laboratório de Sistemas Digitais para Computação"
+    ]
+  },
+  {
+    "nome": "Laboratório de Redes de Computadores I",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [
+      "Redes de Computadores I"
+    ],
+    "prerequisitos": [
+      "Sistemas Digitais para Computação",
+      "Laboratório de Sistemas Digitais para Computação"
+    ]
+  },
+  {
+    "nome": "Sistemas Distribuídos",
+    "periodo": "8",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Redes de Computadores I",
+      "Laboratório de Redes de Computadores I",
+      "Sistemas Operacionais"
+    ]
+  },
+  {
+    "nome": "Redes de Computadores II",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Redes de Computadores I",
+      "Laboratório de Redes de Computadores I"
+    ]
+  },
+  {
+    "nome": "Análise de Desempenho de Sistemas Computacionais",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Sistemas Operacionais"
+    ]
+  },
+  {
+    "nome": "Programação Paralela",
+    "periodo": "6",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Arquitetura e Organização de Computadores II"
+    ]
+  },
+  {
+    "nome": "Segurança da Informação",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Redes de Computadores I",
+      "Laboratório de Redes de Computadores I",
+      "Sistemas Operacionais",
+      "Banco de Dados I"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Redes e Sistemas Distribuídos",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Engenharia de Software I",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Engenharia de Software I"
+    ],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ]
+  },
+  {
+    "nome": "Laboratório de Engenharia de Software I",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Engenharia de Software I"
+    ],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados I",
+      "Laboratório de Algoritmos e Estruturas de Dados I"
+    ]
+  },
+  {
+    "nome": "Banco de Dados I",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Banco de Dados I"
+    ],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II"
+    ]
+  },
+  {
+    "nome": "Laboratório de Banco de Dados I",
+    "periodo": "5",
+    "natureza": "OB",
+    "corequisitos": [
+      "Banco de Dados I"
+    ],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II"
+    ]
+  },
+  {
+    "nome": "Engenharia de Software II",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Engenharia de Software I",
+      "Laboratório de Engenharia de Software I"
+    ]
+  },
+  {
+    "nome": "Interação Humano-Computador",
+    "periodo": "8",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Engenharia de Software I",
+      "Laboratório de Engenharia de Software I"
+    ]
+  },
+  {
+    "nome": "Programação Web",
+    "periodo": "6",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Banco de Dados I",
+      "Laboratório de Banco de Dados I",
+      "Engenharia de Software I",
+      "Laboratório de Engenharia de Software I"
+    ]
+  },
+  {
+    "nome": "Gestão de Projetos de Engenharia de Computação",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Engenharia de Software II"
+    ]
+  },
+  {
+    "nome": "Banco de Dados II",
+    "periodo": "6",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Banco de Dados I",
+      "Laboratório de Banco de Dados I"
+    ]
+  },
+  {
+    "nome": "Recuperação de Informação",
+    "periodo": "5",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Engenharia de Software",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Inteligência Artificial",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II",
+      "Métodos Numéricos Computacionais"
+    ]
+  },
+  {
+    "nome": "Otimização I",
+    "periodo": "8",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Algoritmos e Estruturas de Dados II",
+      "Métodos Numéricos Computacionais"
+    ]
+  },
+  {
+    "nome": "Aprendizado de Máquina",
+    "periodo": "8",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Inteligência Artificial"
+    ]
+  },
+  {
+    "nome": "Otimização II",
+    "periodo": "9",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Estatística",
+      "Otimização I"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Sistemas Inteligentes",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Sinais e Sistemas",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Sinais e Sistemas"
+    ],
+    "prerequisitos": [
+      "Equações Diferenciais Ordinárias",
+      "Circuitos Elétricos"
+    ]
+  },
+  {
+    "nome": "Laboratório de Sinais e Sistemas",
+    "periodo": "6",
+    "natureza": "OB",
+    "corequisitos": [
+      "Sinais e Sistemas"
+    ],
+    "prerequisitos": [
+      "Equações Diferenciais Ordinárias",
+      "Circuitos Elétricos"
+    ]
+  },
+  {
+    "nome": "Sistemas de Controle",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Sistemas de Controle"
+    ],
+    "prerequisitos": [
+      "Sinais e Sistemas",
+      "Laboratório de Sinais e Sistemas"
+    ]
+  },
+  {
+    "nome": "Laboratório de Sistemas de Controle",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [
+      "Sistemas de Controle"
+    ],
+    "prerequisitos": [
+      "Sinais e Sistemas",
+      "Laboratório de Sinais e Sistemas"
+    ]
+  },
+  {
+    "nome": "Fundamentos de Microcontroladores",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [
+      "Laboratório de Fundamentos de Microcontroladores"
+    ],
+    "prerequisitos": [
+      "Arquitetura e Organização de Computadores I",
+      "Laboratório de Arquitetura e Organização de Computadores I"
+    ]
+  },
+  {
+    "nome": "Laboratório de Fundamentos de Microcontroladores",
+    "periodo": "7",
+    "natureza": "OB",
+    "corequisitos": [
+      "Fundamentos de Microcontroladores"
+    ],
+    "prerequisitos": [
+      "Arquitetura e Organização de Computadores I",
+      "Laboratório de Arquitetura e Organização de Computadores I"
+    ]
+  },
+  {
+    "nome": "Robótica",
+    "periodo": "8",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Sistemas de Controle",
+      "Laboratório de Sistemas de Controle"
+    ]
+  },
+  {
+    "nome": "Arquitetura de Sistemas Embarcados",
+    "periodo": "8",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Fundamentos de Microcontroladores",
+      "Laboratório de Fundamentos de Microcontroladores"
+    ]
+  },
+  {
+    "nome": "Tópicos Especiais em Sistemas de Automação e Hardware",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Filosofia da Tecnologia",
+    "periodo": "2",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Introdução à Sociologia",
+    "periodo": "9",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Psicologia Aplicada às Organizações",
+    "periodo": "10",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Inglês Instrumental I",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Leitura e Produção de Textos Acadêmicos",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Libras I",
+    "periodo": "2",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Libras II",
+    "periodo": "3",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Libras I"
+    ]
+  },
+  {
+    "nome": "Inglês Instrumental II",
+    "periodo": "3",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": [
+      "Inglês Instrumental I"
+    ]
+  },
+  {
+    "nome": "Introdução à Economia",
+    "periodo": "4",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Introdução ao Direito",
+    "periodo": "4",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Gestão Organizacional",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Gestão de Pessoas",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Gestão Ambiental",
+    "periodo": "4",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Empreendedorismo - Modelo e Plano de Negócios",
+    "periodo": "7",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Tópicos Especiais em Humanidades e Ciências Sociais Aplicadas",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Contexto Social e Profissional da Engenharia de Computação",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Metodologia Científica",
+    "periodo": "1",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Metodologia de Pesquisa",
+    "periodo": "9",
+    "natureza": "OB",
+    "corequisitos": [],
+    "prerequisitos": []
+  },
+  {
+    "nome": "Tópicos Especiais em Prática Profissional e Formação Diversificada",
+    "periodo": "0",
+    "natureza": "OP",
+    "corequisitos": [],
+    "prerequisitos": []
+  }
+]

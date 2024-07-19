@@ -1,0 +1,173 @@
+[
+    {
+      "obrigatorias": [],
+      "optativas": [
+        "Tópicos Especiais em Matemática",
+        "Tópicos Especiais em Física e Química",
+        "Tópicos Especiais em Fundamentos da Computação",
+        "Tópicos Especiais em Fundamentos da Engenharia de Computação",
+        "Tópicos Especiais em Redes e Sistemas Distribuídos",
+        "Tópicos Especiais em Engenharia de Software",
+        "Tópicos Especiais em Sistemas Inteligentes",
+        "Tópicos Especiais em Sistemas de Automação e Hardware",
+        "Tópicos Especiais em Humanidades e Ciências Sociais Aplicadas",
+        "Tópicos Especiais em Prática Profissional e Formação Diversificada"
+      ],
+      "periodo": "0"
+    },
+    {
+      "obrigatorias": [
+        "Cálculo com Funções de uma Variável Real",
+        "Geometria Analítica e Álgebra Linear",
+        "Lógica de Programação",
+        "Laboratório de Lógica de Programação",
+        "Matemática Discreta",
+        "Contexto Social e Profissional da Engenharia de Computação",
+        "Metodologia Científica"
+      ],
+      "optativas": [],
+      "periodo": "1"
+    },
+    {
+      "obrigatorias": [
+        "Integração e Séries",
+        "Cálculo com Funções de Várias Variáveis I",
+        "Fundamentos de Mecânica",
+        "Programação Orientada a Objetos",
+        "Laboratório de Programação Orientada a Objetos",
+        "Sistemas Digitais para Computação",
+        "Laboratório de Sistemas Digitais para Computação",
+        "Filosofia da Tecnologia"
+      ],
+      "optativas": [
+        "Física Básica",
+        "Química",
+        "Laboratório de Química",
+        "Inglês Instrumental I",
+        "Leitura e Produção de Textos Acadêmicos",
+        "Libras I"
+      ],
+      "periodo": "2"
+    },
+    {
+      "obrigatorias": [
+        "Cálculo com Funções de Várias Variáveis II",
+        "Equações Diferenciais Ordinárias",
+        "Fundamentos de Oscilações, Fluidos e Termodinâmica (OFT)",
+        "Física Experimental - MOFT",
+        "Algoritmos e Estruturas de Dados I",
+        "Laboratório de Algoritmos e Estruturas de Dados I",
+        "Arquitetura e Organização de Computadores I",
+        "Laboratório de Arquitetura e Organização de Computadores I"
+      ],
+      "optativas": [
+        "Libras II",
+        "Inglês Instrumental II"
+      ],
+      "periodo": "3"
+    },
+    {
+      "obrigatorias": [
+        "Fundamentos de Eletromagnetismo",
+        "Física Experimental - EOFM",
+        "Algoritmos e Estruturas de Dados II",
+        "Estatística",
+        "Métodos Numéricos Computacionais",
+        "Arquitetura e Organização de Computadores II",
+        "Circuitos Elétricos"
+      ],
+      "optativas": [
+        "Álgebra Linear",
+        "Introdução à Economia",
+        "Introdução ao Direito",
+        "Gestão Ambiental"
+      ],
+      "periodo": "4"
+    },
+    {
+      "obrigatorias": [
+        "Grafos",
+        "Linguagens de Programação",
+        "Eletrônica para Computação",
+        "Laboratório de Eletrônica para Computação",
+        "Engenharia de Software I",
+        "Laboratório de Engenharia de Software I",
+        "Banco de Dados I",
+        "Laboratório de Banco de Dados I"
+      ],
+      "optativas": [
+        "Visão Computacional",
+        "Recuperação de Informação"
+      ],
+      "periodo": "5"
+    },
+    {
+      "obrigatorias": [
+        "Linguagens Formais e Autômatos",
+        "Sistemas Operacionais",
+        "Redes de Computadores I",
+        "Laboratório de Redes de Computadores I",
+        "Engenharia de Software II",
+        "Sinais e Sistemas",
+        "Laboratório de Sinais e Sistemas"
+      ],
+      "optativas": [
+        "Programação Paralela",
+        "Programação Web",
+        "Banco de Dados II"
+      ],
+      "periodo": "6"
+    },
+    {
+      "obrigatorias": [
+        "Computação Gráfica",
+        "Compiladores",
+        "Inteligência Artificial",
+        "Sistemas de Controle",
+        "Laboratório de Sistemas de Controle",
+        "Fundamentos de Microcontroladores",
+        "Laboratório de Fundamentos de Microcontroladores"
+      ],
+      "optativas": [
+        "Redes de Computadores II",
+        "Análise de Desempenho de Sistemas Computacionais",
+        "Segurança da Informação",
+        "Gestão de Projetos de Engenharia de Computação",
+        "Gestão Organizacional",
+        "Gestão de Pessoas",
+        "Empreendedorismo - Modelo e Plano de Negócios"
+      ],
+      "periodo": "7"
+    },
+    {
+      "obrigatorias": [
+        "Sistemas Distribuídos",
+        "Interação Humano-Computador",
+        "Otimização I",
+        "Aprendizado de Máquina"
+      ],
+      "optativas": [
+        "Desenvolvimento de Jogos Digitais",
+        "Robótica",
+        "Arquitetura de Sistemas Embarcados"
+      ],
+      "periodo": "8"
+    },
+    {
+      "obrigatorias": [
+        "Introdução à Sociologia",
+        "Metodologia de Pesquisa"
+      ],
+      "optativas": [
+        "Otimização II"
+      ],
+      "periodo": "9"
+    },
+    {
+      "obrigatorias": [
+        "Psicologia Aplicada às Organizações"
+      ],
+      "optativas": [],
+      "periodo": "10"
+    }
+  ]

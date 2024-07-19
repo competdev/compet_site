@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "Verdana";
+    src: url("../../styles/fonts/Verdana.ttf");
+}
+
+@font-face {
+    font-family: "Codec Pro Regular";
+    src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+
+.opcoes {
+    margin-top: 5em;
+    margin-left: 0.5em;
+    font-family: "Codec Pro Regular";
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.opcoes p {
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.3em;
+    line-height: 0.8em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #000;
+    
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.opcoes p:hover { 
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.3em;
+    line-height: 0.8em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #19dd3ac7;
+    color: #19dd3ac7;
+    
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.botoes {
+    border-radius: 0.2em;
+    border: 0.12em solid #012c44; 
+    font-family: "Verdana";
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #004266;
+    background-color: #ffffffde;
+    margin-left: 0.5em;
+
+    transition: border-width 0.3s ease, border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.botoes:hover {
+    border-radius: 0.2em;
+    border: 0.16em solid #012c44;
+    margin-left: 0.5em;
+    font-family: "Verdana";
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000;
+    background-color: #ffffffde;
+}  
+
+.tooltipIcon {
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.1em;
+    line-height: 0.7em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #000;
+    margin-bottom: -1em;
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.tooltipIcon:hover {
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 1.1em;
+    line-height: 0.7em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.2em;
+    border: 2px solid #19dd3ac7;
+    color: #19dd3ac7;
+    margin-bottom: -1em;
+    font-family: "Codec Pro Regular";
+    font-size: 0.9rem;
+}
+
+.rolamento {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.obrigatoriedade {
+    font-family: "Codec Pro Regular";
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #004266;
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+    margin-left: 0.5em;
+}
+
+.periodoMateria {
+    font-family: "Verdana";
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    color: #000;
+    text-align: center;
+}
+
+.materias {
+    display: flex;
+    white-space: nowrap;
+    margin-right: 1%;
+}
+
+.colunaMaterias {
+    width:19em;
+    margin-right: 1rem;
+}
+
+.cardMaterias {
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 16em;
+    height: 5.4em;
+    margin: 0.3em;
+    white-space: pre-line;
+    flex-wrap: wrap;
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    transition: border-width 0.3s, border-color 0.3s, transform 0.3s;
+    font-family: "Codec Pro Regular";
+    font-weight: bold;
+    font-size: 1.14rem;
+}
+
+.nomeMateria {
+    font-family: "Codec Pro Regular";
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.divisoria {
+    height: 0.02rem;
+    width: 100%;
+    margin-top: 1.5em;
+    background-color: #00426631;
+    margin-bottom: -1.5em;
+    clear: both;
+}
+
+
+.help-icon {
+    color:#fff;
+    background-color:#feb22a;
+    width:12px;
+    height:12px;
+    display:inline-block;
+    border-radius:100%;
+    font-size:10px;
+    text-align:center;
+    text-decoration:none;
+    -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+}
+
+.help-icon:hover .help-text {
+    display: block;
+}
