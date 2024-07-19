@@ -91,7 +91,8 @@
     "Controle de Sistemas Dinâmicos",
     "Lab. de Controle de Sistemas Dinâmicos",
     "Introdução à Economia",
-    "Inteligência Artificial"
+    "Inteligência Artificial",
+    "Otimização I"
   ],
   "Linguagens de Programação": [
     "Modelagem e Desenvolvimento de Software",
@@ -109,7 +110,8 @@
     "Laboratório de Banco de Dados I",
     "Inteligência Artificial",
     "Laboratório de Inteligência Artificial",
-    "Compiladores"
+    "Compiladores",
+    "Otimização I"
   ],
   "Lab. Algoritmos e Estruturas de Dados II": [
     "Banco de Dados I",
@@ -173,9 +175,6 @@
   ],
   "Linguagens Formais e Autômatos": [
     "Compiladores"
-  ],
-  "Métodos Numéricos Computacionais Avançados": [
-    "Otimização I"
   ],
   "Controle de Sistemas Dinâmicos": [
     "Controle Digital de Sistemas Dinâmicos",
