@@ -1,5 +1,9 @@
 export const pages = [
   {
+    link:'/manual',
+    title:'Manual do Calouro'
+  },
+  {
     link:'/fluxo_materias',
     title:'Fluxo de Matérias'
   },
