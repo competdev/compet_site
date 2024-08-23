@@ -1,9 +1,12 @@
 import { makeStyles, styled } from "@mui/styles";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./SlideShow.module.css";
 import SectionTitle from "../SectionTitle";
+import { getCompetShows, SpotifyShow } from "./util/spotifyAPI";
+import { YoutubeLiveStream, getLiveBroadcasts } from "./util/youtubeAPI";
+
 const Legend = styled("p")({
     width: "100%",
 })
@@ -33,6 +36,22 @@ const useStyles = makeStyles(() => ({
 
 const SlideShow = data => {
     const classes = useStyles()
+    const [dadosShows, setDadosShows] = useState<(SpotifyShow | YoutubeLiveStream)[]>([]);
+
+    //Buscas os conteúdos do Spotfy e do YouTube, ordenando-os por data de lançamento e exibindo somente os 5 mais recentes
+    useEffect(() => {
+        const fetchData = async () => {
+            const podcasts = await getCompetShows();
+            const youtube = await getLiveBroadcasts();
+
+            const sortedShows = [...podcasts, ...youtube].sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
+            const topFiveShows = sortedShows.slice(0, 5);
+            setDadosShows(topFiveShows);
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <section id="in-progress" className={styles.slideContainer}>
             <SectionTitle title={"O que temos feito"} />
@@ -42,27 +61,24 @@ const SlideShow = data => {
                     showIndicators={false}
                     className={classes.style}
                     showStatus={false}
-                    infiniteLoop
+                    infiniteLoop //TODO: Verificar se é necessário, pois está causando erros na imagem inicial
                     showThumbs={true}
                     thumbWidth={150}
                     emulateTouch
-                >
-                    {data.dadosSlide.map(data => (
-                        <div key={data._id}>
-                            <img className={styles.image} src={data.img} />
-                            {data.link != "-" ? (
-                                <a href={data.link}>
-                                    <Legend className={styles.legend}>{data.legenda}</Legend>
-                                </a>
-                            ) : (
-                                <Legend className={styles.legend}>{data.legenda}</Legend>
-                            )}
+                >   
+                    {/* Exibe os conteúdos do Spotify e do YouTube */}
+                    {dadosShows.map((show, index) => (  
+                        <div key={index}>
+                            {/* O YouTube disponibiliza 4 opções de thumbnail, sendo a na posição 0 a de maior resolução */}
+                            <img className={styles.image} src={show.images[0].url}/> 
+                            <a href={show.link}><Legend className={styles.legend}> {show.name} </Legend></a>
                         </div>
                     ))}
+                    
                 </Carousel>
             </div>
         </section>
-    )
+    );
 }
 
 export default SlideShow
