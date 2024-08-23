@@ -3,8 +3,6 @@ const path = require('path');
 
 require('dotenv/config');
 
-const CARROSSEL_KEYS = process.env.CARROSSEL_KEYS;
-
 function partial_to_full_path({ dirname, partialPath }) {
     return path.join(dirname, partialPath);
 }
@@ -29,7 +27,9 @@ function saveDataToJson(data, fileName) {
 }
 
 function copyJsonFiles() {
-    const carrosselKeys = JSON.parse(CARROSSEL_KEYS);
+    const carrosselKeys = JSON.parse(process.env.CARROSSEL_KEYS);
+
+    console.log('carrosselKeys:', carrosselKeys);
 
     saveDataToJson(carrosselKeys, 'env.json');
 }

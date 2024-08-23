@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild" : "node util/json.js"
+    "postvercel": "npm run build",
+    "vercel": "node util/json.js"
   },
   "dependencies": {
     "@codelife-ui/react": "^0.2.0",
