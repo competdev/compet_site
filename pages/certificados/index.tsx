@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useState } from 'react'
-import Link from 'next/link'
-import removeAccents from 'remove-accents';
-import { makeStyles } from '@mui/styles';
-import styles from "./Certificados.module.css";
-import { NEXT_URL } from "../../util/config";
+import axios from "axios"
+import { useState } from "react"
+import Link from "next/link"
+import removeAccents from "remove-accents"
+import { makeStyles } from "@mui/styles"
+import styles from "./Certificados.module.css"
+import { NEXT_URL } from "../../util/config"
 import Head from "next/head"
 import Header from "../../components/Header"
 import PageHeader from "../../components/PageHeader"
