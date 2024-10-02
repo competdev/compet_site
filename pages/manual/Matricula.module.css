@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux&family=Trocchi&display=swap');
+
+@font-face {
+    font-family: "Codec Pro Regular";
+    src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+.pageContent {
+    background-color: #f5f5f5;
+    height: 100%;
+    width: 100%;
+    font-family: 'Codec Pro Regular';
+    overflow-x: hidden;
+}
+
+.matriculaCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.matriculaTitulo {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #003a61;
+    font-family: "Trocchi";
+}
+
+.subtitulo {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #003a61;
+    font-family: "Trocchi"; 
+}
+
+.paragrafo {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.paragrafoB {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.paragrafoR {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #19db50;
+}
+
+.list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.listItem {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+}
+
+.listItemB {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #000000;
+}
+
+.link {
+    font-size: 16px;
+    color: #0a58ca;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.link:hover {
+    color: #003a61;
+}
+
+.matriculaLink {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.matriculaLink a {
+    display: inline-block;
+    background-color: #003a61;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.matriculaLink a:hover {
+    background-color: #0a58ca;
+}
+
