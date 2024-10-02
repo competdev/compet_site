@@ -117,3 +117,48 @@
     background-color: #0a58ca;
 }
 
+@media (max-width: 768px) {
+    .matriculaCard {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .matriculaTitulo {
+        font-size: 22px;
+    }
+
+    .subtitulo {
+        font-size: 17px;
+    }
+
+    .paragrafo, .paragrafoB, .paragrafoR, .listItem, .listItemB, .link {
+        font-size: 15px;
+    }
+
+    .matriculaLink a {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .matriculaCard {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .matriculaTitulo {
+        font-size: 20px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .paragrafo, .paragrafoB, .paragrafoR, .listItem, .listItemB, .link {
+        font-size: 14px;
+    }
+
+    .matriculaLink a {
+        padding: 6px 12px;
+    }
+}
