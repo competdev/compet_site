@@ -150,41 +150,56 @@
 }
 
 
-@media (max-width: 550px) {
-  .pageHeader {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
+@media (max-width: 768px) {
   .manualCard {
-    height: 220px;
-    width: 225px;
+    height: 300px;
+    width: 100%;
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
 
   .manualTitulo {
-    margin-top: 10px;
-    max-height: 15px;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .link {
-    font-weight: bold;
-    margin-top: 10px;
-    color: #004266;
+    font-size: 15px;
   }
 
   .manualImg {
-    border: 1px solid #2e2e2e34;
-    margin-top: -10px;
-    width: 100%;
-    height: 120px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    height: 140px;
+  }
+
+  .manualContainer {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
+
+@media (max-width: 550px) {
+  .pageHeader {
+    padding-top: 90px;
+  }
+
+  .manualCard {
+    height: 300px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .manualTitulo {
+    font-size: 15px;
+  }
+
+  .manualImg {
+    height: 125px;
+  }
+
+  .manualContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .link {
+    margin-top: 10px;
+  }
+}
+

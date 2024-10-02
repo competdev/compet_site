@@ -53,14 +53,56 @@
 
 .thItem{
     font-size: 20px;
-    padding: 15px 15px;
+    padding: 15px;
     border: 1px solid #ddd;
     text-align: center;
 }
 
 .tdItem{
     font-size: 19px;
-    padding: 15px 15px;
+    padding: 15px;
     border: 1px solid #ddd;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .faltasCard {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .table {
+        width: 90%;
+        font-size: 18px;
+    }
+
+    .thItem, .tdItem {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .faltasTitulo {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 550px) {
+    .faltasCard {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .table {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .thItem, .tdItem {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .faltasTitulo {
+        font-size: 20px;
+    }
 }
