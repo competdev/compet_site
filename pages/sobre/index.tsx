@@ -71,7 +71,23 @@ const StylesTimelineItem = withStyles({
 export default function CustomizedTimeline() {
     const classes = useStyles()
 
-    if (isMobile) {
+    const [mobile, setMobile] = React.useState(null)
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setMobile(window.innerWidth <= 768)
+        }
+
+        handleResize()
+        window.addEventListener("resize", handleResize)
+
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
+    if (mobile === null) return null
+
+
+    if (mobile) {
         return (
             <>
                 <Head>
@@ -635,3 +651,4 @@ const renderPageHeader = () => {
         />
     )
 }
+
