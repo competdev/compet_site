@@ -9,22 +9,26 @@
 }
 
 .slideContainer {
-  padding-top: 160px;
+  padding-top: 0;
   max-width: 100%;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
+  margin-bottom: 0;
+  background-color: transparent;
+  width: 100%;
 }
 
 .content {
-  width: 60%;
+  width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f5f5f5;
-    -webkit-transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .arrow {
@@ -44,27 +48,31 @@
 
 /* As dimensões máximas são as da thumbnail de maior resolução do YouTube */
 .image {
-  max-height: 720px;
-  max-width: 1280px;
+  max-height: 400px;
+  max-width: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .legend {
   font-family: "Codec Pro Regular";
   position: absolute;
-  bottom: -30px;
-  background: #0000009a;
-  box-shadow: 0px 0px 5px #0000009a;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   color: #fff;
-  padding: 20px;
+  padding: 1rem;
   width: 100%;
-  height: 16%;
   text-align: center;
-  padding-top: 20px;
-  font-size: 27px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .content:hover .legend {
-  background: #000000c4;
+  background: rgba(0, 0, 0, 0.85);
 }
 
 @media (max-width: 2560px){

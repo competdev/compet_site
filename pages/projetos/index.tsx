@@ -30,7 +30,7 @@ export default function Projetos({ projects, aboutProjects }: { projects: Projec
       <Header />
       <main style={{ margin: "1rem" }}>
         <Heading size={"xl"} css={{
-          marginBlockStart: '5rem',
+          marginBlockStart: '1rem',
           textAlign: 'center',
         }}>Projetos</Heading>
         <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>

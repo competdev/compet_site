@@ -27,3 +27,31 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.mediaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .mediaContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mediaContainer {
+    padding: 0 0.5rem;
+    gap: 2rem;
+  }
+}

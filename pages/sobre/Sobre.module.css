@@ -24,7 +24,7 @@
 }
 
 .pageContent {
-  margin-top: -100px;
+  margin-top: 0;
 }
 
 @media (max-width: 425px) {

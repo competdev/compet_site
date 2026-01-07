@@ -17,7 +17,7 @@
 }
 
 .mainHeader {
-  margin-top: 10%;
+  margin-top: 0;
   display: inline-flex;
   width: 100%;
   break-before: auto;

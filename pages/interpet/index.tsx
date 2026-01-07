@@ -10,6 +10,8 @@ import ContactInterPet from "../../components/ContactInterPet"
 import Footer from "../../components/Footer"
 import ExpedienteInterPet from "../../components/ExpedienteInterPet"
 import NormasInterPet from "../../components/NormasInterPet"
+import InterPetHero from "../../components/interpet/Hero"
+import styles from "./InterPet.module.css"
 
 InterPet.getInitialProps = async () => {
     const response = await axios.get(NEXT_URL + "/api/interpet")
@@ -19,16 +21,22 @@ InterPet.getInitialProps = async () => {
 export default function InterPet({ dados }) {
     return (
         <>
-            
+            <Head>
+                <title>InterPET - COMPET</title>
+                <meta name="description" content="Encontro de Programas de Educação Tutorial do CEFET-MG" />
+            </Head>
             <Header />
-            <div style={{ padding: "1rem" }}>
-                <ExpedienteInterPet />
-                <NormasInterPet />
-                <AboutCard />
-                <CurrEdition dados={dados} />
-                <PastEditions elements={dados} />
-                <ContactInterPet />
-            </div>
+            <main>
+                <InterPetHero />
+                <div className={styles.container}>
+                    <AboutCard />
+                    <NormasInterPet />
+                    <ExpedienteInterPet />
+                    <CurrEdition dados={dados} />
+                    <PastEditions elements={dados} />
+                    <ContactInterPet />
+                </div>
+            </main>
             <Footer />
         </>
     )

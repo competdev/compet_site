@@ -8,48 +8,51 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.outerWrapper{
-  margin-top: 4rem;
+.about {
+    margin-bottom: 80px;
 }
 
-.sobre {
-  margin-top: 1.5rem;
-  box-shadow: 0px 0px 5px #00000017;
-  padding: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-
-  font-size: 1.5rem;
+.aboutContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
 }
 
-.aboutCard {
-  font-family: "Codec Pro Regular";
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.sobre img {
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px #00000027;
-  object-fit: contain;
-  width: 300px;
+.aboutImage {
+    border-radius: 20px;
+}
+
+.textWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.aboutText {
+    font-family: "Codec Pro Regular", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
 }
 
 @media (max-width: 768px) {
-  .sobre {
-    font-size: 1.2rem;
-  }
-}
+    .aboutContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
-@media (max-width: 576px) {
-  .sobre {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 900px) {
-  .outerWrapper {
-    padding: 1.5rem;
-  }
+    .aboutText {
+        font-size: 1.1rem;
+    }
 }
