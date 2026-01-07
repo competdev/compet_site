@@ -1,5 +1,5 @@
 import axios from 'axios';
-import env from '../../../env.json'
+//import env from '../../../env.json'
 
 export interface YoutubeLiveStream {
     name: string,
@@ -16,9 +16,9 @@ interface YoutubeLiveStreamImages {
 }
 
 let accessToken = "";
-const refreshToken = env.YOUTUBE_REFRESH_TOKEN;
-const clientId = env.YOUTUBE_CLIENT_ID;
-const clientSecret = env.YOUTUBE_CLIENT_SECRET;
+const refreshToken = process.env.YOUTUBE_REFRESH_TOKEN;
+const clientId = process.env.YOUTUBE_CLIENT_ID;
+const clientSecret = process.env.YOUTUBE_CLIENT_SECRET;
 
 const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',

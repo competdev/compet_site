@@ -8,62 +8,128 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.person {
-  display: block;
-  margin-bottom: 0.5rem;
+.expediente {
+    margin-bottom: 80px;
 }
 
-.aboutCard {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding-top: 15vh;
+.expedienteContent {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-
-.imageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #004266;
-  color: white;
-  text-align: center;
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 10rem;
+.logoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-.title {
-  display: block;
-  color: #004266;
-  font-size: 1.5rem;
-  font-weight: bold;
+.logoContainer {
+    background: white;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-  font-family: "Codec Pro Regular";
-  margin-top: 2rem;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
+.logo {
+    border-radius: 10px;
 }
 
-.peopleBlock {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
+.editorChefe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
 }
 
-.header {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+.label {
+    font-family: "Codec Pro Regular", sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-@media (min-width: 930px) {
-  .imageContainer {
-    width: 15rem;
-  }
+.name {
+    font-family: "Verdana", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004266;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.infoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blockTitle {
+    font-family: "Verdana", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004266;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.personList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.personList li {
+    font-family: "Codec Pro Regular", sans-serif;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.personList li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #004266;
+    font-weight: bold;
+}
+
+.periodicidade {
+    font-weight: bold;
+    color: #004266 !important;
+    font-size: 1.1rem !important;
+}
+
+@media (max-width: 968px) {
+    .expedienteContent {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+
+    .logoSection {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .infoGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

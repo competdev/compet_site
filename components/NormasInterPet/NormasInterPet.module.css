@@ -8,41 +8,66 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.outerWrapper{
-  margin-top: 4rem;
+.normas {
+    margin-bottom: 80px;
 }
 
-.sobre {
-  font-family: "Codec Pro Regular";
-  font-size: 1.5rem;
+.normasContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
 
-  margin-top: 2rem;
-  box-shadow: 0px 0px 5px #00000017;
+.normaCard {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
 
-  padding: 1.5rem;
+.normaCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 66, 102, 0.2);
+    border-color: #004266;
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
+.normaIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
 
+.normaTitle {
+    font-family: "Verdana", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #004266;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.normaText {
+    font-family: "Codec Pro Regular", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.normaText:last-child {
+    margin-bottom: 0;
+}
+
+.normaText strong {
+    color: #004266;
+    font-weight: 600;
 }
 
 @media (max-width: 768px) {
-  .sobre {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .sobre {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 900px) {
-  .outerWrapper {
-    padding: 1.5rem;
-  }
+    .normasContent {
+        grid-template-columns: 1fr;
+    }
 }

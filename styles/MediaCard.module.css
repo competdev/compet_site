@@ -1,0 +1,176 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("./fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("./fonts/Verdana.ttf");
+}
+
+/* Card container padrão para todos os componentes de mídia */
+.mediaCard {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(32, 32, 32, 0.2);
+  width: 100%;
+  min-height: 480px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+
+.mediaCard:hover {
+  box-shadow: 0px 4px 15px rgba(0, 66, 102, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Conteúdo interno do card */
+.mediaCardContent {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+/* Área de conteúdo scrollável (para NewsFeed) */
+.mediaCardScrollable {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+  margin-right: -0.5rem;
+  min-height: 0;
+}
+
+/* Customização da scrollbar */
+.mediaCardScrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mediaCardScrollable::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.mediaCardScrollable::-webkit-scrollbar-thumb {
+  background-color: #004266;
+  border-radius: 10px;
+}
+
+.mediaCardScrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #003050;
+}
+
+/* Área de conteúdo fixa (para carousel) */
+.mediaCardFixed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Paginação padronizada */
+.mediaCardPagination {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Estados vazios e loading */
+.mediaCardEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #004266;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 1.1rem;
+  min-height: 400px;
+}
+
+.mediaCardLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #004266;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 1.1rem;
+  min-height: 400px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .mediaCard {
+    min-height: 450px;
+    max-height: 550px;
+  }
+
+  .mediaCardContent {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mediaCard {
+    min-height: 400px;
+    max-height: 500px;
+  }
+
+  .mediaCardContent {
+    padding: 1rem;
+  }
+
+  .mediaCardFixed {
+    min-height: 350px;
+  }
+
+  .mediaCardEmpty,
+  .mediaCardLoading {
+    min-height: 350px;
+    padding: 2rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .mediaCard {
+    min-height: 350px;
+    max-height: 450px;
+  }
+
+  .mediaCardContent {
+    padding: 0.75rem;
+  }
+
+  .mediaCardFixed {
+    min-height: 300px;
+  }
+
+  .mediaCardEmpty,
+  .mediaCardLoading {
+    min-height: 300px;
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}

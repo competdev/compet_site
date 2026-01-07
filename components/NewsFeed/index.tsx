@@ -2,58 +2,131 @@ import { makeStyles } from '@mui/styles';
 import { useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import styles from '../../styles/IndexFeeds.module.css'
+import cardStyles from '../../styles/MediaCard.module.css'
 
 import SectionTitle from "../SectionTitle"
 
 const useStyles = makeStyles(theme => ({
     pagination: {
         listStyle: "none",
-        fontSize: "17px",
+        fontSize: "16px",
         display: "flex",
         paddingLeft: "0px",
         justifyContent: "center",
+        alignItems: "center",
+        gap: "0.5rem",
+        margin: 0,
+    },
+    page_item: {
+        margin: 0,
+        listStyle: "none",
     },
     page_link: {
+        fontFamily: "Codec Pro Regular",
         fontWeight: "bold",
         display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         position: "relative",
         color: "#004266",
         textDecoration: "none",
-        backgroundColor: "#fff",
-        padding: ".555rem .795rem",
-        transition:
-            "color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out",
+        backgroundColor: "#ffffff",
+        padding: "0.5rem 0.75rem",
+        minWidth: "2.5rem",
+        height: "2.5rem",
+        borderRadius: "8px",
+        border: "2px solid #e6e6e6",
+        transition: "all 0.3s ease-in-out",
         "&:hover": {
-            backgroundColor: "#d8d9da",
-            border: "1px solid #d8d9da",
+            backgroundColor: "#f5f5f5",
+            borderColor: "#004266",
+            color: "#004266",
+            transform: "translateY(-2px)",
+            boxShadow: "0px 2px 8px rgba(0, 66, 102, 0.2)",
         },
     },
     page_prev: {
-        border: "1px solid #d8d9da",
-        backgroundColor: "#fff",
-        padding: ".555rem .795rem",
-        borderTopLeftRadius: "50px",
-        borderBottomLeftRadius: "50px",
+        fontFamily: "Codec Pro Regular",
+        fontWeight: "bold",
+        border: "2px solid #004266",
+        backgroundColor: "#004266",
+        color: "#ffffff",
+        padding: "0.5rem 0.75rem",
+        minWidth: "2.5rem",
+        height: "2.5rem",
+        borderRadius: "8px",
+        transition: "all 0.3s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textDecoration: "none",
         "&:hover": {
-            fontWeight: "700",
+            backgroundColor: "#003050",
+            borderColor: "#003050",
+            color: "#ffffff",
+            transform: "translateY(-2px)",
+            boxShadow: "0px 2px 8px rgba(0, 66, 102, 0.3)",
+        },
+        "&:disabled": {
+            opacity: 0.5,
+            cursor: "not-allowed",
+            backgroundColor: "#e6e6e6",
+            borderColor: "#e6e6e6",
+            color: "#666",
+            "&:hover": {
+                backgroundColor: "#e6e6e6",
+                borderColor: "#e6e6e6",
+                color: "#666",
+                transform: "none",
+                boxShadow: "none",
+            },
         },
     },
     page_next: {
-        border: "1px solid #d8d9da",
-        backgroundColor: "#fff",
-        padding: ".555rem .795rem",
-        borderTopRightRadius: "50px",
-        borderBottomRightRadius: "50px",
+        fontFamily: "Codec Pro Regular",
+        fontWeight: "bold",
+        border: "2px solid #004266",
+        backgroundColor: "#004266",
+        color: "#ffffff",
+        padding: "0.5rem 0.75rem",
+        minWidth: "2.5rem",
+        height: "2.5rem",
+        borderRadius: "8px",
+        transition: "all 0.3s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textDecoration: "none",
         "&:hover": {
-            fontWeight: "700",
+            backgroundColor: "#003050",
+            borderColor: "#003050",
+            color: "#ffffff",
+            transform: "translateY(-2px)",
+            boxShadow: "0px 2px 8px rgba(0, 66, 102, 0.3)",
+        },
+        "&:disabled": {
+            opacity: 0.5,
+            cursor: "not-allowed",
+            backgroundColor: "#e6e6e6",
+            borderColor: "#e6e6e6",
+            color: "#666",
+            "&:hover": {
+                backgroundColor: "#e6e6e6",
+                borderColor: "#e6e6e6",
+                color: "#666",
+                transform: "none",
+                boxShadow: "none",
+            },
         },
     },
     activeLink: {
-        border: "1px solid #e7e7e7",
-        backgroundColor: "#e7e7e7",
+        backgroundColor: "#004266",
+        color: "#ffffff",
+        borderColor: "#004266",
         "&:hover": {
-            border: "1px solid #e7e7e7",
-            backgroundColor: "#e7e7e7",
+            backgroundColor: "#003050",
+            borderColor: "#003050",
+            color: "#ffffff",
         },
     },
 }))
@@ -65,8 +138,12 @@ export default function NewsFeed(dadosNews) {
     return (
         <section id="compet-Journals">
             <SectionTitle title={sectionTitle} />
-            <div className={styles.socialMediaContainer}>
-                {PaginatedItems(dadosNews.dados, classes)}
+            <div className={cardStyles.mediaCard}>
+                <div className={cardStyles.mediaCardContent}>
+                    <div className={cardStyles.mediaCardScrollable}>
+                        <PaginatedItems items={dadosNews.dados} classes={classes} />
+                    </div>
+                </div>
             </div>
         </section>
     )
@@ -98,39 +175,50 @@ function renderNews(dados) {
     )
 }
 
-function PaginatedItems(items, classes) {
+function PaginatedItems({ items, classes }) {
     const itemsPerPage = 3
     const pageCount = Math.ceil(items.length / itemsPerPage)
 
-    const [itemOffset, setItemOffset] = useState(0)
+    const [currentPage, setCurrentPage] = useState(0)
 
-    const handlePageClick = event => {
-        setItemOffset(event.selected)
+    const handlePageClick = (event) => {
+        const newPage = event.selected
+        setCurrentPage(newPage)
     }
+
+    const itemOffset = currentPage * itemsPerPage
+    const currentItems = items.slice(itemOffset, itemOffset + itemsPerPage)
 
     return (
         <>
-            {renderNews(items.slice(itemOffset * itemsPerPage, (itemOffset + 1) * itemsPerPage))}
-            <div className={styles.containerPaginate}>
-                <ReactPaginate
-                    nextLabel=">>"
-                    onPageChange={handlePageClick}
-                    pageCount={pageCount}
-                    previousLabel="<< "
-                    pageClassName={classes.page_item}
-                    pageLinkClassName={classes.page_link}
-                    previousClassName={classes.page_prev}
-                    previousLinkClassName={classes.page_prev_link}
-                    nextClassName={classes.page_next}
-                    nextLinkClassName={classes.page_next_link}
-                    breakLabel="..."
-                    breakClassName={classes.page_item}
-                    breakLinkClassName={classes.page_link}
-                    containerClassName={classes.pagination}
-                    activeClassName={classes.active}
-                    activeLinkClassName={classes.activeLink}
-                />
+            <div style={{ flex: 1 }}>
+                {renderNews(currentItems)}
             </div>
+            {pageCount > 1 && (
+                <div className={cardStyles.mediaCardPagination}>
+                    <ReactPaginate
+                        nextLabel=">>"
+                        onPageChange={handlePageClick}
+                        pageCount={pageCount}
+                        previousLabel="<< "
+                        forcePage={currentPage}
+                        pageClassName={classes.page_item}
+                        pageLinkClassName={classes.page_link}
+                        previousClassName={classes.page_item}
+                        previousLinkClassName={classes.page_prev}
+                        nextClassName={classes.page_item}
+                        nextLinkClassName={classes.page_next}
+                        breakLabel="..."
+                        breakClassName={classes.page_item}
+                        breakLinkClassName={classes.page_link}
+                        containerClassName={classes.pagination}
+                        activeClassName={classes.page_item}
+                        activeLinkClassName={classes.activeLink}
+                        marginPagesDisplayed={1}
+                        pageRangeDisplayed={2}
+                    />
+                </div>
+            )}
         </>
     )
 }

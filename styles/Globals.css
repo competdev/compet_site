@@ -32,3 +32,21 @@ body::-webkit-scrollbar-thumb {
   --text-color: #000;
   --background-color: #e6e6e6;
 }
+
+/* Leaflet Map z-index fix - ensure header stays above map */
+.leaflet-container {
+  z-index: 1 !important;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
+}
+
+.leaflet-control {
+  z-index: 1 !important;
+}

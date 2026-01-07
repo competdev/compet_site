@@ -58,15 +58,6 @@ const LightTooltip = withStyles((theme) => ({
         fontFamily: "Verdana",
         fontSize: 15,
         textAlign: "justify",
-        opacity: 0,
-        pointerEvents: 'none',
-        '&:hover': {
-            opacity: 1,
-            pointerEvents: 'auto',
-        },
-        '&:hover $arrow': {
-            backgroundColor: "#004266",
-        },
     },
     arrow: {
         fontSize: 25,
@@ -267,6 +258,7 @@ export default function Fluxo_materias() {
                                     offset: [0, -8],
                                 },
                             },],
+                            style: { zIndex: 10000 },
                         }}>
                         <p>i</p>
                     </LightTooltip>

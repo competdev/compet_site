@@ -8,141 +8,215 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
-.menu_body {
-  width: 100%;
+.header {
   background-color: #ffffff;
-  position: fixed;
-  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  transition: padding 0.3s ease;
-
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  box-shadow: 0px -13px 20px #000000;
+  z-index: 1000;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1rem;
   width: 100%;
 }
 
-.logo img {
-  height: 72px;
-  width: 175px;
-  transition: transform 400ms ease-in-out;
+@media (min-width: 640px) {
+  .navbar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
-.logo img:hover {
-  transform: scale(1);
+@media (min-width: 768px) {
+  .navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
-.navbarToggler {
+@media (min-width: 1024px) {
+  .navbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    height: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    height: 4.5rem;
+  }
+}
+
+/* Desktop Menu */
+.desktopMenu {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-.navbarCollapse {
-  display: flex;
-  flex-direction: row;
-}
-
-.navList {
-  display: flex;
+  align-items: center;
   list-style: none;
-  flex-direction: row; /* Exibe os itens como linha (row) */
-  padding: 0.2em;
-  margin: 0.2em;
-  border-bottom-left-radius: 10%;
+  flex-shrink: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
 
+@media (min-width: 1024px) {
+  .desktopMenu {
+    display: flex;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktopMenu {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .desktopMenu {
+    gap: 1.5rem;
+  }
 }
 
 .navItem {
-  margin: 0 0.7rem;
+  flex-shrink: 0;
 }
 
 .navLink {
-  font-family: "Codec Pro Regular";
-  font-size: 20px;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 0.875rem;
   font-weight: bold;
-  color: #004266;
+  color: #044464;
   text-decoration: none;
-  transition: color 0.2s, text-decoration 0.2s;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .navLink:hover {
-  color: #19DD39;
-  text-decoration: dashed;
+  color: #1CDC54;
 }
 
-/* Coloca o menu como as barrinhas quando o conteúdo não couber na tela */
-@media (max-width: 768px) {
-  .navbarCollapse {
+@media (min-width: 1024px) {
+  .navLink {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navLink {
+    font-size: 1.125rem;
+  }
+}
+
+/* Mobile/Tablet Menu Button */
+.menuButton {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .menuButton {
     display: none;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-    max-height: 0; /* Menu começa oculto */
-  }
-
-  .navbarToggler {
-    display: block; /* Mostra o botão do menu em telas pequenas */
-  }
-
-  .menu_active .navbarCollapse {
-    display: flex;
-    max-height: 500px; /* Expande o menu quando ativo */
-  }
-
-  .navList {
-    flex-direction: column; /* Itens da lista serão dispostos em linha (row) */
-    justify-content: center;
-    width: 100%;
-  }
-
-  .navItem {
-    margin: 1rem 0; /* Espaçamento vertical entre itens */
-    text-align: center;
   }
 }
 
-.navbarShrink {
-  padding: 0.5rem 1rem;
+.burgerIcon {
+  width: 2rem;
+  height: 2rem;
 }
 
-
-/* Barrinhas */
-.burgerIcon rect {
-  transition: all 0.3s ease;
+@media (min-width: 640px) {
+  .burgerIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 
-.burgerIcon:hover rect {
-  transform: scale(1.1);
+/* Mobile/Tablet Menu */
+.mobileMenu {
+  display: block;
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+  gap: 0.5rem;
 }
 
-.burgerIcon:hover rect:nth-child(1) { /* Mover a primeira barra para baixo */
-  transform: translateY(5px);
+@media (min-width: 768px) {
+  .mobileMenu {
+    margin-top: 1.5rem;
+    gap: 0.75rem;
+  }
 }
 
-.burgerIcon:hover rect:nth-child(2) { /* Diminuir a opacidade da segunda barra */ 
-  opacity: 0.8;
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
 }
 
-.burgerIcon:hover rect:nth-child(3) {
-  transform: translateY(-5px); /* Mover a terceira barra para cima e diminui ainda mais a opacidade */
-  opacity: 0.6;
+.mobileMenu li {
+  margin: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: 1.125rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-weight: bold;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobileLink:hover {
+  color: #044464;
 }
