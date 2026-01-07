@@ -64,8 +64,8 @@ const container = () => {
                 Turmas Extras (disciplinas equalizadas ou não).
             </p>
 
-            <p className={styles.paragrafoB}>Data: 24 e 25/09/2024</p>
-            <p className={styles.paragrafoR}>Resultado 1ª Fase: 27/09/2024</p>
+            <p className={styles.paragrafoB}>Data: 22 e 25/01/2026</p>
+            <p className={styles.paragrafoR}>Resultado 1ª Fase: 28/01/2026</p>
 
             <h3 className={styles.subtitulo}>2ª Fase</h3>
             <p className={styles.paragrafo}>
@@ -78,25 +78,25 @@ const container = () => {
             <p className={styles.paragrafo}>
                 Solicitação de matrícula em turmas de outros cursos, incluindo disciplinas eletivas.
             </p>
-            <p className={styles.paragrafoB}>Data: 28 a 30/09/2024</p>
-            <p className={styles.paragrafoR}>Resultado 2ª Fase: 02/10/2024</p>
+            <p className={styles.paragrafoB}>Data: 29 a 01/01/2026</p>
+            <p className={styles.paragrafoR}>Resultado 2ª Fase: 04/02/2026</p>
 
             <h3 className={styles.subtitulo}>Ajustes</h3>
             <p className={styles.paragrafo}>
                 Solicitação de ajustes (pelos alunos, diretamente à sua coordenação).
             </p>
-            <p className={styles.paragrafoB}>Data: 03 a 07/10/2024</p>
+            <p className={styles.paragrafoB}>Data: 19 a 25/02/2026</p>
             <p className={styles.paragrafo}>
                 Análise e realização dos ajustes, pelas coordenações (para casos especiais como
                 prováveis formandos com quebra de cor requisito e pré-requisito).
             </p>
-            <p className={styles.paragrafoB}>Data: 08 a 23/10/2024</p>
+            <p className={styles.paragrafoB}>Data: 23 a 27/02/2026</p>
 
             <h3 className={styles.subtitulo}>Matrícula Extraordinária</h3>
             <p className={styles.paragrafo}>
                 Matrícula via WEB em turmas com vagas ociosas - incluindo disciplinas eletivas.
             </p>
-            <p className={styles.paragrafoB}>Data: 24 e 25/10/2024</p>
+            <p className={styles.paragrafoB}>Data: 02 e 03/03/2026</p>
             <p className={styles.paragrafoR}>Resultado Extraordinária: IMEDIATO.</p>
 
             <h3 className={styles.subtitulo}>Lembretes Importantes</h3>
