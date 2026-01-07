@@ -52,16 +52,16 @@ const calendario = () => {
                 />
             </div>
 
-            <div className={styles.subtitulo}>2024.2</div>
+            <div className={styles.subtitulo}>2026.1</div>
             <div className={styles.link}>
                 <Link
-                    href="https://www.dirgrad.cefetmg.br/wp-content/uploads/sites/81/2024/09/CalendarioGraduacao_2024_02_BHTE.pdf"
+                    href="https://www.dirgrad.cefetmg.br/wp-content/uploads/sites/81/2025/12/CalendarioAcademico_BeloHorizonte_2026_01-com-Delibera%C3%A7%C3%A3o.pdf"
                     target="_blank"
                 >
                     Acessar
                 </Link>
             </div>
-            <div className={styles.subtitulo}>Matricula 2024.2</div>
+            <div className={styles.subtitulo}>Matricula 2026.1</div>
             <div className={styles.link}>
                 <Link href="/manual/matricula">Acessar</Link>
             </div>
