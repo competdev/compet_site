@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { NEXT_URL } from "../../util/config"
+import axios from "axios"
+
 import Head from 'next/dist/shared/lib/head';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -9,20 +12,29 @@ import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
 import styles from "./materias.module.css";
 
-import ehPreRequisitoDeNovo from "../../util/materias/utils/dbNovo/ehPreRequisitoDe.json";
-import ehCorequisitoDeNovo from "../../util/materias/utils/dbNovo/ehCorequisitoDe.json";
-import materiasNovo from "../../util/materias/utils/dbNovo/materiasObj.json";
-import materiasPorPeriodoNovo from "../../util/materias/utils/dbNovo/materias.json";
-
-import ehPreRequisitoDeVelho from "../../util/materias/utils/dbVelho/ehPreRequisitoDe.json";
-import ehCorequisitoDeVelho from "../../util/materias/utils/dbVelho/ehCorequisitoDe.json";
-import materiasVelho from "../../util/materias/utils/dbVelho/materiasObj.json";
-import materiasPorPeriodoVelho from "../../util/materias/utils/dbVelho/materias.json";
 
 import { materiasAtrasadas } from '../../util/materias/utils/global/materiasAtrasadas';
 import { showmateriasDisponivelsAgora } from '../../util/materias/utils/global/showMateriasAllowedPreRequisitos';
 import { Materias, Periodo } from '../../util/materias/utils/global/interfaces';
 import { removeDiff } from '../../util/materias/utils/global/removeDisponiveis';
+
+Fluxo_materias.getInitialProps = async () => {
+
+    const resNova = await axios.get(`${NEXT_URL}/api/gradeNova`);
+    const resVelha = await axios.get(`${NEXT_URL}/api/gradeAntiga`);
+    
+    return {
+        ehPreRequisitoDeNovo: resNova.data[0].ehPreRequisitoDeNovo,
+        ehCorequisitoDeNovo: resNova.data[0].ehCorequisitoDeNovo,
+        materiasNovo: resNova.data[0].materiasNovo,
+        materiasPorPeriodoNovo: resNova.data[0].materiasPorPeriodoNovo,
+        ehPreRequisitoDeVelho: resVelha.data[0].ehPreRequisitoDeVelho,
+        ehCorequisitoDeVelho: resVelha.data[0].ehCorequisitoDeVelho,
+        materiasVelho: resVelha.data[0].materiasVelho,
+        materiasPorPeriodoVelho: resVelha.data[0].materiasPorPeriodoVelho
+    }
+    
+}
 
 interface LocalDB {
     skipNumer: number,
@@ -31,22 +43,6 @@ interface LocalDB {
     materias: Materias[],
     materiasPorPeriodo: Periodo[]
 }
-
-const dbNovo = {
-    skipNumer: 1,
-    ehPreRequisitoDe: ehPreRequisitoDeNovo,
-    ehCorequisitoDe: ehCorequisitoDeNovo,
-    materias: materiasNovo,
-    materiasPorPeriodo: materiasPorPeriodoNovo
-};
-
-const dbVelho = {
-    skipNumer: 0,
-    ehPreRequisitoDe: ehPreRequisitoDeVelho,
-    ehCorequisitoDe: ehCorequisitoDeVelho,
-    materias: materiasVelho,
-    materiasPorPeriodo: materiasPorPeriodoVelho
-};
 
 const LightTooltip = withStyles((theme) => ({
     tooltip: {
@@ -69,7 +65,26 @@ const LightTooltip = withStyles((theme) => ({
     },
 }))(Tooltip);
 
-export default function Fluxo_materias() {
+export default function Fluxo_materias(props) {
+
+    const {ehPreRequisitoDeNovo, ehCorequisitoDeNovo, materiasNovo, materiasPorPeriodoNovo} = props;
+    const {ehPreRequisitoDeVelho, ehCorequisitoDeVelho, materiasVelho, materiasPorPeriodoVelho} = props;
+
+    const dbNovo = {
+    skipNumer: 1,
+    ehPreRequisitoDe: ehPreRequisitoDeNovo,
+    ehCorequisitoDe: ehCorequisitoDeNovo,
+    materias: materiasNovo,
+    materiasPorPeriodo: materiasPorPeriodoNovo
+    };
+
+    const dbVelho = {
+        skipNumer: 0,
+        ehPreRequisitoDe: ehPreRequisitoDeVelho,
+        ehCorequisitoDe: ehCorequisitoDeVelho,
+        materias: materiasVelho,
+        materiasPorPeriodo: materiasPorPeriodoVelho
+    };
 
     const [isToggled, setIsToggled] = useState(false);
 
