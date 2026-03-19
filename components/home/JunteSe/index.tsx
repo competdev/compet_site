@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./JunteSe.module.css";
+
+const JUNTE_SE_ICONE_SRC = encodeURI("/junte-se a nós - icone.png");
 
 interface Beneficio {
     text: string;
@@ -36,9 +39,15 @@ const JunteSe: React.FC = () => {
                 </div>
                 <div className={styles.junteSeIllustration}>
                     <div className={styles.illustrationContainer}>
-                        {/* Espaço para ilustração */}
                         <div className={styles.illustrationPlaceholder}>
-                            <span className={styles.illustrationIcon}>🚀</span>
+                            <Image
+                                src={JUNTE_SE_ICONE_SRC}
+                                alt="Junte-se ao COMPET"
+                                width={400}
+                                height={400}
+                                className={styles.illustrationImage}
+                                sizes="(max-width: 768px) 280px, 400px"
+                            />
                         </div>
                     </div>
                 </div>

@@ -116,17 +116,20 @@
 .illustrationPlaceholder {
   width: 100%;
   aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1.25rem;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.illustrationIcon {
-  font-size: 8rem;
-  opacity: 0.8;
+.illustrationImage {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 1024px) {
@@ -170,10 +173,6 @@
   .illustrationContainer {
     max-width: 300px;
   }
-
-  .illustrationIcon {
-    font-size: 6rem;
-  }
 }
 
 @media (max-width: 425px) {
@@ -196,10 +195,6 @@
   .junteSeButton {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-  }
-
-  .illustrationIcon {
-    font-size: 4rem;
   }
 }
 
