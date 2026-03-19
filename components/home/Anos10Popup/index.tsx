@@ -76,7 +76,7 @@ const Anos10Popup: React.FC = () => {
                         className={styles.anos10TriggerIcon}
                     />
                     <div className={styles.anos10TriggerText}>
-                        <span className={styles.anos10TriggerTitle}>Celebrando 10 anos de COMPET</span>
+                        <span className={styles.anos10TriggerTitle}>Celebrando 10 anos de COMPET!</span>
                         <span className={styles.anos10TriggerSubtitle}>
                             Uma década formando líderes, inovadores e profissionais
                         </span>
