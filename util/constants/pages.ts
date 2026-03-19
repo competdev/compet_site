@@ -35,8 +35,8 @@ export const pages = [
       link: '/contato',
       title:'Contato'
   },
-    {
+    /* {
       link: 'http://compet.decom.cefetmg.br/moodle/',
       title:'Moodle'
-  },
+  }, */
 ]
