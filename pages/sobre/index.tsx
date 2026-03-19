@@ -131,13 +131,11 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            A ideia do grupo surgiu durante o workshop de graduação
-                                            em agosto de 2014, quando o Prof Sandro Renato Dias viu
-                                            a diretora de graduação, Profa. Ivete, falar sobre o
-                                            edital para a criação dos primeiros grupos PET
-                                            institucionais e consolidou o projeto na mente minutos
-                                            depois ao ouvir a fala do Prof. Lindolpho, tutor do PET
-                                            de Leopoldina (PET do MEC).
+                                            A ideia de criação do grupo surgiu durante o workshop de graduação realizado em agosto
+de 2014. Na ocasião, o professor Sandro Renato Dias assistiu à apresentação da diretora
+de Graduação, professora Ivete, sobre o edital que instituiu os primeiros grupos PET do
+CEFET-MG. Minutos depois, ao ouvir a fala do professor Lindolpho, tutor do PET de
+Leopoldina (PET do MEC), o projeto começou a ser concebido.
                                         </Typography>
                                         <Typography
                                             style={{
@@ -146,12 +144,15 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            O COMPET foi um parto muito difícil. Como o Sandro era
-                                            recém concursado, não podia submeter um projeto para o
-                                            PET, e então reclamou à diretoria de Graduação para
-                                            permitir que isso fosse possível, demonstrando total
-                                            interesse em submeter. Alteraram as regras e permitiram
-                                            recém concursados.
+                                            A implementação do COMPET enfrentou diversos desafios. Como o professor Sandro havia
+ingressado recentemente na instituição, não estava autorizado a submeter projetos ao PET.
+Ele apresentou uma solicitação à Diretoria de Graduação, demonstrando interesse e
+necessidade de revisão das regras. Após análise, a diretoria alterou o regulamento e
+passou a permitir a participação de docentes recém concursados.
+Em seguida surgiu uma nova dificuldade, pois nas regras do edital eram computados
+apenas o tempo de experiência no CEFET-MG e experiências prévias não eram válidas.
+Devido a isso, o professor recorreu novamente e foi atendido, relatando: "Sou brasileiro, não
+desisto nunca".
                                         </Typography>
                                         <Typography
                                             style={{
@@ -160,12 +161,10 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            Depois foi necessário reclamar de novo, pois a
-                                            experiência pregressa em extensão não poderia ser
-                                            computada, já que nas regras do edital poderia ser
-                                            apenas tempo de experiência dentro do CEFET-MG, Sandro
-                                            recorreu novamente e foi atendido. Sou brasileiro, não
-                                            desisto nunca, como disse o Sandro.
+                                            Em 24/10/2014, o primeiro projeto do COMPET foi finalizado. A data marca não apenas o
+dia da assinatura do projeto, como também a data do aniversário do professor. Além disso,
+nesse momento, o docente completava 7 meses e 27 dias de CEFET. A submissão foi
+realizada, entretanto, o projeto foi desclassificado devido a fatores externos.
                                         </Typography>
                                         <Typography
                                             style={{
@@ -174,15 +173,10 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            O primeiro projeto do COMPET foi finalizado em
-                                            24/10/2014, data em que ele assinou o projeto, dia do
-                                            seu aniversário e ano da entrada dele no CEFET, estava
-                                            com 7 meses e 27 dias de CEFET. Como o projeto foi
-                                            submetido por e-mail, conforme orientação de quem
-                                            atendeu ao telefone na diretoria, e sem o documento do
-                                            CEFET em que ele constava como docente da instituição
-                                            (sim, absurdo, teve que provar ao CEFET que era docente
-                                            do CEFET), o projeto foi desclassificado.
+                                           Diante da publicação de um novo edital, o professor Sandro reformulou o projeto e o
+submeteu novamente.
+O resultado foi oficialmente publicado em 13 de abril de 2015:
+Computação (Sandro Dias, C2) obteve 92,7 pontos, alcançando o primeiro lugar.
                                         </Typography>
                                         <Typography
                                             style={{
@@ -191,28 +185,9 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            O resultado saiu em 04/12/2014, Sandro recorreu da
-                                            decisão, mas foi indeferido. Sou brasileiro, não desisto
-                                            nunca, salientou o professor. Em contato com a diretoria
-                                            foi informado de um novo edital, publicado em
-                                            18/12/2014, com isso resolveu reformular o projeto e
-                                            submeter novamente. Foi aprovado e o resultado publicado
-                                            em 11/02/2015, Computação (Sandro Dias, C2, 94,1
-                                            pontos), em primeiro lugar.
+                                            Assim, teve início o COMPET.
                                         </Typography>
-                                        <Typography
-                                            style={{
-                                                fontFamily: "Codec Pro Regular",
-                                                textAlign: "justify",
-                                                margin: 10,
-                                            }}
-                                        >
-                                            A partir do recurso de um docente que havia submetido um
-                                            projeto também, houve a redução da própria nota e de
-                                            outros, as quais foram reformuladas e divulgado um novo
-                                            resultado publicado em 13/04/2015, Computação (Sandro
-                                            Dias, C2, 92,7 pontos), em primeiro lugar novamente.
-                                        </Typography>
+                                       
                                     </div>
                                 </Paper>
                             </TimelineContent>
@@ -251,12 +226,10 @@ export default function CustomizedTimeline() {
                                                 margin: 10,
                                             }}
                                         >
-                                            O foco do grupo é disseminar informação técnica,
-                                            construir soluções envolvendo tecnologias
-                                            computacionais, organizar eventos de cunho tecnológico,
-                                            estimular a execução de trabalhos científicos na área e
-                                            projetos de extensão, engajar os alunos da instituição
-                                            nos respectivos cursos e realizar atividades sociais.
+                                            O foco do grupo é disseminar informação técnica, construir soluções envolvendo
+tecnologias computacionais, organizar eventos de cunho tecnológico, estimular a execução
+de trabalhos científicos na área e projetos de extensão, além de engajar os alunos da
+instituição nos respectivos cursos e realizar atividades sociais.
                                         </Typography>
                                     </div>
                                 </Paper>
@@ -291,16 +264,39 @@ export default function CustomizedTimeline() {
                                             margin: 10,
                                         }}
                                     >
-                                        A estrutura organizacional interna do COMPET funciona como
-                                        se fosse uma empresa. Os tutores, que coordenam o grupo,
-                                        atuam como chefes. Um dos COMPETianos é, por eleição, o
-                                        Scrum Master que deve liderar todas as equipes, que são
-                                        divididas em Desenvolvimento, Administração, Eventos e
-                                        Marketing. Cada equipe é responsável por um conjunto de
-                                        atividades da respectiva área. Semanalmente, há a reunião do
-                                        grupo, momento em que as tarefas são assinaladas, discutidas
-                                        e avaliadas.
+                                        A estrutura organizacional interna do COMPET é inspirada no modelo de funcionamento de
+uma empresa. Os tutores atuam como coordenadores gerais, responsáveis pelo
+direcionamento estratégico do grupo. Entre os membros, é eleito um Scrum Master, figura
+central da metodologia Scrum, que tem como função facilitar o trabalho das equipes,
+remover obstáculos e garantir que os processos ocorram conforme os princípios da
+metodologia ágil. No COMPET, esse modelo é utilizado para estruturar o desenvolvimento
+das atividades, dar clareza às responsabilidades e favorecer a colaboração entre os
+membros.
                                     </Typography>
+
+                                    <Typography
+                                        style={{
+                                            fontFamily: "Codec Pro Regular",
+                                            textAlign: "justify",
+                                            margin: 10,
+                                        }}
+>
+                                As atividades do grupo são divididas entre quatro equipes: Desenvolvimento,
+    Administração, Eventos e Marketing. Cada equipe é responsável por um conjunto específico
+    de ações relacionadas à sua área de atuação.
+                                    </Typography>
+
+                                    <Typography
+                                        style={{
+                                             fontFamily: "Codec Pro Regular",
+                                             textAlign: "justify",
+                                             margin: 10,
+                                        }}
+>       
+    Semanalmente, realiza-se uma reunião geral, na qual são discutidas as demandas em
+    andamento, planejadas as próximas tarefas e avaliados os resultados obtidos.
+                                </Typography>
+
                                 </Paper>
                             </TimelineContent>
                         </StylesTimelineItem>
@@ -332,15 +328,24 @@ export default function CustomizedTimeline() {
                                             margin: 10,
                                         }}
                                     >
-                                        Há, naturalmente, um passeio formal no tripé Ensino,
-                                        Pesquisa e Extensão para atender demandas que nos chegam dos
-                                        mais diferentes ramos do conhecimento. Dessa forma,
-                                        proporciona-se uma formação extracurricular sólida aos
-                                        COMPETianos que, espontaneamente, se destacam no mercado de
-                                        trabalho por carregarem uma experiência rica de realizações
-                                        em equipe. Durante um ano, cada bolsista ou voluntário
-                                        executa mais de 100 horas de atividades.
+                                        Há, naturalmente, uma atuação estruturada no tripé Ensino, Pesquisa e Extensão, o que
+permite ao COMPET atender demandas provenientes de diferentes áreas do conhecimento.
+Como resultado, os COMPETianos destacam-se no mercado de trabalho, demonstrando
+experiência consistente em projetos colaborativos e em atividades de alto nível de
+responsabilidade.
                                     </Typography>
+
+                                    <Typography
+                                         style={{
+                                             fontFamily: "Codec Pro Regular",
+                                             textAlign: "justify",
+                                            margin: 10,
+                                         }}
+>
+    Ao longo de um ano de participação, cada bolsista ou voluntário dedica mais de 100 horas a
+    atividades do programa, envolvendo-se em ações de planejamento, execução e avaliação
+    que contribuem diretamente para o seu desenvolvimento acadêmico e profissional.
+                                    </Typography>                            
                                 </Paper>
                             </TimelineContent>
                         </StylesTimelineItem>
@@ -402,14 +407,11 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                A ideia do grupo surgiu durante o workshop de
-                                                graduação em agosto de 2014, quando o Prof Sandro
-                                                Renato Dias viu a diretora de graduação, Profa.
-                                                Ivete, falar sobre o edital para a criação dos
-                                                primeiros grupos PET institucionais e consolidou o
-                                                projeto na mente minutos depois ao ouvir a fala do
-                                                Prof. Lindolpho, tutor do PET de Leopoldina (PET do
-                                                MEC).
+                                               A ideia de criação do grupo surgiu durante o workshop de graduação realizado em agosto
+de 2014. Na ocasião, o professor Sandro Renato Dias assistiu à apresentação da diretora
+de Graduação, professora Ivete, sobre o edital que instituiu os primeiros grupos PET do
+CEFET-MG. Minutos depois, ao ouvir a fala do professor Lindolpho, tutor do PET de
+Leopoldina (PET do MEC), o projeto começou a ser concebido.
                                             </Typography>
                                             <Typography
                                                 style={{
@@ -419,12 +421,15 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                O COMPET foi um parto muito difícil. Como o Sandro
-                                                era recém concursado, não podia submeter um projeto
-                                                para o PET, e então reclamou à diretoria de
-                                                Graduação para permitir que isso fosse possível,
-                                                demonstrando total interesse em submeter. Alteraram
-                                                as regras e permitiram recém concursados.
+                                               A implementação do COMPET enfrentou diversos desafios. Como o professor Sandro havia
+ingressado recentemente na instituição, não estava autorizado a submeter projetos ao PET.
+Ele apresentou uma solicitação à Diretoria de Graduação, demonstrando interesse e
+necessidade de revisão das regras. Após análise, a diretoria alterou o regulamento e
+passou a permitir a participação de docentes recém concursados.
+Em seguida surgiu uma nova dificuldade, pois nas regras do edital eram computados
+apenas o tempo de experiência no CEFET-MG e experiências prévias não eram válidas.
+Devido a isso, o professor recorreu novamente e foi atendido, relatando: "Sou brasileiro, não
+desisto nunca".
                                             </Typography>
                                             <Typography
                                                 style={{
@@ -434,12 +439,10 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                Depois foi necessário reclamar de novo, pois a
-                                                experiência pregressa em extensão não poderia ser
-                                                computada, já que nas regras do edital poderia ser
-                                                apenas tempo de experiência dentro do CEFET-MG,
-                                                Sandro recorreu novamente e foi atendido. Sou
-                                                brasileiro, não desisto nunca, como disse o Sandro.
+                                                Em 24/10/2014, o primeiro projeto do COMPET foi finalizado. A data marca não apenas o
+dia da assinatura do projeto, como também a data do aniversário do professor. Além disso,
+nesse momento, o docente completava 7 meses e 27 dias de CEFET. A submissão foi
+realizada, entretanto, o projeto foi desclassificado devido a fatores externos.
                                             </Typography>
                                             <Typography
                                                 style={{
@@ -449,16 +452,10 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                O primeiro projeto do COMPET foi finalizado em
-                                                24/10/2014, data em que ele assinou o projeto, dia
-                                                do seu aniversário e ano da entrada dele no CEFET,
-                                                estava com 7 meses e 27 dias de CEFET. Como o
-                                                projeto foi submetido por e-mail, conforme
-                                                orientação de quem atendeu ao telefone na diretoria,
-                                                e sem o documento do CEFET em que ele constava como
-                                                docente da instituição (sim, absurdo, teve que
-                                                provar ao CEFET que era docente do CEFET), o projeto
-                                                foi desclassificado.
+                                                Diante da publicação de um novo edital, o professor Sandro reformulou o projeto e o
+submeteu novamente.
+O resultado foi oficialmente publicado em 13 de abril de 2015:
+Computação (Sandro Dias, C2) obteve 92,7 pontos, alcançando o primeiro lugar.
                                             </Typography>
                                             <Typography
                                                 style={{
@@ -468,30 +465,7 @@ export default function CustomizedTimeline() {
                                                     margin: 20,
                                                 }}
                                             >
-                                                O resultado saiu em 04/12/2014, Sandro recorreu da
-                                                decisão, mas foi indeferido. Sou brasileiro, não
-                                                desisto nunca, salientou o professor. Em contato com
-                                                a diretoria foi informado de um novo edital,
-                                                publicado em 18/12/2014, com isso resolveu
-                                                reformular o projeto e submeter novamente. Foi
-                                                aprovado e o resultado publicado em 11/02/2015,
-                                                Computação (Sandro Dias, C2, 94,1 pontos), em
-                                                primeiro lugar.
-                                            </Typography>
-                                            <Typography
-                                                style={{
-                                                    marginTop: 10,
-                                                    fontFamily: "Codec Pro Regular",
-                                                    textAlign: "justify",
-                                                    margin: 20,
-                                                }}
-                                            >
-                                                A partir do recurso de um docente que havia
-                                                submetido um projeto também, houve a redução da
-                                                própria nota e de outros, as quais foram
-                                                reformuladas e divulgado um novo resultado publicado
-                                                em 13/04/2015, Computação (Sandro Dias, C2, 92,7
-                                                pontos), em primeiro lugar novamente.
+                                                Assim, teve início o COMPET.
                                             </Typography>
                                         </div>
                                     </Paper>
@@ -535,13 +509,10 @@ export default function CustomizedTimeline() {
                                                     marginBottom: 20,
                                                 }}
                                             >
-                                                O foco do grupo é disseminar informação técnica,
-                                                construir soluções envolvendo tecnologias
-                                                computacionais, organizar eventos de cunho
-                                                tecnológico, estimular a execução de trabalhos
-                                                científicos na área e projetos de extensão, engajar
-                                                os alunos da instituição nos respectivos cursos e
-                                                realizar atividades sociais.
+                                                O foco do grupo é disseminar informação técnica, construir soluções envolvendo
+tecnologias computacionais, organizar eventos de cunho tecnológico, estimular a execução
+de trabalhos científicos na área e projetos de extensão, além de engajar os alunos da
+instituição nos respectivos cursos e realizar atividades sociais.
                                             </Typography>
                                         </div>
                                     </Paper>
@@ -577,16 +548,38 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            A estrutura organizacional interna do COMPET funciona
-                                            como se fosse uma empresa. Os tutores, que coordenam o
-                                            grupo, atuam como chefes. Um dos COMPETianos é, por
-                                            eleição, o Scrum Master que deve liderar todas as
-                                            equipes, que são divididas em Desenvolvimento,
-                                            Administração, Eventos e Marketing. Cada equipe é
-                                            responsável por um conjunto de atividades da respectiva
-                                            área. Semanalmente, há a reunião do grupo, momento em
-                                            que as tarefas são assinaladas, discutidas e avaliadas.
-                                        </Typography>
+                                            A estrutura organizacional interna do COMPET é inspirada no modelo de funcionamento de
+                                            uma empresa. Os tutores atuam como coordenadores gerais, responsáveis pelo
+                                            direcionamento estratégico do grupo. Entre os membros, é eleito um Scrum Master, figura
+                                            central da metodologia Scrum, que tem como função facilitar o trabalho das equipes,
+                                            remover obstáculos e garantir que os processos ocorram conforme os princípios da
+                                            metodologia ágil. No COMPET, esse modelo é utilizado para estruturar o desenvolvimento
+                                            das atividades, dar clareza às responsabilidades e favorecer a colaboração entre os
+                                            membros.
+                                       </Typography>
+                                            <Typography
+                                                style={{
+                                                    fontFamily: "Codec Pro Regular",
+                                                    textAlign: "justify",
+                                                    margin: 20,
+                                                }}
+                                            >
+                                                As atividades do grupo são divididas entre quatro equipes: Desenvolvimento,
+                                                Administração, Eventos e Marketing. Cada equipe é responsável por um conjunto específico
+                                                de ações relacionadas à sua área de atuação.
+                                            </Typography>
+
+                                            <Typography
+                                                style={{
+                                                    fontFamily: "Codec Pro Regular",
+                                                    textAlign: "justify",
+                                                    margin: 20,
+                                                }}
+                                            >
+                                                Semanalmente, realiza-se uma reunião geral, na qual são discutidas as demandas em
+                                                andamento, planejadas as próximas tarefas e avaliados os resultados obtidos.
+                                            </Typography>
+                                            
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
@@ -619,15 +612,24 @@ export default function CustomizedTimeline() {
                                                 margin: 20,
                                             }}
                                         >
-                                            Há, naturalmente, um passeio formal no tripé Ensino,
-                                            Pesquisa e Extensão para atender demandas que nos chegam
-                                            dos mais diferentes ramos do conhecimento. Dessa forma,
-                                            proporciona-se uma formação extracurricular sólida aos
-                                            COMPETianos que, espontaneamente, se destacam no mercado
-                                            de trabalho por carregarem uma experiência rica de
-                                            realizações em equipe. Durante um ano, cada bolsista ou
-                                            voluntário executa mais de 100 horas de atividades.
+                                           Há, naturalmente, uma atuação estruturada no tripé Ensino, Pesquisa e Extensão, o que
+permite ao COMPET atender demandas provenientes de diferentes áreas do conhecimento.
+Como resultado, os COMPETianos destacam-se no mercado de trabalho, demonstrando
+experiência consistente em projetos colaborativos e em atividades de alto nível de
+responsabilidade.
                                         </Typography>
+                                     <Typography
+                                        style={{
+                                            fontFamily: "Codec Pro Regular",
+                                            textAlign: "justify",
+                                            margin: 20,
+                                        }}
+                                    >
+                                        Ao longo de um ano de participação, cada bolsista ou voluntário dedica mais de 100 horas a
+                                        atividades do programa, envolvendo-se em ações de planejamento, execução e avaliação
+                                        que contribuem diretamente para o seu desenvolvimento acadêmico e profissional.
+                                    </Typography>
+
                                     </Paper>
                                 </TimelineContent>
                             </TimelineItem>
