@@ -8,6 +8,13 @@
   src: url("../../styles/fonts/Verdana.ttf");
 }
 
+.slideLink {
+  display: block;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
 .slideContainer {
   padding-top: 0;
   max-width: 100%;
