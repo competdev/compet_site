@@ -5,6 +5,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 const clientId = process.env.SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 const competSpotifyShowId = process.env.SPOTIFY_SHOW_ID;
+/** Obrigatório na prática para shows/episódios com Client Credentials — sem market muitas vezes vem lista vazia ou 404 */
+const spotifyMarket = process.env.SPOTIFY_MARKET?.trim() || "BR";
 
 interface SpotifyShowResponse {
     description: string;
@@ -51,24 +53,43 @@ async function getShows(showId: string, accessToken: string): Promise<SpotifySho
     }
 
     try {
-        const searchUrl = `https://api.spotify.com/v1/shows/${showId}`;
-        const response = await axios.get(searchUrl, {
+        const marketQs = `market=${encodeURIComponent(spotifyMarket)}`;
+        const showUrl = `https://api.spotify.com/v1/shows/${showId}?${marketQs}`;
+        const response = await axios.get(showUrl, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
             },
         });
 
-        if (!response.data.episodes || !response.data.episodes.items) {
+        let episodeItems: any[] = response.data.episodes?.items ?? [];
+        /** Episódios costumam vir sem `images`; a capa do podcast fica no objeto do show */
+        const imagensDoShow: Array<{ height: number; width: number; url: string }> =
+            response.data.images ?? [];
+
+        // Com Client Credentials, episódios às vezes só vêm no endpoint dedicado
+        if (!episodeItems.length) {
+            const episodesUrl = `https://api.spotify.com/v1/shows/${showId}/episodes?${marketQs}&limit=50`;
+            const epRes = await axios.get(episodesUrl, {
+                headers: { Authorization: `Bearer ${accessToken}` },
+            });
+            episodeItems = epRes.data.items ?? [];
+        }
+
+        if (!episodeItems.length) {
             return [];
         }
 
-        const shows: SpotifyShowResponse[] = response.data.episodes.items.map((episode: any) => ({
-            description: episode.description || '',
-            name: "Fala COMPET | " + episode.name,
-            link: episode.external_urls?.spotify || '',
-            images: episode.images || [],
-            release_date: episode.release_date, // Mantém como string para serialização JSON
-        }));
+        const shows: SpotifyShowResponse[] = episodeItems.map((episode: any) => {
+            const imgs = episode.images;
+            const temCapaEpisodio = Array.isArray(imgs) && imgs.length > 0 && imgs[0]?.url;
+            return {
+                description: episode.description || '',
+                name: "Fala COMPET | " + episode.name,
+                link: episode.external_urls?.spotify || '',
+                images: temCapaEpisodio ? imgs : imagensDoShow,
+                release_date: episode.release_date, // Mantém como string para serialização JSON
+            };
+        });
 
         return shows;
     } catch (error: any) {

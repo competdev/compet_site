@@ -8,6 +8,10 @@ import SectionTitle from "../SectionTitle";
 import { getCompetShows, SpotifyShow } from "./util/spotifyAPI";
 import { YoutubeLiveStream, getLiveBroadcasts } from "./util/youtubeAPI";
 
+/** Se API não enviar capa (episódio + show sem imagens), ainda exibe o card */
+const IMAGEM_FALLBACK =
+    "https://i.ibb.co/3swTqhQ/default-photo.webp";
+
 const Legend = styled("p")({
     width: "100%",
 })
@@ -40,7 +44,7 @@ const SlideShow = data => {
     const [dadosShows, setDadosShows] = useState<(SpotifyShow | YoutubeLiveStream)[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
-    //Buscas os conteúdos do Spotfy e do YouTube, ordenando-os por data de lançamento e exibindo somente os 5 mais recentes
+    // Busca podcast (Spotify) e lives (YouTube), ordena por data e exibe os 5 mais recentes
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -62,12 +66,19 @@ const SlideShow = data => {
         fetchData();
     }, []);
 
-    // Filtra apenas shows que têm imagens válidas
-    const showsComImagens = dadosShows.filter(show => show.images && show.images.length > 0 && show.images[0]?.url);
+    const showsComImagens = dadosShows
+        .filter(show => Boolean(show.link))
+        .map(show => {
+            if (show.images?.length && show.images[0]?.url) return show;
+            return {
+                ...show,
+                images: [{ height: 640, width: 640, url: IMAGEM_FALLBACK }],
+            };
+        });
 
     return (
         <section id="in-progress" className={styles.slideContainer}>
-            <SectionTitle title={"COMPET no Spotify"} />
+            <SectionTitle title={"COMPET no YouTube"} />
             <div className={cardStyles.mediaCard}>
                 <div className={cardStyles.mediaCardContent}>
                     {loading ? (
@@ -90,8 +101,16 @@ const SlideShow = data => {
                                 {showsComImagens.map((show, index) => (  
                                     <div key={index}>
                                         {/* O YouTube disponibiliza 4 opções de thumbnail, sendo a na posição 0 a de maior resolução */}
-                                        <img className={styles.image} src={show.images[0].url} alt={show.name}/> 
-                                        <a href={show.link}><Legend className={styles.legend}> {show.name} </Legend></a>
+                                        <a
+                                            className={styles.slideLink}
+                                            href={show.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title={`Abrir em nova aba: ${show.name}`}
+                                        >
+                                            <img className={styles.image} src={show.images[0].url} alt={show.name}/> 
+                                            <Legend className={styles.legend}> {show.name} </Legend>
+                                        </a>
                                     </div>
                                 ))}
                             </Carousel>

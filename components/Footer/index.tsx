@@ -203,7 +203,7 @@ const LinksCOGPDC = () => {
     return (
         <div className={styles.containerLinksCOGPDC}>
             {linksGruposPET.map(grupo => (
-                <span className={styles.singleLink}>
+                <span key={`${grupo.label}-${grupo.href}`} className={styles.singleLink}>
                     <Link href={grupo.href} target="_blank">{grupo.label}</Link>
                 </span>
             ))}

@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate';
 import styles from '../../styles/IndexFeeds.module.css'
 import cardStyles from '../../styles/MediaCard.module.css'
@@ -180,6 +180,11 @@ function PaginatedItems({ items, classes }) {
     const pageCount = Math.ceil(items.length / itemsPerPage)
 
     const [currentPage, setCurrentPage] = useState(0)
+    /** Evita mismatch de className JSS (SSR vs cliente) no react-paginate */
+    const [paginateReady, setPaginateReady] = useState(false)
+    useEffect(() => {
+        setPaginateReady(true)
+    }, [])
 
     const handlePageClick = (event) => {
         const newPage = event.selected
@@ -194,7 +199,7 @@ function PaginatedItems({ items, classes }) {
             <div style={{ flex: 1 }}>
                 {renderNews(currentItems)}
             </div>
-            {pageCount > 1 && (
+            {pageCount > 1 && paginateReady && (
                 <div className={cardStyles.mediaCardPagination}>
                     <ReactPaginate
                         nextLabel=">>"

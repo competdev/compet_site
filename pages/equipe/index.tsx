@@ -1,9 +1,14 @@
 import styles from "./Equipe.module.css"
 import axios from "axios"
-import { useState, useEffect, useReducer } from "react"
+import { useState, useEffect, useReducer, useMemo } from "react"
 import { sortReducer } from "../../reducers/sortReducer"
-import { SortAction, SortOrder } from "../../types/types"
+import { SortOrder } from "../../types/types"
 import { NEXT_URL } from "../../util/config"
+import {
+    EQUIPE_ORDER,
+    agruparMembrosPorEquipe,
+    algumaSecaoTemMaisQue,
+} from "../../util/membrosEquipe"
 import Head from "next/head"
 
 import Header from "../../components/Header"
@@ -39,14 +44,18 @@ Equipe.getInitialProps = async () => {
         membros: membrosAtuais,
         scrumMaster: scrumMaster,
         tutores: tutores,
-        totalMembrosAtivos: membrosAtuais.length,
     }
 }
 
-export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtivos }) {
+export default function Equipe({ membros, scrumMaster, tutores }) {
     const [membersPage, setMembersPage] = useState(8)
     const [tutoresState, dispatchTutores] = useReducer(sortReducer, tutores)
     const [membrosState, dispatchExMembros] = useReducer(sortReducer, membros)
+
+    const bucketsPorEquipe = useMemo(
+        () => agruparMembrosPorEquipe(membrosState),
+        [membrosState]
+    )
 
     const header_img_url = "https://i.ibb.co/5K58j8k/equipe.png"
 
@@ -90,8 +99,8 @@ export default function Equipe({ membros, scrumMaster, tutores, totalMembrosAtiv
             />
             {renderTutores(tutoresState)}
             {renderScrumMaster(scrumMaster)}
-            {renderMembros(membrosState, membersPage)}
-            {renderVerMais(membersPage, setMembersPage, totalMembrosAtivos)}
+            {renderMembrosPorEquipe(bucketsPorEquipe, membersPage)}
+            {renderVerMais(membersPage, setMembersPage, bucketsPorEquipe)}
             <Footer />
         </div>
     )
@@ -137,31 +146,43 @@ const renderTutores = tutores => {
     )
 }
 
-const renderMembros = (membros, membersPage) => {
-    const memberSection = "Membros"
+const renderMembrosPorEquipe = (buckets, membersPage) => {
+    const secoes = [...EQUIPE_ORDER, "Outros"]
+
     return (
-        <div>
-            <SectionTitle title={memberSection} />
-            <div className={styles.bodyGroup}>
-                <div className={styles.containerMembers}>
-                    <div className={styles.membersArea}>
-                        <MemberCard
-                            dados={membros}
-                            membersPage={membersPage}
-                            socialNetworks={socialNetworks}
-                        />
+        <>
+            {secoes.map(nomeSecao => {
+                const lista = buckets[nomeSecao]
+                if (!lista.length) return null
+
+                return (
+                    <div key={nomeSecao}>
+                        <SectionTitle title={nomeSecao} />
+                        <div className={styles.bodyGroup}>
+                            <div className={styles.containerMembers}>
+                                <div className={styles.membersArea}>
+                                    <MemberCard
+                                        dados={lista}
+                                        membersPage={membersPage}
+                                        socialNetworks={socialNetworks}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                )
+            })}
+        </>
     )
 }
 
-const renderVerMais = (membersPage, setMembersPage, totalMembrosAtivos) => {
+const renderVerMais = (membersPage, setMembersPage, buckets) => {
+    const temMaisParaExibir = algumaSecaoTemMaisQue(buckets, membersPage)
+
     return (
         <div>
             <div className={styles.loadArea}>
-                {membersPage < totalMembrosAtivos ? (
+                {temMaisParaExibir ? (
                     <div
                         onClick={() => setMembersPage(membersPage + 8)}
                         className={styles.loadMore}
