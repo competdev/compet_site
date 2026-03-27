@@ -7,6 +7,7 @@ import Partners from "../components/Partners"
 import MediaSection from "../components/home/MediaSection"
 import Hero from "../components/home/Hero"
 import Anos10Popup from "../components/home/Anos10Popup"
+import ProcessoSeletivoPopup from "../components/home/ProcessoSeletivoPopup"
 import Pilares from "../components/home/Pilares"
 import Organizacao from "../components/home/Organizacao"
 import JunteSe from "../components/home/JunteSe"
@@ -36,6 +37,7 @@ export default function Index({ dados, dadosParceiros }) {
             <div className={styles.container}>
                 <Header />
                     <Hero />
+                    <ProcessoSeletivoPopup />
                     <Anos10Popup />
                     <Pilares />
                     <Organizacao />
