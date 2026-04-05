@@ -155,7 +155,7 @@ const linksGruposPET = [
     },
     {
         label: "Eng. Mecatrônica (Divinópolis)",
-        href: "https://www.instagram.com/petcivilcefet/?igshid=1h4de5azc9tvh",
+        href: "https://i3dpet.wixsite.com/pet-eng-mecatronica",
     },
     {
         label: "Civil (Curvelo)",
@@ -167,11 +167,11 @@ const linksGruposPET = [
     },
     {
         label: "Eng. de Controle e Automação (Leopoldina)",
-        href: "https://www.ecofet.com.br/",
+        href: "https://www.petencaut.cefetmg.br/",
     },
     {
         label: "EAI (Araxá)",
-        href: "http://www.formulacefast.com/",
+        href: "https://linklist.bio/PETcefetmg-araxa",
     },
     {
         label: "Eng. Materiais (BH)",
@@ -179,23 +179,23 @@ const linksGruposPET = [
     },
     {
         label: "Interdisciplinar (Timóteo)",
-        href: "/",
+        href: "https://cefet-petit.github.io/",
     },
     {
         label: "Eng. de Minas (Araxá)",
-        href: "https://trincabotz.com.br/",
+        href: "https://www.instagram.com/petminasaraxa?igsh=MW5jaGR6dnp5aWgydA==",
     },
     {
         label: "Ambiental (BH)",
-        href: "https://www.instagram.com/pet.ambiental/?igshid=6d5vfzn2kufi",
+        href: "https://tr.ee/uAydA65j4s",
     },
     {
         label: "Eng. Elétrica (Nepomuceno)",
-        href: "https://www.peteenepomuceno.com.br/",
+        href: "https://www.instagram.com/peteecefetnepomuceno?igsh=MnV5M3MxcDlnMms1",
     },
     {
         label: "Eng. Civil (Varginha)",
-        href: "https://www.ecofet.com.br/",
+        href: "https://petcivilvarginha.wordpress.com/",
     },
 ]
 
