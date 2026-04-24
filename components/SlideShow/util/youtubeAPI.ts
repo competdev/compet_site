@@ -1,5 +1,4 @@
 import axios from "axios"
-import { NEXT_URL } from "../../../util/config"
 
 export interface YoutubeLiveStream {
     name: string
@@ -20,7 +19,8 @@ interface YoutubeLiveStreamImages {
  */
 export const getLiveBroadcasts = async (): Promise<YoutubeLiveStream[]> => {
     try {
-        const response = await axios.get(`${NEXT_URL}/api/youtube-live`)
+        // URL relativa: roda no browser; evita depender de NEXT_PUBLIC_FRONTEND_URL na Vercel
+        const response = await axios.get("/api/youtube-live")
         if (!Array.isArray(response.data)) {
             return []
         }

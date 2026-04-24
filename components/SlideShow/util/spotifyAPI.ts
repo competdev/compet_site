@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { NEXT_URL } from '../../../util/config';
 
 export interface SpotifyShow {
     description: string;
@@ -21,7 +20,7 @@ interface SpotifyImage {
  */
 export const getCompetShows = async (): Promise<SpotifyShow[]> => {
     try {
-        const response = await axios.get(`${NEXT_URL}/api/spotify`);
+        const response = await axios.get('/api/spotify');
         
         // Converte as datas de string para Date
         const shows: SpotifyShow[] = response.data.map((show: any) => ({
