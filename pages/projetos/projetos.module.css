@@ -11,4 +11,23 @@ flex-wrap: wrap;
   aspect-ratio: 1/1;
   min-width: 10rem;
   border-radius: 50%;
+  border: 3px solid #031857; 
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+  display: block; 
+}
+
+.image:hover {
+  transform: scale(1.08);
+  border: 3px solid #19DD39;
+}
+
+/*Permite que os projetos (bolinhas e títulos) quebrem ao movimentar a tela, diminuí-la/aumentá-la*/
+.projectItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 1 1 250px;
+  max-width: 300px;
 }

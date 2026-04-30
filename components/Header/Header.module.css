@@ -138,13 +138,15 @@
   color: #1CDC54;
 }
 
-@media (min-width: 1024px) {
+/*Aqui é onde aS letrinhas no cabeçalho diminuem e permite 
+que ao movimentar a página elas não sumam*/
+@media (min-width: 1100px) {
   .navLink {
     font-size: 1rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .navLink {
     font-size: 1.125rem;
   }

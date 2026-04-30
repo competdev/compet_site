@@ -39,9 +39,11 @@ export default function Projetos({ project, error }: { project: Project, error?:
           </Text>
           <Heading as={"h3"} size={"xl"} css={{ textAlign: "center" }}>Sobre o projeto</Heading>
           <section id='about-project' className={styles.descriptionContainer}>
-            {project?.descricao?.split('.')?.map((sentence, index) => index !== project.descricao?.split('.')?.length - 1 && (
-              <Text key={sentence.split(' ')[0]} size={"lg"}>{sentence}.</Text>
-            ))}
+          {project?.descricao?.split('\n')?.map((linha, index) => (
+            linha.trim() !== "" && (
+              <Text key={index} size={"lg"} 
+                css={{ marginBottom: "0.5rem" }}> {linha}
+              </Text>)))}
           </section>
           {project.members?.length > 0 ? (
             <>

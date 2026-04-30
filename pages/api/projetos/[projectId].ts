@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const nome = decodeURI(req.query.projectId as string);
+  console.log("NOME RECEBIDO:", nome);
   const { db } = await connectToDatabase();
   const projeto = await db
     .collection("projects")

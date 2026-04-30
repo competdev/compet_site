@@ -27,7 +27,7 @@
   flex-direction: column;
   gap:.25rem;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   text-align: justify;
   justify-content: center;
   animation: appear 2s ease-in-out;
@@ -44,21 +44,24 @@
   width: 100%;
 }
 .descriptionContainer p{
-  font-weight: 300;
-  text-align: justify;
-  margin: 0;
-  text-justify: newspaper;
+  font-family: "Codec Pro Regular", sans-serif;
   width: 100%;
-  max-width: 800px;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 auto;
+  max-width: 900px;
 }
+
 .membersContainer{
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap:1rem;
   width: 100%;
+  overflow: visible !important;
   animation: from-right 2s ease-in-out;
   animation-timeline: view();
   animation-range: entry -10% cover 50%;
