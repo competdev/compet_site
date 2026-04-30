@@ -14,10 +14,12 @@ Projetos.getInitialProps = async (ctx: NextPageContext) => {
   const apiUrl = NEXT_URL + `/api/${ctx.pathname}`
   const response = await axios.get(apiUrl);
   const projects: Project[] = response.data
-  const aboutProjects = "Os projetos do COMPET são relacionados a tríade de ensino, pesquisa e extensão e buscam desenvolver soluções por meio da tecnologia para problemas reais, impactando na comunidade em torno do CEFET-MG ou na sociedade como um todo. Com projetos em parceria com outras universidades de Minas Gerais e no mundo, o compet se destaca entre os outros PETS do CEFET-MG trazendo orgulho para a instituição e para os membros que o compõem."
-  return { projects, aboutProjects }
+  const aboutProjects = ["Os projetos desenvolvidos pelo COMPET estão diretamente ligados à tríade Ensino, Pesquisa e Extensão, buscando aplicar a tecnologia para criar soluções que resolvam problemas reais, gerando impacto positivo na comunidade local do CEFET-MG e  na sociedade como um todo.",
+                          "O COMPET realiza projetos em colaboração com outras universidades de Minas Gerais e de diferentes partes do mundo permitindo ampliação da rede acadêmica. Essa atuação diferenciada destaca o grupo entre os demais programas PET do CEFET-MG, fortalecendo a reputação da instituição e proporcionando aos membros desenvolvimento profissional."
+                        ];
+  return { projects, aboutProjects}
 }
-export default function Projetos({ projects, aboutProjects }: { projects: Project[], aboutProjects?: String }) {
+export default function Projetos({ projects, aboutProjects }: { projects: Project[], aboutProjects?: string[] }) {
   const projetos = projects.map(project => {
     return { name: project.nome, thumb: project.thumb, id: project.id }
   })
@@ -28,21 +30,32 @@ export default function Projetos({ projects, aboutProjects }: { projects: Projec
         <title>COMPET | Projetos</title>
       </Head>
       <Header />
-      <main style={{ margin: "1rem" }}>
-        <Heading size={"xl"} css={{
-          marginBlockStart: '1rem',
-          textAlign: 'center',
-        }}>Projetos</Heading>
+      <main className={styles.projetosContainer} style={{ margin: "1rem" }}>
+      <Heading
+        size={"xl"}
+        css={{ marginBlockStart: '1rem', textAlign: 'center',fontFamily: '"Codec Pro Regular", sans-serif' }}>
+        Projetos
+      </Heading>
         <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
-          <Text css={{
-            marginBlock: '1rem',
-            width: '100%',
-            maxWidth: '800px',
-          }}>{aboutProjects}</Text>
+          <div
+            style={{marginBlock: '1rem', width: '100%', maxWidth: '800px'}}>
+            {aboutProjects?.map((p, i) => (
+              <Text key={i} css={{ marginBottom: '1rem', fontFamily: '"Codec Pro Regular", sans-serif' }}>
+              {p}
+              </Text>
+            ))}
+          </div>
           <div className={styles.card}>
             {projetos.map(project => (
-              <Link key={project.id} href={`${pathname}/${project.name}`} style={{ width: '25%', display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <Heading size={"lg"} as={"h3"}>{project.name}</Heading>
+              <Link
+              key={project.id}
+              href={`${pathname}/${project.name}`}
+              className={styles.projectItem}
+            >
+               <Heading size={"lg"} as={"h3"}
+                  css={{ fontFamily: '"Codec Pro Regular", sans-serif'}}>
+                  {project.name}
+                </Heading>
                 <img src={project.thumb} alt={`thumbnail of ${project.name}`} className={styles.image} />
               </Link>
             ))}

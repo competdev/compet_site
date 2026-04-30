@@ -26,8 +26,10 @@ const TutorComponent: TItemComponent<Tutor> = ({ email, id, linkedin, nome, resu
 )
 const MemberComponent: TItemComponent<Member> = ({ id, urlImg, nome, email, github, linkedin, role, statement }) => (
   <Box id={id} key={`member-${id}`} className={styles.member}>
+    <div className={styles.memberImage}>
+        <img src={urlImg} alt={`image of ${nome}`} />
+     </div>
     <div className={styles.memberHeader}>
-      <img src={urlImg} alt={`image of ${nome}`} />
       <Heading as={"h3"} className={styles.memberName}>{nome}</Heading>
       <Text>{role}</Text>
     </div>
