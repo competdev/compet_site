@@ -49,7 +49,9 @@
 }
 
 .sobreInfo {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 2em;
   font-size: 1.25rem;
   font-family: "Codec Pro Regular";
@@ -65,7 +67,7 @@
   border-radius: 20px;
 }
 .text{
-  text-align: justify;
+  text-align: left;
 }
 @media (max-width: 1024px) {
   .img_InterPet img {
@@ -113,8 +115,10 @@
 }
 
 @media (max-width: 768px) {
-  .text {
-    margin-top: 0px;
+  .sobreInfo {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

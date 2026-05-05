@@ -11,7 +11,7 @@
 .title {
   font-family: 'Codec Pro Light';
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #004266;
   margin-bottom: 30px;
   font-weight: bolder;
@@ -19,12 +19,12 @@
 
 @media (max-width:1024px) {
   .title {
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width:425px) {
   .title {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 }

@@ -14,7 +14,7 @@ const renderSobre = () => {
                 </div>
                 <article className={styles.sobreInfo}>
                     <p className={styles.text}>
-                        O PET da Engenharia de Computação do CEFETMG, COMPET, tem como objetivo
+                        OOOOOOOOO PET da Engenharia de Computação do CEFET-MG, COMPET, tem como objetivo
                         disseminar informação técnica, construir soluções envolvendo tecnologias
                         computacionais, organizar eventos de cunho tecnológico, estimular a execução
                         de trabalhos científicos na área, engajar os alunos da instituição nos
