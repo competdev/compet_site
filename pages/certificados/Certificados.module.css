@@ -41,16 +41,17 @@
 }
 
 .certificadoCard {
-  position: static;
-  display: inline-block;
-  height: 280px;
+  display: inline-block; 
+  vertical-align: top; 
+
+  min-height: 280px;
+  height: auto;
+
   margin: 20px;
   border-radius: 10px;
   box-shadow: 1px 1px 6px #00000013;
   width: 320px;
-  background-color: rgb(255, 255, 255);
-  color: #151515;
-  margin-top: 10px;
+  background-color: #fff;
 }
 
 .certificadoImg {
@@ -63,19 +64,21 @@
 
 .certificadoTitulo {
   margin-top: 10px;
-  max-height: 15px;
-  font-size: 17px;
+  font-size: 14px;
+  line-height: 1.2;
   text-align: center;
   font-weight: bold;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 15px;
 }
 
 .certificadoData {
-  margin-top: 55px;
+  margin-top: 15px;
   font-size: 16px;
   font-style: italic;
+  text-align: center;
 }
 
 .certificadoLink {

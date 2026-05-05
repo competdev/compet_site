@@ -11,7 +11,7 @@ const Hero: React.FC<HeroProps> = () => {
                 <div className={styles.heroText}>
                     <h1 className={styles.heroTitle}>O que é o COMPET?</h1>
                     <p className={styles.heroDescription}>
-                        O PET da Engenharia de Computação do CEFETMG, COMPET, tem como objetivo
+                        O PET da Engenharia de Computação do CEFET-MG, COMPET, tem como objetivo
                         disseminar informação técnica, construir soluções envolvendo tecnologias
                         computacionais, organizar eventos de cunho tecnológico, estimular a execução
                         de trabalhos científicos na área, engajar os alunos da instituição nos

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import styles from "./ProcessoSeletivoPopup.module.css";
 
+
+
+
 const FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLScDoT9MBjlEmEIt6rpi1ZJ4z6OgiXi8gVJRlxgdHm4lSzlGSg/viewform?usp=header";
 
@@ -29,6 +32,8 @@ const customStyles = {
 };
 
 const ProcessoSeletivoPopup: React.FC = () => {
+     const ativo = false; // Altere para `true` para ativar o banner e modal do processo seletivo
+     if (!ativo) return null;
     const [isOpen, setIsOpen] = useState(false);
 
     // Abre o modal em toda visita à página inicial; o banner continua disponível para reabrir.

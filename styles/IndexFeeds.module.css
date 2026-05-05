@@ -50,7 +50,8 @@
 
 .tituloNews {
   font-family: "Codec Pro Regular";
-  font-size: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 0px;
@@ -174,7 +175,8 @@
   }
 
   .tituloNews {
-    font-size: 17px;
+    font-size: 12px;
+    line-height: 1.5;
 
   }
 

@@ -41,30 +41,32 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
 .heroText {
   flex: 1;
+  margin-left: 3rem;
   min-width: 300px;
   color: #ffffff;
 }
 
 .heroTitle {
   font-family: "Verdana", sans-serif;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: #14E956;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .heroDescription {
   font-family: "Codec Pro Regular", sans-serif;
   font-size: 1.25rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
   color: rgba(255, 255, 255, 0.95);
   text-align: justify;
 }
@@ -108,7 +110,7 @@
 
 .illustrationImage {
   width: 100%;
-  max-width: 300px;
+  max-width: 325px;
   height: auto;
   border-radius: 20px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
@@ -125,11 +127,12 @@
   }
 
   .heroText {
+     margin-left: 0;
     text-align: center;
   }
 
   .heroDescription {
-    text-align: center;
+    text-align: justify;
   }
 
   .heroTitle {
