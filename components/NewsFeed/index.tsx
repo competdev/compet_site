@@ -228,12 +228,14 @@ function PaginatedItems({ items, classes }) {
     )
 }
 
-function convertDate(stringDate) {
+/** UTC: mesmo resultado no SSR (Vercel) e no browser, evitando erros de hidratação (#418 etc.) */
+function convertDate(stringDate: string) {
     const date = new Date(stringDate)
-
-    const day = date.getDate().toString().padStart(2, "0")
-    const month = (date.getMonth() + 1).toString().padStart(2, "0")
-    const year = date.getFullYear()
-    const formatted = `${day}/${month}/${year}`
-    return formatted
+    if (Number.isNaN(date.getTime())) {
+        return "01/01/1970"
+    }
+    const day = date.getUTCDate().toString().padStart(2, "0")
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, "0")
+    const year = date.getUTCFullYear()
+    return `${day}/${month}/${year}`
 }

@@ -1,9 +1,72 @@
-import { Tooltip } from '@mui/material';
+import { Alert, Snackbar, Tooltip } from '@mui/material';
 import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
-import Link from 'next/link';
 import React from 'react';
 import styles from './MembersCard.module.css';
+
+async function copyEmailToClipboard(email: string): Promise<boolean> {
+    if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        try {
+            await navigator.clipboard.writeText(email);
+            return true;
+        } catch {
+            /* tenta fallback abaixo */
+        }
+    }
+    if (typeof document === 'undefined') return false;
+    const ta = document.createElement('textarea');
+    ta.value = email;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try {
+        ok = document.execCommand('copy');
+    } finally {
+        document.body.removeChild(ta);
+    }
+    return ok;
+}
+
+function CopyEmailButton({ email }: { email: string }) {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = async () => {
+        const ok = await copyEmailToClipboard(email);
+        if (ok) setOpen(true);
+    };
+
+    return (
+        <>
+            <button
+                type="button"
+                className={styles.networkIconButton}
+                title="Copiar e-mail"
+                aria-label="Copiar e-mail para a área de transferência"
+                onClick={() => void handleClick()}
+            >
+                <img className={styles.networkFavicon} alt="" src="https://i.ibb.co/5ckzrdq/mail-icon.png" />
+            </button>
+            <Snackbar
+                open={open}
+                autoHideDuration={4000}
+                onClose={() => setOpen(false)}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={() => setOpen(false)}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                >
+                    E-mail copiado com sucesso!
+                </Alert>
+            </Snackbar>
+        </>
+    );
+}
 
 const LightTooltip = withStyles((_theme: any) => ({
     tooltip: {
@@ -154,26 +217,24 @@ const renderSocialNetworks = (data) => {
             <div className={styles.networkGroup}>
                 {data.email != "" ?
                     <div>
-                        <Link href={'mailto:' + data.email} title='Email'>
-                            <img className={styles.networkFavicon} src="https://i.ibb.co/5ckzrdq/mail-icon.png" />
-                        </Link>
+                        <CopyEmailButton email={data.email} />
                     </div>
                     : <></>}
 
                 {data.lates != "" ?
                     <div>
-                        <Link href={data.lates} title='Lattes'>
-                            <div><img className={styles.networkFavicon} src="https://i.ibb.co/r438RBd/lattes-icon.png" /></div>
-                        </Link>
+                        <a href={data.lates} target="_blank" rel="noopener noreferrer" title="Lattes (abre em nova aba)">
+                            <div><img className={styles.networkFavicon} alt="" src="https://i.ibb.co/r438RBd/lattes-icon.png" /></div>
+                        </a>
                     </div>
                     : <></>}
 
 
                 {data.linkedin != "" ?
                     <div>
-                        <Link href={data.linkedin} title='LinkedIn'>
-                            <div><img className={styles.networkFavicon} src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></div>
-                        </Link>
+                        <a href={data.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn (abre em nova aba)">
+                            <div><img className={styles.networkFavicon} alt="" src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png" /></div>
+                        </a>
                     </div>
                     : <></>}
             </div>
