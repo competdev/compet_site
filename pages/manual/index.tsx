@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Link from "next/link"
+import { Alert, Snackbar } from "@mui/material"
 import styles from "./Manual.module.css"
 import Header from "../../components/Header"
 import PageHeader from "../../components/PageHeader"
@@ -33,7 +34,7 @@ const renderManual = dadosAtuais => {
                 {formularios()}
                 {estagio()}
                 {gruposGerais()}
-                {emails()}
+                <EmailsCoordenacaoCard />
                 {biblioteca()}
             </div>
         </div>
@@ -184,7 +185,40 @@ const gruposGerais = () => {
     )
 }
 
-const emails = () => {
+async function copyEmailToClipboard(email: string): Promise<boolean> {
+    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+        try {
+            await navigator.clipboard.writeText(email)
+            return true
+        } catch {
+            /* fallback abaixo */
+        }
+    }
+    if (typeof document === "undefined") return false
+    const ta = document.createElement("textarea")
+    ta.value = email
+    ta.setAttribute("readonly", "")
+    ta.style.position = "fixed"
+    ta.style.left = "-9999px"
+    document.body.appendChild(ta)
+    ta.select()
+    let ok = false
+    try {
+        ok = document.execCommand("copy")
+    } finally {
+        document.body.removeChild(ta)
+    }
+    return ok
+}
+
+function EmailsCoordenacaoCard() {
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
+
+    const handleCopy = async (email: string) => {
+        const ok = await copyEmailToClipboard(email)
+        if (ok) setSnackbarOpen(true)
+    }
+
     return (
         <div className={styles.manualCard}>
             <div className={styles.manualTitulo}>E-mails Coordenação</div>
@@ -198,19 +232,46 @@ const emails = () => {
             <div className={styles.email}>
                 <div className={styles.subtitulo}>Bruno</div>
                 <div className={styles.link}>
-                    <Link href="mailto:bsantos@cefetmg.br" target="_blank">
+                    <button
+                        type="button"
+                        className={styles.emailCopyButtonBare}
+                        onClick={() => void handleCopy("bsantos@cefetmg.br")}
+                        title="Copiar e-mail"
+                        aria-label="Copiar e-mail da coordenação (Bruno) para a área de transferência"
+                    >
                         E-mail
-                    </Link>
+                    </button>
                 </div>
             </div>
             <div className={styles.emailv}>
                 <div className={styles.subtitulo}>Jeferson</div>
                 <div className={styles.link}>
-                    <Link href="mailto:jeferson@cefetmg.br" target="_blank">
+                    <button
+                        type="button"
+                        className={styles.emailCopyButtonBare}
+                        onClick={() => void handleCopy("jeferson@cefetmg.br")}
+                        title="Copiar e-mail"
+                        aria-label="Copiar e-mail da coordenação (Jeferson) para a área de transferência"
+                    >
                         E-mail
-                    </Link>
+                    </button>
                 </div>
             </div>
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={4000}
+                onClose={() => setSnackbarOpen(false)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+                <Alert
+                    onClose={() => setSnackbarOpen(false)}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                >
+                    E-mail copiado com sucesso!
+                </Alert>
+            </Snackbar>
         </div>
     )
 }

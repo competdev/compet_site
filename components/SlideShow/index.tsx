@@ -5,7 +5,7 @@ import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css
 import styles from "./SlideShow.module.css";
 import cardStyles from "../../styles/MediaCard.module.css";
 import SectionTitle from "../SectionTitle";
-import { getCompetShows, SpotifyShow } from "./util/spotifyAPI";
+// import { getCompetShows, SpotifyShow } from "./util/spotifyAPI";
 import { YoutubeLiveStream, getLiveBroadcasts } from "./util/youtubeAPI";
 
 /** Se API não enviar capa (episódio + show sem imagens), ainda exibe o card */
@@ -41,15 +41,16 @@ const useStyles = makeStyles(() => ({
 
 const SlideShow = data => {
     const classes = useStyles()
-    const [dadosShows, setDadosShows] = useState<(SpotifyShow | YoutubeLiveStream)[]>([]);
+    const [dadosShows, setDadosShows] = useState<YoutubeLiveStream[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
-    // Busca podcast (Spotify) e lives (YouTube), ordena por data e exibe os 5 mais recentes
+    // Busca lives (YouTube); Spotify comentado temporariamente (ver getCompetShows em spotifyAPI)
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const podcasts = await getCompetShows();
+                // const podcasts = await getCompetShows();
+                const podcasts: YoutubeLiveStream[] = [];
                 const youtube = await getLiveBroadcasts().catch(() => []); // Se falhar, retorna array vazio
 
                 const sortedShows = [...podcasts, ...youtube].sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
@@ -97,7 +98,7 @@ const SlideShow = data => {
                                 thumbWidth={100}
                                 emulateTouch
                             >   
-                                {/* Exibe os conteúdos do Spotify e do YouTube */}
+                                {/* YouTube — Spotify comentado temporariamente no fetch */}
                                 {showsComImagens.map((show, index) => (  
                                     <div key={index}>
                                         {/* O YouTube disponibiliza 4 opções de thumbnail, sendo a na posição 0 a de maior resolução */}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { NEXT_URL } from "../../util/config"
 import axios from "axios"
+import type { NextPageContext } from "next"
+import { getInternalApiBaseUrl } from "../../util/config"
 
 import Head from 'next/dist/shared/lib/head';
 import Header from "../../components/Header";
@@ -18,10 +19,10 @@ import { showmateriasDisponivelsAgora } from '../../util/materias/utils/global/s
 import { Materias, Periodo } from '../../util/materias/utils/global/interfaces';
 import { removeDiff } from '../../util/materias/utils/global/removeDisponiveis';
 
-Fluxo_materias.getInitialProps = async () => {
-
-    const resNova = await axios.get(`${NEXT_URL}/api/gradeNova`);
-    const resVelha = await axios.get(`${NEXT_URL}/api/gradeAntiga`);
+Fluxo_materias.getInitialProps = async (ctx: NextPageContext) => {
+    const base = getInternalApiBaseUrl(ctx.req ?? undefined)
+    const resNova = await axios.get(`${base}/api/gradeNova`);
+    const resVelha = await axios.get(`${base}/api/gradeAntiga`);
     
     return {
         ehPreRequisitoDeNovo: resNova.data[0].ehPreRequisitoDeNovo,
@@ -88,6 +89,7 @@ export default function Fluxo_materias(props) {
 
     const [isToggled, setIsToggled] = useState(false);
 
+    const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "vertical">("horizontal");
     const [modo, setModo] = useState<number>(0);
     const [materiasFeitas, setMateriasFeitas] = useState<string[]>([]);
     const [materiasFeitasInput, setMateriasFeitasInput] = useState<string[]>([]);
@@ -218,13 +220,16 @@ export default function Fluxo_materias(props) {
         setModo(0);
     }
 
+    const clsRolamento = `${styles.rolamento}${layoutFluxo === "vertical" ? ` ${styles.rolamentoVertical}` : ""}`;
+    const clsMaterias = `${styles.materias}${layoutFluxo === "vertical" ? ` ${styles.materiasVertical}` : ""}`;
+    const clsColuna = `${styles.colunaMaterias}${layoutFluxo === "vertical" ? ` ${styles.colunaMateriasVertical}` : ""}`;
 
     return (
         <>
             <Head>
                 <title>COMPET | Fluxo Matérias</title>
             </Head>
-            <section className={styles.fluxoMaterias}>
+            <section>
                 <Header />
                 <div className={styles.opcoes}>
                     <label className="radioButtons">
@@ -255,6 +260,19 @@ export default function Fluxo_materias(props) {
                             <option value="Nova">Nova</option>
                         </select>
                     </label>
+                    <label>
+                        <select
+                            className={styles.botoes}
+                            value={layoutFluxo}
+                            onChange={e =>
+                                setLayoutFluxo(e.target.value as "horizontal" | "vertical")
+                            }
+                            aria-label="Disposição: horizontal ou vertical"
+                        >
+                            <option value="horizontal">Horizontal</option>
+                            <option value="vertical">Vertical</option>
+                        </select>
+                    </label>
                     <LightTooltip
                         TransitionComponent={Fade}
                         TransitionProps={{ timeout: 700 }}
@@ -281,17 +299,23 @@ export default function Fluxo_materias(props) {
                 </div>
                 <div className={styles.divisoria} />
 
-                <div className={styles.rolamento}>
+                <div className={clsRolamento}>
                     {/* MATÉRIAS OBRIGATÓRIAS */}
                     <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
-                    <div className={styles.materias}>
+                    <div className={clsMaterias}>
                         {(() => {
                             const elements = [];
                             for (let i = 1; i <= 10; i++) {
                                 elements.push(
-                                    <div key={i} className={styles.colunaMaterias}>
+                                    <div key={i} className={clsColuna}>
                                         <div className={styles.periodoMateria}>Período {i}</div>
-                                        <div>
+                                        <div
+                                            className={
+                                                layoutFluxo === "vertical"
+                                                    ? styles.periodoCardsWrap
+                                                    : undefined
+                                            }
+                                        >
                                             {db.materiasPorPeriodo[i].obrigatorias.map((materia, idx) => (
                                                 <div key={idx} className={styles.cardMaterias}
                                                     onClick={
@@ -351,15 +375,21 @@ export default function Fluxo_materias(props) {
 
                     {/* MATÉRIAS OPTATIVAS */}
                     <div className={styles.obrigatoriedade}>OPTATIVAS</div>
-                    <div className={styles.materias}>
+                    <div className={clsMaterias}>
                         {(() => {
                             const elements = [];
                             for (let i = 0; i <= 10; i++) {
                                 if (i === db.skipNumer) continue;
                                 elements.push(
-                                    <div key={i} className={styles.colunaMaterias}>
+                                    <div key={i} className={clsColuna}>
                                         <div className={styles.periodoMateria}>Período {i}</div>
-                                        <div>
+                                        <div
+                                            className={
+                                                layoutFluxo === "vertical"
+                                                    ? styles.periodoCardsWrap
+                                                    : undefined
+                                            }
+                                        >
                                             {db.materiasPorPeriodo[i].optativas.map((materia, idx) => (
                                                 <div key={idx} className={styles.cardMaterias}
                                                     onClick={

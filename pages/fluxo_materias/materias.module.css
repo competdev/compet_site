@@ -15,6 +15,10 @@
     font-family: "Codec Pro Regular";
     font-size: 1.2rem;
     font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.75rem;
 }
 
 .opcoes p {
@@ -104,6 +108,19 @@
     overflow-y: hidden;
 }
 
+.rolamentoVertical {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-bottom: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: min(100%, 100rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .obrigatoriedade {
     font-family: "Codec Pro Regular";
     font-size: 2.5em;
@@ -112,6 +129,12 @@
     margin-bottom: 0.5em;
     margin-top: 1.5em;
     margin-left: 0.5em;
+}
+
+.rolamentoVertical .obrigatoriedade {
+    margin-top: 1.1em;
+    margin-left: 0.1rem;
+    letter-spacing: 0.02em;
 }
 
 .periodoMateria {
@@ -130,9 +153,56 @@
     margin-right: 1%;
 }
 
+.materiasVertical {
+    flex-direction: column;
+    white-space: normal;
+    align-items: stretch;
+    margin-right: 0;
+    width: 100%;
+}
+
 .colunaMaterias {
     width:19em;
     margin-right: 1rem;
+}
+
+.colunaMateriasVertical {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-bottom: 1.1rem;
+    padding-top: 0.15rem;
+    border-bottom: 1px solid #d9dee5;
+    box-sizing: border-box;
+}
+
+.materiasVertical .colunaMateriasVertical:last-child {
+    border-bottom: none;
+    padding-bottom: 0.35rem;
+}
+
+.colunaMateriasVertical .periodoMateria {
+    text-align: left;
+    padding-left: 0.15rem;
+    margin-top: 0.35rem;
+    margin-bottom: 0.65rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004266;
+}
+
+.materiasVertical .colunaMateriasVertical:first-child .periodoMateria {
+    margin-top: 0.1rem;
+}
+
+.periodoCardsWrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 0.15rem 0 0.35rem;
+    width: 100%;
 }
 
 .cardMaterias {
