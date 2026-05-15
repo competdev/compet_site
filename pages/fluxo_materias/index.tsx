@@ -87,7 +87,7 @@ export default function Fluxo_materias(props) {
         materiasPorPeriodo: materiasPorPeriodoVelho
     };
 
-    const [isToggled, setIsToggled] = useState(false);
+    const [isToggled, setIsToggled] = useState(true);
 
     const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "vertical">("horizontal");
     const [modo, setModo] = useState<number>(0);
@@ -98,8 +98,8 @@ export default function Fluxo_materias(props) {
     const [materiasDisponiveis, setMateriasDisponiveis] = useState<Periodo[]>([]);
     const [db, setDb] = useState<LocalDB>(dbNovo);
 
-    const toggleButton = () => {
-        setIsToggled(prevState => !prevState);
+    const gradeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setIsToggled(e.target.value === "Nova");
     }
 
     React.useEffect(() => {
@@ -255,9 +255,14 @@ export default function Fluxo_materias(props) {
                     </label>
                     <label>
                         {/* Drop-list */}
-                        <select className={styles.botoes} onChange={toggleButton}>
-                            <option value="Velha">Velha</option>
+                        <select
+                            className={styles.botoes}
+                            value={isToggled ? "Nova" : "Velha"}
+                            onChange={gradeSelectChange}
+                            aria-label="Grade Nova ou Velha"
+                        >
                             <option value="Nova">Nova</option>
+                            <option value="Velha">Velha</option>
                         </select>
                     </label>
                     <label>
