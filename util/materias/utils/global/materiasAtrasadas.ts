@@ -1,4 +1,6 @@
+import { findMateriasDependentesPreRequisito } from "./findMateriasDependentes"
 import { Materias } from "./interfaces"
+import { normalizeNome } from "./normalizeNome"
 
 interface Periodo {
     periodo: string,
@@ -7,28 +9,47 @@ interface Periodo {
 }
 
 interface materiasAtrasadasRequest {
-    ehPreRequisitoDe: { [key: string]: string[] },
-    ehCorequisitoDe: { [key: string]: string[] },
     materiasATrancar: string[],
-    materiasFeitas: string[],
     materias: Materias[]
 }
 
-export function materiasAtrasadas({ ehCorequisitoDe, ehPreRequisitoDe, materiasATrancar, materias, materiasFeitas }: materiasAtrasadasRequest): Periodo[] {
+export function listarMateriasTrancadasCascata(
+    materiasATrancar: string[],
+    materias: Materias[]
+): string[] {
+    const inputSet = new Set(materiasATrancar.map((nome) => normalizeNome(nome)))
+    const atrasadas = materiasAtrasadas({ materiasATrancar, materias })
+    const nomes: string[] = []
+    for (const periodo of atrasadas) {
+        for (const nome of [...periodo.obrigatorias, ...periodo.optativas]) {
+            if (!inputSet.has(normalizeNome(nome))) nomes.push(nome)
+        }
+    }
+    return nomes
+}
+
+export function materiasAtrasadas({ materiasATrancar, materias }: materiasAtrasadasRequest): Periodo[] {
 
     const ansSet: Set<string> = new Set()
-    const stack: string[] = materiasATrancar
+    const stack: string[] = [...materiasATrancar]
     const retorno: Periodo[] = []
 
     while (stack.length > 0) {
 
-        const curr = stack[stack.length - 1]; stack.pop()
+        const curr = stack.pop() as string
+        const currChave = normalizeNome(curr)
 
-        if (ansSet.has(curr)) continue
-        ansSet.add(curr)
+        if (ansSet.has(currChave)) continue
+        ansSet.add(currChave)
 
-        const materia: Materias = materias.find(m => m.nome === curr) as Materias
-        const indexAlreadyAdded = retorno.findIndex(retorno => retorno.periodo === materia.periodo.toString())
+        const materia = materias.find(
+            (m) => normalizeNome(m.nome) === currChave
+        )
+        if (!materia) continue
+
+        const indexAlreadyAdded = retorno.findIndex(
+            (retorno) => retorno.periodo === materia.periodo.toString()
+        )
 
         if (indexAlreadyAdded === -1) {
             if (materia.natureza === "OB")
@@ -42,20 +63,8 @@ export function materiasAtrasadas({ ehCorequisitoDe, ehPreRequisitoDe, materiasA
                 retorno[indexAlreadyAdded].optativas.push(materia.nome)
         }
 
-        if (ehPreRequisitoDe[curr]) {
-            for (const u of ehPreRequisitoDe[curr]) {
-                if (!materiasFeitas.includes(u)) {
-                    stack.push(u)
-                }
-            }
-        }
-
-        if (ehCorequisitoDe[curr]) {
-            for (const u of ehCorequisitoDe[curr]) {
-                if (!materiasFeitas.includes(u)) {
-                    stack.push(u)
-                }
-            }
+        for (const u of findMateriasDependentesPreRequisito(materias, materia.nome)) {
+            stack.push(u)
         }
 
     }
