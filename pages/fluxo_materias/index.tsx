@@ -9,8 +9,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { Tooltip } from '@mui/material';
+import type { TooltipProps } from '@mui/material/Tooltip';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { InfoOutlined } from '@mui/icons-material';
-import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
 import styles from "./materias.module.css";
 
@@ -59,26 +60,31 @@ interface LocalDB {
     materiasPorPeriodo: Periodo[]
 }
 
-const LightTooltip = withStyles((theme) => ({
+const tooltipAzulSlotProps: TooltipProps["slotProps"] = {
     tooltip: {
-        backgroundColor: "#004266",
-        borderRadius: "20px",
-        padding: "25px",
-        color: "#fdfdfd",
-        maxWidth: 500,
-        fontFamily: "Verdana",
-        fontSize: 15,
-        textAlign: "justify",
+        sx: {
+            bgcolor: "#004266",
+            borderRadius: "20px",
+            padding: "25px",
+            color: "#fdfdfd",
+            maxWidth: 500,
+            fontFamily: "Verdana, sans-serif",
+            fontSize: 15,
+            textAlign: "justify",
+        },
     },
     arrow: {
-        fontSize: 25,
-        width: 25,
-        "&::before": {
-            backgroundColor: "#004266",
-            boxSizing: "border-box"
-        }
+        sx: {
+            color: "#004266",
+            fontSize: 25,
+            width: 25,
+            "&::before": {
+                backgroundColor: "#004266",
+                boxSizing: "border-box",
+            },
+        },
     },
-}))(Tooltip);
+};
 
 function formatCargaHoraria(carga: number | undefined): string {
     return `${carga ?? 0}h`
@@ -112,6 +118,10 @@ export default function Fluxo_materias(props) {
     /** Só entra aqui com clique explícito em "Concluída" (nunca por corequisito). */
     const [materiasFeitas, setMateriasFeitas] = useState<NomesMarcados>({});
     const [materiasTrancar, setMateriasTrancar] = useState<NomesMarcados>({});
+    const [tooltipInfoAberto, setTooltipInfoAberto] = useState<string | null>(null);
+    const [tooltipAjudaAberto, setTooltipAjudaAberto] = useState(false);
+
+    const toqueSemHover = useMediaQuery("(hover: none), (pointer: coarse)");
 
     const db = isToggled ? dbs.novo : dbs.velho;
 
@@ -147,6 +157,32 @@ export default function Fluxo_materias(props) {
             cancelado = true
         }
     }, [])
+
+    React.useEffect(() => {
+        if (!toqueSemHover || tooltipInfoAberto === null) return;
+
+        const fecharTooltipInfo = (event: PointerEvent) => {
+            const alvo = event.target as HTMLElement | null;
+            if (alvo?.closest("[data-info-tooltip-trigger]")) return;
+            setTooltipInfoAberto(null);
+        };
+
+        document.addEventListener("pointerdown", fecharTooltipInfo);
+        return () => document.removeEventListener("pointerdown", fecharTooltipInfo);
+    }, [toqueSemHover, tooltipInfoAberto]);
+
+    React.useEffect(() => {
+        if (!toqueSemHover || !tooltipAjudaAberto) return;
+
+        const fecharTooltipAjuda = (event: PointerEvent) => {
+            const alvo = event.target as HTMLElement | null;
+            if (alvo?.closest("[data-ajuda-tooltip-trigger]")) return;
+            setTooltipAjudaAberto(false);
+        };
+
+        document.addEventListener("pointerdown", fecharTooltipAjuda);
+        return () => document.removeEventListener("pointerdown", fecharTooltipAjuda);
+    }, [toqueSemHover, tooltipAjudaAberto]);
 
     const gradeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setIsToggled(e.target.value === "Nova");
@@ -233,16 +269,28 @@ export default function Fluxo_materias(props) {
         setModo(Number(event.target.value) as 0 | 1 | 2);
     }
 
-    function isMateriaDisponivel(nome: string, feitas: string[]): boolean {
-        return showmateriasDisponivelsAgora({
+    function flattenMateriasDisponiveis(feitas: string[], trancar: string[]): string[] {
+        const disp = showmateriasDisponivelsAgora({
             materias: db.materias,
             materiasFeitas: feitas,
             materiasPorPeriodo: db.materiasPorPeriodo,
-            materiasTrancadas: nomesTrancar,
-        }).some(
-            (periodo) =>
-                periodo.obrigatorias.includes(nome) || periodo.optativas.includes(nome)
-        );
+            materiasTrancadas: trancar,
+        })
+        const nomesDisp: string[] = []
+        for (const periodo of disp) {
+            nomesDisp.push(...periodo.obrigatorias, ...periodo.optativas)
+        }
+        return nomesDisp
+    }
+
+    function isMateriaDisponivel(
+        nome: string,
+        feitas: string[],
+        trancar: string[] = nomesTrancar
+    ): boolean {
+        return flattenMateriasDisponiveis(feitas, trancar).some(
+            (m) => normalizeNome(m) === normalizeNome(nome)
+        )
     }
 
     function calcularCascataTrancados(
@@ -353,31 +401,39 @@ export default function Fluxo_materias(props) {
         let nextFeitas = { ...materiasFeitas };
         let nextTrancar = { ...materiasTrancarRef.current };
 
-        for (const nome of nomes) {
-            const feitasList = listaNomes(nextFeitas);
-            const trancarList = nomesTrancadosCanonicos(nextTrancar);
-            const cascata = listarMateriasTrancadasCascata(trancarList, db.materias);
-            const disponivel = isMateriaDisponivel(nome, feitasList);
+        let houveMudanca = true;
+        while (houveMudanca) {
+            houveMudanca = false;
+            for (const nome of nomes) {
+                const chave = normalizeNome(nome);
+                if (nextFeitas[chave]) continue;
 
-            if (
-                !podeMarcarConcluida(
-                    nome,
-                    db.materias,
-                    feitasList,
-                    cascata,
-                    trancarList,
-                    disponivel,
-                    listaMateriasDisponiveis
-                )
-            ) {
-                continue;
+                const feitasList = listaNomes(nextFeitas);
+                const trancarList = nomesTrancadosCanonicos(nextTrancar);
+                const cascata = listarMateriasTrancadasCascata(trancarList, db.materias);
+                const listaDisp = flattenMateriasDisponiveis(feitasList, trancarList);
+                const disponivel = listaDisp.some(
+                    (m) => normalizeNome(m) === normalizeNome(nome)
+                );
+
+                if (
+                    !podeMarcarConcluida(
+                        nome,
+                        db.materias,
+                        feitasList,
+                        cascata,
+                        trancarList,
+                        disponivel,
+                        listaDisp
+                    )
+                ) {
+                    continue;
+                }
+
+                delete nextTrancar[chave];
+                nextFeitas[chave] = true;
+                houveMudanca = true;
             }
-
-            if (nextFeitas[normalizeNome(nome)]) continue;
-
-            const chave = normalizeNome(nome);
-            delete nextTrancar[chave];
-            nextFeitas[chave] = true;
         }
 
         setMateriasTrancar(nextTrancar);
@@ -462,7 +518,10 @@ export default function Fluxo_materias(props) {
                                   ? ` ${styles.btnPeriodoTodoTrancar}`
                                   : ` ${styles.btnPeriodoTodoInativo}`
                         }`}
-                        onClick={() => handlePeriodoTodo(periodoIdx, lista)}
+                        onClick={(event) => {
+                            handlePeriodoTodo(periodoIdx, lista);
+                            event.currentTarget.blur();
+                        }}
                         disabled={modo === 0}
                         aria-label={rotuloBotao}
                         title={rotuloBotao}
@@ -655,6 +714,10 @@ export default function Fluxo_materias(props) {
         keyPrefix: string
     ) {
         const estado = estadoCard(materia, periodoIdx, lista)
+        const chaveInfo = normalizeNome(materia)
+        const infoTooltipAberto =
+            toqueSemHover && tooltipInfoAberto === chaveInfo
+
         return (
             <div
                 key={`${keyPrefix}-${periodoIdx}-${materia}`}
@@ -663,12 +726,18 @@ export default function Fluxo_materias(props) {
                 data-modo={modo}
                 onPointerDown={(e) => handleMateriaPointer(e, materia)}
             >
-                <LightTooltip
+                <Tooltip
                     TransitionComponent={Fade}
                     TransitionProps={{ timeout: 400 }}
                     title={renderTooltipDependencias(materia)}
                     placement="top"
                     arrow
+                    open={toqueSemHover ? infoTooltipAberto : undefined}
+                    disableHoverListener={toqueSemHover}
+                    disableFocusListener={toqueSemHover}
+                    disableTouchListener={false}
+                    onClose={() => setTooltipInfoAberto(null)}
+                    slotProps={tooltipAzulSlotProps}
                     PopperProps={{
                         style: { zIndex: 10000 },
                     }}
@@ -676,13 +745,29 @@ export default function Fluxo_materias(props) {
                     <button
                         type="button"
                         className={styles.cardInfoBtn}
+                        data-info-tooltip-trigger
                         aria-label={`Ver pré e corequisitos de ${materia}`}
-                        onPointerDown={pararPropagacaoCard}
-                        onClick={pararPropagacaoCard}
+                        aria-expanded={infoTooltipAberto}
+                        onPointerDown={(e) => {
+                            if (toqueSemHover) {
+                                e.stopPropagation();
+                            } else {
+                                pararPropagacaoCard(e);
+                            }
+                        }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            if (toqueSemHover) {
+                                setTooltipInfoAberto((prev) =>
+                                    prev === chaveInfo ? null : chaveInfo
+                                );
+                            }
+                        }}
                     >
                         <InfoOutlined fontSize="small" />
                     </button>
-                </LightTooltip>
+                </Tooltip>
                 <span className={styles.cardMateriaNome}>{materia}</span>
             </div>
         )
@@ -742,28 +827,47 @@ export default function Fluxo_materias(props) {
                             <option value="vertical">Vertical</option>
                         </select>
                     </label>
-                    <LightTooltip
-                        TransitionComponent={Fade}
-                        TransitionProps={{ timeout: 700 }}
-                        title={
-                            <span>
-                                <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita<br />
-                                <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
-                            </span>
-                        }
-                        placement="top"
-                        arrow
-                        PopperProps={{
-                            modifiers: [{
-                                name: 'offset',
-                                options: {
-                                    offset: [0, -8],
-                                },
-                            },],
-                            style: { zIndex: 10000 },
-                        }}>
-                        <p>i</p>
-                    </LightTooltip>
+                <Tooltip
+                    TransitionComponent={Fade}
+                    TransitionProps={{ timeout: 700 }}
+                    title={
+                        <span>
+                            <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita<br />
+                            <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
+                        </span>
+                    }
+                    placement="top"
+                    arrow
+                    open={toqueSemHover ? tooltipAjudaAberto : undefined}
+                    disableHoverListener={toqueSemHover}
+                    disableFocusListener={toqueSemHover}
+                    disableTouchListener={false}
+                    onClose={() => setTooltipAjudaAberto(false)}
+                    slotProps={tooltipAzulSlotProps}
+                    PopperProps={{
+                        modifiers: [{
+                            name: 'offset',
+                            options: {
+                                offset: [0, -8],
+                            },
+                        },],
+                        style: { zIndex: 10000 },
+                    }}>
+                    <button
+                        type="button"
+                        className={styles.tooltipAjudaBtn}
+                        data-ajuda-tooltip-trigger
+                        aria-label="Ajuda sobre Concluída e Desejo trancar"
+                        aria-expanded={tooltipAjudaAberto}
+                        onClick={(e) => {
+                            if (!toqueSemHover) return;
+                            e.stopPropagation();
+                            setTooltipAjudaAberto((prev) => !prev);
+                        }}
+                    >
+                        i
+                    </button>
+                </Tooltip>
                     <div
                         className={styles.horasIntegralizadas}
                         aria-label="Horas integralizadas das matérias concluídas"

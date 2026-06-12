@@ -30,24 +30,34 @@
     text-align: center;
     padding-top: 0.2em;
     border: 2px solid #000;
-    
     font-family: "Codec Pro Regular";
     font-size: 0.9rem;
 }
 
-.opcoes p:hover { 
+.tooltipAjudaBtn {
     display: inline-block;
     margin-left: 0.5em;
     width: 1.3em;
+    height: 1.3em;
     line-height: 0.8em;
     border-radius: 50%;
     text-align: center;
+    padding: 0;
     padding-top: 0.2em;
-    border: 2px solid #19dd3ac7;
-    color: #19dd3ac7;
-    
+    border: 2px solid #000;
+    background: transparent;
     font-family: "Codec Pro Regular";
     font-size: 0.9rem;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .tooltipAjudaBtn:hover {
+        border: 2px solid #19dd3ac7;
+        color: #19dd3ac7;
+    }
 }
 
 .horasIntegralizadas {
@@ -211,20 +221,23 @@
     cursor: pointer;
     flex-shrink: 0;
     transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.btnPeriodoTodo:hover:not(:disabled) {
-    transform: scale(1.12);
-}
+@media (hover: hover) and (pointer: fine) {
+    .btnPeriodoTodo:hover:not(:disabled) {
+        transform: scale(1.12);
+    }
 
-.btnPeriodoTodoConcluida:hover:not(:disabled) {
-    border-color: #19dd3ac7;
-    background-color: #19dd3a33;
-}
+    .btnPeriodoTodoConcluida:hover:not(:disabled) {
+        border-color: #19dd3ac7;
+        background-color: #19dd3a33;
+    }
 
-.btnPeriodoTodoTrancar:hover:not(:disabled) {
-    border-color: #b30606;
-    background-color: #b3060622;
+    .btnPeriodoTodoTrancar:hover:not(:disabled) {
+        border-color: #b30606;
+        background-color: #b3060622;
+    }
 }
 
 .btnPeriodoTodoInativo,
@@ -334,16 +347,23 @@
     background: transparent;
     color: inherit;
     opacity: 0.7;
-    cursor: help;
+    cursor: pointer;
     z-index: 2;
     line-height: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.cardInfoBtn:hover,
-.cardInfoBtn:focus-visible {
+@media (hover: hover) and (pointer: fine) {
+    .cardInfoBtn:hover,
+    .cardInfoBtn:focus-visible {
+        opacity: 1;
+        outline: 2px solid currentColor;
+        outline-offset: 1px;
+    }
+}
+
+.cardInfoBtn:active {
     opacity: 1;
-    outline: 2px solid currentColor;
-    outline-offset: 1px;
 }
 
 .tooltipDeps {
@@ -411,23 +431,25 @@
     cursor: not-allowed !important;
 }
 
-.fluxoModoConcluida .cardMaterias[data-estado="disponivel"]:hover,
-.fluxoModoConcluida .cardMaterias[data-estado="feita"]:hover {
-    border-width: 3px;
-    border-color: #19dd3ac7;
-    transform: scale(1.04);
-    z-index: 1;
-}
+@media (hover: hover) and (pointer: fine) {
+    .fluxoModoConcluida .cardMaterias[data-estado="disponivel"]:hover,
+    .fluxoModoConcluida .cardMaterias[data-estado="feita"]:hover {
+        border-width: 3px;
+        border-color: #19dd3ac7;
+        transform: scale(1.04);
+        z-index: 1;
+    }
 
-.fluxoModoTrancar .cardMaterias:not([data-estado="bloqueada"]):hover {
-    border-width: 2px;
-    border-color: #b30606;
-    transform: scale(1.04);
-    z-index: 1;
-}
+    .fluxoModoTrancar .cardMaterias:not([data-estado="bloqueada"]):hover {
+        border-width: 2px;
+        border-color: #b30606;
+        transform: scale(1.04);
+        z-index: 1;
+    }
 
-.cardMaterias[data-estado="bloqueada"]:hover {
-    transform: none;
+    .cardMaterias[data-estado="bloqueada"]:hover {
+        transform: none;
+    }
 }
 
 .nomeMateria {
