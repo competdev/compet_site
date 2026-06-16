@@ -26,7 +26,12 @@ export default async (req, res) => {
         await transporter.sendMail(mailOptions)
         return res.status(200).end()
     } catch (err) {
-        console.log(`Error sending email: ${err}`)
-        return res.status(500).end()
-    }
+    console.error("Erro:", err)
+
+    return res.status(500).json({
+        message: err.message,
+        code: err.code,
+        response: err.response
+    })
+}
 }
