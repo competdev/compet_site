@@ -55,42 +55,46 @@ export default function Contato() {
     }
 
     const handleSubmit = (e: React.SyntheticEvent) => {
-        e.preventDefault()
-        const target = e.target as typeof e.target & {
-            name: { value: string }
-            email: { value: string }
-            subject: { value: string }
-            message: { value: string }
-        }
+    e.preventDefault()
 
-        const name = target.name.value
-        const email = target.email.value
-        const subject = target.subject.value
-        const message = target.message.value
-
-        fetch("/api/contato", {
-            method: "POST",
-            headers: {
-                Accept: "application/json, text/plain, */*",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ name, email, subject, message }),
-        })
-            .then(response => {
-                console.log("response received")
-                if (response.status === 200) {
-                    openModal(true)
-                }
-            })
-            .then(target => {
-                console.log(target)
-            })
-            .then(error => {
-                console.error(error)
-                openModal(false)
-            })
+    const target = e.target as typeof e.target & {
+        name: { value: string }
+        email: { value: string }
+        subject: { value: string }
+        message: { value: string }
     }
 
+    const name = target.name.value
+    const email = target.email.value
+    const subject = target.subject.value
+    const message = target.message.value
+
+    fetch("/api/contato", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message,
+        }),
+    })
+        .then(async (response) => {
+            if (!response.ok) {
+                const error = await response.json()
+                throw new Error(error.message || "Erro ao enviar")
+            }
+
+            console.log("Mensagem enviada com sucesso")
+            openModal(true)
+        })
+        .catch((error) => {
+            console.error("Erro ao enviar:", error)
+            openModal(false)
+        })
+}
     const sectionTitle = "Contato"
     const sectionInfo =
         "Entre em contato com a equipe do COMPET através do formulário abaixo ou por meio de uma das redes sociais do grupo listadas logo abaixo. Tentaremos lhe retornar o mais breve possivel."
