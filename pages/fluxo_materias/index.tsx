@@ -33,6 +33,7 @@ import {
 } from '../../util/materias/utils/global/materiaFluxoRules';
 import { normalizeNome } from '../../util/materias/utils/global/normalizeNome';
 import { formatarRotuloProfessores } from '../../util/materias/utils/global/separarOptativas';
+import { apelidoMateria } from '../../util/materias/utils/global/apelidoMateria';
 
 type NomesMarcados = Record<string, true>;
 
@@ -160,7 +161,7 @@ export default function Fluxo_materias(props) {
 
     const [isToggled, setIsToggled] = useState(true);
 
-    const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "vertical">("horizontal");
+    const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "reduzida" | "vertical">("reduzida");
     const [modo, setModo] = useState<0 | 1 | 2>(0);
     /** Só entra aqui com clique explícito em "Concluída" (nunca por corequisito). */
     const [materiasFeitas, setMateriasFeitas] = useState<NomesMarcados>({});
@@ -662,9 +663,30 @@ export default function Fluxo_materias(props) {
     }
 
     const clsRolamentoWrap = `${styles.rolamentoWrap}${layoutFluxo === "vertical" ? ` ${styles.rolamentoWrapVertical}` : ""}`;
-    const clsRolamento = `${styles.rolamento}${layoutFluxo === "vertical" ? ` ${styles.rolamentoVertical}` : ""}`;
-    const clsMaterias = `${styles.materias}${layoutFluxo === "vertical" ? ` ${styles.materiasVertical}` : ""}`;
-    const clsColuna = `${styles.colunaMaterias}${layoutFluxo === "vertical" ? ` ${styles.colunaMateriasVertical}` : ""}`;
+    const clsRolamento = [
+        styles.rolamento,
+        layoutFluxo === "vertical" ? styles.rolamentoVertical : "",
+        layoutFluxo === "reduzida" ? styles.rolamentoReduzida : "",
+        layoutFluxo === "horizontal" ? styles.rolamentoHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
+    const clsMaterias = [
+        styles.materias,
+        layoutFluxo === "vertical" ? styles.materiasVertical : "",
+        layoutFluxo === "reduzida" ? styles.materiasReduzida : "",
+        layoutFluxo === "horizontal" ? styles.materiasHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
+    const clsColuna = [
+        styles.colunaMaterias,
+        layoutFluxo === "vertical" ? styles.colunaMateriasVertical : "",
+        layoutFluxo === "reduzida" ? styles.colunaMateriasReduzida : "",
+        layoutFluxo === "horizontal" ? styles.colunaMateriasHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
 
     function handleMateriaPointer(
         event: React.PointerEvent<HTMLDivElement>,
@@ -808,12 +830,14 @@ export default function Fluxo_materias(props) {
     ) {
         const estado = estadoCard(materia, periodoIdx, lista)
         const chaveInfo = normalizeNome(materia)
+        const usarApelido = layoutFluxo !== "horizontal"
+        const rotulo = usarApelido ? apelidoMateria(materia) : materia
 
         const botaoInfo = (
             <button
                 type="button"
                 className={styles.cardInfoBtn}
-                aria-label={`Ver pré e corequisitos de ${materia}`}
+                aria-label={`Ver informações de ${materia}`}
                 onPointerDown={(e) => {
                     e.stopPropagation();
                     if (!toqueSemHover) {
@@ -840,7 +864,7 @@ export default function Fluxo_materias(props) {
                 className={styles.cardMaterias}
                 data-estado={estado}
                 data-modo={modo}
-                title={materia}
+                title={rotulo !== materia ? `${rotulo} — ${materia}` : materia}
                 onPointerDown={(e) => handleMateriaPointer(e, materia)}
             >
                 {toqueSemHover ? (
@@ -858,7 +882,7 @@ export default function Fluxo_materias(props) {
                         {botaoInfo}
                     </Tooltip>
                 )}
-                <span className={styles.cardMateriaNome}>{materia}</span>
+                <span className={styles.cardMateriaNome}>{rotulo}</span>
             </div>
         )
     }
@@ -868,7 +892,7 @@ export default function Fluxo_materias(props) {
 
         return (
             <div className={styles.secaoOptativas}>
-                <div className={styles.obrigatoriedade}>Matérias optativas</div>
+                <div className={styles.obrigatoriedade}>OPTATIVAS</div>
 
                 <div className={styles.optativasGrupo}>
                     <h3 className={styles.optativasGrupoTitulo}>
@@ -1036,11 +1060,14 @@ export default function Fluxo_materias(props) {
                             className={styles.botoes}
                             value={layoutFluxo}
                             onChange={e =>
-                                setLayoutFluxo(e.target.value as "horizontal" | "vertical")
+                                setLayoutFluxo(
+                                    e.target.value as "horizontal" | "reduzida" | "vertical"
+                                )
                             }
-                            aria-label="Disposição: horizontal ou vertical"
+                            aria-label="Disposição do fluxo"
                         >
                             <option value="horizontal">Horizontal</option>
+                            <option value="reduzida">Reduzida</option>
                             <option value="vertical">Vertical</option>
                         </select>
                     </label>
@@ -1134,10 +1161,9 @@ export default function Fluxo_materias(props) {
                 </div>
                 <div className={styles.divisoria} />
 
+                <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
                 <div className={clsRolamentoWrap}>
                     <div className={clsRolamento}>
-                        {/* MATÉRIAS OBRIGATÓRIAS */}
-                        <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
                         <div className={`${clsMaterias} ${clsFluxoModo}`}>
                             {(() => {
                                 const elements = [];

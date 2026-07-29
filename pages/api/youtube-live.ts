@@ -11,7 +11,11 @@ type YoutubeLiveStream = {
     release_date: string
 }
 
+/** Cache em memória para evitar esgotar a cota da YouTube Data API a cada visita. */
+const CACHE_TTL_MS = 30 * 60 * 1000 // 30 minutos
 let accessToken = ""
+let cachedBroadcasts: YoutubeLiveStream[] | null = null
+let cacheExpiresAt = 0
 
 async function refreshAccessToken(
     clientId: string,
@@ -91,9 +95,25 @@ async function fetchLiveBroadcastsOnce(): Promise<YoutubeLiveStream[]> {
     return liveBroadcasts
 }
 
+function isQuotaExceeded(error: any): boolean {
+    const code = error.response?.data?.error?.code ?? error.response?.status
+    const message: string = error.response?.data?.error?.message ?? ""
+    return code === 403 && /quota/i.test(message)
+}
+
+function respondWithBroadcasts(res: NextApiResponse, broadcasts: YoutubeLiveStream[]) {
+    res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=3600")
+    return res.status(200).json(broadcasts)
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Método não permitido" })
+    }
+
+    const now = Date.now()
+    if (cachedBroadcasts !== null && now < cacheExpiresAt) {
+        return respondWithBroadcasts(res, cachedBroadcasts)
     }
 
     const refreshToken = process.env.YOUTUBE_REFRESH_TOKEN
@@ -102,9 +122,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!refreshToken || !clientId || !clientSecret) {
         console.error("Variáveis YOUTUBE_* não configuradas no servidor")
-        return res.status(500).json({
-            error: "Credenciais YouTube não configuradas (servidor)",
-        })
+        return respondWithBroadcasts(res, cachedBroadcasts ?? [])
     }
 
     try {
@@ -113,19 +131,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         try {
             const broadcasts = await fetchLiveBroadcastsOnce()
-            return res.status(200).json(broadcasts)
+            cachedBroadcasts = broadcasts
+            cacheExpiresAt = now + CACHE_TTL_MS
+            return respondWithBroadcasts(res, broadcasts)
         } catch (error: any) {
             if (error.response?.status === 401) {
                 await refreshAccessToken(clientId, clientSecret, refreshToken)
                 const broadcasts = await fetchLiveBroadcastsOnce()
-                return res.status(200).json(broadcasts)
+                cachedBroadcasts = broadcasts
+                cacheExpiresAt = now + CACHE_TTL_MS
+                return respondWithBroadcasts(res, broadcasts)
             }
             throw error
         }
     } catch (error: any) {
-        console.error("Erro API youtube-live:", error.response?.data || error.message)
-        return res.status(500).json({
-            error: error.response?.data?.error_description || error.message || "Erro YouTube",
-        })
+        const youtubeError = error.response?.data || error.message
+        console.error("Erro API youtube-live:", youtubeError)
+
+        // Degradação graciosa: não quebra a home com 500 (cota, rede, etc.)
+        if (cachedBroadcasts !== null) {
+            // Mantém o cache um pouco mais enquanto a API estiver indisponível
+            cacheExpiresAt = now + CACHE_TTL_MS
+            return respondWithBroadcasts(res, cachedBroadcasts)
+        }
+
+        if (isQuotaExceeded(error)) {
+            // Evita novas tentativas imediatas que só consomem mais cota
+            cachedBroadcasts = []
+            cacheExpiresAt = now + CACHE_TTL_MS
+            console.warn("Cota YouTube excedida — retornando lista vazia até o cache expirar.")
+        }
+
+        return respondWithBroadcasts(res, [])
     }
 }

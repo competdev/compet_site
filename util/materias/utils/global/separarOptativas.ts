@@ -1,4 +1,5 @@
 import { Materias } from "./interfaces"
+import { ordenarPorSimilaridade } from "./ordenarPorSimilaridade"
 
 export interface OptativasSeparadas {
     optativas: Materias[]
@@ -6,21 +7,17 @@ export interface OptativasSeparadas {
     optativasNaoOfertadas: Materias[]
 }
 
-function compararNomes(a: Materias, b: Materias): number {
-    return a.nome.localeCompare(b.nome, "pt-BR")
-}
-
 /** Optativas da grade atual — fora do agrupamento por período. */
 export function separarOptativas(materias: Materias[]): OptativasSeparadas {
     const optativas = materias.filter((materia) => materia.natureza === "OP")
 
-    const optativasOfertadas = optativas
-        .filter((materia) => materia.ofertada === true)
-        .sort(compararNomes)
+    const optativasOfertadas = ordenarPorSimilaridade(
+        optativas.filter((materia) => materia.ofertada === true)
+    )
 
-    const optativasNaoOfertadas = optativas
-        .filter((materia) => materia.ofertada !== true)
-        .sort(compararNomes)
+    const optativasNaoOfertadas = ordenarPorSimilaridade(
+        optativas.filter((materia) => materia.ofertada !== true)
+    )
 
     return { optativas, optativasOfertadas, optativasNaoOfertadas }
 }

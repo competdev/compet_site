@@ -1,4 +1,5 @@
 import { Materias, Periodo } from "./interfaces"
+import { ordenarNomesPorSimilaridade } from "./ordenarPorSimilaridade"
 
 interface FetchMateriasSeparadasPorPeriodoResponse {
   materiasPorPeriodo: Periodo[]
@@ -26,11 +27,11 @@ export function fetchMateriasSeparadasPorPeriodo(materias: Materias[]): FetchMat
     materiasPorPeriodo[idx].obrigatorias.push(materia.nome)
   }
 
-  const compararNomes = (a: string, b: string) =>
-    a.localeCompare(b, "pt-BR", { sensitivity: "base" })
-
   for (let i = 0; i <= MAX_PERIODO; i++) {
-    materiasPorPeriodo[i].obrigatorias.sort(compararNomes)
+    materiasPorPeriodo[i].obrigatorias = ordenarNomesPorSimilaridade(
+      materiasPorPeriodo[i].obrigatorias,
+      materias
+    )
   }
 
   return { materiasPorPeriodo }

@@ -100,21 +100,89 @@ describe("separarOptativas", () => {
         assert.ok(optativasNaoOfertadas.every((m) => m.ofertada !== true))
     })
 
-    it("ordena alfabeticamente em pt-BR", () => {
-        const { optativasOfertadas, optativasNaoOfertadas } = separarOptativas(base)
-        assert.deepEqual(
-            optativasOfertadas.map((m) => m.nome),
-            ["Banco de Dados II", "Visão Computacional"]
-        )
-        assert.deepEqual(
-            optativasNaoOfertadas.map((m) => m.nome),
-            ["Robótica", "Sem Flag"]
-        )
+    it("agrupa optativas por similaridade (não exige ordem alfabética rígida)", () => {
+        const lista: Materias[] = [
+            materia({
+                nome: "Química",
+                natureza: "OP",
+                grade: "nova",
+                ofertada: true,
+            }),
+            materia({
+                nome: "Banco de Dados II",
+                natureza: "OP",
+                grade: "nova",
+                ofertada: true,
+            }),
+            materia({
+                nome: "Banco de Dados I",
+                natureza: "OP",
+                grade: "nova",
+                ofertada: true,
+            }),
+            materia({
+                nome: "Visão Computacional",
+                natureza: "OP",
+                grade: "nova",
+                ofertada: true,
+            }),
+        ]
+        const { optativasOfertadas } = separarOptativas(lista)
+        const nomes = optativasOfertadas.map((m) => m.nome)
+        const iBd1 = nomes.indexOf("Banco de Dados I")
+        const iBd2 = nomes.indexOf("Banco de Dados II")
+        assert.equal(Math.abs(iBd1 - iBd2), 1)
     })
 
     it("trata ausência de ofertada como não ofertada", () => {
         const { optativasNaoOfertadas } = separarOptativas(base)
         assert.ok(optativasNaoOfertadas.some((m) => m.nome === "Sem Flag"))
+    })
+})
+
+describe("ordenarPorSimilaridade", () => {
+    it("aproxima AEDs de Lab AEDs e Cálculo de GAAL", async () => {
+        const { ordenarPorSimilaridade } = await import("./ordenarPorSimilaridade")
+        const lista = [
+            materia({
+                nome: "Matemática Discreta",
+                natureza: "OB",
+                periodo: "1",
+            }),
+            materia({
+                nome: "Laboratório de Algoritmos e Estruturas de Dados I",
+                natureza: "OB",
+                periodo: "1",
+                corequisitos: ["Algoritmos e Estruturas de Dados I"],
+            }),
+            materia({
+                nome: "Geometria Analítica e Álgebra Linear",
+                natureza: "OB",
+                periodo: "1",
+            }),
+            materia({
+                nome: "Algoritmos e Estruturas de Dados I",
+                natureza: "OB",
+                periodo: "1",
+                corequisitos: ["Laboratório de Algoritmos e Estruturas de Dados I"],
+            }),
+            materia({
+                nome: "Cálculo com Funções de uma Variável Real",
+                natureza: "OB",
+                periodo: "1",
+            }),
+        ]
+
+        const nomes = ordenarPorSimilaridade(lista).map((m) => m.nome)
+        const iAed = nomes.indexOf("Algoritmos e Estruturas de Dados I")
+        const iLab = nomes.indexOf(
+            "Laboratório de Algoritmos e Estruturas de Dados I"
+        )
+        const iCalc = nomes.indexOf("Cálculo com Funções de uma Variável Real")
+        const iGaal = nomes.indexOf("Geometria Analítica e Álgebra Linear")
+
+        assert.equal(Math.abs(iAed - iLab), 1)
+        assert.equal(Math.abs(iCalc - iGaal), 1)
     })
 })
 
