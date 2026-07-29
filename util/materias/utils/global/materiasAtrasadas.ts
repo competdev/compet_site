@@ -47,15 +47,16 @@ export function materiasAtrasadas({ materiasATrancar, materias }: materiasAtrasa
         )
         if (!materia) continue
 
+        const periodoKey = String(materia.periodo ?? "")
         const indexAlreadyAdded = retorno.findIndex(
-            (retorno) => retorno.periodo === materia.periodo.toString()
+            (retorno) => retorno.periodo === periodoKey
         )
 
         if (indexAlreadyAdded === -1) {
             if (materia.natureza === "OB")
-                retorno.push({ periodo: materia.periodo.toString(), obrigatorias: [materia.nome], optativas: [] })
+                retorno.push({ periodo: periodoKey, obrigatorias: [materia.nome], optativas: [] })
             else
-                retorno.push({ periodo: materia.periodo.toString(), obrigatorias: [], optativas: [materia.nome] })
+                retorno.push({ periodo: periodoKey, obrigatorias: [], optativas: [materia.nome] })
         } else {
             if (materia.natureza === "OB")
                 retorno[indexAlreadyAdded].obrigatorias.push(materia.nome)

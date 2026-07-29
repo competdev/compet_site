@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import axios from "axios"
 import type { NextPageContext } from "next"
@@ -9,8 +10,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { Tooltip } from '@mui/material';
+import type { TooltipProps } from '@mui/material/Tooltip';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { InfoOutlined } from '@mui/icons-material';
-import { withStyles } from '@mui/styles';
 import Fade from '@mui/material/Fade';
 import styles from "./materias.module.css";
 
@@ -30,6 +32,8 @@ import {
     podeMarcarTrancar,
 } from '../../util/materias/utils/global/materiaFluxoRules';
 import { normalizeNome } from '../../util/materias/utils/global/normalizeNome';
+import { formatarRotuloProfessores } from '../../util/materias/utils/global/separarOptativas';
+import { apelidoMateria } from '../../util/materias/utils/global/apelidoMateria';
 
 type NomesMarcados = Record<string, true>;
 
@@ -48,37 +52,75 @@ Fluxo_materias.getInitialProps = async (ctx: NextPageContext) => {
     return {
         materiasNovo: dbNovo.materias,
         materiasPorPeriodoNovo: dbNovo.materiasPorPeriodo,
+        optativasOfertadasNovo: dbNovo.optativasOfertadas,
+        optativasNaoOfertadasNovo: dbNovo.optativasNaoOfertadas,
         materiasVelho: dbVelho.materias,
         materiasPorPeriodoVelho: dbVelho.materiasPorPeriodo,
+        optativasOfertadasVelho: dbVelho.optativasOfertadas,
+        optativasNaoOfertadasVelho: dbVelho.optativasNaoOfertadas,
     }
 }
 
 interface LocalDB {
     skipNumer: number,
     materias: Materias[],
-    materiasPorPeriodo: Periodo[]
+    materiasPorPeriodo: Periodo[],
+    optativasOfertadas: Materias[],
+    optativasNaoOfertadas: Materias[],
 }
 
-const LightTooltip = withStyles((theme) => ({
+const tooltipAzulSlotProps: TooltipProps["slotProps"] = {
     tooltip: {
-        backgroundColor: "#004266",
-        borderRadius: "20px",
-        padding: "25px",
-        color: "#fdfdfd",
-        maxWidth: 500,
-        fontFamily: "Verdana",
-        fontSize: 15,
-        textAlign: "justify",
+        sx: {
+            bgcolor: "#004266",
+            borderRadius: "20px",
+            padding: "20px 22px",
+            color: "#fdfdfd",
+            maxWidth: 420,
+            maxHeight: "min(70vh, 28rem)",
+            overflowY: "auto",
+            fontFamily: "Verdana, sans-serif",
+            fontSize: 15,
+            textAlign: "justify",
+            boxSizing: "border-box",
+        },
     },
     arrow: {
-        fontSize: 25,
-        width: 25,
-        "&::before": {
-            backgroundColor: "#004266",
-            boxSizing: "border-box"
-        }
+        sx: {
+            color: "#004266",
+            fontSize: 25,
+            width: 25,
+            "&::before": {
+                backgroundColor: "#004266",
+                boxSizing: "border-box",
+            },
+        },
     },
-}))(Tooltip);
+};
+
+const tooltipPopperProps: NonNullable<TooltipProps["PopperProps"]> = {
+    style: { zIndex: 10000 },
+    modifiers: [
+        {
+            name: "flip",
+            enabled: true,
+            options: {
+                padding: 12,
+                fallbackPlacements: ["bottom", "right", "left", "top"],
+            },
+        },
+        {
+            name: "preventOverflow",
+            enabled: true,
+            options: {
+                boundary: "viewport",
+                padding: 12,
+                altAxis: true,
+                tether: false,
+            },
+        },
+    ],
+};
 
 function formatCargaHoraria(carga: number | undefined): string {
     return `${carga ?? 0}h`
@@ -86,8 +128,16 @@ function formatCargaHoraria(carga: number | undefined): string {
 
 export default function Fluxo_materias(props) {
 
-    const { materiasNovo, materiasPorPeriodoNovo } = props;
-    const { materiasVelho, materiasPorPeriodoVelho } = props;
+    const {
+        materiasNovo,
+        materiasPorPeriodoNovo,
+        optativasOfertadasNovo = [],
+        optativasNaoOfertadasNovo = [],
+        materiasVelho,
+        materiasPorPeriodoVelho,
+        optativasOfertadasVelho = [],
+        optativasNaoOfertadasVelho = [],
+    } = props;
 
     const [dbs, setDbs] = useState<{
         novo: LocalDB
@@ -97,21 +147,31 @@ export default function Fluxo_materias(props) {
             skipNumer: 1,
             materias: materiasNovo,
             materiasPorPeriodo: materiasPorPeriodoNovo,
+            optativasOfertadas: optativasOfertadasNovo,
+            optativasNaoOfertadas: optativasNaoOfertadasNovo,
         },
         velho: {
             skipNumer: 0,
             materias: materiasVelho,
             materiasPorPeriodo: materiasPorPeriodoVelho,
+            optativasOfertadas: optativasOfertadasVelho,
+            optativasNaoOfertadas: optativasNaoOfertadasVelho,
         },
     }));
 
     const [isToggled, setIsToggled] = useState(true);
 
-    const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "vertical">("horizontal");
+    const [layoutFluxo, setLayoutFluxo] = useState<"horizontal" | "reduzida" | "vertical">("reduzida");
     const [modo, setModo] = useState<0 | 1 | 2>(0);
     /** Só entra aqui com clique explícito em "Concluída" (nunca por corequisito). */
     const [materiasFeitas, setMateriasFeitas] = useState<NomesMarcados>({});
     const [materiasTrancar, setMateriasTrancar] = useState<NomesMarcados>({});
+    const [tooltipInfoAberto, setTooltipInfoAberto] = useState<string | null>(null);
+    const [tooltipAjudaAberto, setTooltipAjudaAberto] = useState(false);
+    const [periodoFlash, setPeriodoFlash] = useState<string | null>(null);
+
+    const toqueSemHover = useMediaQuery("(hover: none), (pointer: coarse)");
+    const periodoFlashRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const db = isToggled ? dbs.novo : dbs.velho;
 
@@ -147,6 +207,14 @@ export default function Fluxo_materias(props) {
             cancelado = true
         }
     }, [])
+
+    React.useEffect(() => {
+        return () => {
+            if (periodoFlashRef.current) {
+                clearTimeout(periodoFlashRef.current);
+            }
+        };
+    }, []);
 
     const gradeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setIsToggled(e.target.value === "Nova");
@@ -233,16 +301,28 @@ export default function Fluxo_materias(props) {
         setModo(Number(event.target.value) as 0 | 1 | 2);
     }
 
-    function isMateriaDisponivel(nome: string, feitas: string[]): boolean {
-        return showmateriasDisponivelsAgora({
+    function flattenMateriasDisponiveis(feitas: string[], trancar: string[]): string[] {
+        const disp = showmateriasDisponivelsAgora({
             materias: db.materias,
             materiasFeitas: feitas,
             materiasPorPeriodo: db.materiasPorPeriodo,
-            materiasTrancadas: nomesTrancar,
-        }).some(
-            (periodo) =>
-                periodo.obrigatorias.includes(nome) || periodo.optativas.includes(nome)
-        );
+            materiasTrancadas: trancar,
+        })
+        const nomesDisp: string[] = []
+        for (const periodo of disp) {
+            nomesDisp.push(...periodo.obrigatorias, ...periodo.optativas)
+        }
+        return nomesDisp
+    }
+
+    function isMateriaDisponivel(
+        nome: string,
+        feitas: string[],
+        trancar: string[] = nomesTrancar
+    ): boolean {
+        return flattenMateriasDisponiveis(feitas, trancar).some(
+            (m) => normalizeNome(m) === normalizeNome(nome)
+        )
     }
 
     function calcularCascataTrancados(
@@ -353,31 +433,39 @@ export default function Fluxo_materias(props) {
         let nextFeitas = { ...materiasFeitas };
         let nextTrancar = { ...materiasTrancarRef.current };
 
-        for (const nome of nomes) {
-            const feitasList = listaNomes(nextFeitas);
-            const trancarList = nomesTrancadosCanonicos(nextTrancar);
-            const cascata = listarMateriasTrancadasCascata(trancarList, db.materias);
-            const disponivel = isMateriaDisponivel(nome, feitasList);
+        let houveMudanca = true;
+        while (houveMudanca) {
+            houveMudanca = false;
+            for (const nome of nomes) {
+                const chave = normalizeNome(nome);
+                if (nextFeitas[chave]) continue;
 
-            if (
-                !podeMarcarConcluida(
-                    nome,
-                    db.materias,
-                    feitasList,
-                    cascata,
-                    trancarList,
-                    disponivel,
-                    listaMateriasDisponiveis
-                )
-            ) {
-                continue;
+                const feitasList = listaNomes(nextFeitas);
+                const trancarList = nomesTrancadosCanonicos(nextTrancar);
+                const cascata = listarMateriasTrancadasCascata(trancarList, db.materias);
+                const listaDisp = flattenMateriasDisponiveis(feitasList, trancarList);
+                const disponivel = listaDisp.some(
+                    (m) => normalizeNome(m) === normalizeNome(nome)
+                );
+
+                if (
+                    !podeMarcarConcluida(
+                        nome,
+                        db.materias,
+                        feitasList,
+                        cascata,
+                        trancarList,
+                        disponivel,
+                        listaDisp
+                    )
+                ) {
+                    continue;
+                }
+
+                delete nextTrancar[chave];
+                nextFeitas[chave] = true;
+                houveMudanca = true;
             }
-
-            if (nextFeitas[normalizeNome(nome)]) continue;
-
-            const chave = normalizeNome(nome);
-            delete nextTrancar[chave];
-            nextFeitas[chave] = true;
         }
 
         setMateriasTrancar(nextTrancar);
@@ -429,6 +517,19 @@ export default function Fluxo_materias(props) {
         setMateriasFeitas(nextFeitas);
     }
 
+    function flashBotaoPeriodo(periodoIdx: number, lista: "obrigatorias" | "optativas") {
+        if (modo === 0) return;
+        const chave = `periodo-${periodoIdx}-${lista}-${modo}`;
+        if (periodoFlashRef.current) {
+            clearTimeout(periodoFlashRef.current);
+        }
+        setPeriodoFlash(chave);
+        periodoFlashRef.current = setTimeout(() => {
+            setPeriodoFlash(null);
+            periodoFlashRef.current = null;
+        }, 280);
+    }
+
     function handlePeriodoTodo(
         periodoIdx: number,
         lista: "obrigatorias" | "optativas"
@@ -449,6 +550,9 @@ export default function Fluxo_materias(props) {
                   ? `Trancar todas do período ${periodoIdx}`
                   : "Selecione Concluída ou Desejo trancar";
 
+        const chaveFlash = `periodo-${periodoIdx}-${lista}-${modo}`;
+        const emFlash = periodoFlash === chaveFlash;
+
         return (
             <div className={styles.periodoMateria}>
                 <span>Período {periodoIdx}</span>
@@ -457,12 +561,23 @@ export default function Fluxo_materias(props) {
                         type="button"
                         className={`${styles.btnPeriodoTodo}${
                             modo === 1
-                                ? ` ${styles.btnPeriodoTodoConcluida}`
+                                ? ` ${styles.btnPeriodoTodoConcluida}${
+                                      emFlash
+                                          ? ` ${styles.btnPeriodoTodoFlashConcluida}`
+                                          : ""
+                                  }`
                                 : modo === 2
-                                  ? ` ${styles.btnPeriodoTodoTrancar}`
+                                  ? ` ${styles.btnPeriodoTodoTrancar}${
+                                        emFlash
+                                            ? ` ${styles.btnPeriodoTodoFlashTrancar}`
+                                            : ""
+                                    }`
                                   : ` ${styles.btnPeriodoTodoInativo}`
                         }`}
-                        onClick={() => handlePeriodoTodo(periodoIdx, lista)}
+                        onClick={() => {
+                            handlePeriodoTodo(periodoIdx, lista);
+                            flashBotaoPeriodo(periodoIdx, lista);
+                        }}
                         disabled={modo === 0}
                         aria-label={rotuloBotao}
                         title={rotuloBotao}
@@ -547,9 +662,31 @@ export default function Fluxo_materias(props) {
         setModo(0);
     }
 
-    const clsRolamento = `${styles.rolamento}${layoutFluxo === "vertical" ? ` ${styles.rolamentoVertical}` : ""}`;
-    const clsMaterias = `${styles.materias}${layoutFluxo === "vertical" ? ` ${styles.materiasVertical}` : ""}`;
-    const clsColuna = `${styles.colunaMaterias}${layoutFluxo === "vertical" ? ` ${styles.colunaMateriasVertical}` : ""}`;
+    const clsRolamentoWrap = `${styles.rolamentoWrap}${layoutFluxo === "vertical" ? ` ${styles.rolamentoWrapVertical}` : ""}`;
+    const clsRolamento = [
+        styles.rolamento,
+        layoutFluxo === "vertical" ? styles.rolamentoVertical : "",
+        layoutFluxo === "reduzida" ? styles.rolamentoReduzida : "",
+        layoutFluxo === "horizontal" ? styles.rolamentoHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
+    const clsMaterias = [
+        styles.materias,
+        layoutFluxo === "vertical" ? styles.materiasVertical : "",
+        layoutFluxo === "reduzida" ? styles.materiasReduzida : "",
+        layoutFluxo === "horizontal" ? styles.materiasHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
+    const clsColuna = [
+        styles.colunaMaterias,
+        layoutFluxo === "vertical" ? styles.colunaMateriasVertical : "",
+        layoutFluxo === "reduzida" ? styles.colunaMateriasReduzida : "",
+        layoutFluxo === "horizontal" ? styles.colunaMateriasHorizontal : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
 
     function handleMateriaPointer(
         event: React.PointerEvent<HTMLDivElement>,
@@ -577,8 +714,12 @@ export default function Fluxo_materias(props) {
         }
 
         const disponivel =
-            materiasDisponiveis[periodoIdx] != null &&
-            materiasDisponiveis[periodoIdx][lista].includes(materia);
+            lista === "optativas"
+                ? listaMateriasDisponiveis.some(
+                      (m) => normalizeNome(m) === normalizeNome(materia)
+                  )
+                : materiasDisponiveis[periodoIdx] != null &&
+                  materiasDisponiveis[periodoIdx][lista].includes(materia);
 
         return disponivel ? "disponivel" : "indisponivel";
     }
@@ -590,18 +731,16 @@ export default function Fluxo_materias(props) {
               ? styles.fluxoModoTrancar
               : ""
 
-    function pararPropagacaoCard(
-        event: React.SyntheticEvent<HTMLElement>
-    ) {
-        event.stopPropagation()
-        event.preventDefault()
-    }
-
     function renderTooltipDependencias(nome: string) {
         const materia = materiasPorNome.get(normalizeNome(nome))
         if (!materia) {
             return <span>Matéria não encontrada no banco.</span>
         }
+
+        const ehOptativa = materia.natureza === "OP"
+        const professoresInfo = ehOptativa
+            ? formatarRotuloProfessores(materia.professores)
+            : null
 
         const renderLista = (
             itens: string[],
@@ -626,11 +765,46 @@ export default function Fluxo_materias(props) {
         return (
             <div className={styles.tooltipDeps}>
                 <div className={styles.tooltipDepsSecao}>
+                    <strong className={styles.tooltipDepsTitulo}>{materia.nome}</strong>
+                </div>
+                <div className={styles.tooltipDepsSecao}>
                     <strong className={styles.tooltipDepsTitulo}>Carga horária</strong>
                     <ul className={styles.tooltipDepsLista}>
                         <li>{formatCargaHoraria(parseCarga(materia.carga))}</li>
                     </ul>
                 </div>
+                {ehOptativa && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>Oferta</strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            <li>
+                                {materia.ofertada === true
+                                    ? "Ofertada neste semestre"
+                                    : "Não ofertada neste semestre"}
+                            </li>
+                        </ul>
+                    </div>
+                )}
+                {ehOptativa && professoresInfo && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>
+                            {professoresInfo.rotulo}
+                        </strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            {professoresInfo.nomes.map((prof) => (
+                                <li key={prof}>{prof}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {ehOptativa && materia.codigo && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>Código</strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            <li>{materia.codigo}</li>
+                        </ul>
+                    </div>
+                )}
                 <div className={styles.tooltipDepsSecao}>
                     <strong className={styles.tooltipDepsTitulo}>Pré-requisitos</strong>
                     {renderLista(materia.prerequisitos, "pre")}
@@ -655,37 +829,189 @@ export default function Fluxo_materias(props) {
         keyPrefix: string
     ) {
         const estado = estadoCard(materia, periodoIdx, lista)
+        const chaveInfo = normalizeNome(materia)
+        const usarApelido = layoutFluxo !== "horizontal"
+        const rotulo = usarApelido ? apelidoMateria(materia) : materia
+
+        const botaoInfo = (
+            <button
+                type="button"
+                className={styles.cardInfoBtn}
+                aria-label={`Ver informações de ${materia}`}
+                onPointerDown={(e) => {
+                    e.stopPropagation();
+                    if (!toqueSemHover) {
+                        e.preventDefault();
+                    }
+                }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (toqueSemHover) {
+                        setTooltipInfoAberto((prev) =>
+                            prev === chaveInfo ? null : chaveInfo
+                        );
+                    }
+                }}
+            >
+                <InfoOutlined fontSize="small" />
+            </button>
+        );
+
         return (
             <div
                 key={`${keyPrefix}-${periodoIdx}-${materia}`}
                 className={styles.cardMaterias}
                 data-estado={estado}
                 data-modo={modo}
+                title={rotulo !== materia ? `${rotulo} — ${materia}` : materia}
                 onPointerDown={(e) => handleMateriaPointer(e, materia)}
             >
-                <LightTooltip
-                    TransitionComponent={Fade}
-                    TransitionProps={{ timeout: 400 }}
-                    title={renderTooltipDependencias(materia)}
-                    placement="top"
-                    arrow
-                    PopperProps={{
-                        style: { zIndex: 10000 },
-                    }}
+                {toqueSemHover ? (
+                    botaoInfo
+                ) : (
+                    <Tooltip
+                        TransitionComponent={Fade}
+                        TransitionProps={{ timeout: 400 }}
+                        title={renderTooltipDependencias(materia)}
+                        placement="top"
+                        arrow
+                        slotProps={tooltipAzulSlotProps}
+                        PopperProps={tooltipPopperProps}
+                    >
+                        {botaoInfo}
+                    </Tooltip>
+                )}
+                <span className={styles.cardMateriaNome}>{rotulo}</span>
+            </div>
+        )
+    }
+
+    function renderSecaoOptativas() {
+        const { optativasOfertadas, optativasNaoOfertadas } = db
+
+        return (
+            <div className={styles.secaoOptativas}>
+                <div className={styles.obrigatoriedade}>OPTATIVAS</div>
+
+                <div className={styles.optativasGrupo}>
+                    <h3 className={styles.optativasGrupoTitulo}>
+                        Ofertadas neste semestre
+                    </h3>
+                    {optativasOfertadas.length === 0 ? (
+                        <p className={styles.optativasVazio}>
+                            Nenhuma matéria ofertada neste semestre.
+                        </p>
+                    ) : (
+                        <div className={`${styles.optativasGrid} ${clsFluxoModo}`}>
+                            {optativasOfertadas.map((materia) =>
+                                renderCardMateria(
+                                    materia.nome,
+                                    0,
+                                    "optativas",
+                                    `op-ofertada-${materia.codigo ?? materia.nome}`
+                                )
+                            )}
+                        </div>
+                    )}
+                </div>
+
+                <div className={styles.optativasGrupo}>
+                    <h3 className={styles.optativasGrupoTitulo}>
+                        Não ofertadas neste semestre
+                    </h3>
+                    {optativasNaoOfertadas.length === 0 ? (
+                        <p className={styles.optativasVazio}>
+                            Nenhuma matéria não ofertada encontrada.
+                        </p>
+                    ) : (
+                        <div className={`${styles.optativasGrid} ${clsFluxoModo}`}>
+                            {optativasNaoOfertadas.map((materia) =>
+                                renderCardMateria(
+                                    materia.nome,
+                                    0,
+                                    "optativas",
+                                    `op-nao-ofertada-${materia.codigo ?? materia.nome}`
+                                )
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
+        )
+    }
+
+    const materiaInfoAberta =
+        tooltipInfoAberto != null
+            ? materiasPorNome.get(tooltipInfoAberto)?.nome ?? null
+            : null;
+
+    function renderPopoverMobileInfo() {
+        if (!toqueSemHover || !materiaInfoAberta || typeof document === "undefined") {
+            return null;
+        }
+
+        return createPortal(
+            <div
+                className={styles.infoPopoverOverlay}
+                onClick={() => setTooltipInfoAberto(null)}
+                role="presentation"
+            >
+                <div
+                    className={styles.infoPopover}
+                    role="dialog"
+                    aria-label={`Informações de ${materiaInfoAberta}`}
+                    onClick={(e) => e.stopPropagation()}
                 >
                     <button
                         type="button"
-                        className={styles.cardInfoBtn}
-                        aria-label={`Ver pré e corequisitos de ${materia}`}
-                        onPointerDown={pararPropagacaoCard}
-                        onClick={pararPropagacaoCard}
+                        className={styles.infoPopoverFechar}
+                        aria-label="Fechar"
+                        onClick={() => setTooltipInfoAberto(null)}
                     >
-                        <InfoOutlined fontSize="small" />
+                        ×
                     </button>
-                </LightTooltip>
-                <span className={styles.cardMateriaNome}>{materia}</span>
-            </div>
-        )
+                    {renderTooltipDependencias(materiaInfoAberta)}
+                </div>
+            </div>,
+            document.body
+        );
+    }
+
+    function renderPopoverMobileAjuda() {
+        if (!toqueSemHover || !tooltipAjudaAberto || typeof document === "undefined") {
+            return null;
+        }
+
+        return createPortal(
+            <div
+                className={styles.infoPopoverOverlay}
+                onClick={() => setTooltipAjudaAberto(false)}
+                role="presentation"
+            >
+                <div
+                    className={styles.infoPopover}
+                    role="dialog"
+                    aria-label="Ajuda do fluxo de matérias"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <button
+                        type="button"
+                        className={styles.infoPopoverFechar}
+                        aria-label="Fechar"
+                        onClick={() => setTooltipAjudaAberto(false)}
+                    >
+                        ×
+                    </button>
+                    <span>
+                        <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita
+                        <br />
+                        <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
+                    </span>
+                </div>
+            </div>,
+            document.body
+        );
     }
 
     return (
@@ -734,36 +1060,64 @@ export default function Fluxo_materias(props) {
                             className={styles.botoes}
                             value={layoutFluxo}
                             onChange={e =>
-                                setLayoutFluxo(e.target.value as "horizontal" | "vertical")
+                                setLayoutFluxo(
+                                    e.target.value as "horizontal" | "reduzida" | "vertical"
+                                )
                             }
-                            aria-label="Disposição: horizontal ou vertical"
+                            aria-label="Disposição do fluxo"
                         >
                             <option value="horizontal">Horizontal</option>
+                            <option value="reduzida">Reduzida</option>
                             <option value="vertical">Vertical</option>
                         </select>
                     </label>
-                    <LightTooltip
-                        TransitionComponent={Fade}
-                        TransitionProps={{ timeout: 700 }}
-                        title={
-                            <span>
-                                <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita<br />
-                                <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
-                            </span>
-                        }
-                        placement="top"
-                        arrow
-                        PopperProps={{
-                            modifiers: [{
-                                name: 'offset',
-                                options: {
-                                    offset: [0, -8],
-                                },
-                            },],
-                            style: { zIndex: 10000 },
-                        }}>
-                        <p>i</p>
-                    </LightTooltip>
+                    {toqueSemHover ? (
+                        <button
+                            type="button"
+                            className={styles.tooltipAjudaBtn}
+                            aria-label="Ajuda sobre Concluída e Desejo trancar"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setTooltipAjudaAberto((prev) => !prev);
+                            }}
+                        >
+                            i
+                        </button>
+                    ) : (
+                        <Tooltip
+                            TransitionComponent={Fade}
+                            TransitionProps={{ timeout: 700 }}
+                            title={
+                                <span>
+                                    <strong>Concluída</strong> - matérias que já foram concluídas ou que serão/estão sendo feita<br />
+                                    <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
+                                </span>
+                            }
+                            placement="bottom"
+                            arrow
+                            slotProps={tooltipAzulSlotProps}
+                            PopperProps={{
+                                ...tooltipPopperProps,
+                                modifiers: [
+                                    ...(tooltipPopperProps.modifiers ?? []),
+                                    {
+                                        name: "offset",
+                                        options: {
+                                            offset: [0, -8],
+                                        },
+                                    },
+                                ],
+                            }}
+                        >
+                            <button
+                                type="button"
+                                className={styles.tooltipAjudaBtn}
+                                aria-label="Ajuda sobre Concluída e Desejo trancar"
+                            >
+                                i
+                            </button>
+                        </Tooltip>
+                    )}
                     <div
                         className={styles.horasIntegralizadas}
                         aria-label="Horas integralizadas das matérias concluídas"
@@ -807,74 +1161,45 @@ export default function Fluxo_materias(props) {
                 </div>
                 <div className={styles.divisoria} />
 
-                <div className={clsRolamento}>
-                    {/* MATÉRIAS OBRIGATÓRIAS */}
-                    <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
-                    <div className={`${clsMaterias} ${clsFluxoModo}`}>
-                        {(() => {
-                            const elements = [];
-                            for (let i = 1; i <= 10; i++) {
-                                elements.push(
-                                    <div key={i} className={clsColuna}>
-                                        {renderCabecalhoPeriodo(i, "obrigatorias")}
-                                        <div
-                                            className={
-                                                layoutFluxo === "vertical"
-                                                    ? styles.periodoCardsWrap
-                                                    : undefined
-                                            }
-                                        >
-                                            {db.materiasPorPeriodo[i].obrigatorias.map((materia) =>
-                                                renderCardMateria(
-                                                    materia,
-                                                    i,
-                                                    "obrigatorias",
-                                                    "ob"
-                                                )
-                                            )}
+                <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
+                <div className={clsRolamentoWrap}>
+                    <div className={clsRolamento}>
+                        <div className={`${clsMaterias} ${clsFluxoModo}`}>
+                            {(() => {
+                                const elements = [];
+                                for (let i = 1; i <= 10; i++) {
+                                    elements.push(
+                                        <div key={i} className={clsColuna}>
+                                            {renderCabecalhoPeriodo(i, "obrigatorias")}
+                                            <div
+                                                className={
+                                                    layoutFluxo === "vertical"
+                                                        ? styles.periodoCardsWrap
+                                                        : undefined
+                                                }
+                                            >
+                                                {db.materiasPorPeriodo[i].obrigatorias.map((materia) =>
+                                                    renderCardMateria(
+                                                        materia,
+                                                        i,
+                                                        "obrigatorias",
+                                                        "ob"
+                                                    )
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            }
-                            return elements;
-                        })()}
+                                    );
+                                }
+                                return elements;
+                            })()}
+                        </div>
                     </div>
-
-                    {/* MATÉRIAS OPTATIVAS */}
-                    <div className={styles.obrigatoriedade}>OPTATIVAS</div>
-                    <div className={`${clsMaterias} ${clsFluxoModo}`}>
-                        {(() => {
-                            const elements = [];
-                            for (let i = 0; i <= 10; i++) {
-                                if (i === db.skipNumer) continue;
-                                elements.push(
-                                    <div key={i} className={clsColuna}>
-                                        {renderCabecalhoPeriodo(i, "optativas")}
-                                        <div
-                                            className={
-                                                layoutFluxo === "vertical"
-                                                    ? styles.periodoCardsWrap
-                                                    : undefined
-                                            }
-                                        >
-                                            {db.materiasPorPeriodo[i].optativas.map((materia) =>
-                                                renderCardMateria(
-                                                    materia,
-                                                    i,
-                                                    "optativas",
-                                                    "op"
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                );
-                            }
-                            return elements;
-                        })()}
-                    </div>
-
-
                 </div>
+
+                {/* Optativas fora do scroll horizontal */}
+                {renderSecaoOptativas()}
+                {renderPopoverMobileInfo()}
+                {renderPopoverMobileAjuda()}
                 <Footer />
             </section>
         </>

@@ -1,10 +1,14 @@
 import { Materias, Periodo } from "./interfaces"
+import { ordenarNomesPorSimilaridade } from "./ordenarPorSimilaridade"
 
 interface FetchMateriasSeparadasPorPeriodoResponse {
   materiasPorPeriodo: Periodo[]
 }
 
-// Retorna lista com materias optativas e obrigatórias separadas por periodo de todos os periodos
+/**
+ * Agrupa apenas matérias obrigatórias por período.
+ * Optativas (natureza === "OP") ficam fora — vão para a seção dedicada.
+ */
 export function fetchMateriasSeparadasPorPeriodo(materias: Materias[]): FetchMateriasSeparadasPorPeriodoResponse {
   const MAX_PERIODO = 10
 
@@ -15,21 +19,19 @@ export function fetchMateriasSeparadasPorPeriodo(materias: Materias[]): FetchMat
   }))
 
   for (const materia of materias) {
-    const idx = Number.parseInt(String(materia.periodo).trim(), 10)
+    if (materia.natureza === "OP") continue
+
+    const idx = Number.parseInt(String(materia.periodo ?? "").trim(), 10)
     if (!Number.isInteger(idx) || idx < 0 || idx > MAX_PERIODO) continue
 
-    if (materia.natureza === "OP")
-      materiasPorPeriodo[idx].optativas.push(materia.nome)
-    else
-      materiasPorPeriodo[idx].obrigatorias.push(materia.nome)
+    materiasPorPeriodo[idx].obrigatorias.push(materia.nome)
   }
 
-  const compararNomes = (a: string, b: string) =>
-    a.localeCompare(b, "pt-BR", { sensitivity: "base" })
-
   for (let i = 0; i <= MAX_PERIODO; i++) {
-    materiasPorPeriodo[i].obrigatorias.sort(compararNomes)
-    materiasPorPeriodo[i].optativas.sort(compararNomes)
+    materiasPorPeriodo[i].obrigatorias = ordenarNomesPorSimilaridade(
+      materiasPorPeriodo[i].obrigatorias,
+      materias
+    )
   }
 
   return { materiasPorPeriodo }

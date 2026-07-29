@@ -75,9 +75,20 @@ export function corequisitosAtendidosParaConcluir(
     return materia.corequisitos.every((co) => {
         if (listaContemNome(materiasTrancadas, co)) return false
         if (listaContemNome(materiasFeitas, co)) return true
-        // Só pares mútuos (Lógica↔Lab) podem ser concluídos "juntos" estando disponíveis.
+        // Pares mútuos (Lógica↔Lab): concluir "juntos" estando disponíveis.
         if (
             corequisitoMutuo(materias, nome, co) &&
+            listaContemNome(materiasDisponiveis, co)
+        ) {
+            return true
+        }
+        // Assimétrico no mesmo período (Circuitos→Fundamentos): disponível junto basta.
+        const materiaCo = materias.find(
+            (m) => normalizeNome(m.nome) === normalizeNome(co)
+        )
+        if (
+            materiaCo &&
+            String(materia.periodo ?? "") === String(materiaCo.periodo ?? "") &&
             listaContemNome(materiasDisponiveis, co)
         ) {
             return true
