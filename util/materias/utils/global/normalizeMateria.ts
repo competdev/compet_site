@@ -1,6 +1,6 @@
 import { Materias } from "./interfaces"
 
-export type MateriaDocumento = Materias & { grade?: string }
+export type MateriaDocumento = Materias
 
 export function parseCarga(value: unknown): number {
     if (value == null || value === "") return 0
@@ -21,15 +21,27 @@ export function parseCarga(value: unknown): number {
     return 0
 }
 
+function normalizePeriodo(value: unknown): string | null {
+    if (value == null || value === "") return null
+    return String(value)
+}
+
 export function normalizeMateria(doc: Record<string, unknown>): MateriaDocumento {
     return {
         nome: String(doc.nome ?? ""),
-        periodo: String(doc.periodo ?? ""),
+        periodo: normalizePeriodo(doc.periodo),
         natureza: String(doc.natureza ?? ""),
         carga: parseCarga(doc.carga),
         prerequisitos: Array.isArray(doc.prerequisitos) ? doc.prerequisitos.map(String) : [],
         corequisitos: Array.isArray(doc.corequisitos) ? doc.corequisitos.map(String) : [],
         grade: doc.grade != null ? String(doc.grade) : undefined,
+        codigo: doc.codigo != null ? String(doc.codigo) : undefined,
+        ofertada: typeof doc.ofertada === "boolean" ? doc.ofertada : undefined,
+        professores: Array.isArray(doc.professores) ? doc.professores.map(String) : [],
+        semestreOferta:
+            doc.semestreOferta == null || doc.semestreOferta === ""
+                ? null
+                : String(doc.semestreOferta),
     }
 }
 

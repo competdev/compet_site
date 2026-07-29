@@ -32,6 +32,7 @@ import {
     podeMarcarTrancar,
 } from '../../util/materias/utils/global/materiaFluxoRules';
 import { normalizeNome } from '../../util/materias/utils/global/normalizeNome';
+import { formatarRotuloProfessores } from '../../util/materias/utils/global/separarOptativas';
 
 type NomesMarcados = Record<string, true>;
 
@@ -50,15 +51,21 @@ Fluxo_materias.getInitialProps = async (ctx: NextPageContext) => {
     return {
         materiasNovo: dbNovo.materias,
         materiasPorPeriodoNovo: dbNovo.materiasPorPeriodo,
+        optativasOfertadasNovo: dbNovo.optativasOfertadas,
+        optativasNaoOfertadasNovo: dbNovo.optativasNaoOfertadas,
         materiasVelho: dbVelho.materias,
         materiasPorPeriodoVelho: dbVelho.materiasPorPeriodo,
+        optativasOfertadasVelho: dbVelho.optativasOfertadas,
+        optativasNaoOfertadasVelho: dbVelho.optativasNaoOfertadas,
     }
 }
 
 interface LocalDB {
     skipNumer: number,
     materias: Materias[],
-    materiasPorPeriodo: Periodo[]
+    materiasPorPeriodo: Periodo[],
+    optativasOfertadas: Materias[],
+    optativasNaoOfertadas: Materias[],
 }
 
 const tooltipAzulSlotProps: TooltipProps["slotProps"] = {
@@ -66,12 +73,15 @@ const tooltipAzulSlotProps: TooltipProps["slotProps"] = {
         sx: {
             bgcolor: "#004266",
             borderRadius: "20px",
-            padding: "25px",
+            padding: "20px 22px",
             color: "#fdfdfd",
-            maxWidth: 500,
+            maxWidth: 420,
+            maxHeight: "min(70vh, 28rem)",
+            overflowY: "auto",
             fontFamily: "Verdana, sans-serif",
             fontSize: 15,
             textAlign: "justify",
+            boxSizing: "border-box",
         },
     },
     arrow: {
@@ -87,14 +97,46 @@ const tooltipAzulSlotProps: TooltipProps["slotProps"] = {
     },
 };
 
+const tooltipPopperProps: NonNullable<TooltipProps["PopperProps"]> = {
+    style: { zIndex: 10000 },
+    modifiers: [
+        {
+            name: "flip",
+            enabled: true,
+            options: {
+                padding: 12,
+                fallbackPlacements: ["bottom", "right", "left", "top"],
+            },
+        },
+        {
+            name: "preventOverflow",
+            enabled: true,
+            options: {
+                boundary: "viewport",
+                padding: 12,
+                altAxis: true,
+                tether: false,
+            },
+        },
+    ],
+};
+
 function formatCargaHoraria(carga: number | undefined): string {
     return `${carga ?? 0}h`
 }
 
 export default function Fluxo_materias(props) {
 
-    const { materiasNovo, materiasPorPeriodoNovo } = props;
-    const { materiasVelho, materiasPorPeriodoVelho } = props;
+    const {
+        materiasNovo,
+        materiasPorPeriodoNovo,
+        optativasOfertadasNovo = [],
+        optativasNaoOfertadasNovo = [],
+        materiasVelho,
+        materiasPorPeriodoVelho,
+        optativasOfertadasVelho = [],
+        optativasNaoOfertadasVelho = [],
+    } = props;
 
     const [dbs, setDbs] = useState<{
         novo: LocalDB
@@ -104,11 +146,15 @@ export default function Fluxo_materias(props) {
             skipNumer: 1,
             materias: materiasNovo,
             materiasPorPeriodo: materiasPorPeriodoNovo,
+            optativasOfertadas: optativasOfertadasNovo,
+            optativasNaoOfertadas: optativasNaoOfertadasNovo,
         },
         velho: {
             skipNumer: 0,
             materias: materiasVelho,
             materiasPorPeriodo: materiasPorPeriodoVelho,
+            optativasOfertadas: optativasOfertadasVelho,
+            optativasNaoOfertadas: optativasNaoOfertadasVelho,
         },
     }));
 
@@ -615,6 +661,7 @@ export default function Fluxo_materias(props) {
         setModo(0);
     }
 
+    const clsRolamentoWrap = `${styles.rolamentoWrap}${layoutFluxo === "vertical" ? ` ${styles.rolamentoWrapVertical}` : ""}`;
     const clsRolamento = `${styles.rolamento}${layoutFluxo === "vertical" ? ` ${styles.rolamentoVertical}` : ""}`;
     const clsMaterias = `${styles.materias}${layoutFluxo === "vertical" ? ` ${styles.materiasVertical}` : ""}`;
     const clsColuna = `${styles.colunaMaterias}${layoutFluxo === "vertical" ? ` ${styles.colunaMateriasVertical}` : ""}`;
@@ -645,8 +692,12 @@ export default function Fluxo_materias(props) {
         }
 
         const disponivel =
-            materiasDisponiveis[periodoIdx] != null &&
-            materiasDisponiveis[periodoIdx][lista].includes(materia);
+            lista === "optativas"
+                ? listaMateriasDisponiveis.some(
+                      (m) => normalizeNome(m) === normalizeNome(materia)
+                  )
+                : materiasDisponiveis[periodoIdx] != null &&
+                  materiasDisponiveis[periodoIdx][lista].includes(materia);
 
         return disponivel ? "disponivel" : "indisponivel";
     }
@@ -663,6 +714,11 @@ export default function Fluxo_materias(props) {
         if (!materia) {
             return <span>Matéria não encontrada no banco.</span>
         }
+
+        const ehOptativa = materia.natureza === "OP"
+        const professoresInfo = ehOptativa
+            ? formatarRotuloProfessores(materia.professores)
+            : null
 
         const renderLista = (
             itens: string[],
@@ -687,11 +743,46 @@ export default function Fluxo_materias(props) {
         return (
             <div className={styles.tooltipDeps}>
                 <div className={styles.tooltipDepsSecao}>
+                    <strong className={styles.tooltipDepsTitulo}>{materia.nome}</strong>
+                </div>
+                <div className={styles.tooltipDepsSecao}>
                     <strong className={styles.tooltipDepsTitulo}>Carga horária</strong>
                     <ul className={styles.tooltipDepsLista}>
                         <li>{formatCargaHoraria(parseCarga(materia.carga))}</li>
                     </ul>
                 </div>
+                {ehOptativa && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>Oferta</strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            <li>
+                                {materia.ofertada === true
+                                    ? "Ofertada neste semestre"
+                                    : "Não ofertada neste semestre"}
+                            </li>
+                        </ul>
+                    </div>
+                )}
+                {ehOptativa && professoresInfo && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>
+                            {professoresInfo.rotulo}
+                        </strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            {professoresInfo.nomes.map((prof) => (
+                                <li key={prof}>{prof}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {ehOptativa && materia.codigo && (
+                    <div className={styles.tooltipDepsSecao}>
+                        <strong className={styles.tooltipDepsTitulo}>Código</strong>
+                        <ul className={styles.tooltipDepsLista}>
+                            <li>{materia.codigo}</li>
+                        </ul>
+                    </div>
+                )}
                 <div className={styles.tooltipDepsSecao}>
                     <strong className={styles.tooltipDepsTitulo}>Pré-requisitos</strong>
                     {renderLista(materia.prerequisitos, "pre")}
@@ -749,6 +840,7 @@ export default function Fluxo_materias(props) {
                 className={styles.cardMaterias}
                 data-estado={estado}
                 data-modo={modo}
+                title={materia}
                 onPointerDown={(e) => handleMateriaPointer(e, materia)}
             >
                 {toqueSemHover ? (
@@ -761,14 +853,66 @@ export default function Fluxo_materias(props) {
                         placement="top"
                         arrow
                         slotProps={tooltipAzulSlotProps}
-                        PopperProps={{
-                            style: { zIndex: 10000 },
-                        }}
+                        PopperProps={tooltipPopperProps}
                     >
                         {botaoInfo}
                     </Tooltip>
                 )}
                 <span className={styles.cardMateriaNome}>{materia}</span>
+            </div>
+        )
+    }
+
+    function renderSecaoOptativas() {
+        const { optativasOfertadas, optativasNaoOfertadas } = db
+
+        return (
+            <div className={styles.secaoOptativas}>
+                <div className={styles.obrigatoriedade}>Matérias optativas</div>
+
+                <div className={styles.optativasGrupo}>
+                    <h3 className={styles.optativasGrupoTitulo}>
+                        Ofertadas neste semestre
+                    </h3>
+                    {optativasOfertadas.length === 0 ? (
+                        <p className={styles.optativasVazio}>
+                            Nenhuma matéria ofertada neste semestre.
+                        </p>
+                    ) : (
+                        <div className={`${styles.optativasGrid} ${clsFluxoModo}`}>
+                            {optativasOfertadas.map((materia) =>
+                                renderCardMateria(
+                                    materia.nome,
+                                    0,
+                                    "optativas",
+                                    `op-ofertada-${materia.codigo ?? materia.nome}`
+                                )
+                            )}
+                        </div>
+                    )}
+                </div>
+
+                <div className={styles.optativasGrupo}>
+                    <h3 className={styles.optativasGrupoTitulo}>
+                        Não ofertadas neste semestre
+                    </h3>
+                    {optativasNaoOfertadas.length === 0 ? (
+                        <p className={styles.optativasVazio}>
+                            Nenhuma matéria não ofertada encontrada.
+                        </p>
+                    ) : (
+                        <div className={`${styles.optativasGrid} ${clsFluxoModo}`}>
+                            {optativasNaoOfertadas.map((materia) =>
+                                renderCardMateria(
+                                    materia.nome,
+                                    0,
+                                    "optativas",
+                                    `op-nao-ofertada-${materia.codigo ?? materia.nome}`
+                                )
+                            )}
+                        </div>
+                    )}
+                </div>
             </div>
         )
     }
@@ -922,18 +1066,22 @@ export default function Fluxo_materias(props) {
                                     <strong>Desejo trancar</strong> - matérias que você deseja trancar, não fez ou não fará
                                 </span>
                             }
-                            placement="top"
+                            placement="bottom"
                             arrow
                             slotProps={tooltipAzulSlotProps}
                             PopperProps={{
-                                modifiers: [{
-                                    name: 'offset',
-                                    options: {
-                                        offset: [0, -8],
+                                ...tooltipPopperProps,
+                                modifiers: [
+                                    ...(tooltipPopperProps.modifiers ?? []),
+                                    {
+                                        name: "offset",
+                                        options: {
+                                            offset: [0, -8],
+                                        },
                                     },
-                                },],
-                                style: { zIndex: 10000 },
-                            }}>
+                                ],
+                            }}
+                        >
                             <button
                                 type="button"
                                 className={styles.tooltipAjudaBtn}
@@ -986,74 +1134,44 @@ export default function Fluxo_materias(props) {
                 </div>
                 <div className={styles.divisoria} />
 
-                <div className={clsRolamento}>
-                    {/* MATÉRIAS OBRIGATÓRIAS */}
-                    <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
-                    <div className={`${clsMaterias} ${clsFluxoModo}`}>
-                        {(() => {
-                            const elements = [];
-                            for (let i = 1; i <= 10; i++) {
-                                elements.push(
-                                    <div key={i} className={clsColuna}>
-                                        {renderCabecalhoPeriodo(i, "obrigatorias")}
-                                        <div
-                                            className={
-                                                layoutFluxo === "vertical"
-                                                    ? styles.periodoCardsWrap
-                                                    : undefined
-                                            }
-                                        >
-                                            {db.materiasPorPeriodo[i].obrigatorias.map((materia) =>
-                                                renderCardMateria(
-                                                    materia,
-                                                    i,
-                                                    "obrigatorias",
-                                                    "ob"
-                                                )
-                                            )}
+                <div className={clsRolamentoWrap}>
+                    <div className={clsRolamento}>
+                        {/* MATÉRIAS OBRIGATÓRIAS */}
+                        <div className={styles.obrigatoriedade}>OBRIGATÓRIAS</div>
+                        <div className={`${clsMaterias} ${clsFluxoModo}`}>
+                            {(() => {
+                                const elements = [];
+                                for (let i = 1; i <= 10; i++) {
+                                    elements.push(
+                                        <div key={i} className={clsColuna}>
+                                            {renderCabecalhoPeriodo(i, "obrigatorias")}
+                                            <div
+                                                className={
+                                                    layoutFluxo === "vertical"
+                                                        ? styles.periodoCardsWrap
+                                                        : undefined
+                                                }
+                                            >
+                                                {db.materiasPorPeriodo[i].obrigatorias.map((materia) =>
+                                                    renderCardMateria(
+                                                        materia,
+                                                        i,
+                                                        "obrigatorias",
+                                                        "ob"
+                                                    )
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            }
-                            return elements;
-                        })()}
+                                    );
+                                }
+                                return elements;
+                            })()}
+                        </div>
                     </div>
-
-                    {/* MATÉRIAS OPTATIVAS */}
-                    <div className={styles.obrigatoriedade}>OPTATIVAS</div>
-                    <div className={`${clsMaterias} ${clsFluxoModo}`}>
-                        {(() => {
-                            const elements = [];
-                            for (let i = 0; i <= 10; i++) {
-                                if (i === db.skipNumer) continue;
-                                elements.push(
-                                    <div key={i} className={clsColuna}>
-                                        {renderCabecalhoPeriodo(i, "optativas")}
-                                        <div
-                                            className={
-                                                layoutFluxo === "vertical"
-                                                    ? styles.periodoCardsWrap
-                                                    : undefined
-                                            }
-                                        >
-                                            {db.materiasPorPeriodo[i].optativas.map((materia) =>
-                                                renderCardMateria(
-                                                    materia,
-                                                    i,
-                                                    "optativas",
-                                                    "op"
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                );
-                            }
-                            return elements;
-                        })()}
-                    </div>
-
-
                 </div>
+
+                {/* Optativas fora do scroll horizontal */}
+                {renderSecaoOptativas()}
                 {renderPopoverMobileInfo()}
                 {renderPopoverMobileAjuda()}
                 <Footer />

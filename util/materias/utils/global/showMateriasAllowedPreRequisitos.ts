@@ -25,6 +25,11 @@ function listaContemNome(nomes: string[], nome: string): boolean {
     return nomes.some((n) => normalizeNome(n) === chave)
 }
 
+function prerequisitosOk(materiaObj: Materias, materiasFeitas: string[]): boolean {
+    if (materiaObj.prerequisitos.length === 0) return true
+    return materiaObj.prerequisitos.every((pre) => feitaOuMarcada(materiasFeitas, pre))
+}
+
 export function showmateriasDisponivelsAgora({ materias, materiasFeitas, materiasPorPeriodo, materiasTrancadas = [] }: ShowmateriasDisponivelsAgoraRequest) {
     const candidatos = new Set<string>()
 
@@ -36,16 +41,18 @@ export function showmateriasDisponivelsAgora({ materias, materiasFeitas, materia
                 (m) => normalizeNome(m.nome) === normalizeNome(materia)
             )
             if (!materiaObj) continue
-
-            if (materiaObj.prerequisitos.length > 0) {
-                const doneAll = materiaObj.prerequisitos.every((pre) =>
-                    feitaOuMarcada(materiasFeitas, pre)
-                )
-                if (!doneAll) continue
-            }
+            if (!prerequisitosOk(materiaObj, materiasFeitas)) continue
 
             candidatos.add(materia)
         }
+    }
+
+    // Optativas ficam fora do agrupamento por período; ainda entram na disponibilidade.
+    for (const materiaObj of materias) {
+        if (materiaObj.natureza !== "OP") continue
+        if (feitaOuMarcada(materiasFeitas, materiaObj.nome)) continue
+        if (!prerequisitosOk(materiaObj, materiasFeitas)) continue
+        candidatos.add(materiaObj.nome)
     }
 
     // Corequisito é direcional: M exige coreqs feitos ou também disponíveis (fazer junto).
@@ -116,6 +123,29 @@ export function showmateriasDisponivelsAgora({ materias, materiasFeitas, materia
             } else {
                 retorno[indexAlreadyAdded].optativas.push(materia)
             }
+        }
+    }
+
+    const periodoOptativas = "0"
+    for (const materiaObj of materias) {
+        if (materiaObj.natureza !== "OP") continue
+        if (!candidatos.has(materiaObj.nome)) continue
+
+        const indexAlreadyAdded = retorno.findIndex(
+            (item) => item.periodo === periodoOptativas
+        )
+        if (indexAlreadyAdded === -1) {
+            retorno.push({
+                periodo: periodoOptativas,
+                obrigatorias: [],
+                optativas: [materiaObj.nome],
+            })
+        } else if (
+            !retorno[indexAlreadyAdded].optativas.some(
+                (n) => normalizeNome(n) === normalizeNome(materiaObj.nome)
+            )
+        ) {
+            retorno[indexAlreadyAdded].optativas.push(materiaObj.nome)
         }
     }
 

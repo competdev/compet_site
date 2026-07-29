@@ -88,7 +88,7 @@ export function corequisitosAtendidosParaConcluir(
         )
         if (
             materiaCo &&
-            materia.periodo === materiaCo.periodo &&
+            String(materia.periodo ?? "") === String(materiaCo.periodo ?? "") &&
             listaContemNome(materiasDisponiveis, co)
         ) {
             return true
