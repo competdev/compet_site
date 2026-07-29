@@ -37,9 +37,16 @@ function tokensDeNome(nome: string): string[] {
 
 function areasDoNome(nome: string): Set<number> {
     const tokens = new Set(tokensDeNome(nome))
+    const tokenList = Array.from(tokens)
     const areas = new Set<number>()
     AREAS.forEach((grupo, idx) => {
-        if (grupo.some((radical) => tokens.has(radical) || [...tokens].some((t) => t.includes(radical) || radical.includes(t)))) {
+        if (
+            grupo.some(
+                (radical) =>
+                    tokens.has(radical) ||
+                    tokenList.some((t) => t.includes(radical) || radical.includes(t))
+            )
+        ) {
             areas.add(idx)
         }
     })
@@ -68,9 +75,9 @@ export function pontuacaoSimilaridade(a: Materias, b: Materias): number {
     const ta = new Set(tokensDeNome(a.nome))
     const tb = new Set(tokensDeNome(b.nome))
     let inter = 0
-    for (const t of ta) {
+    Array.from(ta).forEach((t) => {
         if (tb.has(t)) inter += 1
-    }
+    })
     if (inter > 0) {
         const union = ta.size + tb.size - inter
         score += (inter / Math.max(union, 1)) * 80 + inter * 18
@@ -78,11 +85,9 @@ export function pontuacaoSimilaridade(a: Materias, b: Materias): number {
 
     const areasA = areasDoNome(a.nome)
     const areasB = areasDoNome(b.nome)
-    for (const area of areasA) {
-        if (areasB.has(area)) {
-            score += 35
-            break
-        }
+    const temAreaEmComum = Array.from(areasA).some((area) => areasB.has(area))
+    if (temAreaEmComum) {
+        score += 35
     }
 
     return score
