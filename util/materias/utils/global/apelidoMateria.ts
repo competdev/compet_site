@@ -9,7 +9,7 @@ function extrairSufixoRomano(nomeNorm: string): string {
 function ehLab(nomeNorm: string): boolean {
     return (
         nomeNorm.startsWith("laboratorio ") ||
-        nomeNorm.startsWith("laboratorio de ") ||
+        nomeNorm.startsWith("laboratorio de ") || 
         nomeNorm.includes(" laboratorio de ")
     )
 }
