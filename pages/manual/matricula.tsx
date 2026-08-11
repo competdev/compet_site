@@ -64,8 +64,8 @@ const container = () => {
                 Turmas Extras (disciplinas equalizadas ou não).
             </p>
 
-            <p className={styles.paragrafoB}>Data: 22 e 25/01/2026</p>
-            <p className={styles.paragrafoR}>Resultado 1ª Fase: 28/01/2026</p>
+            <p className={styles.paragrafoB}>Data: 23 a 26/07/2026</p>
+            <p className={styles.paragrafoR}>Resultado 1ª Fase: 29/07/2026</p>
 
             <h3 className={styles.subtitulo}>2ª Fase</h3>
             <p className={styles.paragrafo}>
@@ -78,25 +78,26 @@ const container = () => {
             <p className={styles.paragrafo}>
                 Solicitação de matrícula em turmas de outros cursos, incluindo disciplinas eletivas.
             </p>
-            <p className={styles.paragrafoB}>Data: 29 a 01/01/2026</p>
-            <p className={styles.paragrafoR}>Resultado 2ª Fase: 04/02/2026</p>
+            <p className={styles.paragrafoB}>Data: 30/07 a 02/08/2026</p>
+            <p className={styles.paragrafoR}>Resultado 2ª Fase: 04/08/2026</p>
 
             <h3 className={styles.subtitulo}>Ajustes</h3>
             <p className={styles.paragrafo}>
-                Solicitação de ajustes (pelos alunos, diretamente à sua coordenação).
+                Solicitação de ajustes de matrícula (pelos alunos veteranos, diretamente à sua
+                coordenação de curso).
             </p>
-            <p className={styles.paragrafoB}>Data: 19 a 25/02/2026</p>
+            <p className={styles.paragrafoB}>Data: 05 e 06/08/2026</p>
             <p className={styles.paragrafo}>
-                Análise e realização dos ajustes, pelas coordenações (para casos especiais como
-                prováveis formandos com quebra de cor requisito e pré-requisito).
+                Análise e realização dos ajustes de matrículas dos veteranos, pelas coordenações de
+                curso.
             </p>
-            <p className={styles.paragrafoB}>Data: 23 a 27/02/2026</p>
+            <p className={styles.paragrafoB}>Data: 07 a 14/08/2026</p>
 
             <h3 className={styles.subtitulo}>Matrícula Extraordinária</h3>
             <p className={styles.paragrafo}>
                 Matrícula via WEB em turmas com vagas ociosas - incluindo disciplinas eletivas.
             </p>
-            <p className={styles.paragrafoB}>Data: 02 e 03/03/2026</p>
+            <p className={styles.paragrafoB}>Data: 17 a 19/08/2026</p>
             <p className={styles.paragrafoR}>Resultado Extraordinária: IMEDIATO.</p>
 
             <h3 className={styles.subtitulo}>Lembretes Importantes</h3>

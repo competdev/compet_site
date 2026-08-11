@@ -830,7 +830,8 @@ export default function Fluxo_materias(props) {
     ) {
         const estado = estadoCard(materia, periodoIdx, lista)
         const chaveInfo = normalizeNome(materia)
-        const usarApelido = layoutFluxo !== "horizontal"
+        const usarApelido =
+            lista === "obrigatorias" && layoutFluxo !== "horizontal"
         const rotulo = usarApelido ? apelidoMateria(materia) : materia
 
         const botaoInfo = (

@@ -68,8 +68,8 @@ export function apelidoMateria(nome: string): string {
 
     if (n.includes("engenharia de software")) {
         return lab
-            ? `Lab Engenharia de Software${sufixo}`
-            : `Engenharia de Software${sufixo}`
+            ? `Lab Eng. Software${sufixo}`
+            : `Eng. Software${sufixo}`
     }
 
     if (n.includes("redes de computadores")) {
@@ -77,7 +77,7 @@ export function apelidoMateria(nome: string): string {
     }
 
     if (n.includes("calculo com funcoes de uma variavel")) {
-        return "Cálculo I"
+        return "CFVR"
     }
     if (n.includes("calculo com funcoes de varias variaveis ii")) {
         return "CFVV2"
@@ -111,7 +111,7 @@ export function apelidoMateria(nome: string): string {
     }
 
     if (n.includes("sistemas de controle")) {
-        return lab ? "Lab Controle" : "Controle"
+        return lab ? "Lab S. Controle" : "S. Controle"
     }
 
     if (n.includes("eletronica para computacao")) {
@@ -127,23 +127,23 @@ export function apelidoMateria(nome: string): string {
     }
 
     if (n.includes("aprendizado de maquina")) {
-        return "AM"
+        return "A. Máquina"
     }
 
     if (n.includes("computacao grafica")) {
-        return "CG"
+        return "C. Gráfica"
     }
 
     if (n.includes("contexto social")) {
-        return "Contexto Social"
+        return "Contexto"
     }
 
     if (n.includes("eletromagnetismo")) {
-        return "Eletromagnetismo"
+        return "Eletromag"
     }
 
     if (n.includes("metodos numericos")) {
-        return "Métodos Numéricos"
+        return "Métodos"
     }
 
     if (n.includes("linguagens de programacao")) {
@@ -151,11 +151,47 @@ export function apelidoMateria(nome: string): string {
     }
 
     if (n.includes("integracao e series")) {
-        return "Integração e Séries"
+        return "IS"
     }
 
     if (n.includes("sistemas distribuidos")) {
-        return "Sistemas Distrib."
+        return "S. Distribuídos"
+    }
+
+    if (n.includes("introducao a sociologia")) {
+        return "Sociologia"
+    }
+
+    if (n.includes("matematica discreta")) {
+        return "Mat. Discreta"
+    }
+
+    if (n.includes("metodologia cientifica")) {
+        return "Metodologia"
+    }
+
+    if (n.includes("filosofia da tecnologia")) {
+        return "FiloTec"
+    }
+
+    if (n.includes("fundamentos de mecanica")) {
+        return "FundMec"
+    }
+
+    if (n.includes("circuitos eletricos")) {
+        return "Circuitos"
+    }
+
+    if (n.includes("otimizacao")) {
+        return `OTM${sufixo}`
+    }
+
+    if (n.includes("metodologia de pesquisa")) {
+        return "M. Pesquisa"
+    }
+
+    if (n.includes("psicologia aplicada as organizacoes")) {
+        return "Psicologia"
     }
 
     return nome
