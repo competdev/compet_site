@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("../../../styles/fonts/Verdana.ttf");
+}
+
+.mention {
+  width: 100%;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #004266 0%, #0066a3 100%);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .mention {
+    padding: 5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mention {
+    padding: 5.5rem 2rem;
+  }
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 3.5rem;
+    text-align: left;
+  }
+}
+
+.logoWrap {
+  flex-shrink: 0;
+}
+
+.logo {
+  width: min(100%, 11rem);
+  height: auto;
+  border-radius: 20px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 900px) {
+  .logo {
+    width: 13rem;
+    padding: 1.15rem;
+  }
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-family: "Verdana", sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #14e956;
+}
+
+.subtitle {
+  margin: 0 0 1.25rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.text {
+  margin: 0 0 1.75rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 40rem;
+}
+
+@media (min-width: 900px) {
+  .text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  background: #14e956;
+  color: #0a2a3b;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 16px rgba(20, 233, 86, 0.35);
+}
+
+.link:hover,
+.link:focus-visible {
+  transform: translateY(-2px);
+  background: #19dd39;
+  box-shadow: 0 6px 22px rgba(20, 233, 86, 0.45);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .text {
+    text-align: justify;
+  }
+}

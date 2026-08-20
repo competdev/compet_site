@@ -1,61 +1,197 @@
-import { Box, Carousel, Heading, TItemComponent, Text } from '@codelife-ui/react';
-import { Member, Tutor } from '../../types/types';
-import styles from './projetos.module.css';
-import { Mail, LinkedIn, GitHub } from "@mui/icons-material"
-import Link from 'next/link';
-const TutorComponent: TItemComponent<Tutor> = ({ email, id, linkedin, nome, resume, urlImg }) => (
-  <div id={id} key={`member-${id}`} className={styles.tutor}>
-    <div className={styles.tutorHeader}>
-      <img src={urlImg} alt={`image of ${nome}`} />
-      <Heading as={"h3"}>{nome}</Heading>
-      <div className={styles.tutorFooter}>
-        <Link className={`${styles.icon} ${styles.mail}`} href={`mailto:${email}`} about={`send email to ${nome}`}>
-          <Mail />
-        </Link>
-        <Link className={`${styles.icon} ${styles.linkedin}`} href={linkedin}>
-          <LinkedIn />
-        </Link>
+import { useState, type ReactNode } from "react";
+import { Alert, Snackbar } from "@mui/material";
+import { Member, Tutor } from "../../types/types";
+import styles from "./projetos.module.css";
+import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
+
+async function copyEmailToClipboard(email: string): Promise<boolean> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(email);
+      return true;
+    } catch {
+      /* tenta fallback abaixo */
+    }
+  }
+  if (typeof document === "undefined") return false;
+  const ta = document.createElement("textarea");
+  ta.value = email;
+  ta.setAttribute("readonly", "");
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try {
+    ok = document.execCommand("copy");
+  } finally {
+    document.body.removeChild(ta);
+  }
+  return ok;
+}
+
+function CopyEmailButton({
+  email,
+  className,
+}: {
+  email: string;
+  className?: string;
+}) {
+  const [open, setOpen] = useState(false);
+
+  if (!email?.trim()) return null;
+
+  const handleClick = async () => {
+    const ok = await copyEmailToClipboard(email.trim());
+    if (ok) setOpen(true);
+  };
+
+  return (
+    <>
+      <button
+        type="button"
+        className={`${styles.socialLink} ${className ?? ""}`}
+        title="Copiar e-mail"
+        aria-label="Copiar e-mail para a área de transferência"
+        onClick={() => void handleClick()}
+      >
+        <Mail fontSize="small" />
+      </button>
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          E-mail copiado com sucesso!
+        </Alert>
+      </Snackbar>
+    </>
+  );
+}
+
+function SocialLink({
+  href,
+  label,
+  children,
+  className,
+}: {
+  href?: string;
+  label: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  if (!href?.trim()) return null;
+
+  return (
+    <a
+      href={href}
+      className={`${styles.socialLink} ${className ?? ""}`}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  );
+}
+
+function memberKey(member: Member) {
+  return member.id ?? (member as Member & { _id?: string })._id ?? member.email;
+}
+
+function tutorKey(tutor: Tutor) {
+  return tutor.id ?? (tutor as Tutor & { _id?: string })._id ?? tutor.nome;
+}
+
+function MemberCard({ member }: { member: Member }) {
+  return (
+    <article className={styles.memberCard}>
+      <div className={styles.avatarWrap}>
+        <img
+          src={member.urlImg}
+          alt={`Foto de ${member.nome}`}
+          className={styles.avatar}
+        />
       </div>
-    </div>
-    {resume ? (
-      <div className={styles.tutorContent}>
-        <Text>{resume}</Text>
+      <div className={styles.cardBody}>
+        <h3 className={styles.personName}>{member.nome}</h3>
+        {member.role ? <p className={styles.personRole}>{member.role}</p> : null}
+        <div className={styles.socialRow}>
+          <CopyEmailButton
+            email={member.email}
+            className={styles.socialMail}
+          />
+          <SocialLink
+            href={member.github}
+            label={`GitHub de ${member.nome}`}
+            className={styles.socialGithub}
+          >
+            <GitHub fontSize="small" />
+          </SocialLink>
+          <SocialLink
+            href={member.linkedin}
+            label={`LinkedIn de ${member.nome}`}
+            className={styles.socialLinkedin}
+          >
+            <LinkedIn fontSize="small" />
+          </SocialLink>
+        </div>
       </div>
-    ) : null}
-  </div>
-)
-const MemberComponent: TItemComponent<Member> = ({ id, urlImg, nome, email, github, linkedin, role, statement }) => (
-  <Box id={id} key={`member-${id}`} className={styles.member}>
-    <div className={styles.memberImage}>
-        <img src={urlImg} alt={`image of ${nome}`} />
-     </div>
-    <div className={styles.memberHeader}>
-      <Heading as={"h3"} className={styles.memberName}>{nome}</Heading>
-      <Text>{role}</Text>
+    </article>
+  );
+}
+
+function TutorCard({ tutor }: { tutor: Tutor }) {
+  return (
+    <article className={styles.tutorCard}>
+      <div className={styles.tutorAccent} aria-hidden="true" />
+      <div className={styles.avatarWrap}>
+        <img
+          src={tutor.urlImg}
+          alt={`Foto de ${tutor.nome}`}
+          className={styles.avatar}
+        />
+      </div>
+      <div className={styles.cardBody}>
+        <h3 className={styles.personName}>{tutor.nome}</h3>
+        <div className={styles.socialRow}>
+          <CopyEmailButton email={tutor.email} className={styles.socialMail} />
+          <SocialLink
+            href={tutor.linkedin}
+            label={`LinkedIn de ${tutor.nome}`}
+            className={styles.socialLinkedin}
+          >
+            <LinkedIn fontSize="small" />
+          </SocialLink>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export function ProjectMembersGrid({ items }: { items: Member[] }) {
+  return (
+    <div className={styles.membersGrid}>
+      {items.map((member) => (
+        <MemberCard key={memberKey(member)} member={member} />
+      ))}
     </div>
-    <Text className={styles.memberStatement}>{statement}</Text>
-    <div className={styles.memberFooter}>
-      <a className={`${styles.icon}`} href={`mailto:${email}`} about={`send email to ${nome}`}><Mail /></a>
-      <a className={`${styles.icon}`} href={github}><GitHub /></a>
-      <a className={`${styles.icon}`} href={linkedin}><LinkedIn /></a>
+  );
+}
+
+export function ProjectTutorsGrid({ items }: { items: Tutor[] }) {
+  return (
+    <div className={styles.tutorsGrid}>
+      {items.map((tutor) => (
+        <TutorCard key={tutorKey(tutor)} tutor={tutor} />
+      ))}
     </div>
-  </Box>
-)
-export const TutorCarousel = ({ items, key }: { items: Tutor[], key?: string }) => (
-  <Carousel<Tutor>
-    ItemComponent={TutorComponent}
-    items={items}
-    resourceName='Tutor'
-    variant='primary'
-    key={key}
-  />
-)
-export const MemberCarousel = ({ items, key }: { items: Member[], key?: string }) => (
-  <Carousel<Member>
-    ItemComponent={MemberComponent}
-    items={items}
-    resourceName='Tutor'
-    variant='secondary'
-    key={key}
-  />
-)
+  );
+}

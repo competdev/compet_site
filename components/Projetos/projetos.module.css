@@ -3,197 +3,176 @@
   src: url("../../styles/fonts/CodecPro-Regular.ttf");
 }
 
-.member {
+.membersGrid,
+.tutorsGrid {
   display: flex;
-  flex-direction: column;
-  background-color: #031857 !important;
-  color: #FFF;
-  padding: 1.5rem;
-  border-radius: 20px;
-  gap: 1rem;
-  padding-top: 4rem;
-  align-items: center;
-  margin: 2rem 0.5rem;
-  position: relative;
-  max-width: 400px;
-  padding-right: 6rem;
-  overflow: visible;
-  border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: all 0.3s ease;
-}
-
-.memberName {
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.memberHeader {
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-}
-
-.memberImage {
-  position: absolute;
-  top: 51%;
-  right: -4rem;
-  transform: translateY(-108%);
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  overflow: hidden; 
-  border: 4px solid #010b2a;
-  background-color: #010b2a;
-}
-.memberImage img {
-  width: 101%;
-  height: 101%;
-  object-fit: cover;
-  display: block;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform 0.3s ease;
-}
-
-.memberImage:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.05);
-}
-
-.memberHeader>p {
-  font-weight: 300;
-  font-style: italic;
-}
-
-.memberFooter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.tutorsContainer {
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
-  width: 100%;
 }
 
-.linkedin {
+.memberCard,
+.tutorCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  flex: 0 1 220px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(4, 68, 100, 0.07);
+  padding: 1.25rem 1rem 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.memberCard:hover,
+.tutorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(4, 68, 100, 0.14);
+  border-color: #22c55e;
+  background: #fff;
+}
+
+.tutorCard {
+  overflow: hidden;
+}
+
+.tutorAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #044464 0%, #22c55e 100%);
+}
+
+.avatarWrap {
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #044464;
+  background: #f3f4f6;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.memberCard:hover .avatar,
+.tutorCard:hover .avatar {
+  border-color: #22c55e;
+  transform: scale(1.03);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.personName {
+  margin: 0 0 0.35rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #044464;
+  line-height: 1.3;
+}
+
+.personRole {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.personStatement {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #4b5563;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: center;
+}
+
+.tutorResume {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #4b5563;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: center;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #044464;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  transform: scale(1.08);
+  outline: none;
+}
+
+.socialMail:hover,
+.socialMail:focus-visible {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.socialGithub:hover,
+.socialGithub:focus-visible {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.socialLinkedin:hover,
+.socialLinkedin:focus-visible {
+  background: #dbeafe;
   color: #0e76a8;
 }
 
-.mail {
-  color: #D44638;
-}
-
-.tutorContent {
-  background-color: #19DD39;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: #000;
-  border-radius: 15px;
-  padding: 1rem;
-  margin-block: 1rem;
-  font-family: "Codec Pro Regular", sans-serif;
-}
-
-.tutorHeader {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  top: -3rem;
-  overflow: hidden;
-}
-
-.tutorHeader img {
-  width: 10rem;
-  height: 10rem;
-  object-fit: cover;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  margin-top: 1rem;
-}
-
-.tutorHeader img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.05);
-}
-
-.tutor {
-  position: relative;
-  margin-block: 2rem;
-}
-
-.tutorContent p {
-  font-weight: 300;
-  text-align: justify;
-  margin: 0;
-  text-justify: newspaper;
-  width: 100%;
-  max-width: 800px;
-  max-height: 400px;
-  display: -webkit-box;
-  -webkit-line-clamp: 15;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-@media screen and (max-width: 375px) {
-  .tutorContent p{
-    -webkit-line-clamp: 8;
-  }
-}
-.tutorFooter {
-  display: flex;
-  gap: 1rem;
-}
-
-.icon {
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: .25rem;
-}
-
-.icon:hover {
-  background-color: rgba(255, 255, 255, .1);
-  transition: background-color .2s ease-in-out;
-}
-
-@keyframes from-right {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
+@media (max-width: 640px) {
+  .memberCard,
+  .tutorCard {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 }

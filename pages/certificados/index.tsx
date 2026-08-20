@@ -7,7 +7,7 @@ import styles from "./Certificados.module.css"
 import { NEXT_URL } from "../../util/config"
 import Head from "next/head"
 import Header from "../../components/Header"
-import PageHeader from "../../components/PageHeader"
+import PageTitle from "../../components/PageTitle"
 import SearchBox from "../../components/SearchBox"
 import ReactPaginate from "react-paginate"
 import Footer from "../../components/Footer"
@@ -99,8 +99,6 @@ export default function Certificados({ dados }) {
     const [query, setQuery] = useState("")
     const classes = useStyles()
 
-    const header_img_url = "https://i.ibb.co/MNpsdrb/certificados.png"
-
     function COMPETParticipation(certificado) {
         return certificado.titulo == "Certificado e Declaração de Participação PET - COMPET"
     }
@@ -147,12 +145,7 @@ export default function Certificados({ dados }) {
                 <title>COMPET | Certificados</title>
             </Head>
             <Header />
-            <PageHeader
-                url={header_img_url}
-                caption={false}
-                sortType={undefined}
-                handleSelect={undefined}
-            />
+            <PageTitle title="Certificados" />
             <div className={styles.searchContainer}>
                 <SearchBox placeholder="Pesquisar participante ou evento" setQuery={setQuery} />
             </div>

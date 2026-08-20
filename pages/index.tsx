@@ -11,6 +11,7 @@ import ProcessoSeletivoPopup from "../components/home/ProcessoSeletivoPopup"
 import Pilares from "../components/home/Pilares"
 import Organizacao from "../components/home/Organizacao"
 import JunteSe from "../components/home/JunteSe"
+import InterpetMention from "../components/home/InterpetMention"
 
 import { NEXT_URL } from "../util/config"
 
@@ -43,6 +44,7 @@ export default function Index({ dados, dadosParceiros }) {
                     <Organizacao />
                     <JunteSe />
                     <MediaSection newsData={dados} />
+                    <InterpetMention />
                 <Partners data={dadosParceiros} />
             </div>
             <Footer />

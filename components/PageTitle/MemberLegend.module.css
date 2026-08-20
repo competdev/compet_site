@@ -1,0 +1,49 @@
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: -1rem auto 1.5rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .legend {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .legend {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 0.95rem;
+  color: #004266;
+}
+
+.legendDotScrum {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(255, 14, 14);
+  flex-shrink: 0;
+}
+
+.legendDotIntercamb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #19dd39;
+  flex-shrink: 0;
+}

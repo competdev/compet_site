@@ -30,39 +30,65 @@
 }
 
 .manualArea {
-  display: flex;
   width: 100%;
-  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .manualArea {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .manualArea {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .manualContainer {
-  width: 80%;
-  text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 0px));
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .manualContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .manualContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .manualCard {
   position: static;
-  display: inline-block;
+  display: block;
   height: 320px;
-  margin: 10px;
-  margin-left: 90px;
+  margin: 0;
   border-radius: 10px;
   box-shadow: 1px 1px 6px #00000013;
-  width: 320px;
+  width: 100%;
   background-color: #fff;
   color: #151515;
-  margin-top: 10px;
+  text-align: center;
 }
 
 .manualImg {
-  margin-top: 8px;
-  width: 100%;
+  display: block;
+  margin: 8px auto 0;
+  width: auto;
+  max-width: 100%;
   height: 150px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  object-fit: contain;
 }
 
 .manualTitulo {
@@ -170,11 +196,6 @@
 @media (max-width: 768px) {
   .manualCard {
     height: 300px;
-    width: 100%;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
   }
 
   .manualTitulo {
@@ -183,10 +204,6 @@
 
   .manualImg {
     height: 140px;
-  }
-
-  .manualContainer {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
@@ -197,10 +214,6 @@
 
   .manualCard {
     height: 300px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
   }
 
   .manualTitulo {
@@ -209,10 +222,6 @@
 
   .manualImg {
     height: 125px;
-  }
-
-  .manualContainer {
-    grid-template-columns: 1fr;
   }
 
   .link {

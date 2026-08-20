@@ -5,8 +5,7 @@ import styles from "./Contato.module.css"
 import Head from "next/head"
 
 import Header from "../../components/Header"
-import PageHeader from "../../components/PageHeader"
-import SectionTitle from "../../components/SectionTitle"
+import PageTitle from "../../components/PageTitle"
 import SectionInfo from "../../components/SectionInfo"
 import SocialMediasContact from "../../components/SocialMediasContact"
 import Footer from "../../components/Footer"
@@ -17,13 +16,11 @@ const Map = dynamic(() => import("../../components/Map"), {
 
 export default function Contato() {
     const [modalOpen, setModalOpen] = useState(false)
+    const [modalMessage, setModalMessage] = useState("")
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
-    let responseTxt = "Mensagem enviada com sucesso."
-
-    function openModal(response) {
-        if (!response) {
-            responseTxt = "Falha ao enviar mensagem. Tente novamente."
-        }
+    function openModal(message: string) {
+        setModalMessage(message)
         setModalOpen(true)
     }
 
@@ -39,7 +36,10 @@ export default function Contato() {
             bottom: "auto",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            height: "100px",
+            height: "auto",
+            minHeight: "100px",
+            maxWidth: "min(90vw, 520px)",
+            padding: "1.25rem 1.5rem",
             backgroundColor: "#004266",
             color: "#19DD39",
             fontSize: "20px",
@@ -54,51 +54,60 @@ export default function Contato() {
         },
     }
 
-    const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (isSubmitting) return
 
-    const target = e.target as typeof e.target & {
-        name: { value: string }
-        email: { value: string }
-        subject: { value: string }
-        message: { value: string }
-    }
+        const form = e.currentTarget
+        const formData = new FormData(form)
+        const name = String(formData.get("name") ?? "").trim()
+        const email = String(formData.get("email") ?? "").trim()
+        const subject = String(formData.get("subject") ?? "").trim()
+        const message = String(formData.get("message") ?? "").trim()
 
-    const name = target.name.value
-    const email = target.email.value
-    const subject = target.subject.value
-    const message = target.message.value
+        if (!name || !email || !subject || !message) {
+            openModal("Preencha todos os campos antes de enviar.")
+            return
+        }
 
-    fetch("/api/contato", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name,
-            email,
-            subject,
-            message,
-        }),
-    })
-        .then(async (response) => {
+        setIsSubmitting(true)
+
+        try {
+            const response = await fetch("/api/contato", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    subject,
+                    message,
+                }),
+            })
+
+            const data = await response.json().catch(() => ({}))
+
             if (!response.ok) {
-                const error = await response.json()
-                throw new Error(error.message || "Erro ao enviar")
+                throw new Error(data.message || "Erro ao enviar")
             }
 
-            console.log("Mensagem enviada com sucesso")
-            openModal(true)
-        })
-        .catch((error) => {
+            form.reset()
+            openModal(data.message || "Mensagem enviada com sucesso.")
+        } catch (error) {
             console.error("Erro ao enviar:", error)
-            openModal(false)
-        })
-}
+            openModal(
+                error instanceof Error
+                    ? error.message
+                    : "Falha ao enviar mensagem. Tente novamente.",
+            )
+        } finally {
+            setIsSubmitting(false)
+        }
+    }
     const sectionTitle = "Contato"
     const sectionInfo =
         "Entre em contato com a equipe do COMPET através do formulário abaixo ou por meio de uma das redes sociais do grupo listadas logo abaixo. Tentaremos lhe retornar o mais breve possivel."
-    const header_img_url = "https://i.ibb.co/z8KwzMf/contato.png"
 
     return (
         <div className={styles.pageBody}>
@@ -106,43 +115,47 @@ export default function Contato() {
                 <title>COMPET | Contato</title>
             </Head>
             <Header />
-            <PageHeader
-                url={header_img_url}
-                caption={false}
-                sortType={undefined}
-                handleSelect={undefined}
-            />
-            <SectionTitle title={sectionTitle} />
+            <PageTitle title={sectionTitle} />
             <SectionInfo info={sectionInfo} />
             <Modal isOpen={modalOpen} onRequestClose={closeModal} style={customStyles}>
-                <p>{responseTxt}</p>
+                <p>{modalMessage}</p>
             </Modal>
             <div className={styles.container}>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="name" className={styles.text} placeholder="Seu nome" />
+                    <input
+                        type="text"
+                        name="name"
+                        className={styles.text}
+                        placeholder="Seu nome"
+                        required
+                    />
                     <input
                         type="email"
                         name="email"
                         className={styles.text}
                         placeholder="Seu email"
+                        required
                     />
                     <input
                         type="text"
                         name="subject"
                         className={styles.text}
                         placeholder="Assunto"
+                        required
                     />
                     <textarea
                         name="message"
                         className={styles.text}
                         placeholder="Sua mensagem..."
+                        required
                     />
                     <div className={styles.submitArea}>
                         <input
                             type="submit"
                             name="submit"
                             className={styles.submit}
-                            value="Enviar "
+                            value={isSubmitting ? "Enviando..." : "Enviar "}
+                            disabled={isSubmitting}
                         />
                     </div>
                 </form>

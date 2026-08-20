@@ -3,6 +3,7 @@ import { NEXT_URL } from "../../util/config"
 
 import Head from "next/head"
 import Header from "../../components/Header"
+import PageTitle from "../../components/PageTitle"
 import AboutCard from "../../components/AboutInterPet"
 import CurrEdition from "../../components/CurrEditionInterPet"
 import PastEditions from "../../components/PastEditionsInterPet"
@@ -26,6 +27,7 @@ export default function InterPet({ dados }) {
                 <meta name="description" content="Encontro de Programas de Educação Tutorial do CEFET-MG" />
             </Head>
             <Header />
+            <PageTitle title="Interpet" />
             <main>
                 <InterPetHero />
                 <div className={styles.container}>

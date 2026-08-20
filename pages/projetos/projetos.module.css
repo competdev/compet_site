@@ -1,33 +1,202 @@
-.card{
-display: flex;
-gap:1rem;
-align-items: center;
-justify-content: center;
-padding-inline: 1rem;
-flex-wrap: wrap;
-}
-.image{
-  width: 30%;
-  aspect-ratio: 1/1;
-  min-width: 10rem;
-  border-radius: 50%;
-  border: 3px solid #031857; 
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
-  transition: transform 0.3s ease;
-  display: block; 
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
 }
 
-.image:hover {
-  transform: scale(1.08);
-  border: 3px solid #19DD39;
+.pageContent {
+  background-color: #f5f5f5;
+  min-height: 100%;
+  font-family: "Codec Pro Regular", sans-serif;
+  overflow-x: hidden;
 }
 
-/*Permite que os projetos (bolinhas e títulos) quebrem ao movimentar a tela, diminuí-la/aumentá-la*/
-.projectItem {
+.projetosArea {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 3.5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .projetosArea {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projetosArea {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.introPanel {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(4, 68, 100, 0.06);
+  box-shadow: 0 2px 12px rgba(4, 68, 100, 0.06);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.introText {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.introText:last-child {
+  margin-bottom: 0;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.projectCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 12px rgba(4, 68, 100, 0.06);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
 
-  flex: 1 1 250px;
-  max-width: 300px;
+.projectCard:hover,
+.projectCard:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(4, 68, 100, 0.14);
+  border-color: #22c55e;
+  outline: none;
+}
+
+.cardHero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #021f33 0%, #044464 60%, #06607f 100%);
+}
+
+.cardHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(34, 197, 94, 0.15) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.thumb {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 7.5rem);
+  max-height: 5.25rem;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.28));
+  transition: transform 0.22s ease;
+}
+
+.projectCard:hover .thumb,
+.projectCard:focus-visible .thumb {
+  transform: scale(1.05);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.25rem 1.25rem;
+  text-align: center;
+}
+
+.projectName {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #044464;
+  line-height: 1.35;
+}
+
+.projectDesc {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #6b7280;
+  flex: 1;
+  text-align: center;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.yearBadge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: #eef6fa;
+  color: #044464;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.projectLink {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #044464;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.projectCard:hover .projectLink,
+.projectCard:focus-visible .projectLink {
+  color: #22c55e;
+}
+
+@media (max-width: 768px) {
+  .introPanel {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

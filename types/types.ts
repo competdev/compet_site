@@ -17,6 +17,9 @@ export interface Project {
   members: Member[];
   tutors: Tutor[];
   partners?: Partner[];
+  cidade?: string;
+  area_conhecimento?: string;
+  unidade_academica?: string;
 }
 type Partner = {
   id: string;

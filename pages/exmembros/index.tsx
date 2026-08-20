@@ -7,7 +7,8 @@ import { NEXT_URL } from "../../util/config"
 import Head from "next/head"
 
 import Header from "../../components/Header"
-import PageHeader from "../../components/PageHeader"
+import PageTitle from "../../components/PageTitle"
+import MemberLegend from "../../components/PageTitle/MemberLegend"
 import SectionTitle from "../../components/SectionTitle"
 import MemberCard from "../../components/MembersCard"
 import Footer from "../../components/Footer"
@@ -70,12 +71,8 @@ export default function ExMembros({ dados, tutores, totalExMembros }) {
                 <title>COMPET | Ex-membros</title>
             </Head>
             <Header />
-            <PageHeader
-                url={"https://i.ibb.co/1TV1hgd/exmembros.png"}
-                caption={true}
-                sortType={sortType}
-                handleSelect={handleSelect}
-            />
+            <PageTitle title="Ex-membros" />
+            <MemberLegend />
             {renderBodyPage(exMembrosState, tutoresState, membersPage)}
             {renderVerMais(membersPage, setMembersPage, totalExMembros)}
             <Footer />

@@ -28,10 +28,6 @@ export const pages = [
       title:'Sobre'
   },
     {
-      link: '/interpet',
-      title:'Interpet'
-  },
-    {
       link: '/contato',
       title:'Contato'
   },

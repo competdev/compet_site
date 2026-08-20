@@ -12,7 +12,8 @@ import {
 import Head from "next/head"
 
 import Header from "../../components/Header"
-import PageHeader from "../../components/PageHeader"
+import PageTitle from "../../components/PageTitle"
+import MemberLegend from "../../components/PageTitle/MemberLegend"
 import SectionTitle from "../../components/SectionTitle"
 import MemberCard from "../../components/MembersCard"
 import Footer from "../../components/Footer"
@@ -57,7 +58,6 @@ export default function Equipe({ membros, scrumMaster, tutores }) {
         [membrosState]
     )
 
-    const header_img_url = "https://i.ibb.co/5K58j8k/equipe.png"
 
     const [sortType, setSortType] = useState(SortOrder.DATE_DESC)
     function handleSelect(event) {
@@ -91,12 +91,8 @@ export default function Equipe({ membros, scrumMaster, tutores }) {
                 <title>COMPET | Equipe</title>
             </Head>
             <Header />
-            <PageHeader
-                url={header_img_url}
-                caption={true}
-                sortType={sortType}
-                handleSelect={handleSelect}
-            />
+            <PageTitle title="Equipe" />
+            <MemberLegend />
             {renderTutores(tutoresState)}
             {renderScrumMaster(scrumMaster)}
             {renderMembrosPorEquipe(bucketsPorEquipe, membersPage)}

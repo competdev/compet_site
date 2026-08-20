@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from '../../components/PageHeader';
+import PageTitle from '../../components/PageTitle';
 import { makeStyles } from "@mui/styles";
 import { isMobile } from "react-device-detect";
 import Timeline from "@mui/lab/Timeline";
@@ -643,14 +643,6 @@ responsabilidade.
 }
 
 const renderPageHeader = () => {
-    const header_img_url = "https://i.ibb.co/3dyKHJ3/sobre.png"
-    return (
-        <PageHeader
-            url={header_img_url}
-            caption={false}
-            sortType={undefined}
-            handleSelect={undefined}
-        />
-    )
+    return <PageTitle title="Sobre" />
 }
 

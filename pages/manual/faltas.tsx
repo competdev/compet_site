@@ -1,22 +1,20 @@
 import { useState } from "react"
 import styles from "./Faltas.module.css"
 import Header from "../../components/Header"
-import PageHeader from "../../components/PageHeader"
+import PageTitle from "../../components/PageTitle"
 import Footer from "../../components/Footer"
 import Head from "next/head"
 
 export default function Manual({ dados = [] }) {
     const [query, setQuery] = useState("")
 
-    const header_img_url = "https://i.ibb.co/0BY1q2k/Help.png"
-
     return (
         <div className={styles.pageContent}>
             <Head>
-                <title>COMPET | Matrícula</title>
+                <title>COMPET | Faltas</title>
             </Head>
             <Header />
-            <PageHeader url={header_img_url} caption={false} />
+            <PageTitle title="Faltas" />
             {renderFaltas(dados)}
             <Footer />
         </div>

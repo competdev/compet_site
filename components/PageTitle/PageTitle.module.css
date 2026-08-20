@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Codec Pro Regular";
+  src: url("../../styles/fonts/CodecPro-Regular.ttf");
+}
+
+/* Alinhado ao container do Header (max-width 1280px + padding) e ao PageLayout do site_teste */
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto 2rem;
+  padding: 3rem 1rem 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding-top: 2rem;
+  }
+}
+
+.title {
+  font-family: "Codec Pro Regular", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #044464;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.lines {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.linePrimary,
+.lineGreen {
+  display: block;
+  height: 0.25rem;
+  width: 4rem;
+}
+
+.linePrimary {
+  background-color: #044464;
+}
+
+.lineGreen {
+  background-color: #22c55e;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .linePrimary,
+  .lineGreen {
+    width: 3rem;
+  }
+}

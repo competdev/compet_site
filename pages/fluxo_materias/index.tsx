@@ -7,6 +7,7 @@ import { getInternalApiBaseUrl } from "../../util/config"
 
 import Head from 'next/dist/shared/lib/head';
 import Header from "../../components/Header";
+import PageTitle from "../../components/PageTitle";
 import Footer from "../../components/Footer";
 
 import { Tooltip } from '@mui/material';
@@ -1022,6 +1023,7 @@ export default function Fluxo_materias(props) {
             </Head>
             <section>
                 <Header />
+                <PageTitle title="Fluxo de Matérias" />
                 <div className={styles.opcoes}>
                     <label className="radioButtons">
                         <input

@@ -3,7 +3,7 @@ import axios from "axios"
 import { NEXT_URL } from "../../util/config"
 
 import Header from "../../components/Header"
-import SectionTitle from "../../components/SectionTitle"
+import PageTitle from "../../components/PageTitle"
 import Footer from "../../components/Footer"
 
 Changelog.getInitialProps = async () => {
@@ -28,7 +28,7 @@ export default function Changelog({ dados }) {
         <div className={styles.bodyPage}>
             <Header />
             <div className={styles.pageContent}>
-                <SectionTitle title={sectionTitle} />
+                <PageTitle title={sectionTitle} />
                 {dados.map(data => (
                     <div className={styles.cardLog} key={data._id}>
                         <div className={styles.nameLog}>{data.name}</div>
