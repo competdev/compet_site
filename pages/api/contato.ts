@@ -38,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const senderEmail = trimEnv(process.env.SENDER_EMAIL)
-    const senderPass = trimEnv(process.env.SENDER_PASS)
+    const senderPass = trimEnv(process.env.SENDER_PASS).replace(/\s/g, "")
     const recipientEmail = trimEnv(process.env.RECIPIENT_EMAIL)
 
     if (!senderEmail || !senderPass || !recipientEmail) {

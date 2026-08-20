@@ -1,6 +1,7 @@
 export type ProjectDescriptionSection = {
   title: string;
   lines: string[];
+  kind: "list" | "paragraphs";
 };
 
 export type ParsedProjectDescription = {
@@ -19,24 +20,22 @@ const KNOWN_SECTIONS = new Set([
 ]);
 
 function isSectionHeader(line: string): string | null {
-  const match = line.match(/^([^:]+):\s*$/);
-  if (!match) return null;
-  const title = match[1].trim();
+  const title = line.replace(/:+\s*$/, "").trim();
   if (!KNOWN_SECTIONS.has(title.toLowerCase())) return null;
   return title;
 }
 
 function isBulletLine(line: string): boolean {
-  return /^[-•*]\s+/.test(line);
+  return /^([-•*]|\u2192)\s+/.test(line);
 }
 
 function stripBullet(line: string): string {
-  return line.replace(/^[-•*]\s+/, "").trim();
+  return line.replace(/^([-•*]|\u2192)\s+/, "").trim();
 }
 
 export type ContentBlock =
   | { type: "paragraph"; text: string }
-  | { type: "section"; title: string; lines: string[] };
+  | { type: "section"; title: string; lines: string[]; kind: "list" | "paragraphs" };
 
 function firstSentence(text: string): string {
   const normalized = text.replace(/\s+/g, " ").trim();
@@ -99,6 +98,7 @@ function parseUnstructuredBlocks(intro: string): ContentBlock[] {
       type: "section",
       title: listTitle || "Detalhes",
       lines: [...listItems],
+      kind: "list",
     });
     listItems = [];
     listTitle = null;
@@ -142,6 +142,7 @@ export function getProjectContentBlocks(
         type: "section",
         title: section.title,
         lines: section.lines,
+        kind: section.kind,
       });
     }
     return blocks;
@@ -155,6 +156,7 @@ export function getProjectContentBlocks(
         type: "section",
         title: section.title,
         lines: section.lines,
+        kind: section.kind,
       });
     }
     return blocks;
@@ -208,10 +210,20 @@ export function parseProjectDescription(descricao: string): ParsedProjectDescrip
       (block) =>
         block.title !== null && block.title.toLowerCase() !== "ideia geral"
     )
-    .map((block) => ({
-      title: block.title as string,
-      lines: block.lines.map(stripBullet).filter(Boolean),
-    }));
+    .map((block) => {
+      const rawLines = block.lines.filter(Boolean);
+      const listCount = rawLines.filter(isBulletLine).length;
+      const kind: "list" | "paragraphs" =
+        listCount > 0 && listCount >= Math.ceil(rawLines.length / 2)
+          ? "list"
+          : "paragraphs";
+
+      return {
+        title: block.title as string,
+        lines: rawLines.map(stripBullet).filter(Boolean),
+        kind,
+      };
+    });
 
   return { intro, ideiaGeral, sections };
 }

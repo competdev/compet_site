@@ -137,7 +137,18 @@ export default function Projetos({
             <span className={styles.sectionAccent} aria-hidden="true" />
             {block.title}
           </h2>
-          {block.lines.length > 1 ? (
+          {block.kind === "paragraphs" ? (
+            block.lines.map((line, lineIndex) => (
+              <p
+                key={lineIndex}
+                className={`${styles.introText} ${
+                  lineIndex > 0 ? styles.introTextSpaced : ""
+                }`}
+              >
+                {line}
+              </p>
+            ))
+          ) : block.lines.length > 1 ? (
             <ul className={styles.sectionList}>
               {block.lines.map((line, lineIndex) => (
                 <li key={lineIndex} className={styles.sectionListItem}>
