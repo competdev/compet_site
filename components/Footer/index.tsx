@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
-import wSize from "../../util/windowSize"
+import OptimizedImage from "../OptimizedImage"
+import { IMAGE_ASSETS } from "../../util/imageAssets"
 import styles from "./Footer.module.css"
 
 export default function Footer() {
@@ -46,8 +47,8 @@ const InfoCEFET = () => {
             <div className={styles.separator}>
                 {" "}
                 <hr></hr>
-                <div className={styles.Links}>
-                    {wSize().width > 1100 ? <LinksCEFET /> : toggleFooter ? <LinksCEFET /> : <></>}
+                <div className={`${styles.Links} ${toggleFooter ? styles.linksExpanded : ""}`}>
+                    <LinksCEFET />
                 </div>
             </div>
         </div>
@@ -94,8 +95,8 @@ const InfoDECOM = () => {
             <div className={styles.separator}>
                 {" "}
                 <hr></hr>
-                <div className={styles.Links}>
-                    {wSize().width > 1100 ? <LinksDECOM /> : toggleFooter ? <LinksDECOM /> : <></>}
+                <div className={`${styles.Links} ${toggleFooter ? styles.linksExpanded : ""}`}>
+                    <LinksDECOM />
                 </div>
             </div>
         </div>
@@ -141,8 +142,10 @@ const InfoExtra = () => {
                     <div className={styles.arrow}></div>
                 </div>
             </div>
-            <div className={styles.separator}>
-                {wSize().width > 1100 ? <LinksCOGPDC /> : toggleFooter ? <LinksCOGPDC /> : <></>}
+            <div className={`${styles.separator} ${toggleFooter ? styles.linksExpanded : ""}`}>
+                <div className={`${styles.Links} ${toggleFooter ? styles.linksExpanded : ""}`}>
+                    <LinksCOGPDC />
+                </div>
             </div>
         </div>
     )
@@ -215,27 +218,43 @@ const LinksSocialNetwork = () => {
     return (
         <div className={styles.socialNetwork}>
             <Link href={"https://www.instagram.com/compet.cefet/"} target="_blank" title="Instagram">
-                    <img
+                    <OptimizedImage
                         className={styles.socialNetworkIcons}
-                        src="https://i.ibb.co/61Y0dqL/instagram-icon.png"
+                        src={IMAGE_ASSETS.iconInstagram}
+                        alt="Instagram"
+                        width={48}
+                        height={48}
+                        sizes="27px"
                     />
             </Link>
             <Link href={"https://www.linkedin.com/in/competcefetmg/"} target="_blank" title="LinkedIn">
-                <img
+                <OptimizedImage
                     className={styles.socialNetworkIcons}
-                    src="https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
+                    src={IMAGE_ASSETS.iconLinkedin}
+                    alt="LinkedIn"
+                    width={48}
+                    height={48}
+                    sizes="27px"
                 />
             </Link>
             <Link href={"https://www.facebook.com/competcefetmg"} target="_blank" title="Facebook">
-                <img
+                <OptimizedImage
                     className={styles.socialNetworkIcons}
-                    src="https://i.ibb.co/mT4S0S9/facebook-icon.png"
+                    src={IMAGE_ASSETS.iconFacebook}
+                    alt="Facebook"
+                    width={48}
+                    height={48}
+                    sizes="27px"
                 />
             </Link>
             <Link href={"https://twitter.com/compet_cefet"} target="_blank" title="Twitter">
-                <img
+                <OptimizedImage
                     className={styles.socialNetworkIcons}
-                    src="https://i.ibb.co/Zfb5rRR/twitter-icon.png"
+                    src={IMAGE_ASSETS.iconTwitter}
+                    alt="Twitter"
+                    width={48}
+                    height={48}
+                    sizes="27px"
                 />
             </Link>
         </div>
@@ -246,9 +265,13 @@ const Credits = () => {
     return (
         <div className={styles.Credits}>
             <div className={styles.textCredits}>Desenvolvido por</div>
-            <img
+            <OptimizedImage
                 className={styles.logoCOMPET}
-                src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png"
+                src={IMAGE_ASSETS.logoHorizontal}
+                alt="COMPET"
+                width={102}
+                height={40}
+                sizes="102px"
             />
         </div>
     )

@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
+import dynamic from "next/dynamic";
+import type { ComponentProps } from "react";
+import type ReactModal from "react-modal";
 import Link from "next/link";
+import OptimizedImage from "../../OptimizedImage";
+import { IMAGE_ASSETS } from "../../../util/imageAssets";
 import styles from "./Anos10Popup.module.css";
+
+const Modal = dynamic<ComponentProps<typeof ReactModal>>(
+    () => import("react-modal"),
+    { ssr: false }
+);
 
 interface Milestone {
     number: string;
@@ -70,10 +79,13 @@ const Anos10Popup: React.FC = () => {
         <>
             <div className={styles.anos10Trigger} onClick={openModal}>
                 <div className={styles.anos10TriggerContent}>
-                    <img 
-                        src="/icone_10anos.png" 
-                        alt="10 anos COMPET" 
+                    <OptimizedImage
+                        src={IMAGE_ASSETS.icone10anos}
+                        alt="10 anos COMPET"
                         className={styles.anos10TriggerIcon}
+                        width={200}
+                        height={267}
+                        sizes="100px"
                     />
                     <div className={styles.anos10TriggerText}>
                         <span className={styles.anos10TriggerTitle}>Celebrando 10 anos de COMPET!</span>
@@ -84,6 +96,7 @@ const Anos10Popup: React.FC = () => {
                 </div>
             </div>
 
+            {isOpen ? (
             <Modal 
                 isOpen={isOpen} 
                 onRequestClose={closeModal} 
@@ -97,10 +110,13 @@ const Anos10Popup: React.FC = () => {
                     
                     <div className={styles.modalHeader}>
                         <div className={styles.modalIconContainer}>
-                            <img 
-                                src="/icone_10anos.png" 
-                                alt="Ícone 10 anos COMPET" 
+                            <OptimizedImage
+                                src={IMAGE_ASSETS.icone10anos}
+                                alt="Ícone 10 anos COMPET"
                                 className={styles.modalIcon}
+                                width={500}
+                                height={667}
+                                sizes="(max-width: 768px) 100px, 250px"
                             />
                         </div>
                         <h2 className={styles.modalTitle}>Celebrando 10 anos de COMPET</h2>
@@ -144,6 +160,7 @@ const Anos10Popup: React.FC = () => {
                     </div>
                 </div>
             </Modal>
+            ) : null}
         </>
     );
 };

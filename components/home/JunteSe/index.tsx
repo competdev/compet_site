@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import OptimizedImage from "../../OptimizedImage";
+import { IMAGE_ASSETS } from "../../../util/imageAssets";
 import styles from "./JunteSe.module.css";
-
-const JUNTE_SE_ICONE_SRC = encodeURI("/junte-se a nós - icone.png");
 
 interface Beneficio {
     text: string;
@@ -33,18 +32,18 @@ const JunteSe: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <Link href="/contato" className={styles.junteSeButton}>
+                    <Link href="/contato" className={styles.junteSeButton} prefetch={false}>
                         Quero participar!
                     </Link>
                 </div>
                 <div className={styles.junteSeIllustration}>
                     <div className={styles.illustrationContainer}>
                         <div className={styles.illustrationPlaceholder}>
-                            <Image
-                                src={JUNTE_SE_ICONE_SRC}
+                            <OptimizedImage
+                                src={IMAGE_ASSETS.junteSeIcone}
                                 alt="Junte-se ao COMPET"
-                                width={400}
-                                height={400}
+                                width={800}
+                                height={533}
                                 className={styles.illustrationImage}
                                 sizes="(max-width: 768px) 280px, 400px"
                             />
@@ -57,4 +56,3 @@ const JunteSe: React.FC = () => {
 };
 
 export default JunteSe;
-

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./InterpetMention.module.css";
+import { IMAGE_ASSETS } from "../../../util/imageAssets";
 
 export default function InterpetMention() {
   return (
@@ -8,11 +9,12 @@ export default function InterpetMention() {
       <div className={styles.inner}>
         <div className={styles.logoWrap}>
           <Image
-            src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png"
+            src={IMAGE_ASSETS.logoInterpet}
             alt="Logo InterPET"
             width={220}
             height={220}
             className={styles.logo}
+            sizes="220px"
           />
         </div>
 

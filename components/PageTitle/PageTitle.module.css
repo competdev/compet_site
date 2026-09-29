@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../styles/fonts/CodecPro-Regular.ttf");
-}
-
 /* Alinhado ao container do Header (max-width 1280px + padding) e ao PageLayout do site_teste */
 .wrapper {
   width: 100%;

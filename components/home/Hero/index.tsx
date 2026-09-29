@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import OptimizedImage from "../../OptimizedImage";
+import { IMAGE_ASSETS } from "../../../util/imageAssets";
 import styles from "./Hero.module.css";
 
 interface HeroProps {}
@@ -17,16 +19,19 @@ const Hero: React.FC<HeroProps> = () => {
                         de trabalhos científicos na área, engajar os alunos da instituição nos
                         respectivos cursos e realizar atividades sociais.
                     </p>
-                    <Link href="/sobre" className={styles.heroButton}>
+                    <Link href="/sobre" className={styles.heroButton} prefetch={false}>
                         Saiba mais
                     </Link>
                 </div>
                 <div className={styles.heroIllustration}>
                     <div className={styles.illustrationContainer}>
-                        <img 
-                            src="https://i.ibb.co/PY1byp5/Logo-2021-Fundo-Branco-sem-texto.png" 
-                            alt="Logo COMPET" 
+                        <OptimizedImage
+                            src={IMAGE_ASSETS.logoCompet}
+                            alt="Logo COMPET"
                             className={styles.illustrationImage}
+                            width={650}
+                            height={650}
+                            sizes="(max-width: 768px) 300px, 325px"
                         />
                     </div>
                 </div>
@@ -36,4 +41,3 @@ const Hero: React.FC<HeroProps> = () => {
 };
 
 export default Hero;
-

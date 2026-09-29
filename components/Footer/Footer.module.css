@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../styles/fonts/CodecPro-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("../../styles/fonts/Verdana.ttf");
-}
-
 .footer {
   margin-top: 10vh;
   overflow: hidden;
@@ -110,8 +100,9 @@
 
 .socialNetworkIcons {
   margin: 5px;
-  height: 27px;
-  width: 27px;
+  height: 27px !important;
+  width: 27px !important;
+  object-fit: contain;
   transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
@@ -152,9 +143,10 @@
 }
 
 .logoCOMPET {
-  width: 102px;
-  height: 40px;
+  width: 102px !important;
+  height: 40px !important;
   margin-left: 10px;
+  object-fit: contain;
 }
 
 .separator hr {
@@ -163,6 +155,16 @@
   display: none;
   border: 0;
   border-top: 1px solid rgba(0, 48, 90, 0.175);
+}
+
+@media (max-width: 1100px) {
+  .Links {
+    display: none;
+  }
+
+  .linksExpanded {
+    display: block;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -256,8 +258,8 @@
 
   .socialNetworkIcons {
     margin: 5px;
-    height: 24px;
-    width: 24px;
+    height: 24px !important;
+    width: 24px !important;
   }
 
   .Credits {

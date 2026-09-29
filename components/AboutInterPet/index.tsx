@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import SectionTitle from "../SectionTitle";
 import styles from "./AboutInterPet.module.css";
+import { IMAGE_ASSETS } from "../../util/imageAssets";
 
 const AboutInterPet: React.FC = () => {
     return (
@@ -10,9 +11,10 @@ const AboutInterPet: React.FC = () => {
             <div className={styles.aboutContent}>
                 <div className={styles.imageWrapper}>
                     <Image
-                        src="https://i.ibb.co/fGszj1d/inter-Pet-sobre.jpg"
+                        src={IMAGE_ASSETS.interpetSobre}
                         alt="InterPET"
                         fill
+                        sizes="(max-width: 768px) 100vw, 560px"
                         className={styles.aboutImage}
                         style={{ objectFit: 'cover' }}
                     />

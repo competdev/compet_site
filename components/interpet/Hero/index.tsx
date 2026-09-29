@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
+import { IMAGE_ASSETS } from "../../../util/imageAssets";
 
 const InterPetHero: React.FC = () => {
     return (
@@ -8,11 +9,12 @@ const InterPetHero: React.FC = () => {
             <div className={styles.heroContent}>
                 <div className={styles.logoContainer}>
                     <Image
-                        src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png"
+                        src={IMAGE_ASSETS.logoInterpet}
                         alt="Logo InterPET"
                         width={300}
                         height={300}
                         className={styles.logo}
+                        sizes="(max-width: 768px) 200px, 280px"
                         priority
                     />
                 </div>

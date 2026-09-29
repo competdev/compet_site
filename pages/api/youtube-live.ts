@@ -72,11 +72,11 @@ async function fetchLiveBroadcastsOnce(): Promise<YoutubeLiveStream[]> {
             )
             .map((item: any): YoutubeLiveStream => {
                 const thumbnails = [
+                    createImageObject(item.snippet.thumbnails?.standard || {}),
+                    createImageObject(item.snippet.thumbnails?.high || {}),
+                    createImageObject(item.snippet.thumbnails?.medium || {}),
                     createImageObject(item.snippet.thumbnails?.maxres || {}),
                     createImageObject(item.snippet.thumbnails?.default || {}),
-                    createImageObject(item.snippet.thumbnails?.medium || {}),
-                    createImageObject(item.snippet.thumbnails?.high || {}),
-                    createImageObject(item.snippet.thumbnails?.standard || {}),
                 ].filter((image): image is YoutubeLiveStreamImages => image !== null)
 
                 return {

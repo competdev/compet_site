@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import { pages } from '../../util/constants';
+import { IMAGE_ASSETS } from "../../util/imageAssets";
 
 const Header: React.FC = () => {
     const router = useRouter();
@@ -28,15 +29,17 @@ const Header: React.FC = () => {
                     <Link 
                         href="/" 
                         className={styles.logoLink}
+                        prefetch={false}
                         onClick={(e) => isFluxoMaterias && handleLinkClick(e, '/')}
                     >
                         <Image
-                            src="https://i.ibb.co/MPZVFyj/menu-Logo-Horizontal.png"
+                            src={IMAGE_ASSETS.logoHorizontal}
                             alt="COMPET Logo"
                             width={220}
                             height={75}
                             className={styles.logo}
                             priority
+                            sizes="(min-width: 1024px) 220px, 160px"
                         />
                     </Link>
 
@@ -47,6 +50,7 @@ const Header: React.FC = () => {
                                 <Link 
                                     href={page.link} 
                                     className={styles.navLink}
+                                    prefetch={false}
                                     onClick={(e) => handleLinkClick(e, page.link)}
                                 >
                                     {page.title}
@@ -84,6 +88,7 @@ const Header: React.FC = () => {
                                 <Link
                                     href={page.link}
                                     className={styles.mobileLink}
+                                    prefetch={false}
                                     onClick={(e) => {
                                         setIsMenuOpen(false);
                                         if (isFluxoMaterias) {

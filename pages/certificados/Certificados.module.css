@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../styles/fonts/CodecPro-Regular.ttf");
-}
-
 .searchContainer {
   display: flex;
   justify-content: flex-end;

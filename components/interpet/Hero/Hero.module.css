@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../../styles/fonts/CodecPro-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("../../../styles/fonts/Verdana.ttf");
-}
-
 .hero {
     width: 100%;
     background: linear-gradient(135deg, #004266 0%, #0066a3 100%);
@@ -32,6 +22,9 @@
 }
 
 .logo {
+    width: 280px !important;
+    height: 280px !important;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     background: white;
@@ -91,5 +84,10 @@
         text-justify: inter-word;
         hyphens: auto;
         line-height: 1.6;
+    }
+
+    .logo {
+        width: 200px !important;
+        height: 200px !important;
     }
 }

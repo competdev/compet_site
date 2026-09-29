@@ -1,120 +1,167 @@
-import { makeStyles, styled } from "@mui/styles";
-import React, { useEffect, useState } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
-import styles from "./SlideShow.module.css";
-import cardStyles from "../../styles/MediaCard.module.css";
-import SectionTitle from "../SectionTitle";
-// import { getCompetShows, SpotifyShow } from "./util/spotifyAPI";
-import { YoutubeLiveStream, getLiveBroadcasts } from "./util/youtubeAPI";
+import React, { useEffect, useState } from "react"
+import styles from "./SlideShow.module.css"
+import cardStyles from "../../styles/MediaCard.module.css"
+import SectionTitle from "../SectionTitle"
+import OptimizedImage from "../OptimizedImage"
+import { DEFAULT_PHOTO, pickDisplayImage } from "../../util/imageAssets"
+import { YoutubeLiveStream, getLiveBroadcasts } from "./util/youtubeAPI"
 
-/** Se API não enviar capa (episódio + show sem imagens), ainda exibe o card */
-const IMAGEM_FALLBACK =
-    "https://i.ibb.co/3swTqhQ/default-photo.webp";
+const AUTO_MS = 6000
 
-const Legend = styled("p")({
-    width: "100%",
-})
+const SlideShow = () => {
+    const [dadosShows, setDadosShows] = useState<YoutubeLiveStream[]>([])
+    const [loading, setLoading] = useState(true)
+    const [active, setActive] = useState(0)
+    const [paused, setPaused] = useState(false)
 
-const useStyles = makeStyles(() => ({
-    style: {
-        "& .carousel .thumbs-wrapper": {
-            margin: 0,
-        },
-        "& .carousel .thumb": {
-            padding: 0,
-            opacity: 0.5,
-            border: "1px solid #00000073",
-        },
-        "& .carousel .thumb.selected": {
-            border: "2px solid #000",
-            padding: 1,
-            opacity: 1,
-        },
-        "& .carousel .slider-wrapper": {
-            borderBottom: "7px solid #004266",
-            borderRadius: "10px 10px 0px 0px",
-            border: "1px solid #00000049",
-        },
-    },
-}))
-
-const SlideShow = data => {
-    const classes = useStyles()
-    const [dadosShows, setDadosShows] = useState<YoutubeLiveStream[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-
-    // Busca lives (YouTube); Spotify comentado temporariamente (ver getCompetShows em spotifyAPI)
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true);
-                // const podcasts = await getCompetShows();
-                const podcasts: YoutubeLiveStream[] = [];
-                const youtube = await getLiveBroadcasts().catch(() => []); // Se falhar, retorna array vazio
-
-                const sortedShows = [...podcasts, ...youtube].sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
-                const topFiveShows = sortedShows.slice(0, 5);
-                setDadosShows(topFiveShows);
+                setLoading(true)
+                const youtube = await getLiveBroadcasts().catch(() => [])
+                const sortedShows = [...youtube].sort(
+                    (a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()
+                )
+                setDadosShows(sortedShows.slice(0, 5))
+                setActive(0)
             } catch (error) {
-                console.error('Erro ao buscar dados do SlideShow:', error);
-                setDadosShows([]);
+                console.error("Erro ao buscar dados do SlideShow:", error)
+                setDadosShows([])
             } finally {
-                setLoading(false);
+                setLoading(false)
             }
-        };
+        }
 
-        fetchData();
-    }, []);
+        fetchData()
+    }, [])
 
-    const showsComImagens = dadosShows
+    const shows = dadosShows
         .filter(show => Boolean(show.link))
         .map(show => {
-            if (show.images?.length && show.images[0]?.url) return show;
+            const display = pickDisplayImage(show.images, 640)
             return {
                 ...show,
-                images: [{ height: 640, width: 640, url: IMAGEM_FALLBACK }],
-            };
-        });
+                thumb: {
+                    url: display.url || DEFAULT_PHOTO,
+                    width: display.width,
+                    height: display.height,
+                },
+            }
+        })
+
+    const total = shows.length
+
+    const goTo = (index: number) => {
+        if (!total) return
+        setActive((index + total) % total)
+    }
+
+    useEffect(() => {
+        if (paused || total < 2) return
+        const id = window.setInterval(() => {
+            setActive(current => (current + 1) % total)
+        }, AUTO_MS)
+        return () => window.clearInterval(id)
+    }, [paused, total])
+
+    const current = shows[active]
 
     return (
         <section id="in-progress" className={styles.slideContainer}>
             <SectionTitle title={"COMPET no YouTube"} />
-            <div className={cardStyles.mediaCard}>
-                <div className={cardStyles.mediaCardContent}>
+            <div className={`${cardStyles.mediaCard} ${styles.youtubeCard}`}>
+                <div className={`${cardStyles.mediaCardContent} ${styles.youtubeContent}`}>
                     {loading ? (
-                        <div className={cardStyles.mediaCardLoading}>
-                            Carregando...
-                        </div>
-                    ) : showsComImagens.length > 0 ? (
-                        <div className={cardStyles.mediaCardFixed}>
-                            <Carousel
-                                autoPlay
-                                showIndicators={false}
-                                className={classes.style}
-                                showStatus={false}
-                                infiniteLoop={showsComImagens.length > 1}
-                                showThumbs={showsComImagens.length > 1}
-                                thumbWidth={100}
-                                emulateTouch
-                            >   
-                                {/* YouTube — Spotify comentado temporariamente no fetch */}
-                                {showsComImagens.map((show, index) => (  
-                                    <div key={index}>
-                                        {/* O YouTube disponibiliza 4 opções de thumbnail, sendo a na posição 0 a de maior resolução */}
-                                        <a
-                                            className={styles.slideLink}
-                                            href={show.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            title={`Abrir em nova aba: ${show.name}`}
-                                        >
-                                            <img className={styles.image} src={show.images[0].url} alt={show.name}/> 
-                                            <Legend className={styles.legend}> {show.name} </Legend>
-                                        </a>
+                        <div className={cardStyles.mediaCardLoading}>Carregando...</div>
+                    ) : current ? (
+                        <div
+                            className={styles.player}
+                            onMouseEnter={() => setPaused(true)}
+                            onMouseLeave={() => setPaused(false)}
+                            onFocusCapture={() => setPaused(true)}
+                            onBlurCapture={() => setPaused(false)}
+                            onKeyDown={event => {
+                                if (event.key === "ArrowRight") {
+                                    event.preventDefault()
+                                    goTo(active + 1)
+                                }
+                                if (event.key === "ArrowLeft") {
+                                    event.preventDefault()
+                                    goTo(active - 1)
+                                }
+                            }}
+                        >
+                            <div className={styles.stage}>
+                                <a
+                                    className={styles.frame}
+                                    href={current.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={`Assistir no YouTube: ${current.name}`}
+                                >
+                                    <span className={styles.imageWrap}>
+                                        <OptimizedImage
+                                            className={styles.image}
+                                            src={current.thumb.url}
+                                            alt={current.name}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 560px"
+                                            style={{ objectFit: "cover" }}
+                                            priority
+                                        />
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div className={styles.meta}>
+                                <p className={styles.videoTitle}>{current.name}</p>
+                                <p className={styles.videoMeta}>
+                                    {formatReleaseDate(current.release_date)}
+                                    <span aria-hidden="true"> · </span>
+                                    <a
+                                        className={styles.watchLink}
+                                        href={current.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Assistir no YouTube
+                                    </a>
+                                </p>
+                            </div>
+
+                            {total > 1 ? (
+                                <div className={styles.controls}>
+                                    <button
+                                        type="button"
+                                        className={styles.arrow}
+                                        onClick={() => goTo(active - 1)}
+                                        aria-label="Vídeo anterior"
+                                    >
+                                        <Chevron direction="left" />
+                                    </button>
+                                    <div className={styles.dots} role="tablist" aria-label="Vídeos do COMPET">
+                                        {shows.map((show, index) => (
+                                            <button
+                                                key={`${show.link}-${index}`}
+                                                type="button"
+                                                role="tab"
+                                                aria-selected={index === active}
+                                                aria-label={`Mostrar vídeo ${index + 1}: ${show.name}`}
+                                                className={`${styles.dot} ${index === active ? styles.dotActive : ""}`}
+                                                onClick={() => goTo(index)}
+                                            />
+                                        ))}
                                     </div>
-                                ))}
-                            </Carousel>
+                                    <button
+                                        type="button"
+                                        className={styles.arrow}
+                                        onClick={() => goTo(active + 1)}
+                                        aria-label="Próximo vídeo"
+                                    >
+                                        <Chevron direction="right" />
+                                    </button>
+                                </div>
+                            ) : null}
                         </div>
                     ) : (
                         <div className={cardStyles.mediaCardEmpty}>
@@ -124,7 +171,25 @@ const SlideShow = data => {
                 </div>
             </div>
         </section>
-    );
+    )
+}
+
+function formatReleaseDate(value: Date | string | undefined) {
+    const date = value instanceof Date ? value : value ? new Date(value) : null
+    if (!date || Number.isNaN(date.getTime())) return "YouTube"
+    return date.toLocaleDateString("pt-BR")
+}
+
+function Chevron({ direction }: { direction: "left" | "right" }) {
+    return (
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            {direction === "left" ? (
+                <path fill="currentColor" d="M15.5 4.5 14 3l-8 9 8 9 1.5-1.5L8.5 12z" />
+            ) : (
+                <path fill="currentColor" d="M8.5 4.5 10 3l8 9-8 9-1.5-1.5L15.5 12z" />
+            )}
+        </svg>
+    )
 }
 
 export default SlideShow

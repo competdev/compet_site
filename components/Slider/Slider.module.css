@@ -1,99 +1,129 @@
 .slider {
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     width: 100%;
 }
 
-.slider .sliderContent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 0px 5px #00000021;
-    background-color: rgb(255, 255, 255);
+.placeholder {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 5px;
+    height: 176px;
 }
 
-.slider button {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 10%;
-    height: 100%;
-    cursor: pointer;
-    border: 0;
-    box-shadow: 0px 0px 5px #00000033;
-    background-color: #004266;
-    color: white;
-    font-weight: bolder;
-    font-size: 5vw;
-    transition: all .1s ease;
-}
-
-.slider button{
-    transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-}
-
-.slider button:hover {
-    width: 13%;
-}
-
-.slider .leftArrow {
-    left: 0px;
-}
-
-.slider .rightArrow {
-    right: 0;
-}
-
-.slider .slidesContainer {
-    position: relative;
-    display: block;
-    margin: 0 10%;
-    height: 100%;
-}
-
-.slider .slides {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+.viewport {
     display: flex;
-    transition: all .5s ease;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.35rem 0.15rem 0.85rem;
 }
 
-.slider .slide {
-    display: inline-block;
-    margin: 5px;
-    height: 100%;
-    background-color: white;
+.viewport::-webkit-scrollbar {
+    display: none;
 }
 
-.slider .slide a {
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-width: 0;
+}
+
+@media (min-width: 640px) {
+    .slide {
+        flex-basis: calc((100% - 1rem) / 2);
+    }
+}
+
+@media (min-width: 960px) {
+    .slide {
+        flex-basis: calc((100% - 2rem) / 3);
+    }
+}
+
+.card {
     display: flex;
-    height: calc(100% - 10px);
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 5px #00000021;
+    height: 160px;
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out, border-color 300ms ease-in-out;
 }
 
-.slider .slide a img {
-    vertical-align: middle;
-    text-align: center;
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-4px);
+    border-color: #14e956;
+    box-shadow: 0px 8px 25px rgba(0, 66, 102, 0.15);
+    outline: none;
 }
 
-.slider .slide a {
-   transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
+.logoWrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 112px;
 }
 
-.slider .slide a:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 5px #00000066;
+.logoWrap img {
+    object-fit: contain !important;
+}
+
+.arrow {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #004266;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 66, 102, 0.25);
+    transition: background-color 200ms ease, transform 200ms ease, color 200ms ease;
+}
+
+.arrow:hover,
+.arrow:focus-visible {
+    background-color: #14e956;
+    color: #0a2a3b;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.arrow:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 639px) {
+    .slider {
+        gap: 0.4rem;
+    }
+
+    .arrow {
+        width: 38px;
+        height: 38px;
+    }
+
+    .card {
+        height: 140px;
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .logoWrap {
+        height: 100px;
+    }
 }

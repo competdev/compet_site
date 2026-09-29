@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../../styles/fonts/CodecPro-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("../../../styles/fonts/Verdana.ttf");
-}
-
 .pilares {
   width: 100%;
   padding: 0 2rem 60px;

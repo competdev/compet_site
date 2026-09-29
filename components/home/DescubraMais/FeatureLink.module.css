@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Codec Pro Regular";
-  src: url("../../../styles/fonts/CodecPro-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("../../../styles/fonts/Verdana.ttf");
-}
-
 .featureLink {
   display: flex;
   flex-direction: column;

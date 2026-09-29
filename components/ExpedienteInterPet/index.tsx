@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import SectionTitle from "../SectionTitle";
 import styles from "./ExpedienteInterPet.module.css";
+import { IMAGE_ASSETS } from "../../util/imageAssets";
 
 const ExpedienteInterPet: React.FC = () => {
     return (
@@ -11,11 +12,12 @@ const ExpedienteInterPet: React.FC = () => {
                 <div className={styles.logoSection}>
                     <div className={styles.logoContainer}>
                         <Image
-                            src="https://i.ibb.co/MhJkY7n/Logo-Interpet.png"
+                            src={IMAGE_ASSETS.logoInterpet}
                             alt="Logo InterPET"
                             width={200}
                             height={200}
                             className={styles.logo}
+                            sizes="180px"
                         />
                     </div>
                     <div className={styles.editorChefe}>

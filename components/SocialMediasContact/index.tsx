@@ -1,33 +1,29 @@
+import OptimizedImage from "../OptimizedImage"
+import { IMAGE_ASSETS } from "../../util/imageAssets"
 import styles from "./SocialMediasContact.module.css"
 
+const MEDIA_ICONS = {
+    facebook: IMAGE_ASSETS.iconFacebook,
+    instagram: IMAGE_ASSETS.iconInstagram,
+    twitter: IMAGE_ASSETS.iconTwitter,
+    linkedin: IMAGE_ASSETS.iconLinkedin,
+} as const
+
 export default function socialMedia({ media_type, text, url }) {
-    const facebook_logo = "https://i.ibb.co/mT4S0S9/facebook-icon.png"
-    const instagram_logo = "https://i.ibb.co/61Y0dqL/instagram-icon.png"
-    const twitter_logo = "https://i.ibb.co/Zfb5rRR/twitter-icon.png"
-    const linkedIn_logo = "https://i.ibb.co/cvRb3nZ/linkedin-icon.png"
-    const placeHolder = "https://via.placeholder.com/30"
-
-    let media_selected = ""
-
-    media_type.toLowerCase()
-
-    if (media_type == "facebook") {
-        media_selected = facebook_logo
-    } else if (media_type == "instagram") {
-        media_selected = instagram_logo
-    } else if (media_type == "twitter") {
-        media_selected = twitter_logo
-    } else if (media_type == "linkedin") {
-        media_selected = linkedIn_logo
-    } else {
-        media_selected = placeHolder
-    }
+    const type = String(media_type || "").toLowerCase()
+    const media_selected = MEDIA_ICONS[type] ?? "https://via.placeholder.com/30"
 
     return (
         <div>
             <div className={styles.socialMedia}>
                 <a className={styles.content} href={url}>
-                    <img src={media_selected} alt="" />
+                    <OptimizedImage
+                        src={media_selected}
+                        alt=""
+                        width={60}
+                        height={60}
+                        sizes="(max-width: 320px) 20px, (max-width: 768px) 25px, 30px"
+                    />
                     <p className={styles.text}>/{text}</p>
                 </a>
             </div>
