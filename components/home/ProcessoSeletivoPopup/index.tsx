@@ -32,7 +32,7 @@ const customStyles = {
 };
 
 const ProcessoSeletivoPopup: React.FC = () => {
-     const ativo = false; // Altere para `true` para ativar o banner e modal do processo seletivo
+     const ativo = true; // Altere para `true` para ativar o banner e modal do processo seletivo
      if (!ativo) return null;
     const [isOpen, setIsOpen] = useState(false);
 
