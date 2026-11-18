@@ -109,6 +109,7 @@
   height: 132px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #000000b9;
+  object-fit: cover;
 }
 
 .fotoSemDep {
@@ -117,6 +118,7 @@
   height: 132px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px #00000048;
+  object-fit: cover;
 }
 
 .foto:hover {
